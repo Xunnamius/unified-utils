@@ -8,7 +8,7 @@ module.exports = {
   // ? 1 hour so MMS and other tools don't choke during debugging
   testTimeout: 60000,
   verbose: false,
-  testPathIgnorePatterns: ['/node_modules/'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   // ! If changed, also update these aliases in tsconfig.json,
   // ! webpack.config.js, next.config.ts, and .eslintrc.js
   moduleNameMapper: {
