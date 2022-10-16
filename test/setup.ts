@@ -224,21 +224,29 @@ export function npmCopySelfFixture(): MockFixture {
     description:
       'copying package.json#files into node_modules to emulate package installation',
     setup: async (ctx) => {
-      const root = resolve(`${__dirname}/..`);
+      const projectRoot = resolve(`${__dirname}/..`);
+      const { pkgRoot } = ctx.options;
+
+      // TODO: rename ctx.root to ctx.fixtureRoot
 
       const patterns: string[] =
-        // TODO: 👇🏿 this is bad, don't do this, fix this for monorepos 👇🏿
-        require('package')?.files || require(`${process.cwd()}/package.json`)?.files;
+        // TODO: old comment: 👇🏿 this is bad, don't do this, fix this for monorepos 👇🏿
+        require(`${pkgRoot}/package.json`)?.files ||
+        require(`${process.cwd()}/package.json`)?.files ||
+        require('package')?.files;
 
-      const files = patterns.flatMap((p) => glob.sync(p, { cwd: root, root }));
+      const files = patterns.flatMap((p) =>
+        glob.sync(p, { cwd: pkgRoot, root: pkgRoot })
+      );
+
       const dest = `${ctx.root}/node_modules/${ctx.options.pkgName || rootPkgName}`;
       const destPkgJson = `${dest}/package.json`;
 
       ctx.debug(`cp destination: ${dest}`);
-      ctx.debug(`cp sources (cwd: ${root}): %O`, files);
+      ctx.debug(`cp sources (cwd: ${projectRoot}): %O`, files);
 
       await run('mkdir', ['-p', dest], { reject: true });
-      await run('cp', ['-r', ...files, dest], { cwd: root, reject: true });
+      await run('cp', ['-r', ...files, dest], { cwd: projectRoot, reject: true });
 
       if (!destPkgJson) {
         throw new Error(`expected "${destPkgJson}" to exist`);
