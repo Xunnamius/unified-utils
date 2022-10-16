@@ -120,11 +120,11 @@ export function visitAndReveal<Tree extends Node<Data>>({
     'hidden',
     (node, index, parent) => {
       if (index === null) {
-        throw new Error('error while revealing hidden node: node index is missing');
+        throw new Error('error while revealing hidden node: index is missing');
       }
 
       if (parent === null) {
-        throw new Error('error while revealing hidden node: node parent is missing');
+        throw new Error('error while revealing hidden node: parent is missing');
       }
 
       if (!isHidden(node)) {
