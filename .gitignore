@@ -1,0 +1,15 @@
+*.ignore
+*.ignore.*
+ignore.*
+*.tsbuildinfo
+dist
+build
+.vscode
+!.vscode/launch.json
+.vercel
+.env
+.npmrc
+external-scripts/bin
+next-env.d.ts
+node_modules
+coverage

@@ -1,0 +1,74 @@
+{
+  "name": "remark-ignore",
+  "version": "1.0.0",
+  "description": "Exclude one or more mdast nodes from transformation in the manner of \"prettier-ignore\" or \"instanbul ignore next\"",
+  "keywords": [
+    "remark",
+    "remark-plugin",
+    "mdast",
+    "ignore",
+    "exclude",
+    "node",
+    "hidden",
+    "transformation",
+    "next"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Xunnamius/remark-utils/blob/main/packages/remark-ignore"
+  },
+  "license": "MIT",
+  "author": "Xunnamius",
+  "sideEffects": false,
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "module": "./dist/esm/index.mjs",
+      "node": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.mjs"
+    },
+    "./package": "./package.json",
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/types/index.d.ts"
+      ]
+    }
+  },
+  "config": {
+    "plugin-build": {
+      "docs": {
+        "entry": "./src/*"
+      }
+    }
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
+  "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "conventional-changelog --outfile CHANGELOG.md --config ../../conventional.config.js --release-count 0 --skip-unstable && (if [ \"$CHANGELOG_SKIP_TITLE\" != 'true' ]; then { node -e 'console.log(require(\"../../conventional.config.js\").changelogTitle)'; cat CHANGELOG.md; } > CHANGELOG.md.ignore && mv CHANGELOG.md.ignore CHANGELOG.md; fi) && remark -o --use reference-links --use gfm --use frontmatter CHANGELOG.md && prettier --write CHANGELOG.md",
+    "build:dist": "if [ -r ./next.config.js ]; then next build; else NODE_ENV=production tsc --project tsconfig.types.json --incremental false && tsconfig-replace-paths --project tsconfig.types.json && NODE_ENV=production-cjs babel src --extensions .ts --out-dir dist/cjs --root-mode upward && NODE_ENV=production-esm babel src --extensions .ts --out-dir dist/esm --out-file-extension .mjs --root-mode upward && if [ -r ./dist/esm/cli.mjs ]; then chmod +x ./dist/esm/cli.mjs; fi; fi",
+    "build:docs": "if [ -r ./next.config.js ]; then typedoc --plugin typedoc-plugin-markdown --tsconfig tsconfig.docs.json --out docs --readme none lib src test types external-scripts --exclude '**/*.test.*' --exclude external-scripts/bin; else ENTRY=`node -e 'const entry = require(\"./package.json\").config?.[\"plugin-build\"]?.docs?.entry; if(!entry) throw new Error(\"\\\"config['\"'\"'plugin-build'\"'\"'].docs.entry\\\" field is not defined in package.json\"); console.log(entry)'` && echo 'Entry file:' \"$ENTRY\" && typedoc --plugin typedoc-plugin-markdown --tsconfig tsconfig.docs.json --out docs --readme none $(echo $ENTRY) && find docs -name '*.md' -exec sed -i -e 's/Project: //g' {} + && sed -i -e 1,4d docs/README.md; fi && find docs -name '*.md' -exec sed -i -e 's/`__namedParameters`/`\\(destructured\\)`/g' {} + && find docs -name '*.md' -exec sed -i -E 's/`__namedParameters\\.([^`]+)`/`\\({ \\1 }\\)`/g' {} +",
+    "clean": "git ls-files --exclude-standard --ignored --others --directory | grep -vE '^((\\.(env|vscode|husky))|next-env\\.d\\.ts|node_modules)($|\\/)' | xargs -p rm -rf",
+    "format": "cd ../.. && npm run format",
+    "lint": "echo 'IMPLEMENT ME'",
+    "list-tasks": "node -e 'console.log(Object.keys(require(\"./package.json\").scripts).join(\"\\n\"))'",
+    "test": "npm run test-unit --",
+    "test:integration": "echo 'IMPLEMENT ME'",
+    "test:unit": "echo 'IMPLEMENT ME'"
+  },
+  "dependencies": {},
+  "engines": {
+    "node": "^14.19.0 || ^16.13.0 || >=17.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

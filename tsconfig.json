@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "checkJs": false,
+    // ? Only for Next.js
+    // "jsx": "preserve",
+    "declaration": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSourceMap": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "lib": [
+      "ESNext",
+      "DOM",
+      "WebWorker.ImportScripts",
+      "ScriptHost",
+      "DOM.Iterable"
+    ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "paths": {
+      // ! If changed, also update these aliases in jest.config.js,
+      // ! webpack.config.js, next.config.ts, and .eslintrc.js
+      "externals/*": ["external-scripts/*"],
+      "multiverse/*": ["lib/*"],
+      "package": ["package.json"],
+      "pkgverse/*": ["packages/*"],
+      "testverse/*": ["test/*"],
+      "types/*": ["types/*"],
+      "universe/*": ["src/*"]
+    },
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/coverage",
+    "**/dist",
+    "**/bin",
+    "**/build",
+    "**/test/__fixtures__"
+  ],
+  "include": [
+    "types/**/*",
+    "lib/**/*",
+    "src/**/*",
+    "test/**/*",
+    "external-scripts/**/*",
+    "packages/**/*"
+  ]
+}
