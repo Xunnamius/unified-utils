@@ -120,7 +120,7 @@ it('works as an ESM import', async () => {
 /* it('works as a CJS require(...)', async () => {
   expect.hasAssertions();
   await runTest(false, async (ctx) => {
-    expect(ctx.testResult?.stdout).toBe('true\ntrue\ntrue');
+    expect(ctx.testResult?.stdout).toBe('true\ntrue');
     expect(ctx.testResult?.code).toBe(0);
   });
 }); */
