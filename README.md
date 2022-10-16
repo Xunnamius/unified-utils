@@ -24,10 +24,10 @@ This monorepo contains <!-- TODO -->
 
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Packages][1]
-- [Related][2]
-- [Contributing and Support][3]
-  - [Contributors][4]
+*   [Packages][1]
+*   [Related][2]
+*   [Contributing and Support][3]
+    *   [Contributors][4]
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

@@ -26,9 +26,9 @@ This is a low level project used by [remark-ignore][3] and
 
 ---
 
-<!-- prettier-ignore-start -->
-
 <!-- remark-ignore-start -->
+
+<!-- prettier-ignore-start -->
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -38,16 +38,15 @@ This is a low level project used by [remark-ignore][3] and
 *   [Usage][6]
 *   [API][7]
     *   [AST Nodes][8]
-*   [Examples][9]
 *   [Related][10]
 *   [Contributing and Support][11]
     *   [Contributors][12]
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<!-- remark-ignore-end -->
-
 <!-- prettier-ignore-end -->
+
+<!-- remark-ignore-end -->
 
 ## Install
 

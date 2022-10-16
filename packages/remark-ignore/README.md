@@ -1,15 +1,14 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [remark-ignore](#remark-ignore)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [API](#api)
-  - [Examples](#examples)
-  - [Related](#related)
-  - [Contributing and Support](#contributing-and-support)
-    - [Contributors](#contributors)
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Install][3]
+- [Usage][4]
+- [API][5]
+- [Examples][6]
+- [Related][7]
+- [Contributing and Support][8]
+  - [Contributors][9]
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -115,3 +114,12 @@ information.
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
 [support]: /.github/SUPPORT.md
+[1]: https://github.com/thlorenz/doctoc
+[2]: #remark-ignore
+[3]: #install
+[4]: #usage
+[5]: #api
+[6]: #examples
+[7]: #related
+[8]: #contributing-and-support
+[9]: #contributors
