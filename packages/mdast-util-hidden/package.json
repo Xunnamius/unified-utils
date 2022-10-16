@@ -23,6 +23,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "node": "./dist/index.mjs",
       "default": "./dist/index.mjs"
     },
     "./package": "./package.json",
@@ -50,7 +51,7 @@
     "format": "cd ../.. && npm run format",
     "lint": "echo 'IMPLEMENT ME'",
     "list-tasks": "node -e 'console.log(Object.keys(require(\"./package.json\").scripts).join(\"\\n\"))'",
-    "test": "npm run test-unit --",
+    "test": "npm run test:unit --",
     "test:integration": "echo 'IMPLEMENT ME'",
     "test:unit": "echo 'IMPLEMENT ME'"
   },
