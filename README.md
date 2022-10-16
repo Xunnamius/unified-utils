@@ -1,16 +1,3 @@
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
-**Table of Contents**
-
-- [Packages][1]
-- [Related][2]
-- [Contributing and Support][3]
-  - [Contributors][4]
-
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- prettier-ignore-start -->
 
 <!-- badges-start -->
@@ -28,6 +15,23 @@
 # unified-utils
 
 This monorepo contains <!-- TODO -->
+
+---
+
+<!-- prettier-ignore-start -->
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+- [Packages][1]
+- [Related][2]
+- [Contributing and Support][3]
+  - [Contributors][4]
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
+<!-- prettier-ignore-end -->
 
 ## Packages
 
