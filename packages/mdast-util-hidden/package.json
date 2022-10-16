@@ -12,9 +12,10 @@
     "hidden",
     "util"
   ],
+  "homepage": "https://github.com/Xunnamius/unified-utils/blob/main/packages/mdast-util-hidden",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Xunnamius/remark-utils/blob/main/packages/mdast-util-hidden"
+    "url": "https://github.com/Xunnamius/unified-utils"
   },
   "license": "MIT",
   "author": "Xunnamius",

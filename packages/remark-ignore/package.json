@@ -13,9 +13,10 @@
     "transformation",
     "next"
   ],
+  "homepage": "https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-ignore",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Xunnamius/remark-utils/blob/main/packages/remark-ignore"
+    "url": "https://github.com/Xunnamius/unified-utils"
   },
   "license": "MIT",
   "author": "Xunnamius",
