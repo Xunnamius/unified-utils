@@ -95,6 +95,7 @@ module.exports = {
         'jest/max-expects': 'off',
         'jest/prefer-mock-promise-shorthand': 'off',
         'jest/no-conditional-in-test': 'off',
+        'jest/no-conditional-expect': 'off',
         'jest/prefer-each': 'off'
       }
     }
