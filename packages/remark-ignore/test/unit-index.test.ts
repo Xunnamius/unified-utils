@@ -1,7 +1,5 @@
 import 'pkgverse/remark-ignore/src/index';
 
-describe('::X', () => {
-  test('y', async () => {
-    expect.hasAssertions();
-  });
+describe('::???', () => {
+  test.todo('this');
 });
