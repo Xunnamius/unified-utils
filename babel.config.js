@@ -21,7 +21,7 @@ const generateProductionEsmConfigObject = (mutateConfigFn) => {
       // ? We don't care about minification
     ],
     plugins: [
-      // ? Ensure all local imports without extensions now end in .mjs
+      /* // ? Ensure all local imports without extensions now end in .mjs
       ['add-import-extension', { extension: 'mjs' }],
       // ? Fix ESM relative local imports referencing package.json
       [
@@ -31,7 +31,7 @@ const generateProductionEsmConfigObject = (mutateConfigFn) => {
             { original: '../package.json', replacement: `../../package.json` }
           ]
         }
-      ]
+      ] */
     ]
   };
 
@@ -109,23 +109,7 @@ module.exports = {
         ]
       ] */
     },
-    // * Used by `npm run build` for compiling CJS to code output in ./dist/cjs
-    'production-cjs': {
-      presets: [
-        [
-          '@babel/preset-env',
-          {
-            // ? https://babeljs.io/docs/en/babel-preset-env#modules
-            modules: 'cjs',
-            targets: NODE_LTS,
-            exclude: ['proposal-dynamic-import']
-          }
-        ],
-        ['@babel/preset-typescript', { allowDeclareFields: true }]
-        // ? We don't care about minification
-      ]
-    },
-    // * Used by `npm run build` for compiling ESM to code output in ./dist/esm
+    // * Used by `npm run build` for compiling ESM to code output in ./dist
     'production-esm': generateProductionEsmConfigObject((config) => {
       config.presets[0][1].targets = NODE_LTS;
     }),
