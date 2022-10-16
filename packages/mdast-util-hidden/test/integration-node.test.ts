@@ -7,7 +7,7 @@ import {
   mockFixtureFactory,
   dummyFilesFixture,
   dummyNpmPackageFixture,
-  npmLinkSelfFixture,
+  npmCopySelfFixture,
   nodeImportTestFixture
 } from 'testverse/setup';
 
@@ -30,49 +30,63 @@ debug('pkgMainPaths: %O', pkgMainPaths);
 debug(`nodeVersion: "${nodeVersion}"`);
 
 const fixtureOptions = {
-  performCleanup: true,
+  performCleanup: false,
   pkgRoot: `${__dirname}/..`,
   pkgName,
   initialFileContents: {} as FixtureOptions['initialFileContents'],
   use: [
     dummyNpmPackageFixture(),
     dummyFilesFixture(),
-    npmLinkSelfFixture(),
+    npmCopySelfFixture(),
     nodeImportTestFixture()
-  ]
+  ],
+  npmInstall: ['unist-util-visit', 'unist-util-remove-position']
 } as Partial<FixtureOptions> & {
   initialFileContents: FixtureOptions['initialFileContents'];
 };
 
 const withMockedFixture = mockFixtureFactory(TEST_IDENTIFIER, fixtureOptions);
 
+const dummyMarkdown = `
+# Hello
+
+Some *emphasis*, **importance**, and \`code\`.
+
+# Goodbye
+`;
+
 const runTest = async (
   _importAsEsm: boolean,
   testFixtureFn: Parameters<typeof withMockedFixture>[0]
 ) => {
   const indexPath = `src/index.mjs`;
-
-  const initialAst = unified().use(remarkParse).parse(`
-  # Hello
-
-  Some *emphasis*, **importance**, and \`code\`.
-
-  # Goodbye
-  `);
-
   const replacedAst = getReplacedAst();
+  const initialAst = unified().use(remarkParse).parse(dummyMarkdown);
 
   fixtureOptions.initialFileContents[indexPath] = `
+    import { deepStrictEqual } from 'assert';
+    import { visit, SKIP } from 'unist-util-visit';
+    import { removePosition } from 'unist-util-remove-position';
     import {
-      createHiddenNode,
       hide,
-      reveal,
       visitAndReveal
     } from '${pkgName}';
 
-    const initialAstStr = ${JSON.stringify(initialAst)};
-    const tree = JSON.parse(initialAstStr);
-    const replacedAstStr = ${JSON.stringify(replacedAst)};
+    const removePositionDataFrom = (test, t) => {
+      visit(t, test, (node, index, parent) => {
+        if (index !== null && parent !== null) {
+          removePosition(node);
+          return [SKIP, index + 1];
+        }
+      });
+
+      return t;
+    };
+
+    const initialAst = ${JSON.stringify(initialAst)};
+    const replacedAst = ${JSON.stringify(replacedAst)};
+    const tree = JSON.parse(JSON.stringify(initialAst));
+    const finalAst = removePositionDataFrom('heading', initialAst);
 
     visit(tree, 'heading', (node, index, parent) => {
       if (index !== null && parent !== null) {
@@ -81,11 +95,13 @@ const runTest = async (
       }
     });
 
-    console.log(JSON.stringify(tree) == replacedAstStr);
+    deepStrictEqual(tree, replacedAst);
 
     visitAndReveal({ tree });
 
-    console.log(JSON.stringify(tree) == initialAstStr);
+    deepStrictEqual(tree, finalAst);
+
+    console.log('success');
   `;
 
   await withMockedFixture(async (ctx) => {
@@ -101,7 +117,7 @@ beforeAll(async () => {
     pkgMainPaths.map(async (pkgMainPath) => {
       if ((await run('test', ['-e', pkgMainPath])).code != 0) {
         debug(`unable to find main distributable: ${pkgMainPath}`);
-        throw new Error('must build distributables first (try `npm run build-dist`)');
+        throw new Error('must build distributables first (try `npm run build:dist`)');
       }
     })
   );
@@ -110,7 +126,8 @@ beforeAll(async () => {
 it('works as an ESM import', async () => {
   expect.hasAssertions();
   await runTest(true, async (ctx) => {
-    expect(ctx.testResult?.stdout).toBe('true\ntrue');
+    expect(ctx.testResult?.stderr).toBeEmpty();
+    expect(ctx.testResult?.stdout).toBe('success');
     expect(ctx.testResult?.code).toBe(0);
   });
 });
@@ -120,7 +137,8 @@ it('works as an ESM import', async () => {
 /* it('works as a CJS require(...)', async () => {
   expect.hasAssertions();
   await runTest(false, async (ctx) => {
-    expect(ctx.testResult?.stdout).toBe('true\ntrue');
+    expect(ctx.testResult?.stderr).toBeEmpty();
+    expect(ctx.testResult?.stdout).toBe('success');
     expect(ctx.testResult?.code).toBe(0);
   });
 }); */
