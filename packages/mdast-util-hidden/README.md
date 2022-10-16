@@ -1,4 +1,5 @@
 <!-- prettier-ignore-start -->
+
 <!-- badges-start -->
 
 [![Black Lives Matter!][badge-blm]][link-blm]
@@ -12,43 +13,46 @@
 [![Uses Semantic Release!][badge-semantic-release]][link-semantic-release]
 
 <!-- badges-end -->
+
 <!-- prettier-ignore-end -->
 
 # mdast-util-hidden
 
-This is a small [mdast](https://github.com/syntax-tree/mdast) utility for hiding
-nodes from transformers by mapping them to [Hidden](#hidden) pseudo-node
-instances.
+This is a small [mdast][1] utility for hiding nodes from transformers by mapping
+them to [Hidden][2] pseudo-node instances.
 
-This is a low level project used by
-[remark-ignore](https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore)
-and
-[remark-renumber-references](https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references).
+This is a low level project used by [remark-ignore][3] and
+[remark-renumber-references][4].
 
 ---
 
 <!-- prettier-ignore-start -->
+
 <!-- remark-ignore-start -->
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Install](#install)
-- [Usage](#usage)
-- [API](#api)
-  - [AST Nodes](#ast-nodes)
-- [Examples](#examples)
-- [Related](#related)
-- [Contributing and Support](#contributing-and-support)
-  - [Contributors](#contributors)
+*   [Install][5]
+*   [Usage][6]
+*   [API][7]
+    *   [AST Nodes][8]
+*   [Examples][9]
+*   [Related][10]
+*   [Contributing and Support][11]
+    *   [Contributors][12]
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- remark-ignore-end -->
+
 <!-- prettier-ignore-end -->
 
 ## Install
 
 ```bash
-npm install --save-dev mdast-util-hidden
+npm install mdast-util-hidden
 ```
 
 ## Usage
@@ -171,16 +175,12 @@ Yields:
 }
 ```
 
-> Note that the elements of `hiddenChildren` will, if later [revealed](#api),
-> have their `position` data stripped off using
-> [unist-util-remove-position](https://github.com/syntax-tree/unist-util-remove-position)
-> (making them
-> [generated nodes](https://github.com/syntax-tree/unist#generated)). This is
-> because `position` data can be invalidated at any time due to it being
-> [impossible](https://github.com/remarkjs/remark-gfm/issues/16#issuecomment-841200438)
-> to know how later plugins will manipulate the AST. Missing `position` data
-> will not affect any remark plugins that properly follow the
-> [unist spec](https://github.com/syntax-tree/unist#node).
+> Note that the elements of `hiddenChildren` will, if later [revealed][7], have
+> their `position` data stripped off using [unist-util-remove-position][13]
+> (making them [generated nodes][14]). This is because `position` data can be
+> invalidated at any time due to it being [impossible][15] to know how later
+> plugins will manipulate the AST. Missing `position` data will not crash any
+> remark plugins that properly follow the [unist spec][16].
 
 And the following JavaScript:
 
@@ -278,21 +278,18 @@ interface Hidden extends Node {
 }
 ```
 
-**Hidden ([Node]())** represents an abstract interface in mdast containing
-[mdast content](https://github.com/syntax-tree/mdast#content-model) that is
-hidden (and thus protected) from other
-[transformers](https://github.com/unifiedjs/unified#function-transformertree-file-next).
+**Hidden ([Node][17])** represents an abstract interface in mdast containing
+[mdast content][18] that is hidden (and thus protected) from other
+[transformers][19].
 
-Hidden nodes are always
-[generated](https://github.com/syntax-tree/unist#generated), cannot be
-serialized [to markdown](https://github.com/syntax-tree/mdast-util-to-markdown),
-and cannot be derived
-[from markdown](https://github.com/syntax-tree/mdast-util-from-markdown)
-directly.
+Hidden nodes are always [generated][14], cannot be serialized [to markdown][20],
+and cannot be derived [from markdown][21] directly.
 
 ## Related
 
-<!-- TODO -->
+- [remark-ignore][22]
+- [remark-renumber-references][23]
+- [rehype-ignore][24]
 
 ## Contributing and Support
 
@@ -348,3 +345,30 @@ information.
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
 [support]: /.github/SUPPORT.md
+[1]: https://github.com/syntax-tree/mdast
+[2]: #hidden
+[3]: https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
+[4]:
+  https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references
+[5]: #install
+[6]: #usage
+[7]: #api
+[8]: #ast-nodes
+[9]: #examples
+[10]: #related
+[11]: #contributing-and-support
+[12]: #contributors
+[13]: https://github.com/syntax-tree/unist-util-remove-position
+[14]: https://github.com/syntax-tree/unist#generated
+[15]: https://github.com/remarkjs/remark-gfm/issues/16#issuecomment-841200438
+[16]: https://github.com/syntax-tree/unist#node
+
+[17]: <>
+
+[18]: https://github.com/syntax-tree/mdast#content-model
+[19]: https://github.com/unifiedjs/unified#function-transformertree-file-next
+[20]: https://github.com/syntax-tree/mdast-util-to-markdown
+[21]: https://github.com/syntax-tree/mdast-util-from-markdown
+[22]: https://npm.im/remark-ignore
+[23]: https://npm.im/remark-renumber-references
+[24]: https://npm.im/rehype-ignore
