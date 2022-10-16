@@ -1,14 +1,13 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with
-[DocToc](https://github.com/thlorenz/doctoc)_
+**Table of Contents**
 
-- [unified-utils](#unified-utils)
-  - [Packages](#packages)
-  - [Related](#related)
-  - [Contributing and Support](#contributing-and-support)
-    - [Contributors](#contributors)
+- [Packages][1]
+- [Related][2]
+- [Contributing and Support][3]
+  - [Contributors][4]
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -69,3 +68,7 @@ information.
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: CONTRIBUTING.md
 [support]: .github/SUPPORT.md
+[1]: #packages
+[2]: #related
+[3]: #contributing-and-support
+[4]: #contributors
