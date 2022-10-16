@@ -1,6 +1,6 @@
 import remarkParse from 'remark-parse';
 import { unified } from 'unified';
-import { visit, SKIP } from 'unist-util-visit';
+import { visit, SKIP, CONTINUE } from 'unist-util-visit';
 import { removePosition } from 'unist-util-remove-position';
 import * as unistUtilVisit from 'unist-util-visit';
 import * as mdastUtilHidden from 'pkgverse/mdast-util-hidden/src/index';
@@ -18,7 +18,6 @@ import { getAst as getMultiReplacedAst } from './__fixtures__/hidden-multi-repla
 
 import type { Test } from 'unist-util-visit';
 import type { Node, Data } from 'unist';
-import type { Root } from 'mdast';
 
 const dummyMarkdown = `
 # Hello
@@ -61,6 +60,10 @@ const getMultiInitialAst = () => {
 
   return tree;
 };
+
+const node = createHiddenNode([]);
+const index = 10;
+const parent = { type: 'root', children: [node] };
 
 describe('::hide', () => {
   it('replaces a child node at the given index with a Hidden node by default', async () => {
@@ -180,27 +183,24 @@ describe('::visitAndReveal', () => {
 
   it('calls reveal and returns SKIP automatically iff undefined is returned after invoking visitor', async () => {
     expect.hasAssertions();
-    // TODO: accepts a 0 return value
 
     const revealSpy = jest
       .spyOn(mdastUtilHidden, 'reveal')
       .mockImplementation(() => undefined);
 
-    const node = createHiddenNode([]);
-    const index = 10;
-    const parent = { type: 'root', children: [node] };
-
     let calledOutsideVisitor = false;
+    let confirmCalled = false;
+    let expectedRetVal: unknown = [SKIP, index];
 
-    jest.spyOn(unistUtilVisit, 'visit').mockImplementationOnce(((
+    jest.spyOn(unistUtilVisit, 'visit').mockImplementation(((
       _tree,
       _test,
       visitor,
-      _replace
+      _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const retval = visitor(node as any, index, parent as any);
-      expect(retval).toStrictEqual([SKIP, index]);
+      expect(visitor?.(node as any, index, parent as any)).toStrictEqual(expectedRetVal);
+      confirmCalled = true;
     }) as typeof visit);
 
     visitAndReveal({
@@ -211,28 +211,154 @@ describe('::visitAndReveal', () => {
       }
     });
 
-    // @ts-expect-error: TS types for toHaveBeenCalledOnceWith are broken
-    expect(revealSpy).toHaveBeenCalledOnceWith({ nodes: [node], index, parent });
+    expect(confirmCalled).toBeTrue();
     expect(calledOutsideVisitor).toBeTrue();
+    expect(revealSpy).toHaveBeenNthCalledWith(1, { nodes: [node], index, parent });
+
+    confirmCalled = false;
+
+    visitAndReveal({ tree: getInitialAst() });
+
+    expect(revealSpy).toHaveBeenNthCalledWith(2, { nodes: [node], index, parent });
+
+    confirmCalled = false;
+    calledOutsideVisitor = false;
+    expectedRetVal = 0;
+
+    visitAndReveal({
+      tree: getInitialAst(),
+      visitor: () => {
+        calledOutsideVisitor = true;
+        return 0;
+      }
+    });
+
+    expect(revealSpy).toHaveBeenNthCalledWith(3, { nodes: [node], index, parent });
+
+    confirmCalled = false;
+    calledOutsideVisitor = false;
+    expectedRetVal = [CONTINUE, 5];
+
+    visitAndReveal({
+      tree: getInitialAst(),
+      visitor: () => {
+        calledOutsideVisitor = true;
+        return [CONTINUE, 5];
+      }
+    });
+
+    expect(revealSpy).toHaveBeenNthCalledWith(4, { nodes: [node], index, parent });
   });
 
   it('passes through reverse parameter', async () => {
     expect.hasAssertions();
+
+    const visitSpy = jest
+      .spyOn(unistUtilVisit, 'visit')
+      .mockImplementation(() => undefined);
+
+    visitAndReveal({
+      tree: getInitialAst()
+    });
+
+    expect(visitSpy).toHaveBeenNthCalledWith(
+      1,
+      expect.anything(),
+      expect.anything(),
+      expect.anything(),
+      false
+    );
+
+    visitAndReveal({
+      tree: getInitialAst(),
+      reverse: true
+    });
+
+    expect(visitSpy).toHaveBeenNthCalledWith(
+      2,
+      expect.anything(),
+      expect.anything(),
+      expect.anything(),
+      true
+    );
   });
 
   it('throws when visiting a node without an index', async () => {
     expect.hasAssertions();
+
+    jest.spyOn(unistUtilVisit, 'visit').mockImplementation(((
+      _tree,
+      _test,
+      visitor,
+      _reverse
+    ) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      visitor(node as any, null, parent as any);
+    }) as typeof visit);
+
+    expect(() =>
+      visitAndReveal({
+        tree: getInitialAst()
+      })
+    ).toThrow(/index is missing/);
   });
 
   it('throws when visiting a node without a parent', async () => {
     expect.hasAssertions();
+
+    jest.spyOn(unistUtilVisit, 'visit').mockImplementation(((
+      _tree,
+      _test,
+      visitor,
+      _reverse
+    ) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      visitor(node as any, index, null as any);
+    }) as typeof visit);
+
+    expect(() =>
+      visitAndReveal({
+        tree: getInitialAst()
+      })
+    ).toThrow(/parent is missing/);
   });
 
   it('throws when visiting a malformed hidden node', async () => {
     expect.hasAssertions();
+
+    jest.spyOn(unistUtilVisit, 'visit').mockImplementation(((
+      _tree,
+      _test,
+      visitor,
+      _reverse
+    ) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      visitor({ type: 'hidden' } as any, index, parent as any);
+    }) as typeof visit);
+
+    expect(() =>
+      visitAndReveal({
+        tree: getInitialAst()
+      })
+    ).toThrow(/node is malformed/);
   });
 });
 
 test('readme examples work', async () => {
   expect.hasAssertions();
+
+  const tree = getInitialAst();
+
+  visit(tree, 'heading', (node, index, parent) => {
+    if (index !== null && parent !== null) {
+      hide({ nodes: [node], index, parent });
+      return [SKIP, index + 1];
+    }
+  });
+
+  expect(tree).toStrictEqual(getReplacedAst());
+
+  visitAndReveal({ tree });
+
+  expect(tree).toStrictEqual(removePositionDataFrom('heading', getInitialAst()));
 });
