@@ -20,10 +20,11 @@
     "list-tasks": "node -e 'console.log(Object.keys(require(\"./package.json\").scripts).join(\"\\n\"))' && npm run -ws list-tasks --if-present",
     "prepare": "if [ -z \"$CI\" ] && ([ -z \"$NODE_ENV\" ] || [ \"$NODE_ENV\" = \"development\" ]); then husky install; if [ -r .husky/post-checkout ]; then .husky/post-checkout; fi; else echo 'skipped installing husky git hooks'; fi",
     "test": "npm run test:unit --",
+    "test:all": "NODE_ENV=test jest --coverage",
     "test:integration": "NODE_ENV=test jest",
     "test:repeat:all": "npm run __test:repeat:all --silent",
     "test:repeat:unit": "npm run __test:repeat:unit --silent",
-    "test:unit": "NODE_ENV=test jest --coverage --testPathIgnorePatterns test/integration-*.test.ts* dist"
+    "test:unit": "NODE_ENV=test jest --coverage --testPathIgnorePatterns 'test/integration-.*\\.test\\.ts.*'"
   },
   "devDependencies": {
     "@babel/cli": "^7.19.3",
