@@ -68,7 +68,7 @@ module.exports = {
           [
             '@semantic-release/exec',
             {
-              prepareCmd: 'CHANGELOG_SKIP_TITLE=true npm run build-changelog'
+              prepareCmd: 'CHANGELOG_SKIP_TITLE=true npm run build:changelog'
             }
           ],
           ['@semantic-release/changelog', { changelogTitle }],
