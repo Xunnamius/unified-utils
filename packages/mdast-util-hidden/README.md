@@ -26,9 +26,9 @@ This is a low level project used by [remark-ignore][3] and
 
 ---
 
-<!-- remark-ignore-start -->
-
 <!-- prettier-ignore-start -->
+
+<!-- remark-ignore-start -->
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -44,9 +44,9 @@ This is a low level project used by [remark-ignore][3] and
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-<!-- prettier-ignore-end -->
-
 <!-- remark-ignore-end -->
+
+<!-- prettier-ignore-end -->
 
 ## Install
 
@@ -277,7 +277,7 @@ interface Hidden extends Node {
 }
 ```
 
-**Hidden ([Node][17])** represents an abstract interface in mdast containing
+**Hidden ([Node][16])** represents an abstract interface in mdast containing
 [mdast content][18] that is hidden (and thus protected) from other
 [transformers][19].
 
@@ -286,9 +286,9 @@ and cannot be derived [from markdown][21] directly.
 
 ## Related
 
-- [remark-ignore][22]
-- [remark-renumber-references][23]
-- [rehype-ignore][24]
+- [remark-ignore][3]
+- [remark-renumber-references][4]
+- [rehype-ignore][22]
 
 ## Contributing and Support
 
@@ -338,7 +338,6 @@ information.
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
 [link-semantic-release]: https://github.com/semantic-release/semantic-release
-[package-json]: package.json
 [docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
@@ -353,7 +352,6 @@ information.
 [6]: #usage
 [7]: #api
 [8]: #ast-nodes
-[9]: #examples
 [10]: #related
 [11]: #contributing-and-support
 [12]: #contributors
@@ -361,13 +359,8 @@ information.
 [14]: https://github.com/syntax-tree/unist#generated
 [15]: https://github.com/remarkjs/remark-gfm/issues/16#issuecomment-841200438
 [16]: https://github.com/syntax-tree/unist#node
-
-[17]: <>
-
 [18]: https://github.com/syntax-tree/mdast#content-model
 [19]: https://github.com/unifiedjs/unified#function-transformertree-file-next
 [20]: https://github.com/syntax-tree/mdast-util-to-markdown
 [21]: https://github.com/syntax-tree/mdast-util-from-markdown
-[22]: https://npm.im/remark-ignore
-[23]: https://npm.im/remark-renumber-references
-[24]: https://npm.im/rehype-ignore
+[22]: https://npm.im/rehype-ignore
