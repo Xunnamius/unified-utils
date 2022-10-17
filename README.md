@@ -44,7 +44,7 @@ ASTs, [remark][7] and [remark-lint][8], and the [unified ecosystem][9].
 - [remark-ignore][12] — use comments to exclude one or more nodes from
   [transformation][11]
 - [remark-renumber-references][13] — renumber numeric [reference-style link
-  ids][14] contiguously from `[1]`
+  ids][14] contiguously starting from `[1]`
 - [remark-sort-references][15] — reorder [reference-style link definitions][14]
   at the end of a document
 - [remark-preset-format][16] — a reusable preset for formatting Markdown
