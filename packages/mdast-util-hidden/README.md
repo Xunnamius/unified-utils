@@ -104,7 +104,7 @@ Represented by the following AST (with `position` data omitted for brevity):
 }
 ```
 
-Then the following JavaScript:
+Then running the following JavaScript:
 
 ```typescript
 import fs from 'node:fs';
@@ -181,7 +181,7 @@ Yields:
 > plugins will manipulate the AST. Missing `position` data will not crash any
 > remark plugins that properly follow the [unist spec][16].
 
-And the following JavaScript:
+And running the following JavaScript:
 
 ```typescript
 import fs from 'node:fs';
