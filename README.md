@@ -14,11 +14,14 @@
 
 # unified-utils
 
-This monorepo contains <!-- TODO -->
+This monorepo contains several utilities for working with [unist][5]/[mdast][6]
+ASTs, [remark][7] and [remark-lint][8], and the [unified ecosystem][9].
 
 ---
 
 <!-- prettier-ignore-start -->
+
+<!-- remark-ignore-start -->
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -31,11 +34,29 @@ This monorepo contains <!-- TODO -->
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+<!-- remark-ignore-end -->
+
 <!-- prettier-ignore-end -->
 
 ## Packages
 
+- [mdast-util-hidden][10] — prevent nodes from being seen by [transformers][11]
+- [remark-ignore][12] — use comments to exclude one or more nodes from
+  [transformation][11]
+- [remark-renumber-references][13] — renumber numeric [reference-style link
+  ids][14] contiguously from `[1]`
+- [remark-sort-references][15] — reorder [reference-style link definitions][14]
+  at the end of a document
+- [remark-preset-format][16] — a reusable preset for formatting Markdown
+  documents
+- [remark-preset-lint][17] — a reusable preset for linting Markdown documents
+
 ## Related
+
+- [unified ecosystem][9]
+- [remark processor][7]
+- [unist specification][5]
+- [mdast specification][6]
 
 ## Contributing and Support
 
@@ -76,3 +97,16 @@ information.
 [2]: #related
 [3]: #contributing-and-support
 [4]: #contributors
+[5]: https://github.com/syntax-tree/unist
+[6]: https://github.com/syntax-tree/mdast
+[7]: https://github.com/remarkjs
+[8]: https://github.com/remarkjs/remark-lint
+[9]: https://github.com/unifiedjs
+[10]: ./packages/mdast-util-hidden
+[11]: https://github.com/unifiedjs/unified#overview
+[12]: ./packages/remark-ignore
+[13]: ./packages/remark-renumber-references
+[14]: https://github.com/remarkjs/remark-reference-links#what-is-this
+[15]: ./packages/remark-sort-references
+[16]: ./packages/remark-preset-format
+[17]: ./packages/remark-preset-lint
