@@ -47,16 +47,14 @@ ASTs, [remark][7] and [remark-lint][8], and the [unified ecosystem][9].
   ids][14] contiguously starting from `[1]`
 - [remark-sort-references][15] — reorder [reference-style link definitions][14]
   at the end of a document
-- [remark-preset-format][16] — a reusable preset for formatting Markdown
-  documents
-- [remark-preset-lint][17] — a reusable preset for linting Markdown documents
 
 ## Related
 
-- [unified ecosystem][9]
-- [remark processor][7]
-- [unist specification][5]
-- [mdast specification][6]
+- [@projectorjs/config-remark][16] — reusable remark presets
+- [unified][9] — parser ecosystem
+- [remark][7] — processor and CLI
+- [unist][5] — base specification
+- [mdast][6] — Markdown specification
 
 ## Contributing and Support
 
@@ -108,5 +106,4 @@ information.
 [13]: ./packages/remark-renumber-references
 [14]: https://github.com/remarkjs/remark-reference-links#what-is-this
 [15]: ./packages/remark-sort-references
-[16]: ./packages/remark-preset-format
-[17]: ./packages/remark-preset-lint
+[16]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
