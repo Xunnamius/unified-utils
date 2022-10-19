@@ -23,6 +23,16 @@
   "sideEffects": false,
   "type": "commonjs",
   "exports": {
+    "./start": {
+      "types": "./dist/start.d.ts",
+      "node": "./dist/start.mjs",
+      "default": "./dist/start.mjs"
+    },
+    "./end": {
+      "types": "./dist/end.d.ts",
+      "node": "./dist/end.mjs",
+      "default": "./dist/end.mjs"
+    },
     ".": {
       "types": "./dist/index.d.ts",
       "node": "./dist/index.mjs",
@@ -33,6 +43,12 @@
   },
   "typesVersions": {
     "*": {
+      "start": [
+        "./dist/start.d.ts"
+      ],
+      "end": [
+        "./dist/end.d.ts"
+      ],
       "*": [
         "./dist/index.d.ts"
       ]
@@ -53,7 +69,7 @@
     "format": "cd ../.. && npm run format",
     "lint": "echo 'IMPLEMENT ME'",
     "list-tasks": "node -e 'console.log(Object.keys(require(\"./package.json\").scripts).join(\"\\n\"))'",
-    "test": "npm run test-unit --",
+    "test": "npm run test:unit --",
     "test:integration": "echo 'IMPLEMENT ME'",
     "test:unit": "echo 'IMPLEMENT ME'"
   },
@@ -64,7 +80,11 @@
       }
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "mdast-comment-marker": "^2.1.0",
+    "mdast-util-hidden": "^1.0.0",
+    "unist-util-visit": "^4.1.1"
+  },
   "engines": {
     "node": "^14.19.0 || ^16.13.0 || >=17.4.0"
   },
