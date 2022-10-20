@@ -1,13 +1,11 @@
 # Some project
 
-[![Build][3]][2]
+[![Build](https://github.com/remarkjs/remark-defsplit/workflows/main/badge.svg)](https://github.com/remarkjs/remark-defsplit/actions)
 
 ## Section
 
-[A link][1]
+[A link](https://example.com)
 
 [Another link][1]
 
 [1]: https://example.com
-[2]: https://github.com/remarkjs/remark-defsplit/actions
-[3]: https://github.com/remarkjs/remark-defsplit/workflows/main/badge.svg

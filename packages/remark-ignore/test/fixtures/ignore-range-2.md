@@ -11,8 +11,7 @@
 [A link](https://example.com)
 
 <!-- remark-ignore-end -->
+
 <!-- comment that is removed -->
 
-[Another link][1]
-
-[1]: https://example.com
+[Another link](https://example.com)

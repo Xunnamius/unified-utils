@@ -10,6 +10,4 @@
 
 <!-- remark-ignore-end -->
 
-[Another link][1]
-
-[1]: https://example.com
+[Another link](https://example.com)
