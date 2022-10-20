@@ -21,27 +21,27 @@ view all possible debugging output, [export
 
 The ideal contributor flow is as follows:
 
-1.  [Fork][fork] this repository and [clone it locally][how-to-clone].
-    - If there is a custom Docker image available for this project and you're
-      comfortable with Docker, consider using it instead.
-2.  Configure and install dependencies with `npm ci`.
-    - You use `npm ci` here instead of `npm install` to [prevent unnecessary
-      updates to `package.json` and `package-lock.json`][npm-ci], but if it
-      makes more sense to use `npm install` feel free to use that instead.
-    - If `.env.example` exists, consider copying it to `.env` and configuring
-      sensible defaults.
-3.  Before making any changes, ensure all unit tests are passing with
-    `npm run test`.
-4.  _(optional but recommended)_ Create a new branch, usually off `main`.
-    - Example: `git checkout -b contrib-feature-1`
-5.  Make your changes and commit. Your work will be checked as you commit; any
-    problems will abort the commit/push attempt.
-    - Ensure any new tests still pass even when the `DEBUG` environment variable
-      is defined.
-6.  Push your commits to your fork and, when you're ready, [_fearlessly_ submit
-    your PR][pr-compare]! Your changes will be tested in our CI pipeline.
-7.  Pat yourself on the back! Your hard work is well on its way to being
-    reviewed and, if everything looks good, merged and released 🚀
+1. [Fork][fork] this repository and [clone it locally][how-to-clone].
+   - If there is a custom Docker image available for this project and you're
+     comfortable with Docker, consider using it instead.
+2. Configure and install dependencies with `npm ci`.
+   - You use `npm ci` here instead of `npm install` to [prevent unnecessary
+     updates to `package.json` and `package-lock.json`][npm-ci], but if it makes
+     more sense to use `npm install` feel free to use that instead.
+   - If `.env.example` exists, consider copying it to `.env` and configuring
+     sensible defaults.
+3. Before making any changes, ensure all unit tests are passing with
+   `npm run test`.
+4. _(optional but recommended)_ Create a new branch, usually off `main`.
+   - Example: `git checkout -b contrib-feature-1`
+5. Make your changes and commit. Your work will be checked as you commit; any
+   problems will abort the commit/push attempt.
+   - Ensure any new tests still pass even when the `DEBUG` environment variable
+     is defined.
+6. Push your commits to your fork and, when you're ready, [_fearlessly_ submit
+   your PR][pr-compare]! Your changes will be tested in our CI pipeline.
+7. Pat yourself on the back! Your hard work is well on its way to being reviewed
+   and, if everything looks good, merged and released 🚀
 
 Additionally, there are a few things you can do to greatly increase the
 likelihood your PR passes review:

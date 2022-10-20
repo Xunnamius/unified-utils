@@ -1,6 +1,6 @@
-<!-- Add a brief description of your PR here -->
+<!-- Add a brief description of your PR here |-->
 
-<!-- If this PR closes any issues, please enumerate them; i.e. "Closes #4" -->
+<!-- If this PR closes any issues, please enumerate them; i.e. "Closes #4" |-->
 
 <!-- If this PR involves or references any other issues, list them as well -->
 

@@ -42,7 +42,7 @@ description of what you expected to happen if not included above. If applicable,
 add screenshots and code samples to help explain the problem.
 
 </details>
--->
+|-->
 
 <!--
 <details><summary><strong>Suggested solution</strong></summary>
@@ -52,7 +52,7 @@ proposal of how your issue might be solved, including any unnoted workarounds.
 If applicable, add code samples and screenshots.
 
 </details>
--->
+|-->
 
 <!--
 <details><summary><strong>Additional context</strong></summary>

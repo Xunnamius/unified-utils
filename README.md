@@ -1,5 +1,4 @@
 <!-- prettier-ignore-start -->
-
 <!-- badges-start -->
 
 [![Black Lives Matter!][badge-blm]][link-blm]
@@ -9,40 +8,37 @@
 [![Uses semantic-release][badge-semantic-release]][link-semantic-release]
 
 <!-- badges-end -->
-
 <!-- prettier-ignore-end -->
 
 # unified-utils
 
 This monorepo contains several utilities for working with [unist][5]/[mdast][6]
-ASTs, [remark][7] and [remark-lint][8], and the [unified ecosystem][9].
+ASTs, [remark][7] and [remark-lint][8], and the broader [unified ecosystem][9].
 
 ---
 
 <!-- prettier-ignore-start -->
-
 <!-- remark-ignore-start -->
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-*   [Packages][1]
-*   [Related][2]
-*   [Contributing and Support][3]
-    *   [Contributors][4]
+- [Packages](#packages)
+- [Related](#related)
+- [Contributing and Support](#contributing-and-support)
+  - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- remark-ignore-end -->
-
 <!-- prettier-ignore-end -->
 
 ## Packages
 
+- [mdast-util-tight-comments][17] — selectively remove newlines around comment
+  nodes during serialization
 - [mdast-util-hidden][10] — prevent nodes from being seen by [transformers][11]
 - [remark-ignore][12] — use comments to exclude one or more nodes from
   [transformation][11]
+- [remark-tight-comments][18] — selectively remove newlines around comments
 - [remark-renumber-references][13] — renumber numeric [reference-style link
   ids][14] contiguously starting from `[1]`
 - [remark-sort-references][15] — reorder [reference-style link definitions][14]
@@ -107,3 +103,5 @@ information.
 [14]: https://github.com/remarkjs/remark-reference-links#what-is-this
 [15]: ./packages/remark-sort-references
 [16]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
+[17]: ./packages/mdast-util-tight-comments
+[18]: ./packages/remark-tight-comments
