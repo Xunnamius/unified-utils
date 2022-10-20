@@ -132,7 +132,7 @@ remark -o --use ignore/start --use … --use ignore/end README.md
 
 In `package.json`:
 
-```json
+```javascript
   /* … */
   "remarkConfig": {
     "plugins": [

@@ -32,15 +32,15 @@ check the source of [this very README.md file][25]. ✨
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Install][3]
-- [Usage][4]
-  - [Via API][13]
-  - [Via remark-cli][14]
-  - [Via unified configuration][15]
-- [API][5]
-- [Related][7]
-- [Contributing and Support][8]
-  - [Contributors][9]
+- [Install](#install)
+- [Usage](#usage)
+  - [Via API](#via-api)
+  - [Via remark-cli](#via-remark-cli)
+  - [Via unified configuration](#via-unified-configuration)
+- [API](#api)
+- [Related](#related)
+- [Contributing and Support](#contributing-and-support)
+  - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- remark-tight-comments-end -->
@@ -87,7 +87,7 @@ remark -o --use tight-comments README.md
 
 In `package.json`:
 
-```json
+```javascript
   /* … */
   "remarkConfig": {
     "plugins": [
