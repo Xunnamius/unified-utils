@@ -5,8 +5,8 @@
     "emitDeclarationOnly": true,
     "isolatedModules": false,
     "noEmit": false,
-    "outDir": "dist/types",
-    "rootDir": "../../"
+    "outDir": "dist",
+    "rootDir": "./src"
   },
   "extends": "../../tsconfig.json",
   "include": ["../../types/**/*", "src/**/*"]

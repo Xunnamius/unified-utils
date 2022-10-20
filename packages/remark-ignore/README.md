@@ -1,5 +1,4 @@
 <!-- prettier-ignore-start -->
-
 <!-- badges-start -->
 
 [![Black Lives Matter!][badge-blm]][link-blm]
@@ -13,51 +12,53 @@
 [![Uses Semantic Release!][badge-semantic-release]][link-semantic-release]
 
 <!-- badges-end -->
-
 <!-- prettier-ignore-end -->
 
 # remark-ignore
 
-This is a unified (remark) plugin that allows you to specify one or more
-sections of a Markdown file that should not be transformed or linted by remark
-using via comments.
+This is a [unified][23] ([remark][24]) plugin that allows you to specify one or
+more sections of a Markdown file that should not be transformed or linted by
+remark.
 
 This plugin is to remark what [`<!-- prettier-ignore -->`,
 `<!-- prettier-ignore-start -->`, and `<!-- prettier-ignore-end -->` are to
 Prettier][10]. In effect, remark-ignore is a more generic version of
-[remark-lint's `<!-- ignore disable -->`][11].
+[remark-lint's `<!-- lint disable -->`][11].
 
-remark-ignore is useful for preventing the transformation of auto-generated
-content, e.g. [all-contributors][12], [tocdoc][1], etc.
+This plugin is useful for preventing the transformation of auto-generated
+content, e.g. [all-contributors][12], [doctoc][1], etc. You might also be
+interested in [remark-tight-comments][26], which removes unnecessary newlines
+that remark inserts between/around Markdown comments by default. For a live
+example of these two plugins in action, `CTRL+F` the source of [this very
+README.md file][25] and look for `<!-- remark-ignore -->`,
+`<!-- remark-ignore-start -->`, and `<!-- remark-ignore-end -->`. ✨
 
 ---
 
 <!-- prettier-ignore-start -->
-
 <!-- remark-ignore-start -->
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-*   [Install][3]
-*   [Usage][4]
-    *   [Via API][13]
-    *   [Via remark-cli][14]
-    *   [Via unified configuration][15]
-*   [API][5]
-*   [Examples][6]
-*   [Related][7]
-*   [Contributing and Support][8]
-    *   [Contributors][9]
+- [Install](#install)
+- [Usage](#usage)
+  - [Via API](#via-api)
+  - [Via remark-cli](#via-remark-cli)
+  - [Via unified configuration](#via-unified-configuration)
+- [API](#api)
+- [Examples](#examples)
+- [Related](#related)
+- [Contributing and Support](#contributing-and-support)
+  - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- remark-ignore-end -->
-
 <!-- prettier-ignore-end -->
 
 ## Install
+
+> Due to the nature of the unified ecosystem, this package is ESM only and
+> cannot be `require`'d.
 
 ```bash
 npm install --save-dev remark-ignore
@@ -111,7 +112,9 @@ examples) which itself calls `use(ignoreEnd)` internally, or if you want plugins
 used before `ignoreStart` and/or after `ignoreEnd` to transform
 otherwise-"ignored" nodes.
 
-### Via [remark-cli][16]
+<!-- remark-ignore -->
+
+### Via [remark-cli](https://github.com/remarkjs/remark/tree/main/packages/remark-cli)
 
 ```shell
 remark -o --use ignore README.md
@@ -123,7 +126,9 @@ Or, using the alternative syntax:
 remark -o --use ignore/start --use … --use ignore/end README.md
 ```
 
-### Via [unified configuration][17]
+<!-- remark-ignore -->
+
+### Via [unified configuration](https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md)
 
 In `package.json`:
 
@@ -169,6 +174,10 @@ export default {
 Detailed interface information can be found under [`docs/`][docs].
 
 ## Examples
+
+> Note that `<!-- remark-ignore -->`, `<!-- remark-ignore-start -->`, and
+> `<!-- remark-ignore-end -->` must always be top-level nodes. If they are
+> nested within other nodes, such as a list item, they will be ignored.
 
 Suppose we have the following Markdown file `example.md`:
 
@@ -231,6 +240,8 @@ On the other hand, if `example.md` contained the following:
 ## Section
 
 [A link](https://example.com)
+
+[Another link](https://example.com)
 ```
 
 Then running that same JavaScript would output:
@@ -291,11 +302,11 @@ Then running that same JavaScript would output:
 
 ## Related
 
+- [remark-tight-comments][26] — remove unnecessary newlines around comments
 - [remark-comments][18] — new syntax to ignore things
-- [remark-disable-tokenizers][19] — turn some or all of remark’s tokenizers on
-  or off
 - [remark-message-control][20] — enable, disable, and ignore messages using
   comments
+- [mdast-util-hidden][27] — prevent nodes from being seen by [transformers][28]
 - [mdast-comment-marker][21] — parse a comment marker in mdast
 - [mdast-zone][22] — treat HTML comments as ranges or markers in mdast
 
@@ -377,3 +388,10 @@ information.
 [20]: https://github.com/remarkjs/remark-message-control
 [21]: https://github.com/syntax-tree/mdast-comment-marker
 [22]: https://github.com/syntax-tree/mdast-zone
+[23]: https://github.com/unifiedjs/unified
+[24]: https://github.com/remarkjs/remark
+[25]:
+  https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-ignore/README.md
+[26]: /packages/remark-tight-comments
+[27]: /packages/mdast-util-hidden
+[28]: https://github.com/unifiedjs/unified#overview
