@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  '*.md': 'remark -o --use reference-links --use gfm --use frontmatter',
+  '*.md': 'npx remark --output --frail',
   'package.json': 'sort-package-json',
   '*': 'prettier --write --ignore-unknown'
 };

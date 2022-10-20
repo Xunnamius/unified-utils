@@ -47,7 +47,7 @@
     "**/dist",
     "**/bin",
     "**/build",
-    "**/test/__fixtures__"
+    "**/test/fixtures"
   ],
   "include": [
     "types/**/*",
