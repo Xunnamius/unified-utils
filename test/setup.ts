@@ -155,6 +155,7 @@ export function rootFixture(): MockFixture {
         ctx.options.performCleanup ? ' (will be deleted after all tests complete)' : ''
       }`,
     setup: async (ctx) => {
+      // TODO: add package-specific prefix to differentiate from other projects
       ctx.root = uniqueFilename(tmpdir(), ctx.testIdentifier);
 
       await run('mkdir', ['-p', ctx.root], { reject: true });
@@ -374,6 +375,7 @@ export function nodeImportTestFixture(): MockFixture {
       if (!indexPath)
         throw new Error('could not find initial contents for src/index test file');
 
+      // TODO: do we have to write this AND have the dummyFilesFixture too?!
       await writeFile(`${ctx.root}/${indexPath}`, ctx.fileContents[indexPath]);
 
       // TODO: also test all current/active/maintenance versions of node too
@@ -603,6 +605,12 @@ export function mockFixtureFactory<
     fn: FixtureAction<
       FixtureContext<FixtureOptions & Partial<Record<string, unknown> & CustomOptions>> &
         CustomContext
-    >
-  ) => withMockedFixture<CustomOptions, CustomContext>({ fn, testIdentifier, options });
+    >,
+    optionsOverrides?: Partial<FixtureOptions & CustomOptions>
+  ) =>
+    withMockedFixture<CustomOptions, CustomContext>({
+      fn,
+      testIdentifier,
+      options: { ...options, ...optionsOverrides } as typeof options
+    });
 }
