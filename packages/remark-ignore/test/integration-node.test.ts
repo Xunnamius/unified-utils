@@ -97,12 +97,10 @@ describe('via api', () => {
       import defaultIgnoreStart from 'remark-ignore/start';
       import defaultIgnoreEnd from 'remark-ignore/end';
 
-      const mdIgnoreNext = ${JSON.stringify(
-        getFixtureString('ignore-next', { trim: false })
-      )};
+      const mdIgnoreNext = ${JSON.stringify(getFixtureString('ignore-next'))};
 
       const mdIgnoreNextTransformed = ${JSON.stringify(
-        getFixtureString('ignore-next-transformed', { trim: false })
+        getFixtureString('ignore-next-transformed')
       )};
 
       const result1 = await remark()
@@ -157,7 +155,9 @@ describe('via remark-cli inline configuration', () => {
       async (ctx) => {
         if (!ctx.testResult) throw new Error('must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(getFixtureString('ignore-range-transformed'));
+        expect(ctx.testResult?.stdout).toBe(
+          getFixtureString('ignore-range-transformed', { trim: true })
+        );
         expect(ctx.testResult?.code).toBe(0);
       },
       {
@@ -186,7 +186,7 @@ describe('via remark-cli inline configuration', () => {
         if (!ctx.testResult) throw new Error('must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
-          getFixtureString('ignore-range-2-transformed')
+          getFixtureString('ignore-range-2-transformed', { trim: true })
         );
         expect(ctx.testResult?.code).toBe(0);
       },
@@ -221,7 +221,9 @@ describe('via remark-cli unified configuration', () => {
       async (ctx) => {
         if (!ctx.testResult) throw new Error('must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(getFixtureString('ignore-range-transformed'));
+        expect(ctx.testResult?.stdout).toBe(
+          getFixtureString('ignore-range-transformed', { trim: true })
+        );
         expect(ctx.testResult?.code).toBe(0);
       },
       {
@@ -247,7 +249,9 @@ describe('via remark-cli unified configuration', () => {
       async (ctx) => {
         if (!ctx.testResult) throw new Error('must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(getFixtureString('ignore-range-transformed'));
+        expect(ctx.testResult?.stdout).toBe(
+          getFixtureString('ignore-range-transformed', { trim: true })
+        );
         expect(ctx.testResult?.code).toBe(0);
       },
       {
@@ -274,7 +278,7 @@ describe('via remark-cli unified configuration', () => {
         if (!ctx.testResult) throw new Error('must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
-          getFixtureString('ignore-range-2-transformed')
+          getFixtureString('ignore-range-2-transformed', { trim: true })
         );
         expect(ctx.testResult?.code).toBe(0);
       },
@@ -308,7 +312,7 @@ describe('via remark-cli unified configuration', () => {
         if (!ctx.testResult) throw new Error('must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
-          getFixtureString('ignore-range-2-transformed')
+          getFixtureString('ignore-range-2-transformed', { trim: true })
         );
         expect(ctx.testResult?.code).toBe(0);
       },
