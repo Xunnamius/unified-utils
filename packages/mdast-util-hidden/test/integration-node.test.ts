@@ -12,7 +12,7 @@ import {
 } from 'testverse/setup';
 
 import { name as pkgName, exports as pkgExports } from '../package.json';
-import { getAst as getReplacedAst } from './__fixtures__/hidden-replaced-ast';
+import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
 
 import type { FixtureOptions } from 'testverse/setup';
 
@@ -30,7 +30,7 @@ debug('pkgMainPaths: %O', pkgMainPaths);
 debug(`nodeVersion: "${nodeVersion}"`);
 
 const fixtureOptions = {
-  performCleanup: false,
+  performCleanup: true,
   pkgRoot: `${__dirname}/..`,
   pkgName,
   initialFileContents: {} as FixtureOptions['initialFileContents'],

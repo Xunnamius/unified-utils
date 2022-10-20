@@ -12,9 +12,9 @@ import {
   visitAndReveal
 } from 'pkgverse/mdast-util-hidden/src/index';
 
-import { getAst as getInsertedAst } from './__fixtures__/hidden-inserted-ast';
-import { getAst as getReplacedAst } from './__fixtures__/hidden-replaced-ast';
-import { getAst as getMultiReplacedAst } from './__fixtures__/hidden-multi-replaced-ast';
+import { getAst as getInsertedAst } from './fixtures/hidden-inserted-ast';
+import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
+import { getAst as getMultiReplacedAst } from './fixtures/hidden-multi-replaced-ast';
 
 import type { Test } from 'unist-util-visit';
 import type { Node, Data } from 'unist';

@@ -1,5 +1,4 @@
 <!-- prettier-ignore-start -->
-
 <!-- badges-start -->
 
 [![Black Lives Matter!][badge-blm]][link-blm]
@@ -13,7 +12,6 @@
 [![Uses Semantic Release!][badge-semantic-release]][link-semantic-release]
 
 <!-- badges-end -->
-
 <!-- prettier-ignore-end -->
 
 # mdast-util-hidden
@@ -27,28 +25,26 @@ This is a low level project used by [remark-ignore][3] and
 ---
 
 <!-- prettier-ignore-start -->
-
 <!-- remark-ignore-start -->
-
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-*   [Install][5]
-*   [Usage][6]
-*   [API][7]
-    *   [AST Nodes][8]
-*   [Related][10]
-*   [Contributing and Support][11]
-    *   [Contributors][12]
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+  - [AST Nodes](#ast-nodes)
+- [Related](#related)
+- [Contributing and Support](#contributing-and-support)
+  - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-
 <!-- remark-ignore-end -->
-
 <!-- prettier-ignore-end -->
 
 ## Install
+
+> Due to the nature of the unified ecosystem, this package is ESM only and
+> cannot be `require`'d.
 
 ```bash
 npm install mdast-util-hidden
@@ -124,6 +120,8 @@ visit(tree, 'heading', (node, index, parent) => {
     return [SKIP, index + 1];
   }
 });
+
+console.dir(tree, { depth: null });
 ```
 
 Yields:
@@ -221,6 +219,8 @@ visitAndReveal({
     // returns [SKIP, index] unless this function returns a defined value
   }
 });
+
+console.dir(tree, { depth: null });
 ```
 
 Yields the original AST with the hidden headings restored (but stripped of their
