@@ -1,3 +1,4 @@
+import assert from 'node:assert';
 import { visit, SKIP, type Visitor } from 'unist-util-visit';
 import { removePosition } from 'unist-util-remove-position';
 
@@ -119,17 +120,9 @@ export function visitAndReveal<Tree extends Node<Data>>({
     tree,
     'hidden',
     (node, index, parent) => {
-      if (index === null) {
-        throw new Error('error while revealing hidden node: index is missing');
-      }
-
-      if (parent === null) {
-        throw new Error('error while revealing hidden node: parent is missing');
-      }
-
-      if (!isHidden(node)) {
-        throw new Error('error while revealing hidden node: node is malformed');
-      }
+      assert(index !== null, 'index is missing');
+      assert(parent !== null, 'parent is missing');
+      assert(isHidden(node), 'hidden node is malformed');
 
       reveal({ nodes: [node], index, parent });
       return visitor?.(node, index, parent) ?? [SKIP, index];
