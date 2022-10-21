@@ -1,9 +1,12 @@
-import remarkParse from 'remark-parse';
-import { unified } from 'unified';
 import { visit, SKIP, CONTINUE } from 'unist-util-visit';
-import { removePosition } from 'unist-util-remove-position';
 import * as unistUtilVisit from 'unist-util-visit';
 import * as mdastUtilHidden from 'pkgverse/mdast-util-hidden/src/index';
+
+import {
+  getInitialAst,
+  getMultiInitialAst,
+  removePositionDataFrom
+} from 'pkgverse/mdast-util-hidden/test/helpers';
 
 import {
   createHiddenNode,
@@ -15,51 +18,6 @@ import {
 import { getAst as getInsertedAst } from './fixtures/hidden-inserted-ast';
 import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
 import { getAst as getMultiReplacedAst } from './fixtures/hidden-multi-replaced-ast';
-
-import type { Test } from 'unist-util-visit';
-import type { Node, Data } from 'unist';
-
-const dummyMarkdown = `
-# Hello
-
-Some *emphasis*, **importance**, and \`code\`.
-
-# Goodbye
-`;
-
-const getInitialAst = () => {
-  return unified().use(remarkParse).parse(dummyMarkdown);
-};
-
-const removePositionDataFrom = (test: Test, tree: Node<Data>) => {
-  visit(tree, test, (node, index, parent) => {
-    if (index !== null && parent !== null) {
-      removePosition(node);
-      return [SKIP, index + 1];
-    }
-  });
-
-  return tree;
-};
-
-const getMultiInitialAst = () => {
-  const tree = getInitialAst();
-
-  visit(tree, 'heading', (_, index, parent) => {
-    if (index !== null && parent !== null) {
-      parent.children.splice(
-        index,
-        1,
-        { type: 'text', value: 'Hello', position: undefined },
-        { type: 'text', value: 'to the', position: undefined },
-        { type: 'text', value: 'world!', position: undefined }
-      );
-      return [SKIP, index + 3];
-    }
-  });
-
-  return tree;
-};
 
 const node = createHiddenNode([]);
 const index = 10;
