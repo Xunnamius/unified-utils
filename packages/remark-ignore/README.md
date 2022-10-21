@@ -29,9 +29,8 @@ This plugin is useful for preventing the transformation of auto-generated
 content, e.g. [all-contributors][12], [doctoc][1], etc. You might also be
 interested in [remark-tight-comments][26], which removes unnecessary newlines
 that remark inserts between/around Markdown comments by default. For a live
-example of these two plugins in action, `CTRL+F` the source of [this very
-README.md file][25] and look for `<!-- remark-ignore -->`,
-`<!-- remark-ignore-start -->`, and `<!-- remark-ignore-end -->`. ✨
+example of these two plugins in action, check the source of [this very README.md
+file][25]. ✨
 
 ---
 
@@ -358,33 +357,17 @@ information.
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
 [link-semantic-release]: https://github.com/semantic-release/semantic-release
-[package-json]: package.json
 [docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
 [support]: /.github/SUPPORT.md
 [1]: https://github.com/thlorenz/doctoc
-[2]: #remark-ignore
-[3]: #install
-[4]: #usage
-[5]: #api
-[6]: #examples
-[7]: #related
-[8]: #contributing-and-support
-[9]: #contributors
 [10]: https://prettier.io/docs/en/ignore.html#javascript
 [11]: https://github.com/unifiedjs/unified#processoruseplugin-options
 [12]: https://github.com/all-contributors/all-contributors
-[13]: #via-api
-[14]: #via-remark-cli
-[15]: #via-unified-configuration
-[16]: https://github.com/remarkjs/remark/tree/main/packages/remark-cli
-[17]: https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md
 [18]:
   https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-comments#readme
-[19]:
-  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-disable-tokenizers#readme
 [20]: https://github.com/remarkjs/remark-message-control
 [21]: https://github.com/syntax-tree/mdast-comment-marker
 [22]: https://github.com/syntax-tree/mdast-zone
