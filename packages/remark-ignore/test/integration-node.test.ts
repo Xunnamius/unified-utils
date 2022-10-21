@@ -1,6 +1,7 @@
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
 import { getFixtureString } from 'pkgverse/remark-ignore/test/helpers';
+import { name as pkgName, exports as pkgExports } from '../package.json';
 
 import {
   mockFixtureFactory,
@@ -8,31 +9,25 @@ import {
   dummyNpmPackageFixture,
   npmCopySelfFixture,
   nodeImportTestFixture,
-  MockFixture
+  runTestFixture
 } from 'testverse/setup';
 
-import { name as pkgName, exports as pkgExports } from '../package.json';
-
-import type { FixtureOptions } from 'testverse/setup';
+// TODO: note that we've made some modifications to the setup.ts file that
+// TODO: should be propagated!
 
 const TEST_IDENTIFIER = 'integration-node';
 const debug = debugFactory(`${pkgName}:${TEST_IDENTIFIER}`);
-const nodeVersion = process.env.MATRIX_NODE_VERSION || process.version;
 
 const pkgMainPaths = Object.values(pkgExports)
-  .map((xport) => (typeof xport == 'string' ? null : `${__dirname}/../${xport.node}`))
+  .map((xport) =>
+    typeof xport == 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
+  )
   .filter(Boolean) as string[];
 
-// eslint-disable-next-line jest/require-hook
-debug('pkgMainPaths: %O', pkgMainPaths);
-// eslint-disable-next-line jest/require-hook
-debug(`nodeVersion: "${nodeVersion}"`);
-
-const fixtureOptions = {
+const withMockedFixture = mockFixtureFactory(TEST_IDENTIFIER, {
   performCleanup: true,
   pkgRoot: `${__dirname}/..`,
   pkgName,
-  initialFileContents: {} as FixtureOptions['initialFileContents'],
   use: [
     dummyNpmPackageFixture(),
     dummyFilesFixture(),
@@ -40,41 +35,11 @@ const fixtureOptions = {
     runTestFixture()
   ],
   npmInstall: ['remark', 'remark-cli', 'remark-remove-comments', 'remark-reference-links']
-} as Partial<FixtureOptions> & {
-  initialFileContents: FixtureOptions['initialFileContents'];
-};
-
-const withMockedFixture = mockFixtureFactory(TEST_IDENTIFIER, fixtureOptions);
-
-// TODO: note that we've made some modifications to the setup.ts file that
-// TODO: should be propagated!
-function runTestFixture(): MockFixture {
-  return {
-    name: 'run-test',
-    description: 'running CLI command for jest integration test',
-    setup: async (ctx) => {
-      const bin = ctx.options.runWith?.binary;
-
-      if (!bin) throw new Error('could not find runWith binary (required)');
-
-      const args = ctx.options.runWith?.args || [];
-      const opts = ctx.options.runWith?.opts || {};
-
-      const { code, stdout, stderr } = await run(bin, args, {
-        cwd: ctx.root,
-        ...opts
-      });
-
-      ctx.testResult = {
-        code,
-        stdout,
-        stderr
-      };
-    }
-  };
-}
+});
 
 beforeAll(async () => {
+  debug('pkgMainPaths: %O', pkgMainPaths);
+
   await Promise.all(
     pkgMainPaths.map(async (pkgMainPath) => {
       if ((await run('test', ['-e', pkgMainPath])).code != 0) {
@@ -89,44 +54,6 @@ describe('via api', () => {
   it('works as an ESM import', async () => {
     expect.hasAssertions();
 
-    const initialFileContents = `
-      import { deepStrictEqual } from 'assert';
-      import { remark } from 'remark';
-      import remarkReferenceLinks from 'remark-reference-links';
-      import remarkIgnore, { ignoreStart, ignoreEnd } from 'remark-ignore';
-      import defaultIgnoreStart from 'remark-ignore/start';
-      import defaultIgnoreEnd from 'remark-ignore/end';
-
-      const mdIgnoreNext = ${JSON.stringify(getFixtureString('ignore-next'))};
-
-      const mdIgnoreNextTransformed = ${JSON.stringify(
-        getFixtureString('ignore-next-transformed')
-      )};
-
-      const result1 = await remark()
-        .use(remarkIgnore)
-        .use(remarkReferenceLinks)
-        .process(mdIgnoreNext);
-
-      const result2 = await remark()
-        .use(ignoreStart)
-        .use(remarkReferenceLinks)
-        .use(ignoreEnd)
-        .process(mdIgnoreNext);
-
-      const result3 = await remark()
-        .use(defaultIgnoreStart)
-        .use(remarkReferenceLinks)
-        .use(defaultIgnoreEnd)
-        .process(mdIgnoreNext);
-
-      deepStrictEqual(result1.toString(), mdIgnoreNextTransformed);
-      deepStrictEqual(result2.toString(), mdIgnoreNextTransformed);
-      deepStrictEqual(result3.toString(), mdIgnoreNextTransformed);
-
-      console.log('success');
-    `;
-
     await withMockedFixture(
       async (ctx) => {
         if (!ctx.testResult) throw new Error('must use node-import-test fixture');
@@ -135,7 +62,45 @@ describe('via api', () => {
         expect(ctx.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: { 'src/index.mjs': initialFileContents },
+        initialFileContents: {
+          'src/index.mjs': `
+import { deepStrictEqual } from 'assert';
+import { remark } from 'remark';
+import remarkReferenceLinks from 'remark-reference-links';
+import remarkIgnore, { ignoreStart, ignoreEnd } from 'remark-ignore';
+import defaultIgnoreStart from 'remark-ignore/start';
+import defaultIgnoreEnd from 'remark-ignore/end';
+
+const mdIgnoreNext = ${JSON.stringify(getFixtureString('ignore-next'))};
+
+const mdIgnoreNextTransformed = ${JSON.stringify(
+            getFixtureString('ignore-next-transformed')
+          )};
+
+const result1 = await remark()
+  .use(remarkIgnore)
+  .use(remarkReferenceLinks)
+  .process(mdIgnoreNext);
+
+const result2 = await remark()
+  .use(ignoreStart)
+  .use(remarkReferenceLinks)
+  .use(ignoreEnd)
+  .process(mdIgnoreNext);
+
+const result3 = await remark()
+  .use(defaultIgnoreStart)
+  .use(remarkReferenceLinks)
+  .use(defaultIgnoreEnd)
+  .process(mdIgnoreNext);
+
+deepStrictEqual(result1.toString(), mdIgnoreNextTransformed);
+deepStrictEqual(result2.toString(), mdIgnoreNextTransformed);
+deepStrictEqual(result3.toString(), mdIgnoreNextTransformed);
+
+console.log('success');
+      `
+        },
         use: [
           dummyNpmPackageFixture(),
           dummyFilesFixture(),
@@ -339,14 +304,3 @@ describe('via remark-cli unified configuration', () => {
     );
   });
 });
-
-// ? There is no CJS distributable for this package
-// eslint-disable-next-line jest/no-commented-out-tests
-/* it('works as a CJS require(...)', async () => {
-  expect.hasAssertions();
-  await runTest(false, async (ctx) => {
-    expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-    expect(ctx.testResult?.stdout).toBe('success');
-    expect(ctx.testResult?.code).toBe(0);
-  });
-}); */
