@@ -47,10 +47,10 @@ ASTs, [remark][7] and [remark-lint][8], and the broader [unified ecosystem][9].
 ## Related
 
 - [@projectorjs/config-remark][16] — reusable remark presets
-- [unified][9] — parser ecosystem
 - [remark][7] — processor and CLI
-- [unist][5] — base specification
+- [unified][9] — parser ecosystem
 - [mdast][6] — Markdown specification
+- [unist][5] — base specification
 
 ## Contributing and Support
 
@@ -87,10 +87,6 @@ information.
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: CONTRIBUTING.md
 [support]: .github/SUPPORT.md
-[1]: #packages
-[2]: #related
-[3]: #contributing-and-support
-[4]: #contributors
 [5]: https://github.com/syntax-tree/unist
 [6]: https://github.com/syntax-tree/mdast
 [7]: https://github.com/remarkjs
