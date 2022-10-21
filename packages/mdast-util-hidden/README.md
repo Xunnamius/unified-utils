@@ -348,13 +348,7 @@ information.
 [3]: https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
 [4]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references
-[5]: #install
-[6]: #usage
 [7]: #api
-[8]: #ast-nodes
-[10]: #related
-[11]: #contributing-and-support
-[12]: #contributors
 [13]: https://github.com/syntax-tree/unist-util-remove-position
 [14]: https://github.com/syntax-tree/unist#generated
 [15]: https://github.com/remarkjs/remark-gfm/issues/16#issuecomment-841200438
