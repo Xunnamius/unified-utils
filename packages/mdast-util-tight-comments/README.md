@@ -79,9 +79,9 @@ Suppose we have the following Markdown file `example.md`:
 # Install [remark](https://npm.im/remark)
 ```
 
-Note how the `<!-- START doctoc…` and `<!-- DON'T EDIT…` comments are _tightly_
-positioned such that there is no newline between them. This is required by
-[doctoc][29].
+Notice how the `<!-- START doctoc…` and `<!-- DON'T EDIT…` comments are
+_tightly_ positioned such that there is no newline between them. This is
+required by [doctoc][29].
 
 Now, running the following JavaScript:
 
@@ -131,7 +131,7 @@ and singular list item indents):
 # Install [remark](https://npm.im/remark)
 ```
 
-Note how the `<!-- START doctoc…` and `<!-- DON'T EDIT…` comments are now
+Notice how the `<!-- START doctoc…` and `<!-- DON'T EDIT…` comments are now
 separated by a newline, which will cause erroneous behavior when running doctoc.
 ~~Additionally, all the unnecessary newlines around the comments are very
 ugly.~~
@@ -143,7 +143,7 @@ import fs from 'node:fs';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import { toMarkdown } from 'mdast-util-to-markdown';
-import { joinTightComments } from 'mdast-util-hidden';
+import { joinTightComments } from 'mdast-util-tight-comments';
 
 const doc = fs.readFileSync('example.md');
 const tree = unified().use(remarkParse).parse(doc);
@@ -220,7 +220,10 @@ special consideration in that:
 
 1. There will never be a newline between it and the next node
 2. There will always be a newline between it and the previous node
-3. If you're running prettier _after_ remark, #1 is not guaranteed
+
+> If you're running prettier _after_ remark, you must surround the comments
+> around which you want to preserve tightened spacing with
+> `<!-- prettier-ignore-start -->` and `<!-- prettier-ignore-end -->`.
 
 ## API
 
@@ -278,40 +281,12 @@ information.
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
 [link-semantic-release]: https://github.com/semantic-release/semantic-release
-[package-json]: package.json
 [docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
 [support]: /.github/SUPPORT.md
 [1]: https://github.com/thlorenz/doctoc
-[2]: #mdast-util-tight-comments
-[3]: #install
-[4]: #usage
-[5]: #api
-[6]: #examples
-[7]: #related
-[8]: #contributing-and-support
-[9]: #contributors
-[10]: https://prettier.io/docs/en/ignore.html#javascript
-[11]: https://github.com/unifiedjs/unified#processoruseplugin-options
-[12]: https://github.com/all-contributors/all-contributors
-[13]: #via-api
-[14]: #via-remark-cli
-[15]: #via-unified-configuration
-[16]: https://github.com/remarkjs/remark/tree/main/packages/remark-cli
-[17]: https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md
-[18]:
-  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-comments#readme
-[19]:
-  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-disable-tokenizers#readme
-[20]: https://github.com/remarkjs/remark-message-control
-[21]: https://github.com/syntax-tree/mdast-comment-marker
-[22]: https://github.com/syntax-tree/mdast-zone
-[23]: https://github.com/unifiedjs/unified
-[24]: https://github.com/remarkjs/remark
-[25]:
-  https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/mdast-util-tight-comments/README.md
 [26]: https://github.com/syntax-tree/mdast-util-to-markdown
 [27]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-tight-comments
