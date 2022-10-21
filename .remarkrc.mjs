@@ -23,6 +23,7 @@ const lintConfig = {
     'lint-no-inline-padding',
     'lint-no-undefined-references',
     'lint-no-unused-definitions',
+    'lint-no-undefined-references',
     'validate-links'
   ]
 };
