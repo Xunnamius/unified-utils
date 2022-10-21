@@ -54,8 +54,10 @@ with all hidden child nodes revealed.
 
 #### Defined in
 
-packages/remark-ignore/src/end.ts:18
+[packages/remark-ignore/src/end.ts:18][4]
 
 [1]: ../README.md
 [2]: end.md#default
 [3]: end.md#ignoreendtransformer
+[4]:
+  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/remark-ignore/src/end.ts#L18

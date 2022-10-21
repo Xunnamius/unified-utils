@@ -57,8 +57,10 @@ with all child nodes following an ignore command having been hidden.
 
 #### Defined in
 
-packages/remark-ignore/src/start.ts:23
+[packages/remark-ignore/src/start.ts:23][4]
 
 [1]: ../README.md
 [2]: start.md#default
 [3]: start.md#ignorestarttransformer
+[4]:
+  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/remark-ignore/src/start.ts#L23
