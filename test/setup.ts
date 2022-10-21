@@ -480,6 +480,33 @@ export function describeRootFixture(): MockFixture {
   };
 }
 
+// TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
+export function runTestFixture(): MockFixture {
+  return {
+    name: 'run-test',
+    description: 'running CLI command for jest integration test',
+    setup: async (ctx) => {
+      const bin = ctx.options.runWith?.binary;
+
+      if (!bin) throw new Error('could not find runWith binary (required)');
+
+      const args = ctx.options.runWith?.args || [];
+      const opts = ctx.options.runWith?.opts || {};
+
+      const { code, stdout, stderr } = await run(bin, args, {
+        cwd: ctx.root,
+        ...opts
+      });
+
+      ctx.testResult = {
+        code,
+        stdout,
+        stderr
+      };
+    }
+  };
+}
+
 // TODO: XXX: make this into a separate (mock-fixture) package
 export async function withMockedFixture<
   // eslint-disable-next-line @typescript-eslint/ban-types
