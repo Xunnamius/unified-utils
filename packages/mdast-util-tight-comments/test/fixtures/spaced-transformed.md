@@ -1,9 +1,9 @@
 <!-- prettier-ignore-start -->
 <!-- remark-ignore-start -->
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- X doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Install remark](#install-remark)
+*   [Install remark](#install-remark)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- remark-ignore-end -->
