@@ -26,16 +26,6 @@
   "sideEffects": false,
   "type": "commonjs",
   "exports": {
-    "./start": {
-      "types": "./dist/start.d.ts",
-      "node": "./dist/start.mjs",
-      "default": "./dist/start.mjs"
-    },
-    "./end": {
-      "types": "./dist/end.d.ts",
-      "node": "./dist/end.mjs",
-      "default": "./dist/end.mjs"
-    },
     ".": {
       "types": "./dist/index.d.ts",
       "node": "./dist/index.mjs",
@@ -84,9 +74,9 @@
     }
   },
   "dependencies": {
-    "mdast-comment-marker": "^2.1.0",
-    "mdast-util-hidden": "^1.0.0",
-    "unist-util-visit": "^4.1.1"
+    "@types/mdast": "^3.0.10",
+    "mdast-util-tight-comments": "^1.0.0",
+    "unified": "^10.1.2"
   },
   "engines": {
     "node": "^14.19.0 || ^16.13.0 || >=17.4.0"
