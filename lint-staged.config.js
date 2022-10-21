@@ -5,8 +5,8 @@
  */
 module.exports = {
   '*.md': [
-    'npx remark --output --ignore-path=.prettierignore --silently-ignore',
-    'npx doctoc --no-title --maxlevel=3 --update-only'
+    'npx doctoc --no-title --maxlevel=3 --update-only',
+    'npx remark --output --ignore-path=.prettierignore --silently-ignore'
   ],
   'package.json': 'sort-package-json',
   '*': 'prettier --write --ignore-unknown'
