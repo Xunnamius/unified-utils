@@ -1,6 +1,6 @@
 {
   "name": "remark-tight-comments",
-  "version": "0.0.0-semantic",
+  "version": "1.0.0",
   "description": "remark plugin to selectively remove newlines around comments",
   "keywords": [
     "unified",
