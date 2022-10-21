@@ -47,7 +47,7 @@ node_modules/@types/unist/index.d.ts:27
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:16][6]
+[packages/mdast-util-hidden/src/index.ts:17][6]
 
 ---
 
@@ -78,7 +78,7 @@ Node.type
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:15][7]
+[packages/mdast-util-hidden/src/index.ts:16][7]
 
 [1]: ../README.md
 [2]: Hidden.md#data
@@ -86,6 +86,6 @@ Node.type
 [4]: Hidden.md#position
 [5]: Hidden.md#type
 [6]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L16
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L17
 [7]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L15
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L16

@@ -32,7 +32,7 @@ Returns a new `Hidden` node ready to be inserted into a mdast tree.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:22][7]
+[packages/mdast-util-hidden/src/index.ts:23][7]
 
 ---
 
@@ -65,7 +65,7 @@ will become the hidden children of this new node.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:41][8]
+[packages/mdast-util-hidden/src/index.ts:42][8]
 
 ---
 
@@ -87,7 +87,7 @@ node is Hidden
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:33][9]
+[packages/mdast-util-hidden/src/index.ts:34][9]
 
 ---
 
@@ -119,7 +119,7 @@ or more `Hidden` `nodes`.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:84][10]
+[packages/mdast-util-hidden/src/index.ts:85][10]
 
 ---
 
@@ -153,7 +153,7 @@ defined value_.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:106][11]
+[packages/mdast-util-hidden/src/index.ts:107][11]
 
 [1]: interfaces/Hidden.md
 [2]: README.md#createhiddennode
@@ -162,12 +162,12 @@ defined value_.
 [5]: README.md#reveal
 [6]: README.md#visitandreveal
 [7]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L22
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L23
 [8]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L41
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L42
 [9]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L33
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L34
 [10]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L84
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L85
 [11]:
-  https://github.com/Xunnamius/unified-utils/blob/10df83f/packages/mdast-util-hidden/src/index.ts#L106
+  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L107
