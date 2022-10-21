@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "allowJs": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": false,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "./src"
+  },
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*"]
+}
