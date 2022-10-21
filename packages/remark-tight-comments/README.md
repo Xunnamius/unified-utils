@@ -181,36 +181,13 @@ information.
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
 [link-semantic-release]: https://github.com/semantic-release/semantic-release
-[package-json]: package.json
 [docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
 [pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
 [support]: /.github/SUPPORT.md
 [1]: https://github.com/thlorenz/doctoc
-[2]: #remark-tight-comments
-[3]: #install
-[4]: #usage
-[5]: #api
-[6]: #examples
-[7]: #related
-[8]: #contributing-and-support
-[9]: #contributors
-[10]: https://prettier.io/docs/en/ignore.html#javascript
-[11]: https://github.com/unifiedjs/unified#processoruseplugin-options
 [12]: https://github.com/all-contributors/all-contributors
-[13]: #via-api
-[14]: #via-remark-cli
-[15]: #via-unified-configuration
-[16]: https://github.com/remarkjs/remark/tree/main/packages/remark-cli
-[17]: https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md
-[18]:
-  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-comments#readme
-[19]:
-  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-disable-tokenizers#readme
-[20]: https://github.com/remarkjs/remark-message-control
-[21]: https://github.com/syntax-tree/mdast-comment-marker
-[22]: https://github.com/syntax-tree/mdast-zone
 [23]: https://github.com/unifiedjs/unified
 [24]: https://github.com/remarkjs/remark
 [25]:
@@ -219,3 +196,12 @@ information.
 [27]: /packages/mdast-util-tight-comments/README.md#usage
 [28]: https://github.com/unifiedjs/unified#overview
 [29]: /packages/mdast-util-tight-comments
+[2]: #install
+[3]: #usage
+[4]: #via-api
+[5]: #via-remark-cli
+[6]: #via-unified-configuration
+[7]: #api
+[8]: #related
+[9]: #contributing-and-support
+[10]: #contributors
