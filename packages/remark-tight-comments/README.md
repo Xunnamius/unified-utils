@@ -28,7 +28,7 @@ check the source of [this very README.md file][25]. ✨
 ---
 
 <!-- prettier-ignore-start -->
-<!-- remark-tight-comments-start -->
+<!-- remark-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -43,7 +43,7 @@ check the source of [this very README.md file][25]. ✨
   - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<!-- remark-tight-comments-end -->
+<!-- remark-ignore-end -->
 <!-- prettier-ignore-end -->
 
 ## Install
@@ -196,12 +196,3 @@ information.
 [27]: /packages/mdast-util-tight-comments/README.md#usage
 [28]: https://github.com/unifiedjs/unified#overview
 [29]: /packages/mdast-util-tight-comments
-[2]: #install
-[3]: #usage
-[4]: #via-api
-[5]: #via-remark-cli
-[6]: #via-unified-configuration
-[7]: #api
-[8]: #related
-[9]: #contributing-and-support
-[10]: #contributors
