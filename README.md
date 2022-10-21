@@ -41,8 +41,10 @@ ASTs, [remark][7] and [remark-lint][8], and the broader [unified ecosystem][9].
 - [remark-tight-comments][18] — selectively remove newlines around comments
 - [remark-renumber-references][13] — renumber numeric [reference-style link
   ids][14] contiguously starting from `[1]`
-- [remark-sort-references][15] — reorder [reference-style link definitions][14]
+- [remark-sort-definitions][15] — reorder [reference-style link definitions][14]
   at the end of a document
+- [remark-remove-unused-definitions][1] — removes unused [reference-style link
+  definitions][14] from a document
 
 ## Related
 
@@ -97,7 +99,8 @@ information.
 [12]: ./packages/remark-ignore
 [13]: ./packages/remark-renumber-references
 [14]: https://github.com/remarkjs/remark-reference-links#what-is-this
-[15]: ./packages/remark-sort-references
+[15]: ./packages/remark-sort-definitions
 [16]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
 [17]: ./packages/mdast-util-tight-comments
 [18]: ./packages/remark-tight-comments
+[1]: /packages/remark-remove-unused-definitions
