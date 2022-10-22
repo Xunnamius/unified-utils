@@ -36,12 +36,6 @@
   },
   "typesVersions": {
     "*": {
-      "start": [
-        "./dist/start.d.ts"
-      ],
-      "end": [
-        "./dist/end.d.ts"
-      ],
       "*": [
         "./dist/index.d.ts"
       ]
