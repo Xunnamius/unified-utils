@@ -69,7 +69,7 @@
   },
   "dependencies": {
     "@types/mdast": "^3.0.10",
-    "mdast-util-tight-comments": "^1.0.1",
+    "mdast-util-tight-comments": "^1.0.2",
     "unified": "^10.1.2"
   },
   "engines": {
