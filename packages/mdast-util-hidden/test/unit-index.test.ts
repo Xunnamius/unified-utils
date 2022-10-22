@@ -208,6 +208,40 @@ describe('::visitAndReveal', () => {
     expect(revealSpy).toHaveBeenNthCalledWith(4, { nodes: [node], index, parent });
   });
 
+  it('does not call reveal iff false is returned after invoking visitor', async () => {
+    expect.hasAssertions();
+
+    const revealSpy = jest
+      .spyOn(mdastUtilHidden, 'reveal')
+      .mockImplementation(() => undefined);
+
+    let calledOutsideVisitor = false;
+    let confirmCalled = false;
+
+    jest.spyOn(unistUtilVisit, 'visit').mockImplementation(((
+      _tree,
+      _test,
+      visitor,
+      _reverse
+    ) => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      expect(visitor?.(node as any, index, parent as any)).toBeUndefined();
+      confirmCalled = true;
+    }) as typeof visit);
+
+    visitAndReveal({
+      tree: getInitialAst(),
+      visitor: () => {
+        calledOutsideVisitor = true;
+        return false;
+      }
+    });
+
+    expect(confirmCalled).toBeTrue();
+    expect(calledOutsideVisitor).toBeTrue();
+    expect(revealSpy).not.toBeCalled();
+  });
+
   it('passes through reverse parameter', async () => {
     expect.hasAssertions();
 
@@ -298,7 +332,7 @@ describe('::visitAndReveal', () => {
       visitAndReveal({
         tree: getInitialAst()
       })
-    ).toThrow(/node is malformed/);
+    ).toThrow(/malformed hidden node/);
   });
 });
 

@@ -99,19 +99,38 @@ export function reveal<Nodes extends Hidden[]>({
 }
 
 /**
- * Walks the `tree` using unist-util-visit to search for any `Hidden` nodes.
- * Upon encountering a `Hidden` node, `reveal` is called, then `visitor` is
- * called if provided, and finally `[SKIP, index]` is returned _unless `visitor`
- * returns a defined value_.
+ * Walks `tree` using unist-util-visit to search for any `Hidden` nodes. Upon
+ * encountering a `Hidden` node, `visitor` is called if provided.
+ *
+ * If `visitor` is provided but returns `false`, `reveal` is not called and the
+ * hidden is not revealed. Otherwise, `reveal` will always be called.
+ *
+ * If `visitor` is provided and returns a defined value other than `false`, that
+ * value will be passed through to unist-util-visit. If `visitor` is not
+ * provided, or it returns `undefined`, `[SKIP, index]` will be passed through
+ * instead.
  */
 export function visitAndReveal<Tree extends Node<Data>>({
   tree,
   visitor,
   reverse = false
 }: {
+  /**
+   * @see https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse
+   */
   tree: Tree;
+  /**
+   * If `visitor` is provided but returns `false`, `reveal` is not called and the
+   * hidden is not revealed. Otherwise, `reveal` will always be called.
+   *
+   * If `visitor` is provided and returns a defined value other than `false`, that
+   * value will be passed through to unist-util-visit. If `visitor` is not
+   * provided, or it returns `undefined`, `[SKIP, index]` will be passed through
+   * instead.
+   */
   visitor?: Visitor;
   /**
+   * @see https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse
    * @default false
    */
   reverse?: boolean;
@@ -122,10 +141,14 @@ export function visitAndReveal<Tree extends Node<Data>>({
     (node, index, parent) => {
       assert(index !== null, 'index is missing');
       assert(parent !== null, 'parent is missing');
-      assert(isHidden(node), 'hidden node is malformed');
+      assert(isHidden(node), 'malformed hidden node');
 
-      reveal({ nodes: [node], index, parent });
-      return visitor?.(node, index, parent) ?? [SKIP, index];
+      const result = visitor?.(node, index, parent);
+
+      if (result !== false) {
+        reveal({ nodes: [node], index, parent });
+        return result ?? [SKIP, index];
+      }
     },
     reverse
   );
