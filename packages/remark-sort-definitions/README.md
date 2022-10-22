@@ -1,4 +1,3 @@
-<!-- prettier-ignore-start -->
 <!-- badges-start -->
 
 [![Black Lives Matter!][badge-blm]][link-blm]
@@ -12,7 +11,6 @@
 [![Uses Semantic Release!][badge-semantic-release]][link-semantic-release]
 
 <!-- badges-end -->
-<!-- prettier-ignore-end -->
 
 # remark-sort-definitions
 
@@ -32,7 +30,6 @@ plugins in action, check the bottom of [this very README.md file][6]. ✨
 
 ---
 
-<!-- prettier-ignore-start -->
 <!-- remark-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -51,7 +48,6 @@ plugins in action, check the bottom of [this very README.md file][6]. ✨
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- remark-ignore-end -->
-<!-- prettier-ignore-end -->
 
 ## Install
 

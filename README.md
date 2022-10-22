@@ -1,4 +1,3 @@
-<!-- prettier-ignore-start -->
 <!-- badges-start -->
 
 [![Black Lives Matter!][badge-blm]][link-blm]
@@ -8,7 +7,6 @@
 [![Uses semantic-release][badge-semantic-release]][link-semantic-release]
 
 <!-- badges-end -->
-<!-- prettier-ignore-end -->
 
 # unified-utils
 
@@ -17,7 +15,6 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 ---
 
-<!-- prettier-ignore-start -->
 <!-- remark-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -29,7 +26,6 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- remark-ignore-end -->
-<!-- prettier-ignore-end -->
 
 ## Packages
 
