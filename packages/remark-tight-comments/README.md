@@ -38,6 +38,7 @@ check the source of [this very README.md file][25]. ✨
   - [Via remark-cli](#via-remark-cli)
   - [Via unified configuration](#via-unified-configuration)
 - [API](#api)
+- [Examples](#examples)
 - [Related](#related)
 - [Contributing and Support](#contributing-and-support)
   - [Contributors](#contributors)
@@ -58,8 +59,6 @@ npm install --save-dev remark-tight-comments
 ## Usage
 
 ### Via API
-
-> See [mdast-util-tight-comments][27] for more details.
 
 ```typescript
 import { read } from 'to-vfile';
@@ -125,6 +124,10 @@ export default {
 ## API
 
 Detailed interface information can be found under [`docs/`][docs].
+
+## Examples
+
+See [mdast-util-tight-comments][27] for example outputs.
 
 ## Related
 
