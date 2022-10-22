@@ -320,7 +320,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][15].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -378,3 +378,4 @@ information.
 [12]: https://github.com/unifiedjs/unified#overview
 [13]: https://github.com/syntax-tree/mdast-comment-marker
 [14]: https://github.com/syntax-tree/mdast-zone
+[15]: /README.md#contributors

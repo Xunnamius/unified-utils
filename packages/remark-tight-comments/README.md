@@ -147,7 +147,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][10].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -199,3 +199,4 @@ information.
 [7]: /packages/mdast-util-tight-comments/README.md#usage
 [8]: https://github.com/unifiedjs/unified#overview
 [9]: /packages/mdast-util-tight-comments
+[10]: /README.md#contributors

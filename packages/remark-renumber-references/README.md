@@ -353,7 +353,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][10].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -405,3 +405,4 @@ information.
   https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-renumber-references/README.md
 [8]: /.remarkrc.mjs
 [9]: /packages/remark-remove-unused-definitions
+[10]: /README.md#contributors

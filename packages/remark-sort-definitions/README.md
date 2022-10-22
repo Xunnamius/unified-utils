@@ -272,7 +272,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][10].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -324,3 +324,4 @@ information.
 [7]: https://en.wikipedia.org/wiki/Natural_sort_order
 [8]: /.remarkrc.mjs
 [9]: /packages/remark-remove-unused-definitions
+[10]: /README.md#contributors

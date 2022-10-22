@@ -301,7 +301,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][15].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -358,3 +358,4 @@ information.
 [12]: https://github.com/syntax-tree/mdast-util-to-markdown
 [13]: https://github.com/syntax-tree/mdast-util-from-markdown
 [14]: https://npm.im/rehype-ignore
+[15]: /README.md#contributors

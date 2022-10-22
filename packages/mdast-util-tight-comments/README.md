@@ -244,7 +244,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][8].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -294,3 +294,4 @@ information.
 [5]: https://github.com/thlorenz/doctoc#update-existing-doctoc-tocs-effortlessly
 [6]: /.remarkrc.mjs
 [7]: /packages/remark-tight-comments
+[8]: /README.md#contributors

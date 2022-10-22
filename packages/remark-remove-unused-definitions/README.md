@@ -214,7 +214,7 @@ information.
 
 ### Contributors
 
-<!-- TODO: all-contributors here -->
+See the [table of contributors][8].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -263,3 +263,4 @@ information.
 [5]: /packages/remark-renumber-references
 [6]: https://github.com/remarkjs/remark-reference-links
 [7]: /packages/remark-sort-definitions
+[8]: /README.md#contributors
