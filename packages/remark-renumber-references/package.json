@@ -72,7 +72,7 @@
   },
   "dependencies": {
     "@types/mdast": "^3.0.10",
-    "mdast-util-hidden": "^1.0.3",
+    "mdast-util-hidden": "^1.1.0",
     "remark-inline-links": "^6.0.1",
     "remark-reference-links": "^6.0.1",
     "unified": "^10.1.2",
