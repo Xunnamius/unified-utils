@@ -127,10 +127,15 @@ or more `Hidden` `nodes`.
 
 ▸ **visitAndReveal**<`Tree`>(`(destructured)`): `void`
 
-Walks the `tree` using unist-util-visit to search for any `Hidden` nodes. Upon
-encountering a `Hidden` node, `reveal` is called, then `visitor` is called if
-provided, and finally `[SKIP, index]` is returned _unless `visitor` returns a
-defined value_.
+Walks `tree` using unist-util-visit to search for any `Hidden` nodes. Upon
+encountering a `Hidden` node, `visitor` is called if provided.
+
+If `visitor` is provided but returns `false`, `reveal` is not called and the
+hidden is not revealed. Otherwise, `reveal` will always be called.
+
+If `visitor` is provided and returns a defined value other than `false`, that
+value will be passed through to unist-util-visit. If `visitor` is not provided,
+or it returns `undefined`, `[SKIP, index]` will be passed through instead.
 
 #### Type parameters
 
@@ -140,12 +145,12 @@ defined value_.
 
 #### Parameters
 
-| Name             | Type      | Description         |
-| :--------------- | :-------- | :------------------ |
-| `(destructured)` | `Object`  | -                   |
-| `({ reverse? })` | `boolean` | **`Default`** false |
-| `({ tree })`     | `Tree`    | -                   |
-| `({ visitor? })` | `Visitor` | -                   |
+| Name             | Type      | Description                                                                                                                                                                                                                                                                                                                                                                              |
+| :--------------- | :-------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `(destructured)` | `Object`  | -                                                                                                                                                                                                                                                                                                                                                                                        |
+| `({ reverse? })` | `boolean` | **`See`** [https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse][11] **`Default`** false                                                                                                                                                                                                                                                                       |
+| `({ tree })`     | `Tree`    | **`See`** [https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse][11]                                                                                                                                                                                                                                                                                           |
+| `({ visitor? })` | `Visitor` | If `visitor` is provided but returns `false`, `reveal` is not called and the hidden is not revealed. Otherwise, `reveal` will always be called. If `visitor` is provided and returns a defined value other than `false`, that value will be passed through to unist-util-visit. If `visitor` is not provided, or it returns `undefined`, `[SKIP, index]` will be passed through instead. |
 
 #### Returns
 
@@ -153,7 +158,7 @@ defined value_.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:107][11]
+[packages/mdast-util-hidden/src/index.ts:113][12]
 
 [1]: interfaces/Hidden.md
 [2]: README.md#createhiddennode
@@ -162,12 +167,14 @@ defined value_.
 [5]: README.md#reveal
 [6]: README.md#visitandreveal
 [7]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L23
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L23
 [8]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L42
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L42
 [9]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L34
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L34
 [10]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L85
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L85
 [11]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L107
+  https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse
+[12]:
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L113

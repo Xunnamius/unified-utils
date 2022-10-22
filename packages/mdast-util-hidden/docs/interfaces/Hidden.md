@@ -86,6 +86,6 @@ Node.type
 [4]: Hidden.md#position
 [5]: Hidden.md#type
 [6]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L17
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L17
 [7]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L16
+  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L16
