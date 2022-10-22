@@ -217,10 +217,12 @@ Later on, we rewrite sections of `example.md` and remove others (using
 [remark-remove-unused-definitions][9] to clear out the unused reference
 definitions).
 
+<!--? prettier screws up this quote for some reason -->
+<!-- prettier-ignore -->
 > Note that, while a side-effect of running this plugin is that unused numeric
 > reference definitions are removed during renumbering, this behavior is not
 > guaranteed and hence should not be relied upon. To ensure all unused reference
-> definitions are always removed, use [remark-remove-unused-definitions][9] >
+> definitions are always removed, use [remark-remove-unused-definitions][9]
 > _before_ this plugin.
 
 Rerunning the above JavaScript leaves us with the following output:
