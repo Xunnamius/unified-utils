@@ -23,11 +23,12 @@ plays nicely with [GFM footnotes][6] (by completely ignoring them).
 After running this plugin, _all definitions_, both numeric and alphanumeric,
 will always be placed at the very bottom of the document.
 
-You might also be interested in [remark-reference-links][2], which transforms
-all your inline links into reference-style links, and
+**This plugin is a drop-in replacement for [remark-reference-links][2].** If you
+want to preserve some inline links (e.g. for generated content), check out
+[remark-ignore][7]. You might also be interested in
 [remark-sort-definitions][3], which will logically reorder the reference
 definitions at the bottom of your document. For a live example of these plugins
-in action, check the bottom of [this very README.md file][25]. ✨
+in action, check the source of [this very README.md file][25]. ✨
 
 ---
 
@@ -407,3 +408,4 @@ information.
 [4]: /.remarkrc.mjs
 [5]: /packages/remark-remove-unused-definitions
 [6]: https://github.com/remarkjs/remark-gfm#what-is-this
+[7]: /packages/remark-ignore/
