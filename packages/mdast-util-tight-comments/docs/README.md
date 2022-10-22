@@ -23,4 +23,4 @@ comments and select other mdast nodes under certain conditions.
 
 [1]: README.md#jointightcomments
 [2]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-tight-comments/src/index.ts#L7
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-tight-comments/src/index.ts#L7

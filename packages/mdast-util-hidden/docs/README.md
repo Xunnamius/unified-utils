@@ -162,12 +162,12 @@ defined value_.
 [5]: README.md#reveal
 [6]: README.md#visitandreveal
 [7]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L23
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L23
 [8]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L42
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L42
 [9]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L34
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L34
 [10]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L85
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L85
 [11]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/mdast-util-hidden/src/index.ts#L107
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/mdast-util-hidden/src/index.ts#L107

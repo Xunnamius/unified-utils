@@ -24,7 +24,7 @@ Options type for the remark-sort-definitions plugin.
 
 #### Defined in
 
-packages/remark-sort-definitions/src/index.ts:12
+[packages/remark-sort-definitions/src/index.ts:12][3]
 
 ## Functions
 
@@ -52,3 +52,5 @@ node_modules/unified/index.d.ts:531
 
 [1]: README.md#options
 [2]: README.md#default
+[3]:
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/remark-sort-definitions/src/index.ts#L12

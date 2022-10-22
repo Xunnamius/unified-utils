@@ -60,4 +60,4 @@ with all hidden child nodes revealed.
 [2]: end.md#default
 [3]: end.md#ignoreendtransformer
 [4]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/remark-ignore/src/end.ts#L18
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/remark-ignore/src/end.ts#L18

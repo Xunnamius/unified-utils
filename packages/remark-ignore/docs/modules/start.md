@@ -63,4 +63,4 @@ with all child nodes following an ignore command having been hidden.
 [2]: start.md#default
 [3]: start.md#ignorestarttransformer
 [4]:
-  https://github.com/Xunnamius/unified-utils/blob/82f20c7/packages/remark-ignore/src/start.ts#L23
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/remark-ignore/src/start.ts#L23

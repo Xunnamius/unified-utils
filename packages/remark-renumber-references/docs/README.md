@@ -24,7 +24,7 @@ Options type for the remark-renumber-references plugin.
 
 #### Defined in
 
-packages/remark-renumber-references/src/index.ts:14
+[packages/remark-renumber-references/src/index.ts:14][3]
 
 ## Functions
 
@@ -55,3 +55,5 @@ node_modules/unified/index.d.ts:531
 
 [1]: README.md#options
 [2]: README.md#default
+[3]:
+  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/remark-renumber-references/src/index.ts#L14
