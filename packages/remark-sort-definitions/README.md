@@ -40,8 +40,8 @@ plugins in action, check the bottom of [this very README.md file][6]. ✨
 - [Install](#install)
 - [Usage](#usage)
   - [Via API](#via-api)
-  - [Via \[remark-cli\]\[18\]](#via-remark-cli18)
-  - [Via \[unified configuration\]\[19\]](#via-unified-configuration19)
+  - [Via remark-cli](#via-remark-cli)
+  - [Via unified configuration](#via-unified-configuration)
 - [API](#api)
   - [Options](#options)
 - [Examples](#examples)
@@ -81,7 +81,7 @@ console.log(String(file));
 
 <!-- remark-ignore -->
 
-### Via \[remark-cli]\[18]
+### Via [remark-cli](https://xunn.at/docs-remark-cli)
 
 ```shell
 remark -o --use sort-definitions README.md
@@ -89,7 +89,7 @@ remark -o --use sort-definitions README.md
 
 <!-- remark-ignore -->
 
-### Via \[unified configuration]\[19]
+### Via [unified configuration](https://xunn.at/docs-unified-configuration)
 
 In `package.json`:
 

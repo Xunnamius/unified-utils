@@ -81,7 +81,7 @@ console.log(String(file));
 
 <!-- remark-ignore -->
 
-### Via [remark-cli](https://github.com/remarkjs/remark/tree/main/packages/remark-cli)
+### Via [remark-cli](https://xunn.at/docs-remark-cli)
 
 ```shell
 remark -o --use renumber-references README.md
@@ -89,7 +89,7 @@ remark -o --use renumber-references README.md
 
 <!-- remark-ignore -->
 
-### Via [unified configuration](https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md)
+### Via [unified configuration](https://xunn.at/docs-unified-configuration)
 
 In `package.json`:
 

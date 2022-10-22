@@ -40,8 +40,8 @@ definitions, leaving the rest intact.
 - [Install](#install)
 - [Usage](#usage)
   - [Via API](#via-api)
-  - [Via \[remark-cli\]\[14\]](#via-remark-cli14)
-  - [Via \[unified configuration\]\[15\]](#via-unified-configuration15)
+  - [Via remark-cli](#via-remark-cli)
+  - [Via unified configuration](#via-unified-configuration)
 - [API](#api)
 - [Examples](#examples)
 - [Related](#related)
@@ -80,7 +80,7 @@ console.log(String(file));
 
 <!-- remark-ignore -->
 
-### Via \[remark-cli]\[14]
+### Via [remark-cli](https://xunn.at/docs-remark-cli)
 
 ```shell
 remark -o --use remove-unused-definitions README.md
@@ -88,7 +88,7 @@ remark -o --use remove-unused-definitions README.md
 
 <!-- remark-ignore -->
 
-### Via \[unified configuration]\[15]
+### Via [unified configuration](https://xunn.at/docs-unified-configuration)
 
 In `package.json`:
 

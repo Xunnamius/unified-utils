@@ -42,8 +42,8 @@ file][8]. ✨
 - [Install](#install)
 - [Usage](#usage)
   - [Via API](#via-api)
-  - [Via \[remark-cli\]\[19\]](#via-remark-cli19)
-  - [Via \[unified configuration\]\[20\]](#via-unified-configuration20)
+  - [Via remark-cli](#via-remark-cli)
+  - [Via unified configuration](#via-unified-configuration)
 - [API](#api)
 - [Examples](#examples)
 - [Related](#related)
@@ -113,7 +113,7 @@ otherwise-"ignored" nodes.
 
 <!-- remark-ignore -->
 
-### Via \[remark-cli]\[19]
+### Via [remark-cli](https://xunn.at/docs-remark-cli)
 
 ```shell
 remark -o --use ignore README.md
@@ -127,7 +127,7 @@ remark -o --use ignore/start --use … --use ignore/end README.md
 
 <!-- remark-ignore -->
 
-### Via \[unified configuration]\[20]
+### Via [unified configuration](https://xunn.at/docs-unified-configuration)
 
 In `package.json`:
 

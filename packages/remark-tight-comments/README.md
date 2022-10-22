@@ -35,8 +35,8 @@ check the source of [this very README.md file][6]. ✨
 - [Install](#install)
 - [Usage](#usage)
   - [Via API](#via-api)
-  - [Via \[remark-cli\]\[17\]](#via-remark-cli17)
-  - [Via \[unified configuration\]\[18\]](#via-unified-configuration18)
+  - [Via remark-cli](#via-remark-cli)
+  - [Via unified configuration](#via-unified-configuration)
 - [API](#api)
 - [Examples](#examples)
 - [Related](#related)
@@ -74,7 +74,7 @@ console.log(String(file));
 
 <!-- remark-ignore -->
 
-### Via \[remark-cli]\[17]
+### Via [remark-cli](https://xunn.at/docs-remark-cli)
 
 ```shell
 remark -o --use tight-comments README.md
@@ -82,7 +82,7 @@ remark -o --use tight-comments README.md
 
 <!-- remark-ignore -->
 
-### Via \[unified configuration]\[18]
+### Via [unified configuration](https://xunn.at/docs-unified-configuration)
 
 In `package.json`:
 
