@@ -1,3 +1,4 @@
+import assert from 'node:assert';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
 import { getFixtureString } from 'pkgverse/remark-tight-comments/test/helpers';
@@ -56,7 +57,7 @@ describe('via api', () => {
 
     await withMockedFixture(
       async (ctx) => {
-        if (!ctx.testResult) throw new Error('must use node-import-test fixture');
+        assert(ctx.testResult, 'must use node-import-test fixture');
         expect(ctx.testResult?.stderr).toBeEmpty();
         expect(ctx.testResult?.stdout).toBe(getFixtureString('spaced-transformed'));
         expect(ctx.testResult?.code).toBe(0);
@@ -91,7 +92,7 @@ describe('via remark-cli inline configuration', () => {
 
     await withMockedFixture(
       async (ctx) => {
-        if (!ctx.testResult) throw new Error('must use run-test-test fixture');
+        assert(ctx.testResult, 'must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
           getFixtureString('spaced-transformed', { trim: true })
@@ -115,7 +116,7 @@ describe('via remark-cli unified configuration', () => {
 
     await withMockedFixture(
       async (ctx) => {
-        if (!ctx.testResult) throw new Error('must use run-test-test fixture');
+        assert(ctx.testResult, 'must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
           getFixtureString('spaced-transformed', { trim: true })
@@ -143,7 +144,7 @@ describe('via remark-cli unified configuration', () => {
 
     await withMockedFixture(
       async (ctx) => {
-        if (!ctx.testResult) throw new Error('must use run-test-test fixture');
+        assert(ctx.testResult, 'must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
           getFixtureString('spaced-transformed', { trim: true })
@@ -171,7 +172,7 @@ describe('via remark-cli unified configuration', () => {
 
     await withMockedFixture(
       async (ctx) => {
-        if (!ctx.testResult) throw new Error('must use run-test-test fixture');
+        assert(ctx.testResult, 'must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
           getFixtureString('spaced-transformed', { trim: true })
@@ -200,7 +201,7 @@ describe('via remark-cli unified configuration', () => {
 
     await withMockedFixture(
       async (ctx) => {
-        if (!ctx.testResult) throw new Error('must use run-test-test fixture');
+        assert(ctx.testResult, 'must use run-test-test fixture');
         expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(ctx.testResult?.stdout).toBe(
           getFixtureString('spaced-transformed', { trim: true })

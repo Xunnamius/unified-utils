@@ -1,3 +1,4 @@
+import assert from 'node:assert';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
 import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
@@ -66,7 +67,7 @@ it('works as an ESM import', async () => {
 
   await withMockedFixture(
     async (ctx) => {
-      if (!ctx.testResult) throw new Error('must use node-import-test fixture');
+      assert(ctx.testResult, 'must use node-import-test fixture');
       expect(ctx.testResult?.stderr).toBeEmpty();
       expect(ctx.testResult?.stdout).toBe('success');
       expect(ctx.testResult?.code).toBe(0);
