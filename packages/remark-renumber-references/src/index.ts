@@ -8,6 +8,8 @@ import remarkReferenceLinks from 'remark-reference-links';
 import type { Plugin } from 'unified';
 import type { Root, Definition } from 'mdast';
 
+const scopeSymbol: unique symbol = Symbol('owned-by: remark-renumber-references');
+
 /**
  * Options type for the remark-renumber-references plugin.
  */
@@ -69,6 +71,12 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
               definitions.push(removePosition(node));
             } else {
               hide({ nodes: [node], index, parent });
+
+              parent.children[index].data = {
+                ...parent.children[index].data,
+                scope: scopeSymbol
+              };
+
               return [SKIP, index + 1];
             }
           }
@@ -83,7 +91,11 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
     }
 
     function revealHiddenReferenceLinks() {
-      visitAndReveal({ tree });
+      // ? Ensure that we're only revealing the hidden nodes that belong to us
+      visitAndReveal({
+        tree,
+        visitor: (node) => (node.data?.scope == scopeSymbol ? undefined : false)
+      });
     }
 
     function appendRevealedReferenceLinkDefinitionsToDocument() {

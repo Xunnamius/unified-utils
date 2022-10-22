@@ -1,4 +1,5 @@
 import { remark } from 'remark';
+import remarkIgnore from 'pkgverse/remark-ignore/src/index';
 import remarkGfm from 'remark-gfm';
 import remarkRenumberReferences from 'pkgverse/remark-renumber-references/src/index';
 
@@ -28,5 +29,17 @@ describe('::default', () => {
       .process(await getFixtureVFile('numbered'));
 
     expect(result.toString()).toStrictEqual(getFixtureString('renumbered-all'));
+  });
+
+  it('does not interfere with remark-ignore', async () => {
+    expect.hasAssertions();
+
+    const result = await remark()
+      .use(remarkIgnore)
+      .use(remarkGfm)
+      .use(remarkRenumberReferences)
+      .process(await getFixtureVFile('ignored'));
+
+    expect(result.toString()).toStrictEqual(getFixtureString('ignored-transformed'));
   });
 });
