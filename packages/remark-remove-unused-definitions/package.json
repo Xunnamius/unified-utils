@@ -1,6 +1,6 @@
 {
   "name": "remark-remove-unused-definitions",
-  "version": "0.0.0-semantic",
+  "version": "1.0.0",
   "description": "remark plugin that removes unused reference definitions from a document",
   "keywords": [
     "unified",
