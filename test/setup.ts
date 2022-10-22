@@ -1,7 +1,8 @@
 import { name as rootPkgName } from 'package';
-import { tmpdir } from 'os';
-import { promises as fs } from 'fs';
-import { resolve } from 'path';
+import assert from 'node:assert';
+import { tmpdir } from 'node:os';
+import { promises as fs } from 'node:fs';
+import { resolve } from 'node:path';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
 import glob from 'glob';
@@ -249,9 +250,7 @@ export function npmCopySelfFixture(): MockFixture {
       await run('mkdir', ['-p', dest], { reject: true });
       await run('cp', ['-r', ...files, dest], { cwd: projectRoot, reject: true });
 
-      if (!destPkgJson) {
-        throw new Error(`expected "${destPkgJson}" to exist`);
-      }
+      assert(destPkgJson, `expected "${destPkgJson}" to exist`);
 
       // TODO: only optionally remove peer dependencies from the install loop
       // TODO: (and by default they should NOT be removed, unlike below).
@@ -315,19 +314,20 @@ export function webpackTestFixture(): MockFixture {
     name: 'webpack-test',
     description: 'setting up webpack jest integration test',
     setup: async (ctx) => {
-      if (typeof ctx.options.webpackVersion != 'string') {
-        throw new Error('invalid or missing options.webpackVersion, expected string');
-      }
+      assert(
+        typeof ctx.options.webpackVersion == 'string',
+        'invalid or missing options.webpackVersion, expected string'
+      );
 
       const indexPath = Object.keys(ctx.fileContents).find((path) =>
         /^src\/index\.(((c|m)?js)|ts)x?$/.test(path)
       );
 
-      if (!indexPath)
-        throw new Error('could not find initial contents for src/index file');
-
-      if (!ctx.fileContents['webpack.config.js'])
-        throw new Error('could not find initial contents for webpack.config.js file');
+      assert(indexPath, 'could not find initial contents for src/index file');
+      assert(
+        ctx.fileContents['webpack.config.js'],
+        'could not find initial contents for webpack.config.js file'
+      );
 
       await Promise.all([
         writeFile(`${ctx.root}/${indexPath}`, ctx.fileContents[indexPath]),
@@ -372,8 +372,7 @@ export function nodeImportTestFixture(): MockFixture {
         /^src\/index(\.test)?\.(((c|m)?js)|ts)x?$/.test(path)
       );
 
-      if (!indexPath)
-        throw new Error('could not find initial contents for src/index test file');
+      assert(indexPath, 'could not find initial contents for src/index test file');
 
       // TODO: do we have to write this AND have the dummyFilesFixture too?!
       await writeFile(`${ctx.root}/${indexPath}`, ctx.fileContents[indexPath]);
@@ -406,9 +405,10 @@ export function gitRepositoryFixture(): MockFixture {
     name: 'git-repository',
     description: 'configuring fixture root to be a git repository',
     setup: async (ctx) => {
-      if (ctx.options.setupGit && typeof ctx.options.setupGit != 'function') {
-        throw new Error('invalid or missing options.setupGit, expected function');
-      }
+      assert(
+        !ctx.options.setupGit || typeof ctx.options.setupGit == 'function',
+        'invalid or missing options.setupGit, expected function'
+      );
 
       ctx.git = gitFactory({ baseDir: ctx.root });
 
@@ -428,9 +428,10 @@ export function dummyDirectoriesFixture(): MockFixture {
     name: 'dummy-directories',
     description: 'creating dummy directories under fixture root',
     setup: async (ctx) => {
-      if (!Array.isArray(ctx.options.directoryPaths)) {
-        throw new Error('invalid or missing options.directoryPaths, expected array');
-      }
+      assert(
+        Array.isArray(ctx.options.directoryPaths),
+        'invalid or missing options.directoryPaths, expected array'
+      );
 
       await Promise.all(
         ctx.options.directoryPaths.map((path) =>
@@ -488,7 +489,7 @@ export function runTestFixture(): MockFixture {
     setup: async (ctx) => {
       const bin = ctx.options.runWith?.binary;
 
-      if (!bin) throw new Error('could not find runWith binary (required)');
+      assert(bin, 'could not find runWith binary (required)');
 
       const args = ctx.options.runWith?.args || [];
       const opts = ctx.options.runWith?.opts || {};
