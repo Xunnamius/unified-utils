@@ -11,8 +11,8 @@ Thank you for your contribution!
 [badge-security]:
   https://snyk.io/test/github/Xunnamius/unified-utils/badge.svg
   'Number of vulnerabilities (scanned by Snyk)'
+[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
 [link-security]: https://snyk.io/test/github/Xunnamius/unified-utils
 [open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
 [security-mailto]:
   mailto:security@ergodark.com?subject=ALERT%3A%20SECURITY%20INCIDENT%3A%20%28five%20word%20summary%29

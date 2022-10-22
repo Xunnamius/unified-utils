@@ -172,12 +172,12 @@ Yields:
 }
 ```
 
-> Note that the elements of `hiddenChildren` will, if later [revealed][7], have
-> their `position` data stripped off using [unist-util-remove-position][13]
-> (making them [generated nodes][14]). This is because `position` data can be
-> invalidated at any time due to it being [impossible][15] to know how later
+> Note that the elements of `hiddenChildren` will, if later [revealed][5], have
+> their `position` data stripped off using [unist-util-remove-position][6]
+> (making them [generated nodes][7]). This is because `position` data can be
+> invalidated at any time due to it being [impossible][8] to know how later
 > plugins will manipulate the AST. Missing `position` data will not crash any
-> remark plugins that properly follow the [unist spec][16].
+> remark plugins that properly follow the [unist spec][9].
 
 And running the following JavaScript:
 
@@ -277,18 +277,18 @@ interface Hidden extends Node {
 }
 ```
 
-**Hidden ([Node][16])** represents an abstract interface in mdast containing
-[mdast content][18] that is hidden (and thus protected) from other
-[transformers][19].
+**Hidden ([Node][9])** represents an abstract interface in mdast containing
+[mdast content][10] that is hidden (and thus protected) from other
+[transformers][11].
 
-Hidden nodes are always [generated][14], cannot be serialized [to markdown][20],
-and cannot be derived [from markdown][21] directly.
+Hidden nodes are always [generated][7], cannot be serialized [to markdown][12],
+and cannot be derived [from markdown][13] directly.
 
 ## Related
 
 - [remark-ignore][3]
 - [remark-renumber-references][4]
-- [rehype-ignore][22]
+- [rehype-ignore][14]
 
 ## Contributing and Support
 
@@ -304,57 +304,57 @@ information.
 <!-- TODO: all-contributors here -->
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
-[link-blm]: https://xunn.at/donate-blm
-[badge-maintenance]:
-  https://img.shields.io/maintenance/active/2022
-  'Is this package maintained?'
-[link-repo]:
-  https://github.com/xunnamius/unified-utils/blob/main/packages/mdast-util-hidden
-[badge-last-commit]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils
-  'Latest commit timestamp'
-[badge-issues]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils
-  'Open issues'
-[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[badge-pulls]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
-  'Open pull requests'
-[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
 [badge-codecov]:
   https://codecov.io/gh/Xunnamius/unified-utils/branch/main/graph/badge.svg?token=HWRIOBAAPW
   'Is this package well-tested?'
-[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[badge-issues]:
+  https://img.shields.io/github/issues/Xunnamius/unified-utils
+  'Open issues'
+[badge-last-commit]:
+  https://img.shields.io/github/last-commit/xunnamius/unified-utils
+  'Latest commit timestamp'
 [badge-license]:
   https://img.shields.io/npm/l/mdast-util-hidden
   "This package's source license"
-[link-license]:
-  https://github.com/Xunnamius/unified-utils/blob/main/packages/mdast-util-hidden/LICENSE
+[badge-maintenance]:
+  https://img.shields.io/maintenance/active/2022
+  'Is this package maintained?'
 [badge-npm]:
   https://api.ergodark.com/badges/npm-pkg-version/mdast-util-hidden
   'Install this package using npm or yarn!'
-[link-npm]: https://www.npmjs.com/package/mdast-util-hidden
+[badge-pulls]:
+  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
+  'Open pull requests'
 [badge-semantic-release]:
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
-[link-semantic-release]: https://github.com/semantic-release/semantic-release
-[docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
-[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
+[docs]: docs
+[link-blm]: https://xunn.at/donate-blm
+[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
+[link-license]:
+  https://github.com/Xunnamius/unified-utils/blob/main/packages/mdast-util-hidden/LICENSE
+[link-npm]: https://www.npmjs.com/package/mdast-util-hidden
+[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
+[link-repo]:
+  https://github.com/xunnamius/unified-utils/blob/main/packages/mdast-util-hidden
+[link-semantic-release]: https://github.com/semantic-release/semantic-release
+[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [support]: /.github/SUPPORT.md
 [1]: https://github.com/syntax-tree/mdast
 [2]: #hidden
 [3]: https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
 [4]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references
-[7]: #api
-[13]: https://github.com/syntax-tree/unist-util-remove-position
-[14]: https://github.com/syntax-tree/unist#generated
-[15]: https://github.com/remarkjs/remark-gfm/issues/16#issuecomment-841200438
-[16]: https://github.com/syntax-tree/unist#node
-[18]: https://github.com/syntax-tree/mdast#content-model
-[19]: https://github.com/unifiedjs/unified#function-transformertree-file-next
-[20]: https://github.com/syntax-tree/mdast-util-to-markdown
-[21]: https://github.com/syntax-tree/mdast-util-from-markdown
-[22]: https://npm.im/rehype-ignore
+[5]: #api
+[6]: https://github.com/syntax-tree/unist-util-remove-position
+[7]: https://github.com/syntax-tree/unist#generated
+[8]: https://github.com/remarkjs/remark-gfm/issues/16#issuecomment-841200438
+[9]: https://github.com/syntax-tree/unist#node
+[10]: https://github.com/syntax-tree/mdast#content-model
+[11]: https://github.com/unifiedjs/unified#function-transformertree-file-next
+[12]: https://github.com/syntax-tree/mdast-util-to-markdown
+[13]: https://github.com/syntax-tree/mdast-util-from-markdown
+[14]: https://npm.im/rehype-ignore

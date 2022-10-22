@@ -75,23 +75,23 @@ likelihood your PR passes review:
 
 At this point, you're ready to create your PR and ✨ contribute ✨!
 
-[how-to-contribute]: https://www.dataschool.io/how-to-contribute-on-github
-[code-of-conduct]: /.github/CODE_OF_CONDUCT.md
-[github-actions]: https://github.com/features/actions
-[husky-cl]: https://github.com/Xunnamius/unified-utils/tree/main/.husky
-[gha-ci]: .github/workflows/build-test.yml
-[projector]: https://github.com/Xunnamius/unified-utils#readme
-[pkg-debug]: https://www.npmjs.com/package/debug
-[pkg-debug-wildcards]: https://www.npmjs.com/package/debug#wildcards
-[fork]: https://github.com/Xunnamius/unified-utils/fork
-[how-to-clone]:
-  https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
-[npm-ci]: https://docs.npmjs.com/cli/v6/commands/npm-ci
-[pr-compare]: https://github.com/Xunnamius/unified-utils/compare
-[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
-[open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
 [atomic-commits]: https://www.codewithjason.com/atomic-commits-testing/
+[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
+[code-of-conduct]: /.github/CODE_OF_CONDUCT.md
 [codecov]: https://about.codecov.io/
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/#summary
 [cosmetic-commits]:
   https://github.com/rails/rails/pull/13771#issuecomment-32746700
+[fork]: https://github.com/Xunnamius/unified-utils/fork
+[gha-ci]: .github/workflows/build-test.yml
+[github-actions]: https://github.com/features/actions
+[how-to-clone]:
+  https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
+[how-to-contribute]: https://www.dataschool.io/how-to-contribute-on-github
+[husky-cl]: https://github.com/Xunnamius/unified-utils/tree/main/.husky
+[npm-ci]: https://docs.npmjs.com/cli/v6/commands/npm-ci
+[open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
+[pkg-debug]: https://www.npmjs.com/package/debug
+[pkg-debug-wildcards]: https://www.npmjs.com/package/debug#wildcards
+[pr-compare]: https://github.com/Xunnamius/unified-utils/compare
+[projector]: https://github.com/Xunnamius/unified-utils#readme

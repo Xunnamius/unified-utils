@@ -16,21 +16,21 @@
 
 # remark-ignore
 
-This is a [unified][23] ([remark][24]) plugin that allows you to specify one or
+This is a [unified][1] ([remark][2]) plugin that allows you to specify one or
 more sections of a Markdown file that should not be transformed or linted by
 remark.
 
 This plugin is to remark what [`<!-- prettier-ignore -->`,
 `<!-- prettier-ignore-start -->`, and `<!-- prettier-ignore-end -->` are to
-Prettier][10]. In effect, remark-ignore is a more generic version of
-[remark-lint's `<!-- lint disable -->`][11].
+Prettier][3]. In effect, remark-ignore is a more generic version of
+[remark-lint's `<!-- lint disable -->`][4].
 
 This plugin is useful for preventing the transformation of auto-generated
-content, e.g. [all-contributors][12], [doctoc][1], etc. You might also be
-interested in [remark-tight-comments][26], which removes unnecessary newlines
+content, e.g. [all-contributors][5], [doctoc][6], etc. You might also be
+interested in [remark-tight-comments][7], which removes unnecessary newlines
 that remark inserts between/around Markdown comments by default. For a live
 example of these two plugins in action, check the source of [this very README.md
-file][25]. ✨
+file][8]. ✨
 
 ---
 
@@ -42,8 +42,8 @@ file][25]. ✨
 - [Install](#install)
 - [Usage](#usage)
   - [Via API](#via-api)
-  - [Via remark-cli](#via-remark-cli)
-  - [Via unified configuration](#via-unified-configuration)
+  - [Via \[remark-cli\]\[19\]](#via-remark-cli19)
+  - [Via \[unified configuration\]\[20\]](#via-unified-configuration20)
 - [API](#api)
 - [Examples](#examples)
 - [Related](#related)
@@ -105,7 +105,7 @@ const file = await remark()
 console.log(String(file));
 ```
 
-This is useful when dealing with plugins that call [`use`][11] internally, which
+This is useful when dealing with plugins that call [`use`][4] internally, which
 might interfere with remark-ignore's default export (`remarkIgnore` in the above
 examples) which itself calls `use(ignoreEnd)` internally, or if you want plugins
 used before `ignoreStart` and/or after `ignoreEnd` to transform
@@ -113,7 +113,7 @@ otherwise-"ignored" nodes.
 
 <!-- remark-ignore -->
 
-### Via [remark-cli](https://github.com/remarkjs/remark/tree/main/packages/remark-cli)
+### Via \[remark-cli]\[19]
 
 ```shell
 remark -o --use ignore README.md
@@ -127,7 +127,7 @@ remark -o --use ignore/start --use … --use ignore/end README.md
 
 <!-- remark-ignore -->
 
-### Via [unified configuration](https://github.com/unifiedjs/unified-engine/blob/main/doc/configure.md)
+### Via \[unified configuration]\[20]
 
 In `package.json`:
 
@@ -301,13 +301,13 @@ Then running that same JavaScript would output:
 
 ## Related
 
-- [remark-tight-comments][26] — remove unnecessary newlines around comments
-- [remark-comments][18] — new syntax to ignore things
-- [remark-message-control][20] — enable, disable, and ignore messages using
+- [remark-tight-comments][7] — remove unnecessary newlines around comments
+- [remark-comments][9] — new syntax to ignore things
+- [remark-message-control][10] — enable, disable, and ignore messages using
   comments
-- [mdast-util-hidden][27] — prevent nodes from being seen by [transformers][28]
-- [mdast-comment-marker][21] — parse a comment marker in mdast
-- [mdast-zone][22] — treat HTML comments as ranges or markers in mdast
+- [mdast-util-hidden][11] — prevent nodes from being seen by [transformers][12]
+- [mdast-comment-marker][13] — parse a comment marker in mdast
+- [mdast-zone][14] — treat HTML comments as ranges or markers in mdast
 
 ## Contributing and Support
 
@@ -323,58 +323,58 @@ information.
 <!-- TODO: all-contributors here -->
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
-[link-blm]: https://xunn.at/donate-blm
-[badge-maintenance]:
-  https://img.shields.io/maintenance/active/2022
-  'Is this package maintained?'
-[link-repo]:
-  https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
-[badge-last-commit]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils
-  'Latest commit timestamp'
-[badge-issues]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils
-  'Open issues'
-[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[badge-pulls]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
-  'Open pull requests'
-[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
 [badge-codecov]:
   https://codecov.io/gh/Xunnamius/unified-utils/branch/main/graph/badge.svg?token=HWRIOBAAPW
   'Is this package well-tested?'
-[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[badge-issues]:
+  https://img.shields.io/github/issues/Xunnamius/unified-utils
+  'Open issues'
+[badge-last-commit]:
+  https://img.shields.io/github/last-commit/xunnamius/unified-utils
+  'Latest commit timestamp'
 [badge-license]:
   https://img.shields.io/npm/l/remark-ignore
   "This package's source license"
-[link-license]:
-  https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-ignore/LICENSE
+[badge-maintenance]:
+  https://img.shields.io/maintenance/active/2022
+  'Is this package maintained?'
 [badge-npm]:
   https://api.ergodark.com/badges/npm-pkg-version/remark-ignore
   'Install this package using npm or yarn!'
-[link-npm]: https://www.npmjs.com/package/remark-ignore
+[badge-pulls]:
+  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
+  'Open pull requests'
 [badge-semantic-release]:
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
-[link-semantic-release]: https://github.com/semantic-release/semantic-release
-[docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
-[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
+[docs]: docs
+[link-blm]: https://xunn.at/donate-blm
+[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
+[link-license]:
+  https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-ignore/LICENSE
+[link-npm]: https://www.npmjs.com/package/remark-ignore
+[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
+[link-repo]:
+  https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
+[link-semantic-release]: https://github.com/semantic-release/semantic-release
+[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [support]: /.github/SUPPORT.md
-[1]: https://github.com/thlorenz/doctoc
-[10]: https://prettier.io/docs/en/ignore.html#javascript
-[11]: https://github.com/unifiedjs/unified#processoruseplugin-options
-[12]: https://github.com/all-contributors/all-contributors
-[18]:
-  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-comments#readme
-[20]: https://github.com/remarkjs/remark-message-control
-[21]: https://github.com/syntax-tree/mdast-comment-marker
-[22]: https://github.com/syntax-tree/mdast-zone
-[23]: https://github.com/unifiedjs/unified
-[24]: https://github.com/remarkjs/remark
-[25]:
+[1]: https://github.com/unifiedjs/unified
+[2]: https://github.com/remarkjs/remark
+[3]: https://prettier.io/docs/en/ignore.html#javascript
+[4]: https://github.com/unifiedjs/unified#processoruseplugin-options
+[5]: https://github.com/all-contributors/all-contributors
+[6]: https://github.com/thlorenz/doctoc
+[7]: /packages/remark-tight-comments
+[8]:
   https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-ignore/README.md
-[26]: /packages/remark-tight-comments
-[27]: /packages/mdast-util-hidden
-[28]: https://github.com/unifiedjs/unified#overview
+[9]:
+  https://github.com/zestedesavoir/zmarkdown/tree/HEAD/packages/remark-comments#readme
+[10]: https://github.com/remarkjs/remark-message-control
+[11]: /packages/mdast-util-hidden
+[12]: https://github.com/unifiedjs/unified#overview
+[13]: https://github.com/syntax-tree/mdast-comment-marker
+[14]: https://github.com/syntax-tree/mdast-zone

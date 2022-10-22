@@ -16,19 +16,19 @@
 
 # remark-renumber-references
 
-This is a [unified][23] ([remark][24]) plugin that renumbers numeric
+This is a [unified][1] ([remark][2]) plugin that renumbers numeric
 reference-style link ids contiguously starting from `[1]` and counting up. Also
-plays nicely with [GFM footnotes][6] (by completely ignoring them).
+plays nicely with [GFM footnotes][3] (by completely ignoring them).
 
 After running this plugin, _all definitions_, both numeric and alphanumeric,
 will always be placed at the very bottom of the document.
 
-**This plugin is a drop-in replacement for [remark-reference-links][2].** If you
+**This plugin is a drop-in replacement for [remark-reference-links][4].** If you
 want to preserve some inline links (e.g. for generated content), check out
-[remark-ignore][7]. You might also be interested in
-[remark-sort-definitions][3], which will logically reorder the reference
+[remark-ignore][5]. You might also be interested in
+[remark-sort-definitions][6], which will logically reorder the reference
 definitions at the bottom of your document. For a live example of these plugins
-in action, check the source of [this very README.md file][25]. ✨
+in action, check the source of [this very README.md file][7]. ✨
 
 ---
 
@@ -183,7 +183,7 @@ const file = await remark()
 console.log(String(file));
 ```
 
-Would output the following (assuming remark is [configured][4] for tight
+Would output the following (assuming remark is [configured][8] for tight
 references, dash bullets, and singular list item indents):
 
 ```markdown
@@ -214,13 +214,13 @@ This [package][1] is [more than][2nd-half-idiom] meets the eye.
 ```
 
 Later on, we rewrite sections of `example.md` and remove others (using
-[remark-remove-unused-definitions][5] to clear out the unused reference
+[remark-remove-unused-definitions][9] to clear out the unused reference
 definitions).
 
 > Note that, while a side-effect of running this plugin is that unused numeric
 > reference definitions are removed during renumbering, this behavior is not
 > guaranteed and hence should not be relied upon. To ensure all unused reference
-> definitions are always removed, use [remark-remove-unused-definitions][5] >
+> definitions are always removed, use [remark-remove-unused-definitions][9] >
 > _before_ this plugin.
 
 Rerunning the above JavaScript leaves us with the following output:
@@ -329,16 +329,16 @@ Now all the numeric reference ids flow through the document in ascending order
 starting from `[1]`. Nice!
 
 Finally, notice how those reference definitions at the end (specifically the
-alphanumeric ids) are unordered. Luckily, there exists [a remark plugin][3] that
+alphanumeric ids) are unordered. Luckily, there exists [a remark plugin][6] that
 will sort all your definitions in whatever order you choose.
 
 ## Related
 
-- [remark-reference-links][2] — transform inline links into reference-style
+- [remark-reference-links][4] — transform inline links into reference-style
   links
-- [remark-sort-definitions][3] — logically reorder reference definitions at the
+- [remark-sort-definitions][6] — logically reorder reference definitions at the
   bottom of your document
-- [remark-remove-unused-definitions][5] — remove unused reference definitions
+- [remark-remove-unused-definitions][9] — remove unused reference definitions
 
 ## Contributing and Support
 
@@ -354,58 +354,52 @@ information.
 <!-- TODO: all-contributors here -->
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
-[link-blm]: https://xunn.at/donate-blm
-[badge-maintenance]:
-  https://img.shields.io/maintenance/active/2022
-  'Is this package maintained?'
-[link-repo]:
-  https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references
-[badge-last-commit]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils
-  'Latest commit timestamp'
-[badge-issues]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils
-  'Open issues'
-[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[badge-pulls]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
-  'Open pull requests'
-[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
 [badge-codecov]:
   https://codecov.io/gh/Xunnamius/unified-utils/branch/main/graph/badge.svg?token=HWRIOBAAPW
   'Is this package well-tested?'
-[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[badge-issues]:
+  https://img.shields.io/github/issues/Xunnamius/unified-utils
+  'Open issues'
+[badge-last-commit]:
+  https://img.shields.io/github/last-commit/xunnamius/unified-utils
+  'Latest commit timestamp'
 [badge-license]:
   https://img.shields.io/npm/l/remark-renumber-references
   "This package's source license"
-[link-license]:
-  https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-renumber-references/LICENSE
+[badge-maintenance]:
+  https://img.shields.io/maintenance/active/2022
+  'Is this package maintained?'
 [badge-npm]:
   https://api.ergodark.com/badges/npm-pkg-version/remark-renumber-references
   'Install this package using npm or yarn!'
-[link-npm]: https://www.npmjs.com/package/remark-renumber-references
+[badge-pulls]:
+  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
+  'Open pull requests'
 [badge-semantic-release]:
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
-[link-semantic-release]: https://github.com/semantic-release/semantic-release
-[docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
-[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
+[docs]: docs
+[link-blm]: https://xunn.at/donate-blm
+[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
+[link-license]:
+  https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-renumber-references/LICENSE
+[link-npm]: https://www.npmjs.com/package/remark-renumber-references
+[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
+[link-repo]:
+  https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references
+[link-semantic-release]: https://github.com/semantic-release/semantic-release
+[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [support]: /.github/SUPPORT.md
-[1]: https://github.com/thlorenz/doctoc
-[12]: https://github.com/all-contributors/all-contributors
-[23]: https://github.com/unifiedjs/unified
-[24]: https://github.com/remarkjs/remark
-[25]:
+[1]: https://github.com/unifiedjs/unified
+[2]: https://github.com/remarkjs/remark
+[3]: https://github.com/remarkjs/remark-gfm#what-is-this
+[4]: https://github.com/remarkjs/remark-reference-links
+[5]: /packages/remark-ignore/
+[6]: /packages/remark-sort-definitions
+[7]:
   https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-renumber-references/README.md
-[26]: /packages/remark-ignore
-[27]: /packages/mdast-util-renumber-references/README.md#usage
-[28]: https://github.com/unifiedjs/unified#overview
-[29]: /packages/mdast-util-renumber-references
-[2]: https://github.com/remarkjs/remark-reference-links
-[3]: /packages/remark-sort-definitions
-[4]: /.remarkrc.mjs
-[5]: /packages/remark-remove-unused-definitions
-[6]: https://github.com/remarkjs/remark-gfm#what-is-this
-[7]: /packages/remark-ignore/
+[8]: /.remarkrc.mjs
+[9]: /packages/remark-remove-unused-definitions

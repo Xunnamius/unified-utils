@@ -45,16 +45,16 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
   guidelines
 - Issues that go for an extended period without activity are subject to closure
 
-[badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/unified-utils.svg
-  'Average time to resolve an issue'
-[link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/unified-utils
 [badge-issue-percentage]:
   https://isitmaintained.com/badge/open/Xunnamius/unified-utils.svg
   'Open issues as a percentage of all issues'
-[link-issue-percentage]: https://github.com/Xunnamius/unified-utils/issues?q=
-[open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
+[badge-issue-resolution]:
+  https://isitmaintained.com/badge/resolution/Xunnamius/unified-utils.svg
+  'Average time to resolve an issue'
+[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
-[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
+[link-issue-percentage]: https://github.com/Xunnamius/unified-utils/issues?q=
+[link-issue-resolution]:
+  https://isitmaintained.com/project/Xunnamius/unified-utils
+[open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=

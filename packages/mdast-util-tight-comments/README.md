@@ -16,12 +16,12 @@
 
 # mdast-util-tight-comments
 
-This is a small [mdast][1] utility that extends [mdast-util-to-markdown][26]
+This is a small [mdast][1] utility that extends [mdast-util-to-markdown][2]
 allowing for the selective removal of newlines around certain mdast comment
 nodes.
 
-This is a low level project used by [remark-tight-comments][27], which is a
-companion package to [remark-ignore][28].
+This is a low level project used by [remark-tight-comments][3], which is a
+companion package to [remark-ignore][4].
 
 ---
 
@@ -81,7 +81,7 @@ Suppose we have the following Markdown file `example.md`:
 
 Notice how the `<!-- START doctoc…` and `<!-- DON'T EDIT…` comments are
 _tightly_ positioned such that there is no newline between them. This is
-required by [doctoc][29].
+required by [doctoc][5].
 
 Now, running the following JavaScript:
 
@@ -97,7 +97,7 @@ const tree = unified().use(remarkParse).parse(doc);
 console.log(toMarkdown(tree));
 ```
 
-Would output the following (assuming remark is [configured][30] for dash bullets
+Would output the following (assuming remark is [configured][6] for dash bullets
 and singular list item indents):
 
 ```Markdown
@@ -231,7 +231,7 @@ Detailed interface information can be found under [`docs/`][docs].
 
 ## Related
 
-- [remark-tight-comments][31] — remove unnecessary newlines around comments
+- [remark-tight-comments][7] — remove unnecessary newlines around comments
 
 ## Contributing and Support
 
@@ -247,52 +247,50 @@ information.
 <!-- TODO: all-contributors here -->
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
-[link-blm]: https://xunn.at/donate-blm
-[badge-maintenance]:
-  https://img.shields.io/maintenance/active/2022
-  'Is this package maintained?'
-[link-repo]:
-  https://github.com/xunnamius/unified-utils/blob/main/packages/mdast-util-tight-comments
-[badge-last-commit]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils
-  'Latest commit timestamp'
-[badge-issues]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils
-  'Open issues'
-[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[badge-pulls]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
-  'Open pull requests'
-[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
 [badge-codecov]:
   https://codecov.io/gh/Xunnamius/unified-utils/branch/main/graph/badge.svg?token=HWRIOBAAPW
   'Is this package well-tested?'
-[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[badge-issues]:
+  https://img.shields.io/github/issues/Xunnamius/unified-utils
+  'Open issues'
+[badge-last-commit]:
+  https://img.shields.io/github/last-commit/xunnamius/unified-utils
+  'Latest commit timestamp'
 [badge-license]:
   https://img.shields.io/npm/l/mdast-util-tight-comments
   "This package's source license"
-[link-license]:
-  https://github.com/Xunnamius/unified-utils/blob/main/packages/mdast-util-tight-comments/LICENSE
+[badge-maintenance]:
+  https://img.shields.io/maintenance/active/2022
+  'Is this package maintained?'
 [badge-npm]:
   https://api.ergodark.com/badges/npm-pkg-version/mdast-util-tight-comments
   'Install this package using npm or yarn!'
-[link-npm]: https://www.npmjs.com/package/mdast-util-tight-comments
+[badge-pulls]:
+  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
+  'Open pull requests'
 [badge-semantic-release]:
   https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
   'This repo practices continuous integration and deployment!'
-[link-semantic-release]: https://github.com/semantic-release/semantic-release
-[docs]: docs
 [choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
-[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [contributing]: /CONTRIBUTING.md
+[docs]: docs
+[link-blm]: https://xunn.at/donate-blm
+[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
+[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
+[link-license]:
+  https://github.com/Xunnamius/unified-utils/blob/main/packages/mdast-util-tight-comments/LICENSE
+[link-npm]: https://www.npmjs.com/package/mdast-util-tight-comments
+[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
+[link-repo]:
+  https://github.com/xunnamius/unified-utils/blob/main/packages/mdast-util-tight-comments
+[link-semantic-release]: https://github.com/semantic-release/semantic-release
+[pr-compare]: https://github.com/xunnamius/unified-utils/compare
 [support]: /.github/SUPPORT.md
 [1]: https://github.com/thlorenz/doctoc
-[26]: https://github.com/syntax-tree/mdast-util-to-markdown
-[27]:
+[2]: https://github.com/syntax-tree/mdast-util-to-markdown
+[3]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-tight-comments
-[28]:
-  https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
-[29]:
-  https://github.com/thlorenz/doctoc#update-existing-doctoc-tocs-effortlessly
-[30]: /.remarkrc.mjs
-[31]: /packages/remark-tight-comments
+[4]: https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
+[5]: https://github.com/thlorenz/doctoc#update-existing-doctoc-tocs-effortlessly
+[6]: /.remarkrc.mjs
+[7]: /packages/remark-tight-comments
