@@ -34,7 +34,15 @@ const lintConfig = {
  * @type {Config}
  */
 const formatConfig = {
-  plugins: ['ignore', 'gfm', 'frontmatter', 'reference-links', 'tight-comments']
+  plugins: [
+    'ignore',
+    'gfm',
+    'frontmatter',
+    'remove-unused-definitions',
+    'renumber-references',
+    'sort-definitions',
+    'tight-comments'
+  ]
 };
 
 if (!['lint', 'format'].includes(process.env.NODE_ENV)) {
