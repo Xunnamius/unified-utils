@@ -1,4 +1,4 @@
-import { readFileSync as readToString } from 'fs';
+import { readFileSync as readToString } from 'node:fs';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import { toMarkdown, type Options } from 'mdast-util-to-markdown';

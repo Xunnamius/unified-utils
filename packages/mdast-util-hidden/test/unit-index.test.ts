@@ -148,7 +148,7 @@ describe('::visitAndReveal', () => {
 
     let calledOutsideVisitor = false;
     let confirmCalled = false;
-    let expectedRetVal: unknown = [SKIP, index];
+    let expectedReturnValue: unknown = [SKIP, index];
 
     jest.spyOn(unistUtilVisit, 'visit').mockImplementation(((
       _tree,
@@ -157,7 +157,9 @@ describe('::visitAndReveal', () => {
       _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(visitor?.(node as any, index, parent as any)).toStrictEqual(expectedRetVal);
+      expect(visitor?.(node as any, index, parent as any)).toStrictEqual(
+        expectedReturnValue
+      );
       confirmCalled = true;
     }) as typeof visit);
 
@@ -181,7 +183,7 @@ describe('::visitAndReveal', () => {
 
     confirmCalled = false;
     calledOutsideVisitor = false;
-    expectedRetVal = 0;
+    expectedReturnValue = 0;
 
     visitAndReveal({
       tree: getInitialAst(),
@@ -195,7 +197,7 @@ describe('::visitAndReveal', () => {
 
     confirmCalled = false;
     calledOutsideVisitor = false;
-    expectedRetVal = [CONTINUE, 5];
+    expectedReturnValue = [CONTINUE, 5];
 
     visitAndReveal({
       tree: getInitialAst(),

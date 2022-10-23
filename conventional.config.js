@@ -1,10 +1,10 @@
 'use strict';
 
-const { readdirSync } = require('fs');
+const { readdirSync } = require('node:fs');
 
 const cwd = process.cwd();
-const pkgName = require(`${cwd}/package.json`).name;
-const debug = require('debug')(`${pkgName}:conventional-config`);
+const packageName = require(`${cwd}/package.json`).name;
+const debug = require('debug')(`${packageName}:conventional-config`);
 // TODO: break off this code into separate monorepo tooling (along with other)
 const pathParts = cwd.replace(`${__dirname}/`, '').split('/');
 
@@ -17,11 +17,6 @@ if (pathParts.length < 2 || pathParts[0] != 'packages') {
 const pkgBasename = pathParts[1];
 debug('target package: %O', pkgBasename);
 
-const getExcludedDirs = (source, except) =>
-  readdirSync(source, { withFileTypes: true })
-    .filter((dirent) => dirent.isDirectory() && dirent.name != except)
-    .map((dirent) => `:(exclude)${source}/${dirent.name}`);
-
 module.exports = require('@xunnamius/conventional-changelog-projector')({
   options: {
     // * Projector's monorepo tools follow basic lerna conventions
@@ -30,6 +25,12 @@ module.exports = require('@xunnamius/conventional-changelog-projector')({
   gitRawCommitsOpts: {
     // ? Used to ignore changes in other packages
     // ? See: https://github.com/sindresorhus/dargs#usage
-    '--': getExcludedDirs('..', pkgBasename)
+    '--': getExcludedDirectories('..', pkgBasename)
   }
 });
+
+function getExcludedDirectories(source, except) {
+  return readdirSync(source, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory() && dirent.name != except)
+    .map((dirent) => `:(exclude)${source}/${dirent.name}`);
+}

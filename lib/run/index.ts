@@ -40,7 +40,6 @@ export async function run(file: string, args?: string[], options?: RunOptions) {
 
   result.code = result.exitCode;
   debug('execution result: %O', result);
-
   return result;
 }
 

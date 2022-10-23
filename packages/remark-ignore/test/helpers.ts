@@ -1,4 +1,4 @@
-import { readFileSync as readToString } from 'fs';
+import { readFileSync as readToString } from 'node:fs';
 import { read as readToVFile } from 'to-vfile';
 
 export function getFixtureVFile(fixture: string) {

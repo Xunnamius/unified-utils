@@ -5,43 +5,63 @@
  */
 
 /**
- * Remark configuration loaded when `NODE_ENV == 'lint'`.
+ * Remark configuration loaded when `NODE_ENV == 'lint'`. The goal here is to
+ * check for things that will not be corrected by prettier or remark during a
+ * formatting pass (see below).
  *
  * @type {Config}
  */
 const lintConfig = {
   plugins: [
-    'gfm',
+    'ignore',
     'frontmatter',
-    'lint-final-newline',
-    'lint-no-auto-link-without-protocol',
-    'lint-no-blockquote-without-marker',
-    'lint-ordered-list-marker-style',
-    'lint-hard-break-spaces',
-    'lint-no-duplicate-definitions',
-    'lint-no-heading-content-indent',
+    'gfm',
+    'lint-definition-case',
+    ['lint-fenced-code-flag', { case: 'lower' }],
+    'lint-file-extension',
+    'lint-first-heading-level',
+    'lint-heading-increment',
+    'lint-heading-whitespace',
+    'lint-no-duplicate-defined-urls',
+    'lint-no-duplicate-headings-in-section',
+    'lint-no-empty-sections',
+    'lint-no-empty-url',
+    'lint-no-heading-like-paragraph',
+    'lint-no-heading-punctuation',
     'lint-no-inline-padding',
+    'lint-no-literal-urls',
+    'lint-no-multiple-toplevel-headings',
+    'lint-no-reference-like-url',
+    'lint-no-shell-dollars',
+    'lint-no-shortcut-reference-image',
+    'lint-no-shortcut-reference-link',
+    'lint-no-tabs',
     'lint-no-undefined-references',
-    'lint-no-unused-definitions',
-    'lint-no-undefined-references',
+    'lint-no-url-trailing-slash',
+    'lint-ordered-list-marker-value',
+    ['lint-strikethrough-marker', '~~'],
+    // ? Prettier will reformat list markers UNLESS they precede checkboxes
+    ['lint-unordered-list-marker-style', '-'],
     'validate-links'
   ]
 };
 
 /**
- * Remark configuration loaded when `NODE_ENV == 'format'`.
+ * Remark configuration loaded when `NODE_ENV == 'format'`. The goal here is to
+ * correct things that will not be taken care of by prettier.
  *
  * @type {Config}
  */
 const formatConfig = {
   plugins: [
     'ignore',
-    'gfm',
     'frontmatter',
+    'gfm',
+    'tight-comments',
+    'remark-capitalize',
     'remove-unused-definitions',
     'renumber-references',
-    'sort-definitions',
-    'tight-comments'
+    'sort-definitions'
   ]
 };
 

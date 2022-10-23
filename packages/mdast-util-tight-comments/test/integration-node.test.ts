@@ -58,11 +58,11 @@ it('works as an ESM import', async () => {
   expect.hasAssertions();
 
   await withMockedFixture(
-    async (ctx) => {
-      assert(ctx.testResult, 'must use node-import-test fixture');
-      expect(ctx.testResult?.stderr).toBeEmpty();
-      expect(ctx.testResult?.stdout).toBe(getFixtureString('spaced-transformed'));
-      expect(ctx.testResult?.code).toBe(0);
+    async (context) => {
+      assert(context.testResult, 'must use node-import-test fixture');
+      expect(context.testResult?.stderr).toBeEmpty();
+      expect(context.testResult?.stdout).toBe(getFixtureString('spaced-transformed'));
+      expect(context.testResult?.code).toBe(0);
     },
     {
       initialFileContents: {

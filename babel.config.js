@@ -1,13 +1,13 @@
-'use strict';
 // * Every now and then, we adopt best practices from CRA
 // * https://tinyurl.com/yakv4ggx
+'use strict';
 
 // ? https://nodejs.org/en/about/releases
 const NODE_LTS = 'maintained node versions';
-const pkgName = require('./package.json').name;
-const debug = require('debug')(`${pkgName}:babel-config`);
+const packageName = require('./package.json').name;
+const debug = require('debug')(`${packageName}:babel-config`);
 
-const generateProductionEsmConfigObject = (mutateConfigFn) => {
+const generateProductionEsmConfigObject = (mutateConfigFunction) => {
   const config = {
     presets: [
       [
@@ -35,8 +35,8 @@ const generateProductionEsmConfigObject = (mutateConfigFn) => {
     ]
   };
 
-  if (mutateConfigFn) {
-    mutateConfigFn(config);
+  if (mutateConfigFunction) {
+    mutateConfigFunction(config);
   }
 
   return config;

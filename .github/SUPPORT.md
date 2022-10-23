@@ -1,4 +1,4 @@
-# Support [![Average time to resolve an issue][badge-issue-resolution]][link-issue-resolution] [![Percentage of issues still open][badge-issue-percentage]][link-issue-percentage]
+# Support[![Average time to resolve an issue][badge-issue-resolution]][link-issue-resolution][![Percentage of issues still open][badge-issue-percentage]][open-issues]
 
 Need help? Want to help this project? See below!
 
@@ -54,7 +54,6 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 [choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
-[link-issue-percentage]: https://github.com/Xunnamius/unified-utils/issues?q=
 [link-issue-resolution]:
   https://isitmaintained.com/project/Xunnamius/unified-utils
 [open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=

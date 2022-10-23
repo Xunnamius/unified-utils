@@ -56,11 +56,11 @@ describe('via api', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use node-import-test fixture');
-        expect(ctx.testResult?.stderr).toBeEmpty();
-        expect(ctx.testResult?.stdout).toBe('success');
-        expect(ctx.testResult?.code).toBe(0);
+      async (context) => {
+        assert(context.testResult, 'must use node-import-test fixture');
+        expect(context.testResult?.stderr).toBeEmpty();
+        expect(context.testResult?.stdout).toBe('success');
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
@@ -118,13 +118,13 @@ describe('via remark-cli inline configuration', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use run-test-test fixture');
-        expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(
+      async (context) => {
+        assert(context.testResult, 'must use run-test-test fixture');
+        expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult?.stdout).toBe(
           getFixtureString('ignore-range-transformed', { trim: true })
         );
-        expect(ctx.testResult?.code).toBe(0);
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: { 'README.md': getFixtureString('ignore-range') },
@@ -148,13 +148,13 @@ describe('via remark-cli inline configuration', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use run-test-test fixture');
-        expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(
+      async (context) => {
+        assert(context.testResult, 'must use run-test-test fixture');
+        expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult?.stdout).toBe(
           getFixtureString('ignore-range-2-transformed', { trim: true })
         );
-        expect(ctx.testResult?.code).toBe(0);
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: { 'README.md': getFixtureString('ignore-range-2') },
@@ -184,13 +184,13 @@ describe('via remark-cli unified configuration', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use run-test-test fixture');
-        expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(
+      async (context) => {
+        assert(context.testResult, 'must use run-test-test fixture');
+        expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult?.stdout).toBe(
           getFixtureString('ignore-range-transformed', { trim: true })
         );
-        expect(ctx.testResult?.code).toBe(0);
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
@@ -212,13 +212,13 @@ describe('via remark-cli unified configuration', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use run-test-test fixture');
-        expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(
+      async (context) => {
+        assert(context.testResult, 'must use run-test-test fixture');
+        expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult?.stdout).toBe(
           getFixtureString('ignore-range-transformed', { trim: true })
         );
-        expect(ctx.testResult?.code).toBe(0);
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
@@ -240,13 +240,13 @@ describe('via remark-cli unified configuration', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use run-test-test fixture');
-        expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(
+      async (context) => {
+        assert(context.testResult, 'must use run-test-test fixture');
+        expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult?.stdout).toBe(
           getFixtureString('ignore-range-2-transformed', { trim: true })
         );
-        expect(ctx.testResult?.code).toBe(0);
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
@@ -274,13 +274,13 @@ describe('via remark-cli unified configuration', () => {
     expect.hasAssertions();
 
     await withMockedFixture(
-      async (ctx) => {
-        assert(ctx.testResult, 'must use run-test-test fixture');
-        expect(ctx.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
-        expect(ctx.testResult?.stdout).toBe(
+      async (context) => {
+        assert(context.testResult, 'must use run-test-test fixture');
+        expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult?.stdout).toBe(
           getFixtureString('ignore-range-2-transformed', { trim: true })
         );
-        expect(ctx.testResult?.code).toBe(0);
+        expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {

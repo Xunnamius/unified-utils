@@ -14,7 +14,7 @@ const remarkTightComments: Plugin<void[], Root> = function () {
 
   function add(field: string, value: unknown) {
     const list = // ? Be cognizant of other extensions
-      (data[field] ? data[field] : (data[field] = [])) as unknown[];
+      (data[field] || (data[field] = [])) as unknown[];
 
     list.push(value);
   }

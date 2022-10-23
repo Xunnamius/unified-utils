@@ -15,7 +15,7 @@ import 'jest-extended';
 
 import type { Debugger } from 'debug';
 import type { SimpleGit } from 'simple-git';
-import type { Promisable } from 'type-fest';
+import type { PackageJson, Promisable } from 'type-fest';
 
 const { writeFile, readFile, access: accessFile } = fs;
 
@@ -132,11 +132,13 @@ export interface GitProvider {
 
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type FixtureAction<Context = FixtureContext> = (ctx: Context) => Promise<unknown>;
+export type FixtureAction<Context = FixtureContext> = (
+  context: Context
+) => Promise<unknown>;
 
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
 export type ReturnsString<Context = FixtureContext> = (
-  ctx: Context
+  context: Context
 ) => Promise<string> | string;
 
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
@@ -151,19 +153,21 @@ export interface MockFixture<Context = FixtureContext> {
 export function rootFixture(): MockFixture {
   return {
     name: 'root', // ? If first isn't named root, root used automatically
-    description: (ctx) =>
+    description: (context) =>
       `creating a unique root directory${
-        ctx.options.performCleanup ? ' (will be deleted after all tests complete)' : ''
+        context.options.performCleanup
+          ? ' (will be deleted after all tests complete)'
+          : ''
       }`,
-    setup: async (ctx) => {
+    setup: async (context) => {
       // TODO: add package-specific prefix to differentiate from other projects
-      ctx.root = uniqueFilename(tmpdir(), ctx.testIdentifier);
+      context.root = uniqueFilename(tmpdir(), context.testIdentifier);
 
-      await run('mkdir', ['-p', ctx.root], { reject: true });
-      await run('mkdir', ['-p', 'src'], { cwd: ctx.root, reject: true });
+      await run('mkdir', ['-p', context.root], { reject: true });
+      await run('mkdir', ['-p', 'src'], { cwd: context.root, reject: true });
     },
-    teardown: async (ctx) =>
-      ctx.options.performCleanup && run('rm', ['-rf', ctx.root], { reject: true })
+    teardown: async (context) =>
+      context.options.performCleanup && run('rm', ['-rf', context.root], { reject: true })
   };
 }
 
@@ -172,21 +176,25 @@ export function dummyNpmPackageFixture(): MockFixture {
   return {
     name: 'dummy-npm-package',
     description: 'creating package.json file and node_modules subdirectory',
-    setup: async (ctx) => {
+    setup: async (context) => {
       await Promise.all([
         writeFile(
-          `${ctx.root}/package.json`,
-          (ctx.fileContents['package.json'] =
-            ctx.fileContents['package.json'] || '{"name":"dummy-pkg"}')
+          `${context.root}/package.json`,
+          (context.fileContents['package.json'] =
+            context.fileContents['package.json'] || '{"name":"dummy-pkg"}')
         ),
-        run('mkdir', ['-p', 'node_modules'], { cwd: ctx.root, reject: true })
+        run('mkdir', ['-p', 'node_modules'], { cwd: context.root, reject: true })
       ]);
 
-      if ((ctx.options.pkgName || rootPkgName).includes('/')) {
-        await run('mkdir', ['-p', (ctx.options.pkgName || rootPkgName).split('/')[0]], {
-          cwd: `${ctx.root}/node_modules`,
-          reject: true
-        });
+      if ((context.options.pkgName || rootPkgName).includes('/')) {
+        await run(
+          'mkdir',
+          ['-p', (context.options.pkgName || rootPkgName).split('/')[0]],
+          {
+            cwd: `${context.root}/node_modules`,
+            reject: true
+          }
+        );
       }
     }
   };
@@ -202,16 +210,16 @@ export function npmLinkSelfFixture(): MockFixture {
     name: 'npm-link-self',
     description:
       'soft-linking project repo into node_modules to emulate package installation',
-    setup: async (ctx) => {
+    setup: async (context) => {
       await run(
         'ln',
         [
           '-s',
-          resolve(ctx.options.pkgRoot ?? `${__dirname}/..`),
-          ctx.options.pkgName || rootPkgName
+          resolve(context.options.pkgRoot ?? `${__dirname}/..`),
+          context.options.pkgName || rootPkgName
         ],
         {
-          cwd: `${ctx.root}/node_modules`,
+          cwd: `${context.root}/node_modules`,
           reject: true
         }
       );
@@ -225,11 +233,11 @@ export function npmCopySelfFixture(): MockFixture {
     name: 'npm-copy-self',
     description:
       'copying package.json#files into node_modules to emulate package installation',
-    setup: async (ctx) => {
+    setup: async (context) => {
       const projectRoot = resolve(`${__dirname}/..`);
-      const { pkgRoot } = ctx.options;
+      const { pkgName: contextPkgName, npmInstall, pkgRoot } = context.options;
 
-      // TODO: rename ctx.root to ctx.fixtureRoot
+      // TODO: rename context.root to context.fixtureRoot
 
       const patterns: string[] =
         // TODO: old comment: 👇🏿 this is bad, don't do this, fix this for monorepos 👇🏿
@@ -241,11 +249,11 @@ export function npmCopySelfFixture(): MockFixture {
         glob.sync(p, { cwd: pkgRoot, root: pkgRoot })
       );
 
-      const dest = `${ctx.root}/node_modules/${ctx.options.pkgName || rootPkgName}`;
+      const dest = `${context.root}/node_modules/${contextPkgName || rootPkgName}`;
       const destPkgJson = `${dest}/package.json`;
 
-      ctx.debug(`cp destination: ${dest}`);
-      ctx.debug(`cp sources (cwd: ${projectRoot}): %O`, files);
+      context.debug(`cp destination: ${dest}`);
+      context.debug(`cp sources (cwd: ${projectRoot}): %O`, files);
 
       await run('mkdir', ['-p', dest], { reject: true });
       await run('cp', ['-r', ...files, dest], { cwd: projectRoot, reject: true });
@@ -259,15 +267,20 @@ export function npmCopySelfFixture(): MockFixture {
         peerDependencies: _,
         devDependencies: __,
         ...dummyPkgJson
-      } = JSON.parse(await readFile(destPkgJson, 'utf-8'));
+      } = JSON.parse(await readFile(destPkgJson, 'utf8')) as PackageJson;
 
-      const installTargets = [ctx.options.npmInstall]
-        .flat()
-        .filter((r): r is string => Boolean(r))
-        .reduce<Record<string, string>>((obj, pkgStr) => {
-          const pkg = pkgStr.split('@');
-          return { ...obj, [pkg[0]]: pkg[1] || 'latest' };
-        }, dummyPkgJson.dependencies || {});
+      const installTargets = {
+        ...dummyPkgJson.dependencies,
+        ...Object.fromEntries(
+          [npmInstall]
+            .flat()
+            .filter((r): r is string => Boolean(r))
+            .map((pkgStr) => {
+              const pkg = pkgStr.split('@');
+              return [[pkg[0]], pkg[1] || 'latest'];
+            })
+        )
+      };
 
       await writeFile(
         destPkgJson,
@@ -281,29 +294,29 @@ export function npmCopySelfFixture(): MockFixture {
       });
 
       await run('mv', ['node_modules', 'node_modules_old'], {
-        cwd: ctx.root,
+        cwd: context.root,
         reject: true
       });
 
       await run(
         'mv',
-        [`node_modules_old/${ctx.options.pkgName || rootPkgName}/node_modules`, '.'],
+        [`node_modules_old/${contextPkgName || rootPkgName}/node_modules`, '.'],
         {
-          cwd: ctx.root,
+          cwd: context.root,
           reject: true
         }
       );
 
       await run(
         'mv',
-        [`node_modules_old/${ctx.options.pkgName || rootPkgName}`, 'node_modules'],
+        [`node_modules_old/${contextPkgName || rootPkgName}`, 'node_modules'],
         {
-          cwd: ctx.root,
+          cwd: context.root,
           reject: true
         }
       );
 
-      await run('rm', ['-rf', 'node_modules_old'], { cwd: ctx.root, reject: true });
+      await run('rm', ['-rf', 'node_modules_old'], { cwd: context.root, reject: true });
     }
   };
 }
@@ -313,43 +326,53 @@ export function webpackTestFixture(): MockFixture {
   return {
     name: 'webpack-test',
     description: 'setting up webpack jest integration test',
-    setup: async (ctx) => {
+    setup: async (context) => {
       assert(
-        typeof ctx.options.webpackVersion == 'string',
+        typeof context.options.webpackVersion == 'string',
         'invalid or missing options.webpackVersion, expected string'
       );
 
-      const indexPath = Object.keys(ctx.fileContents).find((path) =>
+      const indexPath = Object.keys(context.fileContents).find((path) =>
         /^src\/index\.(((c|m)?js)|ts)x?$/.test(path)
       );
 
       assert(indexPath, 'could not find initial contents for src/index file');
       assert(
-        ctx.fileContents['webpack.config.js'],
+        context.fileContents['webpack.config.js'],
         'could not find initial contents for webpack.config.js file'
       );
 
       await Promise.all([
-        writeFile(`${ctx.root}/${indexPath}`, ctx.fileContents[indexPath]),
-        writeFile(`${ctx.root}/webpack.config.js`, ctx.fileContents['webpack.config.js'])
+        writeFile(`${context.root}/${indexPath}`, context.fileContents[indexPath]),
+        writeFile(
+          `${context.root}/webpack.config.js`,
+          context.fileContents['webpack.config.js']
+        )
       ]);
 
-      ctx.treeOutput = await getTreeOutput(ctx);
+      context.treeOutput = await getTreeOutput(context);
 
       await run(
         'npm',
-        ['install', '--no-save', `webpack@${ctx.options.webpackVersion}`, 'webpack-cli'],
+        [
+          'install',
+          '--no-save',
+          `webpack@${context.options.webpackVersion}`,
+          'webpack-cli'
+        ],
         {
-          cwd: ctx.root,
+          cwd: context.root,
           reject: true
         }
       );
 
-      await run('npx', ['webpack'], { cwd: ctx.root, reject: true });
+      await run('npx', ['webpack'], { cwd: context.root, reject: true });
 
-      const { code, stdout, stderr } = await run('node', [`${ctx.root}/dist/index.js`]);
+      const { code, stdout, stderr } = await run('node', [
+        `${context.root}/dist/index.js`
+      ]);
 
-      ctx.testResult = {
+      context.testResult = {
         code,
         stdout,
         stderr
@@ -358,8 +381,8 @@ export function webpackTestFixture(): MockFixture {
   };
 }
 
-async function getTreeOutput(ctx: FixtureContext) {
-  return (await execa('tree', ['-a', '-L', '2'], { cwd: ctx.root })).stdout;
+async function getTreeOutput(context: FixtureContext) {
+  return (await execa('tree', ['-a', '-L', '2'], { cwd: context.root })).stdout;
 }
 
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
@@ -367,30 +390,30 @@ export function nodeImportTestFixture(): MockFixture {
   return {
     name: 'node-import-test',
     description: 'setting up node import jest integration test',
-    setup: async (ctx) => {
-      const indexPath = Object.keys(ctx.fileContents).find((path) =>
+    setup: async (context) => {
+      const indexPath = Object.keys(context.fileContents).find((path) =>
         /^src\/index(\.test)?\.(((c|m)?js)|ts)x?$/.test(path)
       );
 
       assert(indexPath, 'could not find initial contents for src/index test file');
 
       // TODO: do we have to write this AND have the dummyFilesFixture too?!
-      await writeFile(`${ctx.root}/${indexPath}`, ctx.fileContents[indexPath]);
+      await writeFile(`${context.root}/${indexPath}`, context.fileContents[indexPath]);
 
       // TODO: also test all current/active/maintenance versions of node too
       // TODO: and enable that functionality
-      const bin = ctx.options.runWith?.binary || 'node';
-      const args = ctx.options.runWith?.args || ['--experimental-json-modules'];
-      const opts = ctx.options.runWith?.opts || {};
+      const bin = context.options.runWith?.binary || 'node';
+      const args = context.options.runWith?.args || ['--experimental-json-modules'];
+      const options = context.options.runWith?.opts || {};
 
-      ctx.treeOutput = await getTreeOutput(ctx);
+      context.treeOutput = await getTreeOutput(context);
 
       const { code, stdout, stderr } = await run(bin, [...args, indexPath], {
-        cwd: ctx.root,
-        ...opts
+        cwd: context.root,
+        ...options
       });
 
-      ctx.testResult = {
+      context.testResult = {
         code,
         stdout,
         stderr
@@ -404,17 +427,17 @@ export function gitRepositoryFixture(): MockFixture {
   return {
     name: 'git-repository',
     description: 'configuring fixture root to be a git repository',
-    setup: async (ctx) => {
+    setup: async (context) => {
       assert(
-        !ctx.options.setupGit || typeof ctx.options.setupGit == 'function',
+        !context.options.setupGit || typeof context.options.setupGit == 'function',
         'invalid or missing options.setupGit, expected function'
       );
 
-      ctx.git = gitFactory({ baseDir: ctx.root });
+      context.git = gitFactory({ baseDir: context.root });
 
-      await (ctx.options.setupGit
-        ? ctx.options.setupGit(ctx.git)
-        : ctx.git
+      await (context.options.setupGit
+        ? context.options.setupGit(context.git)
+        : context.git
             .init()
             .addConfig('user.name', 'fake-user')
             .addConfig('user.email', 'fake@email'));
@@ -427,15 +450,15 @@ export function dummyDirectoriesFixture(): MockFixture {
   return {
     name: 'dummy-directories',
     description: 'creating dummy directories under fixture root',
-    setup: async (ctx) => {
+    setup: async (context) => {
       assert(
-        Array.isArray(ctx.options.directoryPaths),
+        Array.isArray(context.options.directoryPaths),
         'invalid or missing options.directoryPaths, expected array'
       );
 
       await Promise.all(
-        ctx.options.directoryPaths.map((path) =>
-          run('mkdir', ['-p', path], { cwd: ctx.root, reject: true })
+        context.options.directoryPaths.map((path) =>
+          run('mkdir', ['-p', path], { cwd: context.root, reject: true })
         )
       );
     }
@@ -447,16 +470,16 @@ export function dummyFilesFixture(): MockFixture {
   return {
     name: 'dummy-files',
     description: 'creating dummy files under fixture root',
-    setup: async (ctx) => {
+    setup: async (context) => {
       await Promise.all(
-        Object.entries(ctx.fileContents).map(async ([path, contents]) => {
-          const fullPath = `${ctx.root}/${path}`;
+        Object.entries(context.fileContents).map(async ([path, contents]) => {
+          const fullPath = `${context.root}/${path}`;
           await accessFile(fullPath).then(
             () => debug(`skipped creating dummy file: file already exists at ${path}`),
             async () => {
               debug(`creating dummy file "${path}" with contents:`);
               debug.extend('contents >')(contents);
-              await writeFile(fullPath, (ctx.fileContents[path] = contents));
+              await writeFile(fullPath, (context.fileContents[path] = contents));
             }
           );
         })
@@ -472,11 +495,11 @@ export function describeRootFixture(): MockFixture {
   return {
     name: 'describe-root',
     description: 'outputting debug information about environment',
-    setup: async (ctx) => {
-      ctx.debug('test identifier: %O', ctx.testIdentifier);
-      ctx.debug('root: %O', ctx.root);
-      ctx.debug(ctx.treeOutput || (await getTreeOutput(ctx)));
-      ctx.debug('per-file contents: %O', ctx.fileContents);
+    setup: async (context) => {
+      context.debug('test identifier: %O', context.testIdentifier);
+      context.debug('root: %O', context.root);
+      context.debug(context.treeOutput || (await getTreeOutput(context)));
+      context.debug('per-file contents: %O', context.fileContents);
     }
   };
 }
@@ -486,20 +509,20 @@ export function runTestFixture(): MockFixture {
   return {
     name: 'run-test',
     description: 'running CLI command for jest integration test',
-    setup: async (ctx) => {
-      const bin = ctx.options.runWith?.binary;
+    setup: async (context) => {
+      const bin = context.options.runWith?.binary;
 
       assert(bin, 'could not find runWith binary (required)');
 
-      const args = ctx.options.runWith?.args || [];
-      const opts = ctx.options.runWith?.opts || {};
+      const args = context.options.runWith?.args || [];
+      const options = context.options.runWith?.opts || {};
 
       const { code, stdout, stderr } = await run(bin, args, {
-        cwd: ctx.root,
-        ...opts
+        cwd: context.root,
+        ...options
       });
 
-      ctx.testResult = {
+      context.testResult = {
         code,
         stdout,
         stderr
@@ -540,7 +563,7 @@ export async function withMockedFixture<
     ...options
   } as CustomizedFixtureOptions & { use: CustomizedMockFixture[] };
 
-  const ctx = {
+  const context = {
     root: '',
     testIdentifier,
     debug,
@@ -551,15 +574,15 @@ export async function withMockedFixture<
   } as unknown as CustomizedFixtureContext & { using: CustomizedMockFixture[] };
 
   if (finalOptions.use) {
-    if (finalOptions.use?.[0]?.name != 'root') ctx.using.push(rootFixture());
-    ctx.using = [...ctx.using, ...finalOptions.use];
+    if (finalOptions.use?.[0]?.name != 'root') context.using.push(rootFixture());
+    context.using = [...context.using, ...finalOptions.use];
     // ? `describe-root` fixture doesn't have to be the last one, but a fixture
     // ? with that name must be included at least once
-    if (!finalOptions.use.find((f) => f.name == 'describe-root'))
-      ctx.using.push(describeRootFixture());
-  } else ctx.using = [rootFixture(), describeRootFixture()];
+    if (!finalOptions.use.some((f) => f.name == 'describe-root'))
+      context.using.push(describeRootFixture());
+  } else context.using = [rootFixture(), describeRootFixture()];
 
-  ctx.using.push({
+  context.using.push({
     name: testSymbol,
     description: '',
     setup: fn
@@ -572,54 +595,56 @@ export async function withMockedFixture<
     const toString = async (
       p: CustomizedMockFixture['name'] | CustomizedMockFixture['description']
       // TODO: replace with toss
-    ) => (typeof p == 'function' ? p(ctx) : typeof p == 'string' ? p : ':impossible:');
+    ) =>
+      typeof p == 'function' ? p(context) : typeof p == 'string' ? p : ':impossible:';
     const name = await toString(fixture.name.toString());
     const desc = await toString(fixture.description);
     const dbg = debug.extend(error ? `${name}:<error>` : name);
-    ctx.debug = dbg;
+    context.debug = dbg;
     dbg(desc);
   };
 
-  /*eslint-disable no-await-in-loop */
   try {
-    for (const mockFixture of ctx.using) {
+    for (const mockFixture of context.using) {
       if (mockFixture.name == testSymbol) {
-        ctx.debug = debug;
+        context.debug = debug;
         debug('executing test callback');
       } else {
+        // eslint-disable-next-line no-await-in-loop
         await setupDebugger(mockFixture);
         if (mockFixture.teardown) cleanupFunctions.push(mockFixture.teardown);
       }
 
       mockFixture.setup
-        ? await mockFixture.setup(ctx)
-        : ctx.debug('(warning: mock fixture has no setup function)');
+        ? // eslint-disable-next-line no-await-in-loop
+          await mockFixture.setup(context)
+        : context.debug('(warning: mock fixture has no setup function)');
 
       if (mockFixture.name == 'describe-root') ranDescribe = true;
     }
-  } catch (e) {
-    ctx.debug.extend('<error>')('exception occurred: %O', e);
-    throw e;
+  } catch (error) {
+    context.debug.extend('<error>')('exception occurred: %O', error);
+    throw error;
   } finally {
     if (!ranDescribe) {
       const fixture = describeRootFixture();
       await setupDebugger(fixture, true);
-      await fixture.setup?.(ctx);
+      await fixture.setup?.(context);
     }
 
-    ctx.debug = debug.extend('<cleanup>');
+    context.debug = debug.extend('<cleanup>');
 
     for (const cfn of cleanupFunctions.reverse()) {
-      await cfn(ctx).catch((e) =>
-        ctx.debug(
+      // eslint-disable-next-line no-await-in-loop
+      await cfn(context).catch((error) =>
+        context.debug(
           `ignored exception in teardown function: ${
-            e?.message || e.toString() || '<no error message>'
+            error?.message || error.toString() || '<no error message>'
           }`
         )
       );
     }
   }
-  /*eslint-enable no-await-in-loop */
 }
 
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ above)

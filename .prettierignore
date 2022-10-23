@@ -7,3 +7,5 @@ dist
 coverage
 package-lock.json
 fixtures
+docs
+CHANGELOG.md

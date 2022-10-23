@@ -5,15 +5,15 @@ Hi there! First off, we're thrilled 🤩 you want contribute to this project!
 First time contributor to a GitHub project? If you could use some help getting
 started, [take a look at this quick and easy guide][how-to-contribute]. 💜
 
-## Briefly: Submitting a Pull Request (PR)
+## Briefly: Submitting a Pull Request (Pr)
 
 > See also: [CODE_OF_CONDUCT.md][code-of-conduct]
 
 This repository uses a [fully automated][github-actions] [continuous
-linting][husky-cl] (CL), [integration testing][gha-ci] (CI), and
-[deployment][gha-ci] (CD) [projector][projector]-based pipeline for integrating
-PRs and publishing releases. The neat thing about a fully automated pipeline is
-that anyone anywhere can make a contribution quickly and with minimal tedium.
+linting][husky-cl] (CL), integration testing (CI), and deployment (CD)
+[projector][projector]-based pipeline for integrating PRs and publishing
+releases. The neat thing about a fully automated pipeline is that anyone
+anywhere can make a contribution quickly and with minimal tedium.
 
 This repository makes extensive use of [debug][pkg-debug]. Should you wish to
 view all possible debugging output, [export
@@ -83,7 +83,6 @@ At this point, you're ready to create your PR and ✨ contribute ✨!
 [cosmetic-commits]:
   https://github.com/rails/rails/pull/13771#issuecomment-32746700
 [fork]: https://github.com/Xunnamius/unified-utils/fork
-[gha-ci]: .github/workflows/build-test.yml
 [github-actions]: https://github.com/features/actions
 [how-to-clone]:
   https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository

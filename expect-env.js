@@ -1,5 +1,6 @@
+/* eslint-disable unicorn/no-abusive-eslint-disable */
+/* eslint-disable */
 'use strict';
-/* eslint-disable no-console */
 
 const debug = require('debug')(
   `${require(`${process.cwd()}/package.json`).name}:expect-env`
