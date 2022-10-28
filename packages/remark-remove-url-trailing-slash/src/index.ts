@@ -19,7 +19,7 @@ export type Options = {
    *
    * @default false
    */
-  onlyConsiderHostUrls: boolean;
+  onlyConsiderHostUrls?: boolean;
 };
 
 /**

@@ -24,7 +24,7 @@ export type Options = {
    *
    * @default 'alphanumeric-first'
    */
-  algorithm: 'numeric-first' | 'alphanumeric-first';
+  algorithm?: 'numeric-first' | 'alphanumeric-first';
 };
 
 /**

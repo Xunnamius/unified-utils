@@ -21,7 +21,7 @@ export type Options = {
    *
    * @default true
    */
-  preserveAlphanumericDefinitions: boolean;
+  preserveAlphanumericDefinitions?: boolean;
 };
 
 /**
