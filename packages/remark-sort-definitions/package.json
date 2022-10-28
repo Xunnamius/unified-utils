@@ -1,6 +1,6 @@
 {
   "name": "remark-sort-definitions",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "remark plugin that reorders reference-style link definitions by id at the end of a document",
   "keywords": [
     "unified",
