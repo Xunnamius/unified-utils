@@ -26,7 +26,7 @@ Options type for the remark-remove-url-trailing-slash plugin.
 
 #### Defined in
 
-packages/remark-capitalize-headings/src/index.ts:12
+[packages/remark-capitalize-headings/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/remark-capitalize-headings/src/index.ts#L12)
 
 ## Functions
 

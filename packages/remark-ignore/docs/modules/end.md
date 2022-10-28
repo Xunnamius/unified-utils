@@ -1,4 +1,4 @@
-[remark-ignore][1] / end
+[remark-ignore](../README.md) / end
 
 # Module: end
 
@@ -6,46 +6,46 @@
 
 ### Functions
 
-- [default][2]
-- [ignoreEndTransformer][3]
+- [default](end.md#default)
+- [ignoreEndTransformer](end.md#ignoreendtransformer)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` | `Transformer`<`Root`, `Root`>
+▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
-A remark plugin that takes a Root node as input and returns the same node with
-all hidden child nodes revealed.
+A remark plugin that takes a Root node as input and returns the same node
+with all hidden child nodes revealed.
 
 #### Parameters
 
-| Name          | Type                                        |
-| :------------ | :------------------------------------------ |
-| `this`        | `Processor`<`void`, `Root`, `void`, `void`> |
-| `...settings` | `void`\[]                                   |
+| Name | Type |
+| :------ | :------ |
+| `this` | `Processor`<`void`, `Root`, `void`, `void`\> |
+| `...settings` | `void`[] |
 
 #### Returns
 
-`void` | `Transformer`<`Root`, `Root`>
+`void` \| `Transformer`<`Root`, `Root`\>
 
 #### Defined in
 
 node_modules/unified/index.d.ts:531
 
----
+___
 
 ### ignoreEndTransformer
 
 ▸ **ignoreEndTransformer**(`tree`): `void`
 
-A unified transformer that takes a Root node as input and returns the same node
-with all hidden child nodes revealed.
+A unified transformer that takes a Root node as input and returns the same
+node with all hidden child nodes revealed.
 
 #### Parameters
 
-| Name   | Type   |
-| :----- | :----- |
+| Name | Type |
+| :------ | :------ |
 | `tree` | `Root` |
 
 #### Returns
@@ -54,10 +54,4 @@ with all hidden child nodes revealed.
 
 #### Defined in
 
-[packages/remark-ignore/src/end.ts:18][4]
-
-[1]: ../README.md
-[2]: end.md#default
-[3]: end.md#ignoreendtransformer
-[4]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/remark-ignore/src/end.ts#L18
+[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/remark-ignore/src/end.ts#L18)

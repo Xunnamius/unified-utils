@@ -1,4 +1,4 @@
-[remark-ignore][1] / start
+[remark-ignore](../README.md) / start
 
 # Module: start
 
@@ -6,49 +6,49 @@
 
 ### Functions
 
-- [default][2]
-- [ignoreStartTransformer][3]
+- [default](start.md#default)
+- [ignoreStartTransformer](start.md#ignorestarttransformer)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` | `Transformer`<`Root`, `Root`>
+▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
-A remark plugin that takes a Root node as input and returns the same node with
-all child nodes following an ignore command having been hidden.
+A remark plugin that takes a Root node as input and returns the same node
+with all child nodes following an ignore command having been hidden.
 
-In this way, nodes hidden by this plugin are unaffected by transformations from
-other plugins until said nodes are revealed.
+In this way, nodes hidden by this plugin are unaffected by transformations
+from other plugins until said nodes are revealed.
 
 #### Parameters
 
-| Name          | Type                                        |
-| :------------ | :------------------------------------------ |
-| `this`        | `Processor`<`void`, `Root`, `void`, `void`> |
-| `...settings` | `void`\[]                                   |
+| Name | Type |
+| :------ | :------ |
+| `this` | `Processor`<`void`, `Root`, `void`, `void`\> |
+| `...settings` | `void`[] |
 
 #### Returns
 
-`void` | `Transformer`<`Root`, `Root`>
+`void` \| `Transformer`<`Root`, `Root`\>
 
 #### Defined in
 
 node_modules/unified/index.d.ts:531
 
----
+___
 
 ### ignoreStartTransformer
 
 ▸ **ignoreStartTransformer**(`tree`): `void`
 
-A unified transformer that takes a Root node as input and returns the same node
-with all child nodes following an ignore command having been hidden.
+A unified transformer that takes a Root node as input and returns the same
+node with all child nodes following an ignore command having been hidden.
 
 #### Parameters
 
-| Name   | Type   |
-| :----- | :----- |
+| Name | Type |
+| :------ | :------ |
 | `tree` | `Root` |
 
 #### Returns
@@ -57,10 +57,4 @@ with all child nodes following an ignore command having been hidden.
 
 #### Defined in
 
-[packages/remark-ignore/src/start.ts:23][4]
-
-[1]: ../README.md
-[2]: start.md#default
-[3]: start.md#ignorestarttransformer
-[4]:
-  https://github.com/Xunnamius/unified-utils/blob/7ddf2f1/packages/remark-ignore/src/start.ts#L23
+[packages/remark-ignore/src/start.ts:23](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/remark-ignore/src/start.ts#L23)

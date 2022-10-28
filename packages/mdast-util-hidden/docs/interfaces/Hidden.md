@@ -1,9 +1,9 @@
-[mdast-util-hidden][1] / Hidden
+[mdast-util-hidden](../README.md) / Hidden
 
 # Interface: Hidden
 
-The shape of a `Hidden` mdast node containing mdast content that is hidden (and
-thus protected) from transformers.
+The shape of a `Hidden` mdast node containing mdast content that is hidden
+(and thus protected) from transformers.
 
 `Hidden` nodes are always generated, cannot be serialized to markdown, and
 cannot be derived from markdown directly.
@@ -18,10 +18,10 @@ cannot be derived from markdown directly.
 
 ### Properties
 
-- [data][2]
-- [hiddenChildren][3]
-- [position][4]
-- [type][5]
+- [data](Hidden.md#data)
+- [hiddenChildren](Hidden.md#hiddenchildren)
+- [position](Hidden.md#position)
+- [type](Hidden.md#type)
 
 ## Properties
 
@@ -39,24 +39,24 @@ Node.data
 
 node_modules/@types/unist/index.d.ts:27
 
----
+___
 
 ### hiddenChildren
 
-• **hiddenChildren**: `Content`\[]
+• **hiddenChildren**: `Content`[]
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:17][6]
+[packages/mdast-util-hidden/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/mdast-util-hidden/src/index.ts#L17)
 
----
+___
 
 ### position
 
 • `Optional` **position**: `Position`
 
-Location of a node in a source document. Must not be present if a node is
-generated.
+Location of a node in a source document.
+Must not be present if a node is generated.
 
 #### Inherited from
 
@@ -66,11 +66,11 @@ Node.position
 
 node_modules/@types/unist/index.d.ts:33
 
----
+___
 
 ### type
 
-• **type**: `"hidden"`
+• **type**: ``"hidden"``
 
 #### Overrides
 
@@ -78,14 +78,4 @@ Node.type
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:16][7]
-
-[1]: ../README.md
-[2]: Hidden.md#data
-[3]: Hidden.md#hiddenchildren
-[4]: Hidden.md#position
-[5]: Hidden.md#type
-[6]:
-  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L17
-[7]:
-  https://github.com/Xunnamius/unified-utils/blob/b8d34ed/packages/mdast-util-hidden/src/index.ts#L16
+[packages/mdast-util-hidden/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/mdast-util-hidden/src/index.ts#L16)
