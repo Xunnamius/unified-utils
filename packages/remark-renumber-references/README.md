@@ -16,7 +16,8 @@
 
 This is a [unified][1] ([remark][2]) plugin that renumbers numeric
 reference-style link ids contiguously starting from `[1]` and counting up. Also
-plays nicely with [GFM footnotes][3] (by completely ignoring them).
+plays nicely with [GFM footnotes][3] (by completely ignoring them), and comes
+with full unicode support.
 
 After running this plugin, _all definitions_, both numeric and alphanumeric,
 will always be placed at the very bottom of the document.
@@ -262,8 +263,8 @@ the plain text document itself?
 In the words of one of Markdown's creators:
 
 > Markdown allows you to write using an _easy-to-read_, easy-to-write _plain
-> text_ format ... The overriding design goal for Markdown’s formatting syntax
-> is to _make it as readable as possible_.
+> text_ format … The overriding design goal for Markdown’s formatting syntax is
+> to _make it as readable as possible_.
 
 What's "easy to read" is subjective. For those who find it bothersome or
 distracting reading Markdown documents containing reference links with integer
@@ -395,7 +396,7 @@ See the [table of contributors][10].
 [2]: https://github.com/remarkjs/remark
 [3]: https://github.com/remarkjs/remark-gfm#what-is-this
 [4]: https://github.com/remarkjs/remark-reference-links
-[5]: /packages/remark-ignore/
+[5]: /packages/remark-ignore
 [6]: /packages/remark-sort-definitions
 [7]:
   https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-renumber-references/README.md

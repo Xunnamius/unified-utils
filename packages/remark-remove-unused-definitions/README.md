@@ -67,7 +67,6 @@ import { remark } from 'remark';
 import remarkRemoveUnusedDefs from 'remark-remove-unused-definitions';
 
 const file = await remark()
-  // An options object is NOT required
   .use(remarkRemoveUnusedDefs)
   .process(await read('example.md'));
 

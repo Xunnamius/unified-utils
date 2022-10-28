@@ -17,7 +17,7 @@
 This is a [unified][1] ([remark][2]) plugin that logically reorders the
 reference definitions at the bottom of your document depending on your sorting
 preference. Also plays nicely with [GFM footnotes][3] (by completely ignoring
-them).
+them), and comes with full unicode support.
 
 After running this plugin, _all definitions_, both numeric and alphanumeric,
 will always be placed at the very bottom of the document.
@@ -42,6 +42,8 @@ plugins in action, check the bottom of [this very README.md file][6]. ✨
 - [API](#api)
   - [Options](#options)
 - [Examples](#examples)
+  - [Using the Default Configuration](#using-the-default-configuration)
+  - [Using `algorithm`](#using-algorithm)
 - [Related](#related)
 - [Contributing and Support](#contributing-and-support)
   - [Contributors](#contributors)
@@ -134,8 +136,8 @@ This plugin recognizes the following options:
 
 #### `algorithm`
 
-Valid values: `numeric-first` | `alphanumeric-first`\
-Default: `alphanumeric-first`
+Valid values: `"numeric-first"` | `"alphanumeric-first"`\
+Default: `"alphanumeric-first"`
 
 This option determines the sorting preference used when reordering definitions.
 
@@ -168,6 +170,8 @@ Suppose we have the following Markdown file `example.md`:
 [2]: #install
 [7]: #contributors
 ```
+
+### Using the Default Configuration
 
 Then running the following JavaScript:
 
@@ -207,6 +211,8 @@ references):
 ```
 
 Now all the unused definitions have been deleted. Nice!
+
+### Using `algorithm`
 
 We could also sort using an algorithm that places definitions with numeric ids
 first. Running the follow JavaScript:

@@ -37,7 +37,7 @@ See also the [`onlyConsiderHostUrls`][4] option.
 - [API](#api)
   - [Options](#options)
 - [Examples](#examples)
-  - [Using the default configuration](#using-the-default-configuration)
+  - [Using the Default Configuration](#using-the-default-configuration)
   - [Using `onlyConsiderHostUrls`](#using-onlyconsiderhosturls)
 - [Related](#related)
 - [Contributing and Support](#contributing-and-support)
@@ -155,7 +155,7 @@ Suppose we have the following Markdown file `example.md`:
 [1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ/
 ```
 
-### Using the default configuration
+### Using the Default Configuration
 
 Running the following JavaScript:
 
