@@ -1,4 +1,4 @@
-# Support[![Average time to resolve an issue][badge-issue-resolution]][link-issue-resolution][![Percentage of issues still open][badge-issue-percentage]][open-issues]
+# Support [![Average time to resolve an issue][badge-issue-resolution]][link-issue-resolution] [![Percentage of issues still open][badge-issue-percentage]][open-issues]
 
 Need help? Want to help this project? See below!
 

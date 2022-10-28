@@ -75,11 +75,11 @@ likelihood your PR passes review:
 
 At this point, you're ready to create your PR and ✨ contribute ✨!
 
-[atomic-commits]: https://www.codewithjason.com/atomic-commits-testing/
+[atomic-commits]: https://www.codewithjason.com/atomic-commits-testing
 [choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
 [code-of-conduct]: /.github/CODE_OF_CONDUCT.md
-[codecov]: https://about.codecov.io/
-[conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/#summary
+[codecov]: https://about.codecov.io
+[conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0#summary
 [cosmetic-commits]:
   https://github.com/rails/rails/pull/13771#issuecomment-32746700
 [fork]: https://github.com/Xunnamius/unified-utils/fork

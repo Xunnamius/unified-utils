@@ -26,7 +26,7 @@ reproduce the problem on our side, how can we ever hope to fix it for you 🤷�
 If your issue is simple enough that it doesn't warrant a demo repo, include
 instead the simplest most basic possible steps to reproduce your problem; e.g.:
 
-1. Clone the dummy repo I made: https://github.com/...
+1. Clone the dummy repo I made: https://github.com/…
 2. Run `npm install`
 3. Run `npx jest`
 4. See error "xyz" at test 2, which shouldn't be happening
@@ -66,7 +66,7 @@ runtime details, lengthy error logs, assets links, or what have you; e.g.:
 - Babel: yes, version 8.1.0
 - TypeScript: yes, version 5.2.0
 - Browser: firefox 171, chrome 190
-- List of installed packages: https://github.com/.../main/package.json
+- List of installed packages: https://github.com/…/main/package.json
 
 Relevant log lines:
 ```
