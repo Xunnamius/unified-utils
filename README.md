@@ -20,9 +20,9 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Packages](#packages)
-  - [[mdast][2]](#mdast2)
-  - [[remark][3]](#remark3)
-  - [[remark-lint][4]](#remark-lint4)
+  - [mdast](#mdast)
+  - [remark](#remark)
+  - [remark-lint](#remark-lint)
   - [Forks](#forks)
 - [Related](#related)
 - [Contributing and Support](#contributing-and-support)
@@ -33,13 +33,17 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 ## Packages
 
-### [mdast][2]
+<!-- remark-ignore -->
+
+### [mdast](https://github.com/syntax-tree/mdast)
 
 - [mdast-util-hidden][6] — prevent nodes from being seen by [transformers][7]
 - [mdast-util-tight-comments][8] — selectively remove newlines around comment
   nodes during serialization
 
-### [remark][3]
+<!-- remark-ignore -->
+
+### [remark](https://github.com/remarkjs)
 
 - [remark-capitalize-headings][9] — selectively transforms headings using
   vercel's [title][10] package
@@ -55,7 +59,9 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
   at the end of a document
 - [remark-tight-comments][17] — selectively remove newlines around comments
 
-### [remark-lint][4]
+<!-- remark-ignore -->
+
+### [remark-lint](https://github.com/remarkjs/remark-lint)
 
 - [remark-lint-fenced-code-flag-case][18] — warn when fenced code blocks have
   inconsistent or improperly cased language flags
