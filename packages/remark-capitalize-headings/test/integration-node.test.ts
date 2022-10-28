@@ -59,7 +59,7 @@ describe('via api', () => {
       async (context) => {
         assert(context.testResult, 'must use node-import-test fixture');
         expect(context.testResult?.stderr).toBeEmpty();
-        expect(context.testResult?.stdout).toBe(getFixtureString('pruned'));
+        expect(context.testResult?.stdout).toBe(getFixtureString('default'));
         expect(context.testResult?.code).toBe(0);
       },
       {
@@ -67,12 +67,12 @@ describe('via api', () => {
           'src/index.mjs': `
             import { remark } from 'remark';
             import remarkGfm from 'remark-gfm';
-            import remarkRemoveUnusedDefs from 'remark-capitalize-headings';
+            import remarkCapitalizeHeadings from 'remark-capitalize-headings';
 
             const file = await remark()
               .use(remarkGfm)
-              .use(remarkRemoveUnusedDefs)
-              .process(${JSON.stringify(getFixtureString('unpruned'))});
+              .use(remarkCapitalizeHeadings)
+              .process(${JSON.stringify(getFixtureString('base'))});
 
             console.log(String(file));
           `
@@ -97,12 +97,12 @@ describe('via remark-cli inline configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(context.testResult?.stdout).toBe(
-          getFixtureString('pruned', { trim: true })
+          getFixtureString('default', { trim: true })
         );
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: { 'README.md': getFixtureString('unpruned') },
+        initialFileContents: { 'README.md': getFixtureString('base') },
         runWith: {
           binary: 'npx',
           args: [
@@ -129,16 +129,16 @@ describe('via remark-cli unified configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(context.testResult?.stdout).toBe(
-          getFixtureString('pruned', { trim: true })
+          getFixtureString('default', { trim: true })
         );
         expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
-          'README.md': getFixtureString('unpruned'),
+          'README.md': getFixtureString('base'),
           'package.json': JSON.stringify({
             name: 'dummy-pkg',
-            remarkConfig: { plugins: ['gfm', 'remove-unused-definitions'] }
+            remarkConfig: { plugins: ['gfm', 'capitalize-headings'] }
           })
         },
         runWith: {
@@ -157,13 +157,13 @@ describe('via remark-cli unified configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(context.testResult?.stdout).toBe(
-          getFixtureString('pruned', { trim: true })
+          getFixtureString('default', { trim: true })
         );
         expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
-          'README.md': getFixtureString('unpruned'),
+          'README.md': getFixtureString('base'),
           'package.json': JSON.stringify({
             name: 'dummy-pkg',
             remarkConfig: { plugins: ['remark-gfm', 'remark-capitalize-headings'] }
@@ -185,13 +185,13 @@ describe('via remark-cli unified configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(context.testResult?.stdout).toBe(
-          getFixtureString('pruned', { trim: true })
+          getFixtureString('default', { trim: true })
         );
         expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
-          'README.md': getFixtureString('unpruned'),
+          'README.md': getFixtureString('base'),
           '.remarkrc.js': `
             module.exports = {
               plugins: ['remark-gfm', 'remark-capitalize-headings']
@@ -214,16 +214,16 @@ describe('via remark-cli unified configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stderr).toMatch(/^.*README\.md.*: no issues found$/);
         expect(context.testResult?.stdout).toBe(
-          getFixtureString('pruned', { trim: true })
+          getFixtureString('default', { trim: true })
         );
         expect(context.testResult?.code).toBe(0);
       },
       {
         initialFileContents: {
-          'README.md': getFixtureString('unpruned'),
+          'README.md': getFixtureString('base'),
           '.remarkrc.mjs': `
-            import remarkRemoveUnusedDefs from 'remark-capitalize-headings';
-            export default { plugins: ['gfm', remarkRemoveUnusedDefs] };
+            import remarkCapitalizeHeadings from 'remark-capitalize-headings';
+            export default { plugins: ['gfm', remarkCapitalizeHeadings] };
           `
         },
         runWith: {
