@@ -99,7 +99,9 @@ const rules = {
   // ? `Array.from` communicates intent much better than `[...]`
   'unicorn/prefer-spread': 'off',
   // ? Not realistic when using TypeScript
-  'unicorn/prefer-native-coercion-functions': 'off'
+  'unicorn/prefer-native-coercion-functions': 'off',
+  // ? Premature optimization is evil
+  'unicorn/no-array-for-each': 'off'
 };
 
 module.exports = {
