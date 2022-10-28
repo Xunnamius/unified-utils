@@ -20,6 +20,10 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 - [Packages](#packages)
+  - [[mdast][2]](#mdast2)
+  - [[remark][3]](#remark3)
+  - [[remark-lint][4]](#remark-lint4)
+  - [Forks](#forks)
 - [Related](#related)
 - [Contributing and Support](#contributing-and-support)
   - [Contributors](#contributors)
@@ -29,22 +33,45 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 ## Packages
 
-- [mdast-util-tight-comments][6] — selectively remove newlines around comment
+### [mdast][2]
+
+- [mdast-util-hidden][6] — prevent nodes from being seen by [transformers][7]
+- [mdast-util-tight-comments][8] — selectively remove newlines around comment
   nodes during serialization
-- [mdast-util-hidden][7] — prevent nodes from being seen by [transformers][8]
-- [remark-ignore][9] — use comments to exclude one or more nodes from
-  [transformation][8]
-- [remark-tight-comments][10] — selectively remove newlines around comments
-- [remark-renumber-references][11] — renumber numeric [reference-style link
-  ids][12] contiguously starting from `[1]`
-- [remark-sort-definitions][13] — reorder [reference-style link definitions][12]
+
+### [remark][3]
+
+- [remark-capitalize-headings][9] — selectively transforms headings using
+  vercel's [title][10] package
+- [remark-ignore][11] — use comments to exclude one or more nodes from
+  [transformation][7]
+- [remark-remove-unused-definitions][12] — removes unused [reference-style link
+  definitions][13] from a document
+- [remark-remove-url-trailing-slash][14] — removes trailing slashes from the
+  ends of all URL paths
+- [remark-renumber-references][15] — renumber numeric [reference-style link
+  ids][13] contiguously starting from `[1]`
+- [remark-sort-definitions][16] — reorder [reference-style link definitions][13]
   at the end of a document
-- [remark-remove-unused-definitions][14] — removes unused [reference-style link
-  definitions][12] from a document
+- [remark-tight-comments][17] — selectively remove newlines around comments
+
+### [remark-lint][4]
+
+- [remark-lint-fenced-code-flag-case][18] — warn when fenced code blocks have
+  inconsistent or improperly cased language flags
+- [remark-lint-list-item-style][19] — warn when list items violate a given style
+
+### Forks
+
+These are (likely temporary) installable forks with changes that might be merged
+back upstream.
+
+- [remark-lint-no-empty-url][20] — warn for empty URLs in links and images
+  ([upstream][21])
 
 ## Related
 
-- [@projectorjs/config-remark][15] — reusable remark presets
+- [@projectorjs/config-remark][22] — reusable remark presets
 - [remark][3] — processor and CLI
 - [unified][5] — parser ecosystem
 - [mdast][2] — Markdown specification
@@ -69,7 +96,7 @@ information.
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- remark-ignore-end -->
 
-Thanks goes to these wonderful people ([emoji key][16]):
+Thanks goes to these wonderful people ([emoji key][23]):
 
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
@@ -99,7 +126,7 @@ Thanks goes to these wonderful people ([emoji key][16]):
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- remark-ignore-end -->
 
-This project follows the [all-contributors][17] specification. Contributions of
+This project follows the [all-contributors][24] specification. Contributions of
 any kind welcome!
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
@@ -129,15 +156,24 @@ any kind welcome!
 [3]: https://github.com/remarkjs
 [4]: https://github.com/remarkjs/remark-lint
 [5]: https://github.com/unifiedjs
-[6]: ./packages/mdast-util-tight-comments
-[7]: ./packages/mdast-util-hidden
-[8]: https://github.com/unifiedjs/unified#overview
-[9]: ./packages/remark-ignore
-[10]: ./packages/remark-tight-comments
-[11]: ./packages/remark-renumber-references
-[12]: https://github.com/remarkjs/remark-reference-links#what-is-this
-[13]: ./packages/remark-sort-definitions
-[14]: /packages/remark-remove-unused-definitions
-[15]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
-[16]: https://allcontributors.org/docs/en/emoji-key
-[17]: https://github.com/all-contributors/all-contributors
+[6]: ./packages/mdast-util-hidden
+[7]: https://github.com/unifiedjs/unified#overview
+[8]: ./packages/mdast-util-tight-comments
+[9]: ./packages/remark-capitalize-headings
+[10]: https://github.com/vercel/title
+[11]: ./packages/remark-ignore
+[12]: /packages/remark-remove-unused-definitions
+[13]: https://github.com/remarkjs/remark-reference-links#what-is-this
+[14]: ./packages/remark-remove-url-trailing-slash
+[15]: ./packages/remark-renumber-references
+[16]: ./packages/remark-sort-definitions
+[17]: ./packages/remark-tight-comments
+[18]: ./packages/remark-lint-fenced-code-flag-case
+[19]: ./packages/remark-lint-list-item-style
+[20]:
+  https://github.com/Xunnamius/remark-lint/tree/main/packages/remark-lint-no-empty-url
+[21]:
+  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-no-empty-url
+[22]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
+[23]: https://allcontributors.org/docs/en/emoji-key
+[24]: https://github.com/all-contributors/all-contributors
