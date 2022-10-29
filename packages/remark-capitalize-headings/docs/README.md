@@ -22,11 +22,11 @@ Options type for the remark-remove-url-trailing-slash plugin.
 | :------ | :------ | :------ |
 | `excludeHeadingLevel?` | { [level in "h1" \| "h2" \| "h3" \| "h4" \| "h5" \| "h6"]?: boolean } | Headings of the specified `level` in `{ [level]: true }` will be excluded from capitalization entirely, where `h1` corresponds to `<h1>…</h1>`/`# …`, `h2` to `<h2>…</h2>`/`## …`, etc.  > Excludes with `false` values are treated as if they were commented out.  **`Default`** |
 | `excludeSectionRegExp?` | (`string` \| `RegExp`)[] | Entire sections with a stringified heading matching at least one of the given regular expression strings will be excluded from capitalization entirely.  **`Default`**  [] |
-| `replaceHeadingRegExp?` | { `[regExp: string]`: `string`;  } | This option lets you manipulate non-excluded headers in their stringified form _after they've been transformed by title_ by leveraging mdast position data.  This extra context is useful for tasks like capitalizing a word only if it appears at the end of a heading, or as part of a phrase, or to prevent a word from being capitalized.  This option also supports using matching groups in during replacement. |
+| `replaceHeadingRegExp?` | { `[regExp: string]`: `string`;  } | This option lets you manipulate non-excluded headers in their stringified form _after they've been transformed by title_ by leveraging mdast position data.  This extra context is useful for tasks like capitalizing a word only if it appears at the end of a heading, or as part of a phrase, or to prevent a word from being capitalized.  This option also supports using matching groups in during replacement.  **`Default`** |
 
 #### Defined in
 
-[packages/remark-capitalize-headings/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/remark-capitalize-headings/src/index.ts#L12)
+[packages/remark-capitalize-headings/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-capitalize-headings/src/index.ts#L12)
 
 ## Functions
 

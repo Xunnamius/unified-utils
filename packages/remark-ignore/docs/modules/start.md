@@ -57,4 +57,4 @@ node with all child nodes following an ignore command having been hidden.
 
 #### Defined in
 
-[packages/remark-ignore/src/start.ts:23](https://github.com/Xunnamius/unified-utils/blob/eaed0a0/packages/remark-ignore/src/start.ts#L23)
+[packages/remark-ignore/src/start.ts:23](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-ignore/src/start.ts#L23)

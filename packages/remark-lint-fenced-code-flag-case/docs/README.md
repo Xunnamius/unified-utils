@@ -18,17 +18,17 @@
 
 Ƭ **Options**: `Object`
 
-Options type for the remark-remove-url-trailing-slash plugin.
+Options type for the remark-lint-fenced-code-flag-case plugin.
 
 #### Type declaration
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `case?` | typeof [`optionsCases`](README.md#optionscases)[`number`] | All code fence flags must be of the specified case. Code fences without flags are ignored.  **`Default`**  'lower' |
+| `case?` | typeof [`optionsCases`](README.md#optionscases)[`number`] | All code fence flags must be of the specified case. Code fences without flags are ignored.  **`Default`**  "lower" |
 
 #### Defined in
 
-packages/remark-lint-fenced-code-flag-case/src/index.ts:17
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-lint-fenced-code-flag-case/src/index.ts#L17)
 
 ## Variables
 
@@ -40,7 +40,7 @@ Valid values for the Options.case property.
 
 #### Defined in
 
-packages/remark-lint-fenced-code-flag-case/src/index.ts:12
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-lint-fenced-code-flag-case/src/index.ts#L12)
 
 ## Functions
 
