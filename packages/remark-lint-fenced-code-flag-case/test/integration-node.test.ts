@@ -261,7 +261,7 @@ describe('via remark-cli unified configuration', () => {
           'README.md': getFixtureString('not-ok-upper'),
           '.remarkrc.mjs': `
             import remarkLintFencedCodeFlagCase from 'remark-lint-fenced-code-flag-case';
-            export default { plugins: [ remarkLintFencedCodeFlagCase] };
+            export default { plugins: [remarkLintFencedCodeFlagCase] };
           `
         },
         runWith: {

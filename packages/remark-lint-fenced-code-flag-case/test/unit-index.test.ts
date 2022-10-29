@@ -1,13 +1,12 @@
 import { remark } from 'remark';
-import remarkGfm from 'remark-gfm';
-import remarkRemoveUnusedDefs from 'pkgverse/remark-lint-fenced-code-flag-case/src/index';
+import remarkLintFencedCodeFlagCase from 'pkgverse/remark-lint-fenced-code-flag-case/src/index';
 import { getFixtureVFile } from 'pkgverse/remark-lint-fenced-code-flag-case/test/helpers';
 
 describe('::default', () => {
   it('warns when fenced code flags are not lowercase by default', async () => {
     expect.hasAssertions();
 
-    const runner = remark().use(remarkGfm).use(remarkRemoveUnusedDefs);
+    const runner = remark().use(remarkLintFencedCodeFlagCase);
     const okMissing = await runner.process(await getFixtureVFile('ok-missing'));
     const okLower = await runner.process(await getFixtureVFile('ok-lower'));
     const noOkMixed = await runner.process(await getFixtureVFile('not-ok-mixed'));
@@ -34,7 +33,7 @@ describe('::default', () => {
   it('warns about fenced code flags with respect to "upper" case option', async () => {
     expect.hasAssertions();
 
-    const runner = remark().use(remarkGfm).use(remarkRemoveUnusedDefs, { case: 'upper' });
+    const runner = remark().use(remarkLintFencedCodeFlagCase, { case: 'upper' });
 
     const okMissing = await runner.process(await getFixtureVFile('ok-missing'));
     const okLower = await runner.process(await getFixtureVFile('ok-lower'));
@@ -64,9 +63,7 @@ describe('::default', () => {
   it('warns about fenced code flags with respect to "capitalize" case option', async () => {
     expect.hasAssertions();
 
-    const runner = remark()
-      .use(remarkGfm)
-      .use(remarkRemoveUnusedDefs, { case: 'capitalize' });
+    const runner = remark().use(remarkLintFencedCodeFlagCase, { case: 'capitalize' });
 
     const okMissing = await runner.process(await getFixtureVFile('ok-missing'));
     const okLower = await runner.process(await getFixtureVFile('ok-lower'));
@@ -99,22 +96,19 @@ describe('::default', () => {
   it('error over bad configuration', async () => {
     expect.hasAssertions();
 
-    const runner = remark().use(remarkGfm).use(remarkRemoveUnusedDefs, { case: 'bad' });
+    await expect(
+      remark()
+        .use(remarkLintFencedCodeFlagCase, 'upper')
+        .process(await getFixtureVFile('ok-lower'))
+    ).resolves.toHaveProperty('messages.0.message', 'Error: Bad configuration');
 
     await expect(
-      runner.process(await getFixtureVFile('ok-lower'))
+      remark()
+        .use(remarkLintFencedCodeFlagCase, { case: 'bad' })
+        .process(await getFixtureVFile('ok-lower'))
     ).resolves.toHaveProperty(
       'messages.0.message',
       expect.stringContaining('Bad configuration case value "bad"')
-    );
-
-    runner().use(remarkRemoveUnusedDefs, 'upper');
-
-    await expect(
-      runner.process(await getFixtureVFile('ok-lower'))
-    ).resolves.toHaveProperty(
-      'messages.0.message',
-      expect.stringContaining('Bad configuration')
     );
   });
 });
