@@ -38,6 +38,8 @@ export type Options = {
    * word from being capitalized.
    *
    * This option also supports using matching groups in during replacement.
+   *
+   * @default { "(?<=\\s)a(?=\\p{P})": "A" }
    */
   replaceHeadingRegExp?: { [regExp: string]: string };
 };

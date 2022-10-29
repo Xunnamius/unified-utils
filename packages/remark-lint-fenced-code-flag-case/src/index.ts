@@ -12,14 +12,14 @@ const origin = 'unified-utils:fenced-code-flag-case';
 export const optionsCases = ['lower', 'upper', 'capitalize'] as const;
 
 /**
- * Options type for the remark-remove-url-trailing-slash plugin.
+ * Options type for the remark-lint-fenced-code-flag-case plugin.
  */
 export type Options = {
   /**
    * All code fence flags must be of the specified case. Code fences without
    * flags are ignored.
    *
-   * @default 'lower'
+   * @default "lower"
    */
   case?: typeof optionsCases[number];
 };

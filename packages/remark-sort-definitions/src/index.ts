@@ -22,7 +22,7 @@ export type Options = {
    * id that cannot be parsed into an integer) first, sorted naturally, followed
    * by any remaining definitions sorted from least (i.e. 1) to greatest.
    *
-   * @default 'alphanumeric-first'
+   * @default "alphanumeric-first"
    */
   algorithm?: 'numeric-first' | 'alphanumeric-first';
 };
