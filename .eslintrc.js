@@ -101,7 +101,9 @@ const rules = {
   // ? Not realistic when using TypeScript
   'unicorn/prefer-native-coercion-functions': 'off',
   // ? Premature optimization is evil
-  'unicorn/no-array-for-each': 'off'
+  'unicorn/no-array-for-each': 'off',
+  // ? Lol, no
+  'unicorn/explicit-length-check': 'off'
 };
 
 module.exports = {
