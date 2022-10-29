@@ -41,7 +41,6 @@ const lintConfig = {
     'lint-no-shortcut-reference-link',
     'lint-no-tabs',
     'lint-no-undefined-references',
-    'lint-remove-url-trailing-slash',
     'lint-ordered-list-marker-value',
     ['lint-strikethrough-marker', '~~'],
     // ? Prettier will reformat list markers UNLESS they precede checkboxes
