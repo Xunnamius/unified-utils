@@ -51,10 +51,10 @@ npm install mdast-util-hidden
 
 Suppose we have the following Markdown file `example.md`:
 
-```Markdown
+```markdown
 # Hello
 
-Some *emphasis*, **importance**, and `code`.
+Some _emphasis_, **importance**, and `code`.
 
 # Goodbye
 ```
@@ -296,9 +296,11 @@ and cannot be derived [from markdown][17] directly.
 
 ## Related
 
-- [remark-ignore][3]
-- [remark-renumber-references][4]
-- [rehype-ignore][18]
+- [remark-ignore][3] — use comments to exclude one or more nodes from
+  transformation.
+- [remark-renumber-references][4] — renumber numeric reference-style link ids
+  contiguously starting from `[1]`.
+- [rehype-ignore][18] — ignore content display via HTML comments.
 
 ## Contributing and Support
 

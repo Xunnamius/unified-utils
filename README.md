@@ -37,35 +37,36 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 ### [mdast](https://github.com/syntax-tree/mdast)
 
-- [mdast-util-hidden][6] — prevent nodes from being seen by [transformers][7]
+- [mdast-util-hidden][6] — prevent nodes from being seen by [transformers][7].
 - [mdast-util-tight-comments][8] — selectively remove newlines around comment
-  nodes during serialization
+  nodes during serialization.
 
 <!-- remark-ignore -->
 
 ### [remark](https://github.com/remarkjs)
 
 - [remark-capitalize-headings][9] — selectively transforms headings using
-  vercel's [title][10] package
+  vercel's [title][10] package.
 - [remark-ignore][11] — use comments to exclude one or more nodes from
-  [transformation][7]
+  [transformation][7].
 - [remark-remove-unused-definitions][12] — removes unused [reference-style link
-  definitions][13] from a document
+  definitions][13] from a document.
 - [remark-remove-url-trailing-slash][14] — removes trailing slashes from the
-  ends of all URL paths
+  ends of all URL paths.
 - [remark-renumber-references][15] — renumber numeric [reference-style link
-  ids][13] contiguously starting from `[1]`
+  ids][13] contiguously starting from `[1]`.
 - [remark-sort-definitions][16] — reorder [reference-style link definitions][13]
-  at the end of a document
-- [remark-tight-comments][17] — selectively remove newlines around comments
+  at the end of a document.
+- [remark-tight-comments][17] — selectively remove newlines around comments.
 
 <!-- remark-ignore -->
 
 ### [remark-lint](https://github.com/remarkjs/remark-lint)
 
 - [remark-lint-fenced-code-flag-case][18] — warn when fenced code blocks have
-  inconsistent or improperly cased language flags
-- [remark-lint-list-item-style][19] — warn when list items violate a given style
+  inconsistent or improperly cased language flags.
+- [remark-lint-list-item-style][19] — warn when list items violate a given
+  style.
 
 ### Forks
 
@@ -73,15 +74,15 @@ These are (likely temporary) installable forks with changes that might be merged
 back upstream.
 
 - [remark-lint-no-empty-url][20] — warn for empty URLs in links and images
-  ([upstream][21])
+  ([upstream][21]).
 
 ## Related
 
-- [@projectorjs/config-remark][22] — reusable remark presets
-- [remark][3] — processor and CLI
-- [unified][5] — parser ecosystem
-- [mdast][2] — Markdown specification
-- [unist][1] — base specification
+- [@projectorjs/config-remark][22] — reusable remark presets.
+- [remark][3] — processor and CLI.
+- [unified][5] — parser ecosystem.
+- [mdast][2] — Markdown specification.
+- [unist][1] — base specification.
 
 ## Contributing and Support
 

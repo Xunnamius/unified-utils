@@ -297,13 +297,13 @@ Then running that same JavaScript would output:
 
 ## Related
 
-- [remark-tight-comments][7] — remove unnecessary newlines around comments
-- [remark-comments][9] — new syntax to ignore things
+- [remark-tight-comments][7] — remove unnecessary newlines around comments.
+- [remark-comments][9] — new syntax to ignore things.
 - [remark-message-control][10] — enable, disable, and ignore messages using
-  comments
-- [mdast-util-hidden][11] — prevent nodes from being seen by [transformers][12]
-- [mdast-comment-marker][13] — parse a comment marker in mdast
-- [mdast-zone][14] — treat HTML comments as ranges or markers in mdast
+  comments.
+- [mdast-util-hidden][11] — prevent nodes from being seen by [transformers][12].
+- [mdast-comment-marker][13] — parse a comment marker in mdast.
+- [mdast-zone][14] — treat HTML comments as ranges or markers in mdast.
 
 ## Contributing and Support
 

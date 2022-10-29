@@ -219,9 +219,9 @@ Would output the following:
 ## Related
 
 - [remark-lint-remove-url-trailing-slash][5] — the [remark-lint][6] version of
-  and inspiration for this package
+  and inspiration for this package.
 - [remark-ignore][7] — use comments to exclude one or more nodes from
-  [transformation][8]
+  [transformation][8].
 
 ## Contributing and Support
 

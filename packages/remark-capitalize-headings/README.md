@@ -516,9 +516,9 @@ Would output the following:
 
 ## Related
 
-- [remark-capitalize][11] — predecessor to this package
+- [remark-capitalize][11] — predecessor to this package.
 - [remark-ignore][12] — use comments to exclude one or more nodes from
-  [transformation][13]
+  [transformation][13].
 
 ## Contributing and Support
 

@@ -334,10 +334,10 @@ will sort all your definitions in whatever order you choose.
 ## Related
 
 - [remark-reference-links][4] — transform inline links into reference-style
-  links
+  links.
 - [remark-sort-definitions][6] — logically reorder reference definitions at the
-  bottom of your document
-- [remark-remove-unused-definitions][9] — remove unused reference definitions
+  bottom of your document.
+- [remark-remove-unused-definitions][9] — remove unused reference definitions.
 
 ## Contributing and Support
 

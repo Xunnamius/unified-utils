@@ -230,9 +230,9 @@ const str = 'string';
 ## Related
 
 - [remark-lint-fenced-code-flag][4] — warn when fenced code blocks occur without
-  language flag
+  language flag.
 - [remark-lint-fenced-code-marker][5] — warn when fenced code markers violate
-  the given style
+  the given style.
 
 ## Contributing and Support
 

@@ -128,9 +128,9 @@ See [mdast-util-tight-comments][7] for example outputs.
 ## Related
 
 - [remark-ignore][5] — use comments to exclude one or more nodes from
-  [transformation][8]
+  [transformation][8].
 - [mdast-util-tight-comments][9] — selectively remove newlines around comment
-  nodes during serialization
+  nodes during serialization.
 
 ## Contributing and Support
 

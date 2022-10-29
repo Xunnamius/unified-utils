@@ -396,14 +396,14 @@ Notice how only the first line triggers a warning while the others do not.
 ## Related
 
 - [remark-lint-list-item-punctuation][2] — the abandoned predecessor to this
-  package
+  package.
 - [remark-lint-list-item-bullet-indent][7] — warn when list item bullets are
-  indented
+  indented.
 - [remark-lint-list-item-content-indent][8] — warn when the content of a list
-  item has mixed indentation
-- [remark-lint-list-item-spacing][9] — warn when list looseness is incorrect
+  item has mixed indentation.
+- [remark-lint-list-item-spacing][9] — warn when list looseness is incorrect.
 - [remark-lint-list-item-indent][10] — warn when the spacing between a list
-  item’s bullet and its content violates a given style
+  item’s bullet and its content violates a given style.
 
 ## Contributing and Support
 

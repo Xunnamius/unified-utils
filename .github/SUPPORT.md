@@ -42,8 +42,8 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 
 - Issues that do not follow the appropriate template or contain necessary
   information may be closed immediately and the poster directed to these
-  guidelines
-- Issues that go for an extended period without activity are subject to closure
+  guidelines.
+- Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
   https://isitmaintained.com/badge/open/Xunnamius/unified-utils.svg

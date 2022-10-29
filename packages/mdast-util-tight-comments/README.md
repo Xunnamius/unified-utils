@@ -50,7 +50,7 @@ npm install mdast-util-tight-comments
 
 Suppose we have the following Markdown file `example.md`:
 
-```Markdown
+```markdown
 <!-- prettier-ignore-start -->
 <!-- remark-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -72,6 +72,7 @@ Suppose we have the following Markdown file `example.md`:
 <!-- TODO: add another section here -->
 
 <!-- remark-ignore -->
+
 # Install [remark](https://npm.im/remark)
 ```
 
@@ -96,7 +97,7 @@ console.log(toMarkdown(tree));
 Would output the following (assuming remark is [configured][6] for dash bullets
 and singular list item indents):
 
-```Markdown
+```markdown
 <!-- prettier-ignore-start -->
 
 <!-- remark-ignore-start -->
@@ -149,7 +150,7 @@ console.log(toMarkdown(tree, { join: [joinTightComments] }));
 
 Then we would get the following output:
 
-```Markdown
+```markdown
 <!-- prettier-ignore-start -->
 <!-- remark-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -165,10 +166,12 @@ Then we would get the following output:
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 <!-- remark-ignore-end -->
 <!-- prettier-ignore-end -->
+
 <!-- Begin the documentation section -->
 <!-- TODO: add another section here -->
 
 <!-- remark-ignore -->
+
 # Install [remark](https://npm.im/remark)
 ```
 
@@ -182,7 +185,7 @@ be combined to preserve a newline both before and after a comment.
 
 For example, suppose we edited `example.md` to contain the following:
 
-```Markdown
+```markdown
 <!-- prettier-ignore-start -->
 <!-- remark-ignore-start -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -204,6 +207,7 @@ For example, suppose we edited `example.md` to contain the following:
 <!-- TODO: add another section here -->
 
 <!-- remark-ignore -->
+
 # Install [remark](https://npm.im/remark)
 ```
 
@@ -214,8 +218,8 @@ any other remark plugins being used, running the above JavaScript with this new
 Also notice the `<!-- remark-ignore -->` line. This specific comment receives
 special consideration in that:
 
-1. There will never be a newline between it and the next node
-2. There will always be a newline between it and the previous node
+1. There will never be a newline between it and the next node.
+2. There will always be a newline between it and the previous node.
 
 > If you're running prettier _after_ remark, you must surround the comments
 > around which you want to preserve tightened spacing with
@@ -227,7 +231,7 @@ Detailed interface information can be found under [`docs/`][docs].
 
 ## Related
 
-- [remark-tight-comments][7] — remove unnecessary newlines around comments
+- [remark-tight-comments][7] — remove unnecessary newlines around comments.
 
 ## Contributing and Support
 

@@ -192,11 +192,11 @@ ascending order starting from `[1]`.
 ## Related
 
 - [remark-reference-links][6] — transform inline links into reference-style
-  links
+  links.
 - [remark-renumber-references][5] — contiguously renumber numeric
-  reference-style link ids starting from `[1]`
+  reference-style link ids starting from `[1]`.
 - [remark-sort-definitions][7] — logically reorder reference definitions at the
-  bottom of your document
+  bottom of your document.
 
 ## Contributing and Support
 

@@ -258,10 +258,10 @@ reference ids flow through the document in ascending order starting from `[1]`.
 ## Related
 
 - [remark-reference-links][4] — transform inline links into reference-style
-  links
+  links.
 - [remark-renumber-references][5] — contiguously renumber numeric
-  reference-style link ids starting from `[1]`
-- [remark-remove-unused-definitions][9] — remove unused reference definitions
+  reference-style link ids starting from `[1]`.
+- [remark-remove-unused-definitions][9] — remove unused reference definitions.
 
 ## Contributing and Support
 
