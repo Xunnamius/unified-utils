@@ -33,8 +33,10 @@ const remarkLintFencedCodeFlagCase = createLintRule(
     origin,
     url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-fenced-code-flag-case#readme'
   },
-  function (tree, file, options = {}) {
-    if (!options || (typeof options == 'object' && !Array.isArray(options))) {
+  function (tree, file, options) {
+    options = options || {};
+
+    if (!!options && typeof options == 'object' && !Array.isArray(options)) {
       const expectedCase =
         // @ts-expect-error: works in typescript@4.9
         ('case' in options ? options.case : 'lower') as NonNullable<Options['case']>;
