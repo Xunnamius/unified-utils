@@ -31,7 +31,7 @@ Options type for the remark-lint-list-item-style plugin.
 
 #### Defined in
 
-packages/remark-lint-list-item-style/src/index.ts:29
+[packages/remark-lint-list-item-style/src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/f381113/packages/remark-lint-list-item-style/src/index.ts#L29)
 
 ## Variables
 
@@ -43,7 +43,7 @@ Valid values for the Options.checkFirstWord property.
 
 #### Defined in
 
-packages/remark-lint-list-item-style/src/index.ts:14
+[packages/remark-lint-list-item-style/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/f381113/packages/remark-lint-list-item-style/src/index.ts#L14)
 
 ___
 
@@ -55,7 +55,7 @@ Valid values for the Options.checkListSpread property.
 
 #### Defined in
 
-packages/remark-lint-list-item-style/src/index.ts:19
+[packages/remark-lint-list-item-style/src/index.ts:19](https://github.com/Xunnamius/unified-utils/blob/f381113/packages/remark-lint-list-item-style/src/index.ts#L19)
 
 ## Functions
 
