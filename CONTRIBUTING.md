@@ -41,7 +41,7 @@ The ideal contributor flow is as follows:
 6. Push your commits to your fork and, when you're ready, [_fearlessly_ submit
    your PR][pr-compare]! Your changes will be tested in our CI pipeline.
 7. Pat yourself on the back! Your hard work is well on its way to being reviewed
-   and, if everything looks good, merged and released 🚀.
+   and, if everything looks good, merged and released 🚀
 
 Additionally, there are a few things you can do to greatly increase the
 likelihood your PR passes review:
@@ -62,7 +62,7 @@ likelihood your PR passes review:
 - **Do not** create a PR to introduce [_purely_ cosmetic
   commits][cosmetic-commits].
   - Code de-duplication and other potential optimizations we **do not** consider
-    _purely_ cosmetic 🙂.
+    _purely_ cosmetic 🙂
 - **Do** keep your PR as narrow and focused as possible.
   - If you ran `npm install` instead of `npm ci` and it updated `package.json`
     or `package-lock.json` and those updates have nothing to do with your PR
