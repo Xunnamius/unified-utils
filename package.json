@@ -121,7 +121,7 @@
     "remark-remove-unused-definitions": "^1.0.2",
     "remark-remove-url-trailing-slash": "^1.0.0",
     "remark-renumber-references": "^1.0.3",
-    "remark-sort-definitions": "^1.0.2",
+    "remark-sort-definitions": "^1.0.3",
     "remark-tight-comments": "^1.0.3",
     "remark-validate-links": "^12.1.0",
     "semantic-release": "https://xunn.at/semantic-release-atam",
