@@ -178,12 +178,12 @@ Then running the following JavaScript:
 ```typescript
 import { read } from 'to-vfile';
 import { remark } from 'remark';
-import remarkRemoveUnusedDefs from 'remark-remove-unused-definitions';
+import remarkSortDefinitions from 'remark-sort-definitions';
 
 const file = await remark()
-  .use(remarkRemoveUnusedDefs)
+  .use(remarkSortDefinitions)
   // Or:
-  //.use(remarkRemoveUnusedDefs, { algorithm: 'alphanumeric-first' })
+  //.use(remarkSortDefinitions, { algorithm: 'alphanumeric-first' })
   .process(await read('example.md'));
 
 console.log(String(file));
@@ -210,7 +210,7 @@ references):
 [8]: https://npm.im/remark
 ```
 
-Now all the unused definitions have been deleted. Nice!
+Now all the definitions have been sorted. Nice!
 
 ### Using `algorithm`
 
@@ -220,10 +220,10 @@ first. Running the follow JavaScript:
 ```typescript
 import { read } from 'to-vfile';
 import { remark } from 'remark';
-import remarkRemoveUnusedDefs from 'remark-remove-unused-definitions';
+import remarkSortDefinitions from 'remark-sort-definitions';
 
 const file = await remark()
-  .use(remarkRemoveUnusedDefs, { algorithm: 'numeric-first' })
+  .use(remarkSortDefinitions, { algorithm: 'numeric-first' })
   .process(await read('example.md'));
 
 console.log(String(file));
@@ -261,7 +261,7 @@ reference ids flow through the document in ascending order starting from `[1]`.
   links.
 - [remark-renumber-references][5] — contiguously renumber numeric
   reference-style link ids starting from `[1]`.
-- [remark-remove-unused-definitions][9] — remove unused reference definitions.
+- [remark-sort-definitions][9] — remove unused reference definitions.
 
 ## Contributing and Support
 
@@ -325,5 +325,5 @@ See the [table of contributors][10].
   https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-sort-definitions/README.md
 [7]: https://en.wikipedia.org/wiki/Natural_sort_order
 [8]: /.remarkrc.mjs
-[9]: /packages/remark-remove-unused-definitions
+[9]: /packages/remark-sort-definitions
 [10]: /README.md#contributors
