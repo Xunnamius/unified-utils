@@ -68,7 +68,7 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 - [remark-lint-heading-word-length][19] — warn when headings have too many or
   too few words.
 - [remark-lint-list-item-style][20] — warn when list items violate a given
-  style.
+  capitalization or punctuation style.
 
 ### Forks
 
