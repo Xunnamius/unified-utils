@@ -259,9 +259,9 @@ reference ids flow through the document in ascending order starting from `[1]`.
 
 - [remark-reference-links][4] — transform inline links into reference-style
   links.
+- [remark-remove-unused-definitions][9] — remove unused reference definitions.
 - [remark-renumber-references][5] — contiguously renumber numeric
   reference-style link ids starting from `[1]`.
-- [remark-sort-definitions][9] — remove unused reference definitions.
 
 ## Contributing and Support
 
@@ -325,5 +325,5 @@ See the [table of contributors][10].
   https://raw.githubusercontent.com/Xunnamius/unified-utils/main/packages/remark-sort-definitions/README.md
 [7]: https://en.wikipedia.org/wiki/Natural_sort_order
 [8]: /.remarkrc.mjs
-[9]: /packages/remark-sort-definitions
+[9]: /packages/remark-remove-unused-definitions
 [10]: /README.md#contributors
