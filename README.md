@@ -65,10 +65,10 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 - [remark-lint-fenced-code-flag-case][18] — warn when fenced code blocks have
   inconsistent or improperly cased language flags.
-- [remark-lint-list-item-style][19] — warn when list items violate a given
-  style.
-- [remark-lint-heading-word-length][20] — warn when headings have too many or
+- [remark-lint-heading-word-length][19] — warn when headings have too many or
   too few words.
+- [remark-lint-list-item-style][20] — warn when list items violate a given
+  style.
 
 ### Forks
 
@@ -178,8 +178,8 @@ any kind welcome!
 [16]: ./packages/remark-sort-definitions
 [17]: ./packages/remark-tight-comments
 [18]: ./packages/remark-lint-fenced-code-flag-case
-[19]: ./packages/remark-lint-list-item-style
-[20]: /packages/remark-lint-heading-word-length
+[19]: /packages/remark-lint-heading-word-length
+[20]: ./packages/remark-lint-list-item-style
 [21]:
   https://github.com/Xunnamius/remark-lint/tree/main/packages/remark-lint-no-empty-url
 [22]:
