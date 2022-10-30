@@ -45,14 +45,14 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
 ### [remark](https://github.com/remarkjs)
 
-- [remark-capitalize-headings][9] — selectively transforms headings using
+- [remark-capitalize-headings][9] — selectively transform headings using
   vercel's [title][10] package.
 - [remark-ignore][11] — use comments to exclude one or more nodes from
   [transformation][7].
-- [remark-remove-unused-definitions][12] — removes unused [reference-style link
+- [remark-remove-unused-definitions][12] — remove unused [reference-style link
   definitions][13] from a document.
-- [remark-remove-url-trailing-slash][14] — removes trailing slashes from the
-  ends of all URL paths.
+- [remark-remove-url-trailing-slash][14] — remove trailing slashes from the ends
+  of all URL paths.
 - [remark-renumber-references][15] — renumber numeric [reference-style link
   ids][13] contiguously starting from `[1]`.
 - [remark-sort-definitions][16] — reorder [reference-style link definitions][13]
