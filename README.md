@@ -46,7 +46,7 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 ### [remark](https://github.com/remarkjs)
 
 - [remark-capitalize-headings][9] — selectively transform headings using
-  vercel's [title][10] package.
+  Vercel's [title][10] package.
 - [remark-ignore][11] — use comments to exclude one or more nodes from
   [transformation][7].
 - [remark-remove-unused-definitions][12] — remove unused [reference-style link
