@@ -169,7 +169,7 @@ given regular expression strings will be excluded from capitalization entirely.
 #### `replaceHeadingRegExp`
 
 Valid values: `{ [regExp: RegExp]: string }`\
-Default: `{ "(?<=\s)a(?=\p{P})": "A" }`
+Default: `{ "(?<=\\s)a(?=\\p{P})": "A" }`
 
 This option lets you manipulate non-excluded headers in their [stringified][9]
 form _after_ they've been transformed by [title][3]. This extra context is
