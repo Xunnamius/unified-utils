@@ -4,56 +4,61 @@ All notable changes to this project will be documented in this auto-generated
 file. The format is based on [Conventional Commits][1]; this project adheres to
 [Semantic Versioning][2].
 
-### [1.0.1][3] (2022-10-29)
-
-#### 🪄 Fixes
-
-- **packages/remark-lint-heading-word-length:** use better existence guarantee
-  for options object ([955c4f4][4])
-
-## [1.0.0][5] (2022-10-29)
+## 1.0.0 (2022-10-30)
 
 #### ✨ Features
 
-- **packages/remark-lint-heading-word-length:** add new package ([593cd60][6])
+- **packages/remark-lint-heading-word-length:** add new package ([c1ae1b2][3])
 
 #### ⚙️ Build System
 
-- Add all-contributors ([84bff68][7])
-- **lint-staged:** add doctoc to pre-commit build process ([fa4f9ee][8])
-- **package:** add doctoc to npm format script ([112d42c][9])
-- **package:** defer to jest.config.js for coverage options ([05cd09e][10])
-- **package:** fix npm test script jest invocations ([a2ccf80][11])
-- **package:** update core npm format script ([c9d61ba][12])
-- **package:** use actual test ignore regex pattern ([6358888][13])
-- Update core build toolchain ([19243d6][14])
-- Update core lint npm script; add lint:all npm script ([bd84d8f][15])
+- Add all-contributors ([84bff68][4])
+- **lint-staged:** add doctoc to pre-commit build process ([fa4f9ee][5])
+- **package:** add doctoc to npm format script ([112d42c][6])
+- **package:** defer to jest.config.js for coverage options ([05cd09e][7])
+- **package:** fix npm test script jest invocations ([a2ccf80][8])
+- **package:** update core npm format script ([c9d61ba][9])
+- **package:** use actual test ignore regex pattern ([6358888][10])
+- Update core build toolchain ([19243d6][11])
+- Update core lint npm script; add lint:all npm script ([bd84d8f][12])
+
+## 0.0.0-Semantic (2022-10-30)
+
+#### ✨ Features
+
+- **packages/remark-lint-heading-word-length:** add new package ([c1ae1b2][3])
+
+#### ⚙️ Build System
+
+- Add all-contributors ([84bff68][4])
+- **lint-staged:** add doctoc to pre-commit build process ([fa4f9ee][5])
+- **package:** add doctoc to npm format script ([112d42c][6])
+- **package:** defer to jest.config.js for coverage options ([05cd09e][7])
+- **package:** fix npm test script jest invocations ([a2ccf80][8])
+- **package:** update core npm format script ([c9d61ba][9])
+- **package:** use actual test ignore regex pattern ([6358888][10])
+- Update core build toolchain ([19243d6][11])
+- Update core lint npm script; add lint:all npm script ([bd84d8f][12])
 
 [1]: https://conventionalcommits.org
 [2]: https://semver.org
 [3]:
-  https://github.com/Xunnamius/unified-utils/compare/remark-lint-heading-word-length@1.0.0...remark-lint-heading-word-length@1.0.1
+  https://github.com/Xunnamius/unified-utils/commit/c1ae1b281111232a8017f02b8aac2a1f99a4a159
 [4]:
-  https://github.com/Xunnamius/unified-utils/commit/955c4f498096c3c3e02cce788a0387ae1a85613f
-[5]:
-  https://github.com/Xunnamius/unified-utils/compare/05cd09e0cf13f18fa56f6156516bcf546b1238e6...remark-lint-heading-word-length@1.0.0
-[6]:
-  https://github.com/Xunnamius/unified-utils/commit/593cd60c080725ec30073ab03fed26791c787f79
-[7]:
   https://github.com/Xunnamius/unified-utils/commit/84bff68339c7a742c104c0f2545fe62b28c8b473
-[8]:
+[5]:
   https://github.com/Xunnamius/unified-utils/commit/fa4f9ee3f9cd922875cf077f6d8b74105f0ba55e
-[9]:
+[6]:
   https://github.com/Xunnamius/unified-utils/commit/112d42c6999f758ff618f4e116eb7cf38c09f77c
-[10]:
+[7]:
   https://github.com/Xunnamius/unified-utils/commit/05cd09e0cf13f18fa56f6156516bcf546b1238e6
-[11]:
+[8]:
   https://github.com/Xunnamius/unified-utils/commit/a2ccf801276c84e54d3fc1afaad574f78408d86f
-[12]:
+[9]:
   https://github.com/Xunnamius/unified-utils/commit/c9d61bacbd52bc76b05abd3426474bf0176c3cd9
-[13]:
+[10]:
   https://github.com/Xunnamius/unified-utils/commit/63588887a7377f3ee7488b19c87f1f2bf1faa811
-[14]:
+[11]:
   https://github.com/Xunnamius/unified-utils/commit/19243d623ba14cfd629c5e4632e6a75de508592b
-[15]:
+[12]:
   https://github.com/Xunnamius/unified-utils/commit/bd84d8fc1fb5c4d1828a16a47214a6730f34899a
