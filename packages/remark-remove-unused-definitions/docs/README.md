@@ -1,3 +1,7 @@
+remark-remove-unused-definitions
+
+# remark-remove-unused-definitions
+
 ## Table of contents
 
 ### Functions
@@ -8,7 +12,7 @@
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all unused definition nodes deleted.

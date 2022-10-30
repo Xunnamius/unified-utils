@@ -1,3 +1,7 @@
+remark-remove-url-trailing-slash
+
+# remark-remove-url-trailing-slash
+
 ## Table of contents
 
 ### Type Aliases
@@ -24,13 +28,13 @@ Options type for the remark-remove-url-trailing-slash plugin.
 
 #### Defined in
 
-[packages/remark-remove-url-trailing-slash/src/index.ts:11](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-remove-url-trailing-slash/src/index.ts#L11)
+[packages/remark-remove-url-trailing-slash/src/index.ts:11](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-remove-url-trailing-slash/src/index.ts#L11)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all Link, Image, and Definition node `url` paths stripped of

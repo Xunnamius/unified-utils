@@ -1,3 +1,7 @@
+remark-lint-list-item-style
+
+# remark-lint-list-item-style
+
 ## Table of contents
 
 ### Type Aliases
@@ -31,7 +35,7 @@ Options type for the remark-lint-list-item-style plugin.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/f381113/packages/remark-lint-list-item-style/src/index.ts#L29)
+[packages/remark-lint-list-item-style/src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-list-item-style/src/index.ts#L29)
 
 ## Variables
 
@@ -43,7 +47,7 @@ Valid values for the Options.checkFirstWord property.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/f381113/packages/remark-lint-list-item-style/src/index.ts#L14)
+[packages/remark-lint-list-item-style/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-list-item-style/src/index.ts#L14)
 
 ___
 
@@ -55,13 +59,13 @@ Valid values for the Options.checkListSpread property.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:19](https://github.com/Xunnamius/unified-utils/blob/f381113/packages/remark-lint-list-item-style/src/index.ts#L19)
+[packages/remark-lint-list-item-style/src/index.ts:19](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-list-item-style/src/index.ts#L19)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Node`<`Data`\>, `Node`<`Data`\>\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Node`<`Data`\>, `Node`<`Data`\>\>
 
 A remark-lint rule that takes a Root node as input and attaches any error
 messages to the resulting virtual file pertaining to list item style.

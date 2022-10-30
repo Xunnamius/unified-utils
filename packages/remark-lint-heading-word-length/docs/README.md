@@ -1,3 +1,7 @@
+remark-lint-heading-word-length
+
+# remark-lint-heading-word-length
+
 ## Table of contents
 
 ### Type Aliases
@@ -25,13 +29,13 @@ Options type for the remark-lint-heading-word-length plugin.
 
 #### Defined in
 
-packages/remark-lint-heading-word-length/src/index.ts:14
+[packages/remark-lint-heading-word-length/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-heading-word-length/src/index.ts#L14)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Node`<`Data`\>, `Node`<`Data`\>\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Node`<`Data`\>, `Node`<`Data`\>\>
 
 A remark-lint rule that takes a Root node as input and attaches any error
 messages to the resulting virtual file pertaining to fenced code flag case.

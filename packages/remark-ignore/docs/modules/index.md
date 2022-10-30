@@ -29,7 +29,7 @@ Renames and re-exports [default](start.md#default)
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all child nodes following an ignore command having been hidden. After

@@ -1,3 +1,7 @@
+remark-capitalize-headings
+
+# remark-capitalize-headings
+
 ## Table of contents
 
 ### Type Aliases
@@ -26,13 +30,13 @@ Options type for the remark-remove-url-trailing-slash plugin.
 
 #### Defined in
 
-[packages/remark-capitalize-headings/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-capitalize-headings/src/index.ts#L12)
+[packages/remark-capitalize-headings/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-capitalize-headings/src/index.ts#L12)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all heading nodes capitalized using Vercel's `title` package.

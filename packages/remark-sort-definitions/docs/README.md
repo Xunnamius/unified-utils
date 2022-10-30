@@ -1,3 +1,7 @@
+remark-sort-definitions
+
+# remark-sort-definitions
+
 ## Table of contents
 
 ### Type Aliases
@@ -24,13 +28,13 @@ Options type for the remark-sort-definitions plugin.
 
 #### Defined in
 
-[packages/remark-sort-definitions/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-sort-definitions/src/index.ts#L12)
+[packages/remark-sort-definitions/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-sort-definitions/src/index.ts#L12)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all definition nodes ordered with respect to the chosen

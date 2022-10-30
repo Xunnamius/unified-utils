@@ -1,3 +1,7 @@
+remark-tight-comments
+
+# remark-tight-comments
+
 ## Table of contents
 
 ### Functions
@@ -8,7 +12,7 @@
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that ensures tight spacing between HTML comments and select
 other mdast nodes under certain conditions.

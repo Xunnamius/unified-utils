@@ -13,7 +13,7 @@
 
 ### default
 
-▸ **default**(`this`, ...`settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all hidden child nodes revealed.
@@ -54,4 +54,4 @@ node with all hidden child nodes revealed.
 
 #### Defined in
 
-[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/2e163cd/packages/remark-ignore/src/end.ts#L18)
+[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-ignore/src/end.ts#L18)
