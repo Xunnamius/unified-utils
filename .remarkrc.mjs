@@ -29,7 +29,7 @@ const lintConfig = {
     'lint-no-duplicate-headings-in-section',
     'lint-no-empty-sections',
     'lint-no-empty-url',
-    ['lint-heading-length', { min: 1, max: 10 }],
+    'lint-heading-word-length',
     'lint-no-heading-like-paragraph',
     'lint-no-heading-punctuation',
     'lint-no-inline-padding',
