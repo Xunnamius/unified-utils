@@ -142,10 +142,10 @@ This plugin recognizes the following options:
 #### `checkPunctuation`
 
 Valid values: `false` | `RegExp[]`\
-Default: `["(\.|\?|;|,|!)"]`
+Default: `["(\\.|\\?|;|,|!|\\p{Emoji}\uFE0F|\\p{Emoji_Presentation})"]`
 
 Checks that the final character of each [stringified][4] list item matches at
-least one of the given values.
+least one of the given values, including emojis.
 
 To match all unicode punctuation characters, you could provide `["\p{P}"]`
 instead of the default, but this will match characters like `)` and `]`.
@@ -216,25 +216,27 @@ No messages.
 ```markdown
 - Foo?
 
-  Zulu.
+  Zulu!
 
   Bar.
 
 - `baz`?
 
-  Zulu.
+  Zulu 😅
 
-  Qux.
+  Qux ✨
 
 - ![image](https://example.com)
 
   ![image](https://example.com)
 
-  Quuux.
+  Quuux 🚀
 
 - ![image][1]
 
   ![image][1]
+
+  ☠️
 
   Quuux.
 

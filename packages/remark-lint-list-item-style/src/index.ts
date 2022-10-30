@@ -108,7 +108,13 @@ const remarkLintFencedCodeFlagCase = createLintRule(
                     child.children.length > 1 ||
                     !['image', 'imageReference'].includes(child.children[0]?.type)
                   ) {
-                    const punctuation = toString(child).at(-1) || '';
+                    // ? String iterator iterates over code points, meaning it
+                    // ? doesn't mangle emojis like `'str'.at(-1)` does.
+                    // * See: http://xunn.at/mdn-string-iterator
+                    const chars = [...toString(child)].filter(Boolean).slice(-2);
+                    const punctuation =
+                      // ? Account for "old style" two-part emojis using \uFE0F.
+                      chars.at(-1) == '\uFE0F' ? chars.join('') : chars.at(-1) || '';
 
                     // eslint-disable-next-line unicorn/prefer-regexp-test
                     if (!checkPunctuation.some((regExp) => !!punctuation.match(regExp))) {
@@ -174,7 +180,7 @@ function coerceToOptions(file: VFile, options: unknown) {
     'checkPunctuation' in options
       ? // @ts-expect-error: works in typescript@4.9
         options.checkPunctuation
-      : ['(\\.|\\?|;|,|!)']
+      : ['(\\.|\\?|;|,|!|\\p{Emoji}\uFE0F|\\p{Emoji_Presentation})']
   ) as NonNullable<Options['checkPunctuation']>;
 
   const checkFirstWord = (
