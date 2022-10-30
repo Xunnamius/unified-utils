@@ -19,7 +19,7 @@ const lintConfig = {
     'lint',
     'lint-definition-case',
     'lint-fenced-code-flag',
-    ['lint-fenced-code-flag-case', { case: 'lower' }],
+    'lint-fenced-code-flag-case',
     'lint-file-extension',
     'lint-first-heading-level',
     'lint-heading-increment',
