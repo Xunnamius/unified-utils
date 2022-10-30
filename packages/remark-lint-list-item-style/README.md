@@ -65,14 +65,17 @@ npm install --save-dev remark-lint-list-item-style
 
 ```typescript
 import { read } from 'to-vfile';
+import { reporter } from 'vfile-reporter';
 import { remark } from 'remark';
+import remarkLint from 'remark-lint';
 import lintFencedCodeFlagCase from 'remark-lint-list-item-style';
 
 const file = await remark()
+  .use(remarkLint)
   .use(lintFencedCodeFlagCase)
   .process(await read('example.md'));
 
-console.log(String(file));
+console.log(reporter(file));
 ```
 
 <!-- remark-ignore -->

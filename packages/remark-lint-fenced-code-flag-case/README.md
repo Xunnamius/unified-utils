@@ -65,14 +65,17 @@ npm install --save-dev remark-lint-fenced-code-flag-case
 
 ```typescript
 import { read } from 'to-vfile';
+import { reporter } from 'vfile-reporter';
 import { remark } from 'remark';
+import remarkLint from 'remark-lint';
 import lintFencedCodeFlagCase from 'remark-lint-fenced-code-flag-case';
 
 const file = await remark()
+  .use(remarkLint)
   .use(lintFencedCodeFlagCase)
   .process(await read('example.md'));
 
-console.log(String(file));
+console.log(reporter(file));
 ```
 
 <!-- remark-ignore -->
