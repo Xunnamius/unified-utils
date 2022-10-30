@@ -14,8 +14,8 @@
 
 # remark-lint-list-item-style
 
-This is a [remark-lint][1] rule to warn when list items violate a given style.
-Also comes with full unicode support.
+This is a [remark-lint][1] rule to warn when list items violate a given
+capitalization or punctuation style. Also comes with full unicode support.
 
 This rule picks up where the abandoned [remark-lint-list-item-punctuation][2]
 package left off.
