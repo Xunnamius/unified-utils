@@ -15,7 +15,7 @@
 # remark-remove-url-trailing-slash
 
 This is a [unified][1] ([remark][2]) plugin that removes trailing slashes from
-the ends of all URL paths.
+the ends of all URL paths (not query strings or hashes).
 
 Since this is not always a purely cosmetic change, you might also be interested
 in [remark-ignore][3], which lets you instruct remark not to transform parts of
@@ -150,9 +150,10 @@ Suppose we have the following Markdown file `example.md`:
 [link 3](https://example.com/some/path/)  
 [link 4](https://example.com/#readme)  
 [link 5](https://example.com/some/path/#readme)  
-[link 6][1]
+[link 6](https://example.com/some/path/#readme/)  
+[link 7][1]
 
-[1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ/
+[1]: https://www.youtube.com/watch/?v=dFs4yX4V7NQ/
 ```
 
 ### Using the Default Configuration
@@ -179,9 +180,10 @@ Would output the following:
 [link 3](https://example.com/some/path)  
 [link 4](https://example.com#readme)  
 [link 5](https://example.com/some/path#readme)  
-[link 6][1]
+[link 6](https://example.com/some/path#readme/)  
+[link 7][1]
 
-[1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
+[1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ/
 ```
 
 ### Using `onlyConsiderHostUrls`
@@ -211,9 +213,10 @@ Would output the following:
 [link 3](https://example.com/some/path/)  
 [link 4](https://example.com#readme)  
 [link 5](https://example.com/some/path/#readme)  
-[link 6][1]
+[link 6](https://example.com/some/path/#readme/)  
+[link 7][1]
 
-[1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ/
+[1]: https://www.youtube.com/watch/?v=dFs4yX4V7NQ/
 ```
 
 ## Related

@@ -263,8 +263,8 @@ Yields the original AST with the hidden headings restored (but stripped of their
 
 When using mdast-util-hidden in your own remark plugin, it's generally a good
 idea to mark your `Hidden` nodes with a unique symbol and ensure that you only
-call [`reveal`][10] and [`visitAndReveal`][11] on the `Hidden` nodes marked said
-symbol. Otherwise, if someone is using your plugin and [remark-ignore][12]
+call [`reveal`][10] and [`visitAndReveal`][11] on the `Hidden` nodes marked with
+said symbol. Otherwise, if someone is using your plugin and [remark-ignore][12]
 concurrently, it could be the case that your plugin accidentally reveals nodes
 that were hidden by remark-ignore, causing erroneous transformations against the
 user's wishes.
