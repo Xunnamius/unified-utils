@@ -4,7 +4,6 @@
 module.exports = {
   reject: [
     // ? Pin the CJS versions
-    'execa',
-    'escape-string-regexp'
+    'execa'
   ]
 };
