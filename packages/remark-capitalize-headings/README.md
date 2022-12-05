@@ -269,28 +269,36 @@ const file = await remark()
 console.log(String(file));
 ```
 
-Would output the following:
+Would output the following compared to `example.md`:
 
-```markdown
-# My Documentation
+```diff
+-# my documentation
++# My Documentation
 
-## Section 1 Is [the best](https://google.com)
+-## Section 1 is [the best](https://google.com)
++## Section 1 Is [the best](https://google.com)
 
-### Subsection A
+-### Subsection a
++### Subsection A
 
-### Subsection _A_
+-### Subsection _a_
++### Subsection _A_
 
 ### Subsection \_a
 
-### Subsection A: Be See
+-### Subsection a: be see
++### Subsection A: Be See
 
-### Subsection B
+-### Subsection b
++### Subsection B
 
 ### Subsection C
 
-## Section 2 Is the Test
+-## section 2 is the test
++## Section 2 Is the Test
 
-### Subsection 1
+-### subsection 1
++### Subsection 1
 
 ### Subsection 2
 
@@ -298,19 +306,25 @@ Would output the following:
 
 #### `options.opt2`
 
-#### Additional Option: `options.opt3`
+-#### Additional option: `options.opt3`
++#### Additional Option: `options.opt3`
 
-## Section 3 Has the Rest
+-## Section 3 has the rest
++## Section 3 Has the Rest
 
 ### Subsection [a][1]
 
-#### Sci-Fi Title Generator
+-#### Sci-fi title generator
++#### Sci-Fi Title Generator
 
-##### Children of Celeste
+-##### children of celeste
++##### Children of Celeste
 
-##### The Bionic Oblivion
+-##### the bionic oblivion
++##### The Bionic Oblivion
 
-##### Snows of Arrakis
+-##### snows Of arrakis
++##### Snows of Arrakis
 
 [1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
 ```
@@ -334,12 +348,14 @@ const file = await remark()
 console.log(String(file));
 ```
 
-Would output the following:
+Would output the following compared to `example.md`:
 
-```markdown
-# My Documentation
+```diff
+-# my documentation
++# My Documentation
 
-## Section 1 Is [the best](https://google.com)
+-## Section 1 is [the best](https://google.com)
++## Section 1 Is [the best](https://google.com)
 
 ### Subsection a
 
@@ -353,7 +369,8 @@ Would output the following:
 
 ### Subsection C
 
-## Section 2 Is the Test
+-## section 2 is the test
++## Section 2 Is the Test
 
 ### subsection 1
 
@@ -365,17 +382,21 @@ Would output the following:
 
 #### Additional option: `options.opt3`
 
-## Section 3 Has the Rest
+-## Section 3 has the rest
++## Section 3 Has the Rest
 
 ### Subsection [a][1]
 
 #### Sci-fi title generator
 
-##### Children of Celeste
+-##### children of celeste
++##### Children of Celeste
 
-##### The Bionic Oblivion
+-##### the bionic oblivion
++##### The Bionic Oblivion
 
-##### Snows of Arrakis
+-##### snows Of arrakis
++##### Snows of Arrakis
 
 [1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
 ```
@@ -400,12 +421,14 @@ const file = await remark()
 console.log(String(file));
 ```
 
-Would output the following:
+Would output the following compared to `example.md`:
 
-```markdown
-# My Documentation
+```diff
+-# my documentation
++# My Documentation
 
-## Section 1 Is [the best](https://google.com)
+-## Section 1 is [the best](https://google.com)
++## Section 1 Is [the best](https://google.com)
 
 ### Subsection a
 
@@ -419,7 +442,8 @@ Would output the following:
 
 ### Subsection C
 
-## Section 2 Is the Test
+-## section 2 is the test
++## Section 2 Is the Test
 
 ### subsection 1
 
@@ -431,7 +455,8 @@ Would output the following:
 
 #### Additional option: `options.opt3`
 
-## Section 3 Has the Rest
+-## Section 3 has the rest
++## Section 3 Has the Rest
 
 ### Subsection [a][1]
 
@@ -468,28 +493,37 @@ const file = await remark()
 console.log(String(file));
 ```
 
-Would output the following:
+Would output the following compared to `example.md`:
 
-```markdown
-# My Documentation
+```diff
+-# my documentation
++# My Documentation
 
-## Section 1 Is [the best](https://google.com)
+-## Section 1 is [the best](https://google.com)
++## Section 1 Is [the best](https://google.com)
 
-### Subsection Y
+-### Subsection a
++### Subsection Y
 
-### Subsection _Y_
+-### Subsection _a_
++### Subsection _Y_
 
-### Subsection \_Y
+-### Subsection \_a
++### Subsection \_Y
 
-### Subsection a: Be See
+-### Subsection a: be see
++### Subsection a: Be See
 
-### Subsection B
+-### Subsection b
++### Subsection B
 
 ### Subsection C
 
-## Section 2 Is the Test
+-## section 2 is the test
++## Section 2 Is the Test
 
-### Subsection 1
+-### subsection 1
++### Subsection 1
 
 ### Subsection 2
 
@@ -497,19 +531,25 @@ Would output the following:
 
 #### `options.opt2`
 
-#### Additional Option: `options.opt3`
+-#### Additional option: `options.opt3`
++#### Additional Option: `options.opt3`
 
-## Section 3 Has The Rest
+-## Section 3 has the rest
++## Section 3 Has The Rest
 
 ### Subsection [a][1]
 
-#### Sci-Fi Title Generator
+-#### Sci-fi title generator
++#### Sci-Fi Title Generator
 
-##### Children of Celeste
+-##### children of celeste
++##### Children of Celeste
 
-##### The Bionic Oblivion
+-##### the bionic oblivion
++##### The Bionic Oblivion
 
-##### Snows of Arrakis
+-##### snows Of arrakis
++##### Snows of Arrakis
 
 [1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
 ```
