@@ -6,7 +6,7 @@ import { toString } from 'mdast-util-to-string';
 import type { Heading } from 'mdast';
 import type { VFile } from 'unified-lint-rule/lib';
 
-const origin = 'unified-utils:heading-word-length';
+const origin = 'remark-lint:heading-word-length';
 
 /**
  * Options type for the remark-lint-heading-word-length plugin.

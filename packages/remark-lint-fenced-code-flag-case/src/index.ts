@@ -4,7 +4,7 @@ import { lintRule as createLintRule } from 'unified-lint-rule';
 
 import type { Code } from 'mdast';
 
-const origin = 'unified-utils:fenced-code-flag-case';
+const origin = 'remark-lint:fenced-code-flag-case';
 
 /**
  * Valid values for the Options.case property.

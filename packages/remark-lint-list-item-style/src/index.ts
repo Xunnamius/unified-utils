@@ -6,7 +6,7 @@ import { toString } from 'mdast-util-to-string';
 import type { List } from 'mdast';
 import type { VFile } from 'vfile';
 
-const origin = 'unified-utils:list-item-style plugin';
+const origin = 'remark-lint:list-item-style plugin';
 
 /**
  * Valid values for the Options.checkFirstWord property.
