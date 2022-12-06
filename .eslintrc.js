@@ -103,7 +103,9 @@ const rules = {
   // ? Premature optimization is evil
   'unicorn/no-array-for-each': 'off',
   // ? Lol, no
-  'unicorn/explicit-length-check': 'off'
+  'unicorn/explicit-length-check': 'off',
+  // ? I don't think so
+  'unicorn/no-negated-condition': 'off'
 };
 
 module.exports = {
