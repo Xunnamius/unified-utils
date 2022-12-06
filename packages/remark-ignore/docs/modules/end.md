@@ -54,4 +54,4 @@ node with all hidden child nodes revealed.
 
 #### Defined in
 
-[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-ignore/src/end.ts#L18)
+[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-ignore/src/end.ts#L18)

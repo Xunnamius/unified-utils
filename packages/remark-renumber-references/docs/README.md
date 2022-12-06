@@ -24,11 +24,11 @@ Options type for the remark-renumber-references plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `preserveAlphanumericDefinitions?` | `boolean` | If `true`, alphanumeric definition ids (i.e. any id that cannot be parsed into an integer) will be spared during the renumbering. If `false`, _all_ definition ids will be deleted and recreated starting from `[1]`.  **`Default`**  true |
+| `preserveAlphanumericDefinitions?` | `boolean` | If `true`, alphanumeric definition ids (i.e. any id that cannot be parsed into an integer) will be spared during the renumbering. If `false`, _all_ definition ids will be deleted and recreated starting from `[1]`. **`Default`** true |
 
 #### Defined in
 
-[packages/remark-renumber-references/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-renumber-references/src/index.ts#L16)
+[packages/remark-renumber-references/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-renumber-references/src/index.ts#L16)
 
 ## Functions
 

@@ -24,12 +24,12 @@ Options type for the remark-lint-heading-word-length plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `maximumWords?` | ``false`` \| `number` | The maximum number of words allowed in a heading.  Set to `false` (or `Infinity`) to prevent maximum word length checks.  **`Default`**  10 |
-| `minimumWords?` | ``false`` \| `number` | The minimum number of words required in a heading.  Set to `false` to prevent minimum word length checks.  **`Default`**  1 |
+| `maximumWords?` | ``false`` \| `number` | The maximum number of words allowed in a heading. Set to `false` (or `Infinity`) to prevent maximum word length checks. **`Default`** 10 |
+| `minimumWords?` | ``false`` \| `number` | The minimum number of words required in a heading. Set to `false` to prevent minimum word length checks. **`Default`** 1 |
 
 #### Defined in
 
-[packages/remark-lint-heading-word-length/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-heading-word-length/src/index.ts#L14)
+[packages/remark-lint-heading-word-length/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-lint-heading-word-length/src/index.ts#L14)
 
 ## Functions
 

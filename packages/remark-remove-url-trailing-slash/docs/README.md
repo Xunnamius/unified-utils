@@ -24,11 +24,11 @@ Options type for the remark-remove-url-trailing-slash plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `onlyConsiderHostUrls?` | `boolean` | If this option is `false`, trailing slashes will be removed from all URL paths, including single-character `/` paths (i.e. "empty" paths).  If this option is `true`, trailing slashes will only be removed from non-relative URLs with empty paths, e.g. `https://example.com/ => https://example.com`.  **`Default`**  false |
+| `onlyConsiderHostUrls?` | `boolean` | If this option is `false`, trailing slashes will be removed from all URL paths, including single-character `/` paths (i.e. "empty" paths). If this option is `true`, trailing slashes will only be removed from non-relative URLs with empty paths, e.g. `https://example.com/ => https://example.com`. **`Default`** false |
 
 #### Defined in
 
-[packages/remark-remove-url-trailing-slash/src/index.ts:11](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-remove-url-trailing-slash/src/index.ts#L11)
+[packages/remark-remove-url-trailing-slash/src/index.ts:11](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-remove-url-trailing-slash/src/index.ts#L11)
 
 ## Functions
 

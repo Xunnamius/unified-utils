@@ -29,13 +29,13 @@ Options type for the remark-lint-list-item-style plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `checkFirstWord?` | typeof [`optionsCheckFirstWord`](README.md#optionscheckfirstword)[`number`] | Checks that the first word of each stringified list item paragraph begins with a non-lowercase character (`"capitalize"`) or a non-uppercase character (`"lowercase"`).  List items beginning with a link, image, or inline code block are ignored.  **`Default`**  "capitalize" |
-| `checkListSpread?` | typeof [`optionsCheckListSpread`](README.md#optionschecklistspread)[`number`] | Determines how `checkPunctuation` is applied to list items with spread children. Has no effect when `checkPunctuation` is `false`.  **`Default`**  "each" |
-| `checkPunctuation?` | ``false`` \| (`string` \| `RegExp`)[] | Checks that the final character of each stringified list item matches at least one of the given values.  To match all unicode punctuation characters, you could provide `["\p{P}"]` instead of the default, but this will match characters like `)` and `]`.  Alternatively, to prevent punctuation, you could provide `["\P{P}"]`.  Lines that consist solely of an image are ignored.  **`Default`**  ["(\\.\|\\?\|;\|,\|!)"] |
+| `checkFirstWord?` | typeof [`optionsCheckFirstWord`](README.md#optionscheckfirstword)[`number`] | Checks that the first word of each stringified list item paragraph begins with a non-lowercase character (`"capitalize"`) or a non-uppercase character (`"lowercase"`). List items beginning with a link, image, or inline code block are ignored. **`Default`** "capitalize" |
+| `checkListSpread?` | typeof [`optionsCheckListSpread`](README.md#optionschecklistspread)[`number`] | Determines how `checkPunctuation` is applied to list items with spread children. Has no effect when `checkPunctuation` is `false`. **`Default`** "each" |
+| `checkPunctuation?` | ``false`` \| (`string` \| `RegExp`)[] | Checks that the final character of each stringified list item matches at least one of the given values. To match all unicode punctuation characters, you could provide `["\p{P}"]` instead of the default, but this will match characters like `)` and `]`. Alternatively, to prevent punctuation, you could provide `["\P{P}"]`. Lines that consist solely of an image are ignored. **`Default`** ["(\\.\|\\?\|;\|,\|!)"] |
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-list-item-style/src/index.ts#L29)
+[packages/remark-lint-list-item-style/src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-lint-list-item-style/src/index.ts#L29)
 
 ## Variables
 
@@ -47,7 +47,7 @@ Valid values for the Options.checkFirstWord property.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-list-item-style/src/index.ts#L14)
+[packages/remark-lint-list-item-style/src/index.ts:14](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-lint-list-item-style/src/index.ts#L14)
 
 ___
 
@@ -59,7 +59,7 @@ Valid values for the Options.checkListSpread property.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:19](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-list-item-style/src/index.ts#L19)
+[packages/remark-lint-list-item-style/src/index.ts:19](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-lint-list-item-style/src/index.ts#L19)
 
 ## Functions
 

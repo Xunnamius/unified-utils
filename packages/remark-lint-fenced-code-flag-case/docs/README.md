@@ -28,11 +28,11 @@ Options type for the remark-lint-fenced-code-flag-case plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `case?` | typeof [`optionsCases`](README.md#optionscases)[`number`] | All code fence flags must be of the specified case. Code fences without flags are ignored.  **`Default`**  "lower" |
+| `case?` | typeof [`optionsCases`](README.md#optionscases)[`number`] | All code fence flags must be of the specified case. Code fences without flags are ignored. **`Default`** "lower" |
 
 #### Defined in
 
-[packages/remark-lint-fenced-code-flag-case/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-fenced-code-flag-case/src/index.ts#L17)
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-lint-fenced-code-flag-case/src/index.ts#L17)
 
 ## Variables
 
@@ -44,7 +44,7 @@ Valid values for the Options.case property.
 
 #### Defined in
 
-[packages/remark-lint-fenced-code-flag-case/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/remark-lint-fenced-code-flag-case/src/index.ts#L12)
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-lint-fenced-code-flag-case/src/index.ts#L12)
 
 ## Functions
 

@@ -36,7 +36,7 @@ Returns a new `Hidden` node ready to be inserted into a mdast tree.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/mdast-util-hidden/src/index.ts#L23)
+[packages/mdast-util-hidden/src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L23)
 
 ___
 
@@ -61,7 +61,7 @@ in will become the hidden children of this new node.
 | › `index` | `number` | - |
 | › `nodes` | `Nodes` | - |
 | › `parent` | `Parent`<`Node`<`Data`\>, `Data`\> | - |
-| › `replaceChildAtIndex?` | `boolean` | If `replaceChildAtIndex` is `true`, the child node of `parent` at `index` will be replaced by the new `Hidden` node.  On the other hand, if `replaceChildAtIndex` is `false`, this function will not remove any nodes from `parent`. In this case, if you do not manually remove the node at `index`, **you must skip two nodes ahead instead of just one when using a visitor or risk an infinite loop!**  **`Default`**  true  **`Example`**  ```typescript visit(tree, 'heading', (node, index, parent) => {   if (index !== null && parent !== null) {     hide({       nodes: [node],       index,       parent,       replaceChildAtIndex: false     });     return [SKIP, index + 2]; // <- +2 here is IMPORTANT   } }); ``` |
+| › `replaceChildAtIndex?` | `boolean` | If `replaceChildAtIndex` is `true`, the child node of `parent` at `index` will be replaced by the new `Hidden` node. On the other hand, if `replaceChildAtIndex` is `false`, this function will not remove any nodes from `parent`. In this case, if you do not manually remove the node at `index`, **you must skip two nodes ahead instead of just one when using a visitor or risk an infinite loop!** **`Default`** true **`Example`** ```typescript visit(tree, 'heading', (node, index, parent) => { if (index !== null && parent !== null) { hide({ nodes: [node], index, parent, replaceChildAtIndex: false }); return [SKIP, index + 2]; // <- +2 here is IMPORTANT } }); ``` |
 
 #### Returns
 
@@ -69,7 +69,7 @@ in will become the hidden children of this new node.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:42](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/mdast-util-hidden/src/index.ts#L42)
+[packages/mdast-util-hidden/src/index.ts:42](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L42)
 
 ___
 
@@ -92,7 +92,7 @@ node is Hidden
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:34](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/mdast-util-hidden/src/index.ts#L34)
+[packages/mdast-util-hidden/src/index.ts:34](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L34)
 
 ___
 
@@ -124,7 +124,7 @@ one or more `Hidden` `nodes`.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:85](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/mdast-util-hidden/src/index.ts#L85)
+[packages/mdast-util-hidden/src/index.ts:85](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L85)
 
 ___
 
@@ -154,9 +154,9 @@ instead.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `«destructured»` | `Object` | - |
-| › `reverse?` | `boolean` | **`See`**  https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse  **`Default`**  false |
-| › `tree` | `Tree` | **`See`**  https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse |
-| › `visitor?` | `Visitor` | If `visitor` is provided but returns `false`, `reveal` is not called and the hidden is not revealed. Otherwise, `reveal` will always be called.  If `visitor` is provided and returns a defined value other than `false`, that value will be passed through to unist-util-visit. If `visitor` is not provided, or it returns `undefined`, `[SKIP, index]` will be passed through instead. |
+| › `reverse?` | `boolean` | **`See`** https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse **`Default`** false |
+| › `tree` | `Tree` | **`See`** https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse |
+| › `visitor?` | `Visitor` | If `visitor` is provided but returns `false`, `reveal` is not called and the hidden is not revealed. Otherwise, `reveal` will always be called. If `visitor` is provided and returns a defined value other than `false`, that value will be passed through to unist-util-visit. If `visitor` is not provided, or it returns `undefined`, `[SKIP, index]` will be passed through instead. |
 
 #### Returns
 
@@ -164,4 +164,4 @@ instead.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:113](https://github.com/Xunnamius/unified-utils/blob/3d8a3a5/packages/mdast-util-hidden/src/index.ts#L113)
+[packages/mdast-util-hidden/src/index.ts:113](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L113)
