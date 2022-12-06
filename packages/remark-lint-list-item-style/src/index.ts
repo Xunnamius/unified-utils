@@ -6,7 +6,7 @@ import { toString } from 'mdast-util-to-string';
 import type { List } from 'mdast';
 import type { VFile } from 'vfile';
 
-const origin = 'remark-lint:list-item-style plugin';
+const origin = 'remark-lint:list-item-style';
 
 /**
  * Valid values for the Options.checkFirstWord property.
@@ -67,7 +67,7 @@ export type Options = {
 const remarkLintFencedCodeFlagCase = createLintRule(
   {
     origin,
-    url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-list-item-style plugin#readme'
+    url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-list-item-style#readme'
   },
   function (tree, file, options = {}) {
     const { checkPunctuation, checkFirstWord, checkListSpread } = coerceToOptions(
