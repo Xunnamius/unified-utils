@@ -80,17 +80,11 @@ function coerceToOptions(file: VFile, options: unknown) {
   }
 
   const minimumWords = (
-    'minimumWords' in options
-      ? // @ts-expect-error: works in typescript@4.9
-        options.minimumWords
-      : 1
+    'minimumWords' in options ? options.minimumWords : 1
   ) as NonNullable<Options['minimumWords']>;
 
   const maximumWords = (
-    'maximumWords' in options
-      ? // @ts-expect-error: works in typescript@4.9
-        options.maximumWords
-      : 10
+    'maximumWords' in options ? options.maximumWords : 10
   ) as NonNullable<Options['maximumWords']>;
 
   if (

@@ -37,9 +37,9 @@ const remarkLintFencedCodeFlagCase = createLintRule(
     options = options || {};
 
     if (!!options && typeof options == 'object' && !Array.isArray(options)) {
-      const expectedCase =
-        // @ts-expect-error: works in typescript@4.9
-        ('case' in options ? options.case : 'lower') as NonNullable<Options['case']>;
+      const expectedCase = ('case' in options ? options.case : 'lower') as NonNullable<
+        Options['case']
+      >;
 
       if (optionsCases.includes(expectedCase)) {
         // The visit function's types are not very optimal and cause problems...

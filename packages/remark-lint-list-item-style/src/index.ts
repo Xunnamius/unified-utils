@@ -178,23 +178,16 @@ function coerceToOptions(file: VFile, options: unknown) {
 
   const checkPunctuation = (
     'checkPunctuation' in options
-      ? // @ts-expect-error: works in typescript@4.9
-        options.checkPunctuation
+      ? options.checkPunctuation
       : ['(\\.|\\?|;|,|!|\\p{Emoji}\uFE0F|\\p{Emoji_Presentation})']
   ) as NonNullable<Options['checkPunctuation']>;
 
   const checkFirstWord = (
-    'checkFirstWord' in options
-      ? // @ts-expect-error: works in typescript@4.9
-        options.checkFirstWord
-      : 'capitalize'
+    'checkFirstWord' in options ? options.checkFirstWord : 'capitalize'
   ) as NonNullable<Options['checkFirstWord']>;
 
   const checkListSpread = (
-    'checkListSpread' in options
-      ? // @ts-expect-error: works in typescript@4.9
-        options.checkListSpread
-      : 'each'
+    'checkListSpread' in options ? options.checkListSpread : 'each'
   ) as NonNullable<Options['checkListSpread']>;
 
   const checkPunctuationRegExp = checkPunctuationToRegExp();
