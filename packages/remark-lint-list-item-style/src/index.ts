@@ -104,14 +104,26 @@ const remarkLintFencedCodeFlagCase = createLintRule(
 
                 targets.forEach((child) => {
                   if (
-                    child.type != 'paragraph' ||
-                    child.children.length > 1 ||
-                    !['image', 'imageReference'].includes(child.children[0]?.type)
+                    (child.type == 'paragraph' &&
+                      child.children.length &&
+                      !['image', 'imageReference'].includes(
+                        child.children.at(-1)?.type || ''
+                      )) ||
+                    !['code', 'paragraph', 'html', 'list'].includes(child.type)
                   ) {
-                    // ? String iterator iterates over code points, meaning it
-                    // ? doesn't mangle emojis like `'str'.at(-1)` does.
-                    // * See: http://xunn.at/mdn-string-iterator
-                    const chars = [...toString(child)].filter(Boolean).slice(-2);
+                    const chars =
+                      child.type == 'paragraph' &&
+                      child.children.length == 1 &&
+                      child.children.at(-1)?.type == 'inlineCode'
+                        ? // ? This condition deals with an edge case.
+                          // * See: test/fixtures/not-ok-spread-each.md #5
+                          ['​'] /* <-- contains a zero-width space character */
+                        : // ? String iterator iterates over code points,
+                          // ? meaning it doesn't mangle emojis like
+                          // ? `'str'.at(-1)` does.
+                          // * See: http://xunn.at/mdn-string-iterator
+                          [...toString(child)].filter(Boolean).slice(-2);
+
                     const punctuation =
                       // ? Account for "old style" two-part emojis using \uFE0F.
                       chars.at(-1) == '\uFE0F' ? chars.join('') : chars.at(-1) || '';
@@ -135,15 +147,16 @@ const remarkLintFencedCodeFlagCase = createLintRule(
             ) {
               listItem.children.forEach((child) => {
                 if (
-                  child.type != 'paragraph' ||
-                  (child.children.length &&
+                  (child.type == 'paragraph' &&
+                    child.children.length &&
                     ![
                       'inlineCode',
                       'link',
                       'linkReference',
                       'image',
                       'imageReference'
-                    ].includes(child.children[0]?.type))
+                    ].includes(child.children[0]?.type)) ||
+                  !['code', 'paragraph', 'html', 'list'].includes(child.type)
                 ) {
                   const actual = toString(child)[0];
                   const expected =

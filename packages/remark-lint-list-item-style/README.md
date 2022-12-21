@@ -213,7 +213,7 @@ No messages.
 
 #### In
 
-```markdown
+````markdown
 - Foo?
 
   Zulu!
@@ -232,16 +232,64 @@ No messages.
 
   Quuux 🚀
 
+- B.
+
+  C.
+
+  D.
+
+- Nested.
+
+  - Items.
+
+    - That.
+
+      - Are nested.
+
 - ![image][1]
 
-  ![image][1]
+  ![i][1]
 
   ☠️
 
   Quuux.
 
+1. Run this script in your browser to prevent 'AAA' masking from effecting your
+   local session.
+
+   ```javascript
+   window._uxa = window._uxa || [];
+   window._uxa.push(['trackConsentGranted']);
+   ```
+
+2. `do` something else.
+
+   ```javascript
+   console.log('ok');
+   ```
+
+   ```javascript
+   c;
+   ```
+
+3. D.
+
+   An example of that something would be as follows.
+
+   ```javascript
+   console.log('ok');
+   ```
+
+4. Even more.
+
+   ```javascript
+   console.log('ok');
+   ```
+
+   An example of that something would be as follows.
+
 [1]: https://example.com
-```
+````
 
 #### Out
 
@@ -350,7 +398,7 @@ Notice how only the first line triggers a warning while the others do not.
 
 #### In
 
-```markdown
+````markdown
 - Foo
 
   Bar.
@@ -362,7 +410,51 @@ Notice how only the first line triggers a warning while the others do not.
 - Quuux.
 
   (Quux)
-```
+
+- Nested.
+
+  - Items.
+
+    - That.
+
+      - Are nested
+
+1. Run this script in your browser to prevent 'AAA' masking from effecting your
+   local session
+
+   ```javascript
+   window._uxa = window._uxa || [];
+   window._uxa.push(['trackConsentGranted']);
+   ```
+
+2. `do` something else
+
+   ```javascript
+   console.log('ok');
+   ```
+
+   ```javascript
+   c;
+   ```
+
+3. D.
+
+   An example of that something would be as follows
+
+   ```javascript
+   console.log('ok');
+   ```
+
+4. Even more.
+
+   ```javascript
+   console.log('ok');
+   ```
+
+   An example of that something would be the aforesaid
+
+5. `this is a tricky one because the punctuation is contained within the quotes.`
+````
 
 #### Out
 
@@ -370,7 +462,16 @@ Notice how only the first line triggers a warning while the others do not.
 1:3-1:6: "o" is not allowed to punctuate list item
 5:3-5:9: "]" is not allowed to punctuate list item
 11:3-11:9: ")" is not allowed to punctuate list item
+19:9-19:19: "d" is not allowed to punctuate list item
+21:4-22:17: "n" is not allowed to punctuate list item
+29:4-29:23: "e" is not allowed to punctuate list item
+41:4-41:52: "s" is not allowed to punctuate list item
+53:4-53:55: "d" is not allowed to punctuate list item
+55:4-55:76: "​" is not allowed to punctuate list item
 ```
+
+Note the final error, which only occurs when a list item containing single
+[inline code node][7] runs afoul of the punctuation configuration.
 
 ### `not-ok-first-word-spread.md`
 
@@ -402,12 +503,12 @@ Notice how only the first line triggers a warning while the others do not.
 
 - [remark-lint-list-item-punctuation][2] — the abandoned predecessor to this
   package.
-- [remark-lint-list-item-bullet-indent][7] — warn when list item bullets are
+- [remark-lint-list-item-bullet-indent][8] — warn when list item bullets are
   indented.
-- [remark-lint-list-item-content-indent][8] — warn when the content of a list
+- [remark-lint-list-item-content-indent][9] — warn when the content of a list
   item has mixed indentation.
-- [remark-lint-list-item-spacing][9] — warn when list looseness is incorrect.
-- [remark-lint-list-item-indent][10] — warn when the spacing between a list
+- [remark-lint-list-item-spacing][10] — warn when list looseness is incorrect.
+- [remark-lint-list-item-indent][11] — warn when the spacing between a list
   item’s bullet and its content violates a given style.
 
 ## Contributing and Support
@@ -421,7 +522,7 @@ information.
 
 ### Contributors
 
-See the [table of contributors][11].
+See the [table of contributors][12].
 
 [badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
 [badge-codecov]:
@@ -471,12 +572,13 @@ See the [table of contributors][11].
 [4]: https://github.com/syntax-tree/mdast-util-to-string
 [5]: #checkPunctuation
 [6]: https://github.com/syntax-tree/mdast#listitem
-[7]:
-  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-bullet-indent
+[7]: https://github.com/syntax-tree/mdast#inlinecode
 [8]:
-  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-content-indent
+  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-bullet-indent
 [9]:
-  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-spacing
+  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-content-indent
 [10]:
+  https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-spacing
+[11]:
   https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-list-item-indent
-[11]: /README.md#contributors
+[12]: /README.md#contributors

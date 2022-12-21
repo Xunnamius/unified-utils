@@ -27,7 +27,14 @@ describe('::default', () => {
     expect(results.notOkSpreadEach.messages).toStrictEqual([
       expect.objectContaining({ message: '"o" is not allowed to punctuate list item' }),
       expect.objectContaining({ message: '"]" is not allowed to punctuate list item' }),
-      expect.objectContaining({ message: '")" is not allowed to punctuate list item' })
+      expect.objectContaining({ message: '")" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"d" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"n" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"e" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"s" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"d" is not allowed to punctuate list item' }),
+      // * NOTE: the "" contains a zero-width space character
+      expect.objectContaining({ message: '"​" is not allowed to punctuate list item' })
     ]);
 
     expect(results.okSpreadFirstAndFinal.messages).toStrictEqual([
@@ -61,7 +68,8 @@ describe('::default', () => {
     expect(results.okSpreadFirst.messages).toStrictEqual([]);
 
     expect(results.okSpreadFinal.messages).toStrictEqual([
-      expect.objectContaining({ message: '"o" is not allowed to punctuate list item' }),
+      // * NOTE: the "" contains a zero-width space character
+      expect.objectContaining({ message: '"​" is not allowed to punctuate list item' }),
       expect.objectContaining({ message: '"z" is not allowed to punctuate list item' }),
       expect.objectContaining({ message: '"x" is not allowed to punctuate list item' })
     ]);
@@ -174,7 +182,12 @@ describe('::default', () => {
       expect.objectContaining({ message: '"]" is not allowed to punctuate list item' }),
       expect.objectContaining({ message: '"." is not allowed to punctuate list item' }),
       expect.objectContaining({ message: '"." is not allowed to punctuate list item' }),
-      expect.objectContaining({ message: '")" is not allowed to punctuate list item' })
+      expect.objectContaining({ message: '")" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"." is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"." is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"." is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"." is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"." is not allowed to punctuate list item' })
     ]);
   });
 
@@ -186,7 +199,14 @@ describe('::default', () => {
     );
 
     expect(results.notOkSpreadEach.messages).toStrictEqual([
-      expect.objectContaining({ message: '"o" is not allowed to punctuate list item' })
+      expect.objectContaining({ message: '"o" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"d" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"n" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"e" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"s" is not allowed to punctuate list item' }),
+      expect.objectContaining({ message: '"d" is not allowed to punctuate list item' }),
+      // * NOTE: the "" contains a zero-width space character
+      expect.objectContaining({ message: '"​" is not allowed to punctuate list item' })
     ]);
   });
 
