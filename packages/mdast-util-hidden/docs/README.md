@@ -36,7 +36,7 @@ Returns a new `Hidden` node ready to be inserted into a mdast tree.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L23)
+[packages/mdast-util-hidden/src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/dcdf185/packages/mdast-util-hidden/src/index.ts#L23)
 
 ___
 
@@ -69,7 +69,7 @@ in will become the hidden children of this new node.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:42](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L42)
+[packages/mdast-util-hidden/src/index.ts:42](https://github.com/Xunnamius/unified-utils/blob/dcdf185/packages/mdast-util-hidden/src/index.ts#L42)
 
 ___
 
@@ -92,7 +92,7 @@ node is Hidden
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:34](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L34)
+[packages/mdast-util-hidden/src/index.ts:34](https://github.com/Xunnamius/unified-utils/blob/dcdf185/packages/mdast-util-hidden/src/index.ts#L34)
 
 ___
 
@@ -124,7 +124,7 @@ one or more `Hidden` `nodes`.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:85](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L85)
+[packages/mdast-util-hidden/src/index.ts:85](https://github.com/Xunnamius/unified-utils/blob/dcdf185/packages/mdast-util-hidden/src/index.ts#L85)
 
 ___
 
@@ -164,4 +164,4 @@ instead.
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:113](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/mdast-util-hidden/src/index.ts#L113)
+[packages/mdast-util-hidden/src/index.ts:113](https://github.com/Xunnamius/unified-utils/blob/dcdf185/packages/mdast-util-hidden/src/index.ts#L113)

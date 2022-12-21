@@ -28,7 +28,7 @@ Options type for the remark-sort-definitions plugin.
 
 #### Defined in
 
-[packages/remark-sort-definitions/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/e2ecc6a/packages/remark-sort-definitions/src/index.ts#L12)
+[packages/remark-sort-definitions/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/dcdf185/packages/remark-sort-definitions/src/index.ts#L12)
 
 ## Functions
 
