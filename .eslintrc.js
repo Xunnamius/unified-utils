@@ -59,6 +59,8 @@ const rules = {
   // ? Ever since v4, we will rely on TypeScript to catch these
   'no-undef': 'off',
   '@typescript-eslint/no-var-requires': 'off',
+  // ? I'll be good, I promise
+  '@typescript-eslint/no-non-null-assertion': 'off',
   'no-unused-vars': 'off',
   'unicorn/no-keyword-prefix': 'warn',
   'unicorn/prefer-string-replace-all': 'warn',
@@ -78,10 +80,14 @@ const rules = {
         str: false,
         fn: false,
         db: false,
+        dir: false,
         dist: false,
         tmp: false,
         pkg: false,
-        dest: false
+        src: false,
+        dest: false,
+        obj: false,
+        val: false
       },
       ignore: [/stderr/i]
     }
