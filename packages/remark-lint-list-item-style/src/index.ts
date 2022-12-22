@@ -64,7 +64,7 @@ export type Options = {
  * A remark-lint rule that takes a Root node as input and attaches any error
  * messages to the resulting virtual file pertaining to list item style.
  */
-const remarkLintFencedCodeFlagCase = createLintRule(
+const remarkLintListItemStyle = createLintRule(
   {
     origin,
     url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-list-item-style#readme'
@@ -180,7 +180,7 @@ const remarkLintFencedCodeFlagCase = createLintRule(
   }
 );
 
-export default remarkLintFencedCodeFlagCase;
+export default remarkLintListItemStyle;
 
 function coerceToOptions(file: VFile, options: unknown) {
   options = options || {};
