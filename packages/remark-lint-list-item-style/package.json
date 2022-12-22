@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-list-item-style",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "description": "remark-lint rule to warn when list items violate a given style",
   "keywords": [
     "remark",
