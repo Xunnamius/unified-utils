@@ -23,6 +23,16 @@
         "test",
         "review"
       ]
+    },
+    {
+      "login": "fviolette",
+      "name": "François Violette",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19730806?v=4",
+      "profile": "https://github.com/fviolette",
+      "contributions": [
+        "bug",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
