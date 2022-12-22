@@ -116,6 +116,23 @@ describe('::default', () => {
     ]);
   });
 
+  it("ignores a list item's first word capitalization if it matches ignoredFirstWords", async () => {
+    expect.hasAssertions();
+
+    const results = await runLinter(
+      remark().use(remarkLintListItemStyle, { ignoredFirstWords: [/^n/, '^bar', 'qux'] })
+    );
+
+    expect(results.okFirstWord.messages).toStrictEqual([]);
+    expect(results.notOkFirstWord.messages).toStrictEqual([]);
+
+    expect(results.notOkFirstWordSpread.messages).toStrictEqual([
+      expect.objectContaining({
+        message: 'Inconsistent list item capitalization: "q" should be "Q"'
+      })
+    ]);
+  });
+
   it("warns when a list item's punctuation violates multi-element checkPunctuation configuration", async () => {
     expect.hasAssertions();
 

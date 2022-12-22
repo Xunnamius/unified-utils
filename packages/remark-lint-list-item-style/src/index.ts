@@ -52,6 +52,15 @@ export type Options = {
    */
   checkFirstWord?: typeof optionsCheckFirstWord[number];
   /**
+   * Words that would normally be checked with respect to the `checkFirstWord`
+   * option will be ignored if they match at least one of the given values.
+   *
+   * Use this option to prevent false positives (e.g. "iOS", "eBay").
+   *
+   * @default []
+   */
+  ignoredFirstWords?: (string | RegExp)[];
+  /**
    * Determines how `checkPunctuation` is applied to list items with spread
    * children. Has no effect when `checkPunctuation` is `false`.
    *
@@ -70,10 +79,8 @@ const remarkLintListItemStyle = createLintRule(
     url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-list-item-style#readme'
   },
   function (tree, file, options = {}) {
-    const { checkPunctuation, checkFirstWord, checkListSpread } = coerceToOptions(
-      file,
-      options
-    );
+    const { checkPunctuation, checkFirstWord, checkListSpread, ignoredFirstWords } =
+      coerceToOptions(file, options);
 
     visit(tree, (node) => {
       if (!isGenerated(node) && node.type == 'list') {
@@ -128,6 +135,9 @@ const remarkLintListItemStyle = createLintRule(
                       // ? Account for "old style" two-part emojis using \uFE0F.
                       chars.at(-1) == '\uFE0F' ? chars.join('') : chars.at(-1) || '';
 
+                    // ? Regular expression objects are stateful, so we must use
+                    // ? `match` instead of `test`.
+                    // * See: https://stackoverflow.com/a/21373261/1367414
                     // eslint-disable-next-line unicorn/prefer-regexp-test
                     if (!checkPunctuation.some((regExp) => !!punctuation.match(regExp))) {
                       file.message(
@@ -158,17 +168,28 @@ const remarkLintListItemStyle = createLintRule(
                     ].includes(child.children[0]?.type)) ||
                   !['code', 'paragraph', 'html', 'list'].includes(child.type)
                 ) {
-                  const actual = toString(child)[0];
-                  const expected =
-                    actual[
-                      checkFirstWord == 'capitalize' ? 'toUpperCase' : 'toLowerCase'
-                    ]();
+                  const stringifiedChild = toString(child);
+                  const isIgnored = ignoredFirstWords.some(
+                    // ? Regular expression objects are stateful, so we must use
+                    // ? `match` instead of `test`.
+                    // * See: https://stackoverflow.com/a/21373261/1367414
+                    // eslint-disable-next-line unicorn/prefer-regexp-test
+                    (regExp) => !!stringifiedChild.match(regExp)
+                  );
 
-                  if (expected != actual) {
-                    file.message(
-                      `Inconsistent list item capitalization: "${actual}" should be "${expected}"`,
-                      child
-                    );
+                  if (!isIgnored) {
+                    const actual = stringifiedChild[0];
+                    const expected =
+                      actual[
+                        checkFirstWord == 'capitalize' ? 'toUpperCase' : 'toLowerCase'
+                      ]();
+
+                    if (expected != actual) {
+                      file.message(
+                        `Inconsistent list item capitalization: "${actual}" should be "${expected}"`,
+                        child
+                      );
+                    }
                   }
                 }
               });
@@ -199,11 +220,16 @@ function coerceToOptions(file: VFile, options: unknown) {
     'checkFirstWord' in options ? options.checkFirstWord : 'capitalize'
   ) as NonNullable<Options['checkFirstWord']>;
 
+  const ignoredFirstWords = (
+    'ignoredFirstWords' in options ? options.ignoredFirstWords : []
+  ) as NonNullable<Options['ignoredFirstWords']>;
+
   const checkListSpread = (
     'checkListSpread' in options ? options.checkListSpread : 'each'
   ) as NonNullable<Options['checkListSpread']>;
 
   const checkPunctuationRegExp = checkPunctuationToRegExp();
+  const ignoredFirstWordsRegExp = ignoredFirstWordsToRegExp();
 
   if (!optionsCheckFirstWord.includes(checkFirstWord)) {
     file.fail(`Error: Bad configuration checkFirstWord value "${checkFirstWord}"`);
@@ -216,6 +242,7 @@ function coerceToOptions(file: VFile, options: unknown) {
   return {
     checkPunctuation: checkPunctuationRegExp as false | RegExp[],
     checkFirstWord,
+    ignoredFirstWords: ignoredFirstWordsRegExp,
     checkListSpread
   };
 
@@ -228,6 +255,20 @@ function coerceToOptions(file: VFile, options: unknown) {
       return checkPunctuation ? checkPunctuation.map((r) => new RegExp(r, 'gu')) : false;
     } catch (error) {
       file.fail(`Error: Bad configuration checkPunctuation RegExp: ${error}`);
+    }
+  }
+
+  function ignoredFirstWordsToRegExp() {
+    if (!Array.isArray(ignoredFirstWords)) {
+      file.fail(
+        `Error: Bad configuration ignoredFirstWords value "${ignoredFirstWords}"`
+      );
+    }
+
+    try {
+      return ignoredFirstWords.map((r) => new RegExp(r, 'gu'));
+    } catch (error) {
+      file.fail(`Error: Bad configuration ignoredFirstWords RegExp: ${error}`);
     }
   }
 }

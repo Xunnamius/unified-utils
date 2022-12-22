@@ -166,6 +166,18 @@ with a non-lowercase character (`"capitalize"`) or a non-uppercase character
 List items beginning with a link, image, checkbox, or inline code block are
 ignored.
 
+#### `ignoredFirstWords`
+
+Valid values: `RegExp[]`\
+Default: `[]`
+
+Words that would normally be checked with respect to the `checkFirstWord` option
+will be ignored if they match at least one of the given values. Use this option
+to prevent false positives (e.g. "iOS", "eBay").
+
+List items beginning with a link, image, checkbox, or inline code block are
+already ignored and do not need to be specified here.
+
 #### `checkListSpread`
 
 Valid values: `"first"` | `"final"` | `"first-and-final"` | `"each"`\
