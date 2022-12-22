@@ -120,17 +120,37 @@ describe('::default', () => {
     expect.hasAssertions();
 
     const results = await runLinter(
-      remark().use(remarkLintListItemStyle, { ignoredFirstWords: [/^n/, '^bar', 'qux'] })
+      remark().use(remarkLintListItemStyle, {
+        checkFirstWord: 'capitalize',
+        checkPunctuation: false,
+        ignoredFirstWords: [/^n/, '^bar', 'qux']
+      })
     );
 
     expect(results.okFirstWord.messages).toStrictEqual([]);
     expect(results.notOkFirstWord.messages).toStrictEqual([]);
+
+    expect(results.okIgnoredFirstWords.messages).toStrictEqual([
+      expect.objectContaining({
+        message: 'Inconsistent list item capitalization: "i" should be "I"'
+      })
+    ]);
 
     expect(results.notOkFirstWordSpread.messages).toStrictEqual([
       expect.objectContaining({
         message: 'Inconsistent list item capitalization: "q" should be "Q"'
       })
     ]);
+
+    const results2 = await runLinter(
+      remark().use(remarkLintListItemStyle, {
+        checkFirstWord: 'capitalize',
+        checkPunctuation: false,
+        ignoredFirstWords: ['iOS']
+      })
+    );
+
+    expect(results2.okIgnoredFirstWords.messages).toStrictEqual([]);
   });
 
   it("warns when a list item's punctuation violates multi-element checkPunctuation configuration", async () => {
@@ -287,6 +307,9 @@ async function runLinter(runner: Processor) {
   );
 
   const okFirstWord = await runner.process(await getFixtureVFile('ok-first-word'));
+  const okIgnoredFirstWords = await runner.process(
+    await getFixtureVFile('ok-ignored-first-words')
+  );
   const okPunctuation = await runner.process(await getFixtureVFile('ok-punctuation'));
   const okSpreadFirst = await runner.process(await getFixtureVFile('ok-spread-first'));
   const okSpreadFirstAndFinal = await runner.process(
@@ -304,6 +327,7 @@ async function runLinter(runner: Processor) {
     notOkPunctuation,
     notOkSpreadEach,
     okFirstWord,
+    okIgnoredFirstWords,
     okPunctuation,
     okSpreadFirst,
     okSpreadFirstAndFinal,
