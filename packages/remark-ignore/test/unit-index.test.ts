@@ -1,6 +1,6 @@
 import { remark } from 'remark';
 import remarkReferenceLinks from 'remark-reference-links';
-import remarkRemoveComments from 'remark-remove-comments';
+import remarkRemoveComments from '@xunnamius/remark-remove-comments';
 
 import remarkIgnore, { ignoreStart, ignoreEnd } from 'pkgverse/remark-ignore/src/index';
 import defaultIgnoreStart from 'pkgverse/remark-ignore/src/start';

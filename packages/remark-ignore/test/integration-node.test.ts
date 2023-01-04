@@ -35,7 +35,12 @@ const withMockedFixture = mockFixtureFactory(TEST_IDENTIFIER, {
     npmCopySelfFixture(),
     runTestFixture()
   ],
-  npmInstall: ['remark', 'remark-cli', 'remark-remove-comments', 'remark-reference-links']
+  npmInstall: [
+    'remark',
+    'remark-cli',
+    '@xunnamius/remark-remove-comments',
+    'remark-reference-links'
+  ]
 });
 
 beforeAll(async () => {
@@ -257,7 +262,7 @@ describe('via remark-cli unified configuration', () => {
                 'remark-ignore/start',
                 'remark-reference-links',
                 'remark-ignore/end',
-                'remark-remove-comments'
+                '@xunnamius/remark-remove-comments'
               ]
             };
           `
