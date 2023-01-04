@@ -3,7 +3,9 @@
 
 module.exports = {
   reject: [
-    // ? Pin the CJS versions
-    'execa'
+    // ? Pin the CJS version
+    'execa',
+    // ? Pin the CJS version
+    'remark-remove-comments'
   ]
 };
