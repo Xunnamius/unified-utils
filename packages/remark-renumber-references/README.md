@@ -366,7 +366,7 @@ See the [table of contributors][10].
   https://img.shields.io/npm/l/remark-renumber-references
   "This package's source license"
 [badge-maintenance]:
-  https://img.shields.io/maintenance/active/2022
+  https://img.shields.io/maintenance/active/2023
   'Is this package maintained?'
 [badge-npm]:
   https://api.ergodark.com/badges/npm-pkg-version/remark-renumber-references
