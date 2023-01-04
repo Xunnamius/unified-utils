@@ -1,6 +1,6 @@
 {
   "name": "remark-capitalize-headings",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "remark plugin that selectively transforms headings using vercel's title package",
   "keywords": [
     "unified",
