@@ -1,6 +1,6 @@
 {
   "name": "remark-remove-url-trailing-slash",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "remark plugin that removes trailing slashes from the ends of all URLs",
   "keywords": [
     "unified",
