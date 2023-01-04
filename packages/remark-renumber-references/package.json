@@ -1,6 +1,6 @@
 {
   "name": "remark-renumber-references",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "remark plugin that renumbers numeric reference-style link ids contiguously starting from [1]",
   "keywords": [
     "unified",
