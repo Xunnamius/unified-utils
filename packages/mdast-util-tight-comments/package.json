@@ -1,6 +1,6 @@
 {
   "name": "mdast-util-tight-comments",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "mdast-util-to-markdown extension to selectively remove newlines around mdast comment nodes",
   "keywords": [
     "unist",
