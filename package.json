@@ -127,7 +127,7 @@
     "source-map-support": "^0.5.21",
     "spellchecker": "^3.7.1",
     "text-extensions": "^2.4.0",
-    "toss-expression": "^0.1.1",
+    "toss-expression": "^0.1.2",
     "tsconfig-replace-paths": "^0.0.11",
     "type-fest": "^3.5.0",
     "typedoc": "^0.23.23",
