@@ -67,7 +67,7 @@
     "eslint-import-resolver-babel-module": "^5.3.1",
     "eslint-import-resolver-typescript": "^3.5.2",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.2.0",
+    "eslint-plugin-jest": "^27.2.1",
     "eslint-plugin-module-resolver": "^1.5.0",
     "eslint-plugin-unicorn": "^45.0.2",
     "execa": "^5.1.1",
