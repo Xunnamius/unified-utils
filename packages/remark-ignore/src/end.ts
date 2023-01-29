@@ -1,4 +1,4 @@
-import { visitAndReveal } from 'mdast-util-hidden';
+import { visitAndReveal } from 'pkgverse/mdast-util-hidden/src/index';
 
 import type { Plugin } from 'unified';
 import type { Root } from 'mdast';

@@ -21,7 +21,7 @@ export type Options = {
    *
    * @default "lower"
    */
-  case?: typeof optionsCases[number];
+  case?: (typeof optionsCases)[number];
 };
 
 /**

@@ -1,4 +1,4 @@
-import { hide } from 'mdast-util-hidden';
+import { hide } from 'pkgverse/mdast-util-hidden/src/index';
 import { commentMarker } from 'mdast-comment-marker';
 import { visit, SKIP } from 'unist-util-visit';
 

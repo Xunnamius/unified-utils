@@ -50,7 +50,7 @@ export type Options = {
    *
    * @default "capitalize"
    */
-  checkFirstWord?: typeof optionsCheckFirstWord[number];
+  checkFirstWord?: (typeof optionsCheckFirstWord)[number];
   /**
    * Words that would normally be checked with respect to the `checkFirstWord`
    * option will be ignored if they match at least one of the given values.
@@ -66,7 +66,7 @@ export type Options = {
    *
    * @default "each"
    */
-  checkListSpread?: typeof optionsCheckListSpread[number];
+  checkListSpread?: (typeof optionsCheckListSpread)[number];
 };
 
 /**

@@ -21,17 +21,19 @@ const generateProductionEsmConfigObject = (mutateConfigFunction) => {
       // ? We don't care about minification
     ],
     plugins: [
-      /* // ? Ensure all local imports without extensions now end in .mjs
-      ['add-import-extension', { extension: 'mjs' }],
-      // ? Fix ESM relative local imports referencing package.json
       [
-        'transform-rename-import',
+        'transform-rewrite-imports',
         {
-          replacements: [
-            { original: '../package.json', replacement: `../../package.json` }
-          ]
+          // ? Ensure all local imports without extensions now end in .mjs
+          appendExtension: '.mjs',
+          replaceExtensions: {
+            // ? Ensure built distributables can locate the package.json file
+            '^../package.json$': '../../package.json',
+            // ? Replace pkgverse imports with their runtime equivalents
+            '^pkgverse/([^/]+)/src/index$': '$1'
+          }
         }
-      ] */
+      ]
     ]
   };
 
@@ -44,9 +46,15 @@ const generateProductionEsmConfigObject = (mutateConfigFunction) => {
 
 debug('NODE_ENV: %O', process.env.NODE_ENV);
 
+/**
+ * @type {import('@babel/core').TransformOptions}
+ */
 module.exports = {
   comments: false,
   parserOpts: { strictMode: true },
+  assumptions: {
+    constantReexports: true
+  },
   plugins: [
     '@babel/plugin-proposal-export-default-from',
     [
@@ -100,19 +108,30 @@ module.exports = {
         ],
         ['@babel/preset-typescript', { allowDeclareFields: true }]
         // ? Minification is handled externally (e.g. by webpack)
-      ] /* ,
-      plugins: [
-        // ? Interoperable named CJS imports for free
-        [
-          'transform-default-named-imports',
-          { exclude: [/^next([/?#].+)?/, /^mongodb([/?#].+)?/] }
-        ]
-      ] */
+      ]
     },
     // * Used by `npm run build` for compiling ESM to code output in ./dist
     'production-esm': generateProductionEsmConfigObject((config) => {
       config.presets[0][1].targets = NODE_LTS;
     }),
+    // * Used by `npm run build` for fixing declaration file imports in ./dist
+    'production-types': {
+      comments: true,
+      plugins: [
+        ['@babel/plugin-syntax-typescript', { dts: true }],
+        [
+          'transform-rewrite-imports',
+          {
+            replaceExtensions: {
+              // ? Ensure deep package.json imports resolve properly
+              '^../../../package.json$': '../../package.json',
+              // ? Ensure deep imports resolve properly
+              '^../../../(.*)$': '../$1'
+            }
+          }
+        ]
+      ]
+    },
     // * Used by `npm run build-externals` for compiling to ESM code output in
     // * ./external-scripts/bin
     'production-external': generateProductionEsmConfigObject((config) => {
