@@ -13,3 +13,4 @@ external-scripts/bin
 next-env.d.ts
 node_modules
 coverage
+.DS_Store
