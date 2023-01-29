@@ -127,6 +127,7 @@ describe('::visitAndReveal', () => {
     const tree = getReplacedAst();
 
     visitAndReveal({ tree });
+
     expect(tree).toStrictEqual(removePositionDataFrom('heading', getInitialAst()));
   });
 
@@ -136,6 +137,7 @@ describe('::visitAndReveal', () => {
     const tree = getInitialAst();
 
     visitAndReveal({ tree });
+
     expect(tree).toStrictEqual(getInitialAst());
   });
 
