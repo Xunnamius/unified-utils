@@ -1,6 +1,6 @@
 {
   "name": "remark-tight-comments",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "remark plugin to selectively remove newlines around comments",
   "keywords": [
     "unified",
@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@types/mdast": "^3.0.10",
-    "mdast-util-tight-comments": "^1.0.5",
+    "mdast-util-tight-comments": "^1.0.6",
     "unified": "^10.1.2"
   },
   "engines": {
