@@ -39,17 +39,17 @@ The ideal contributor flow is as follows:
    - Ensure any new tests still pass even when the `DEBUG` environment variable
      is defined.
 6. Push your commits to your fork and, when you're ready, [_fearlessly_ submit
-   your PR][pr-compare]! Your changes will be tested in our CI pipeline.
+   your PR][x-repo-pr-compare]! Your changes will be tested in our CI pipeline.
 7. Pat yourself on the back! Your hard work is well on its way to being reviewed
    and, if everything looks good, merged and released 🚀
 
 Additionally, there are a few things you can do to greatly increase the
 likelihood your PR passes review:
 
-- **Do** [open an issue][choose-new-issue] and discuss your proposed changes (to
-  prevent wasting your valuable time, e.g. _maybe we're already working on a
-  fix!_), and [search][open-issues] to see if there are any existing issues
-  related to your concerns.
+- **Do** [open an issue][x-repo-choose-new-issue] and discuss your proposed
+  changes (to prevent wasting your valuable time, e.g. _maybe we're already
+  working on a fix!_), and [search][open-issues] to see if there are any
+  existing issues related to your concerns.
 - **Do** practice [atomic committing][atomic-commits].
 - **Do not** reduce code coverage ([codecov][codecov] checks are performed
   during CI).
@@ -76,7 +76,6 @@ likelihood your PR passes review:
 At this point, you're ready to create your PR and ✨ contribute ✨!
 
 [atomic-commits]: https://www.codewithjason.com/atomic-commits-testing
-[choose-new-issue]: https://github.com/Xunnamius/unified-utils/issues/new/choose
 [code-of-conduct]: /.github/CODE_OF_CONDUCT.md
 [codecov]: https://about.codecov.io
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0#summary
@@ -92,5 +91,7 @@ At this point, you're ready to create your PR and ✨ contribute ✨!
 [open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
 [pkg-debug]: https://www.npmjs.com/package/debug
 [pkg-debug-wildcards]: https://www.npmjs.com/package/debug#wildcards
-[pr-compare]: https://github.com/Xunnamius/unified-utils/compare
 [projector]: https://github.com/Xunnamius/unified-utils#readme
+[x-repo-choose-new-issue]:
+  https://github.com/Xunnamius/unified-utils/issues/new/choose
+[x-repo-pr-compare]: https://github.com/Xunnamius/unified-utils/compare

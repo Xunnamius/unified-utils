@@ -47,7 +47,7 @@ ___
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/34702e4/packages/mdast-util-hidden/src/index.ts#L17)
+[packages/mdast-util-hidden/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/82312c4/packages/mdast-util-hidden/src/index.ts#L17)
 
 ___
 
@@ -78,4 +78,4 @@ Node.type
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/34702e4/packages/mdast-util-hidden/src/index.ts#L16)
+[packages/mdast-util-hidden/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/82312c4/packages/mdast-util-hidden/src/index.ts#L16)

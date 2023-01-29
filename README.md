@@ -1,10 +1,10 @@
 <!-- badges-start -->
 
-[![Black Lives Matter!][badge-blm]][link-blm]
-[![Last commit timestamp][badge-last-commit]][link-repo]
-[![Open issues][badge-issues]][link-issues]
-[![Pull requests][badge-pulls]][link-pulls]
-[![Uses semantic-release][badge-semantic-release]][link-semantic-release]
+[![Black Lives Matter!][x-badge-blm-image]][x-badge-blm-link]
+[![Last commit timestamp][x-badge-lastcommit-image]][x-badge-repo-link]
+[![Open issues][x-badge-issues-image]][x-badge-issues-link]
+[![Pull requests][x-badge-pulls-image]][x-badge-pulls-link]
+[![Uses semantic-release][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 <!-- badges-end -->
 
@@ -88,12 +88,13 @@ back upstream.
 
 ## Contributing and Support
 
-**[New issues][choose-new-issue] and [pull requests][pr-compare] are always
-welcome and greatly appreciated! 🤩** Just as well, you can [star 🌟 this
-project][link-repo] to let me know you found it useful! ✊🏿 Thank you!
+**[New issues][x-repo-choose-new-issue] and [pull requests][x-repo-pr-compare]
+are always welcome and greatly appreciated! 🤩** Just as well, you can [star 🌟
+this project][x-badge-repo-link] to let me know you found it useful! ✊🏿 Thank
+you!
 
-See [CONTRIBUTING.md][contributing] and [SUPPORT.md][support] for more
-information.
+See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
+more information.
 
 ### Contributors
 
@@ -136,31 +137,34 @@ Thanks goes to these wonderful people ([emoji key][24]):
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 <!-- remark-ignore-end -->
 
-This project follows the [all-contributors][25] specification. Contributions of
-any kind welcome!
+This project follows the [all-contributors][x-repo-all-contributors]
+specification. Contributions of any kind welcome!
 
-[badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
-[badge-issues]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils
+[x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
+[x-badge-blm-link]: https://xunn.at/donate-blm
+[x-badge-issues-image]:
+  https://img.shields.io/github/issues/Xunnamius/unified-utils?style=flat-square
   'Open issues'
-[badge-last-commit]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils
+[x-badge-issues-link]: https://github.com/Xunnamius/unified-utils/issues?q=
+[x-badge-lastcommit-image]:
+  https://img.shields.io/github/last-commit/xunnamius/unified-utils?style=flat-square
   'Latest commit timestamp'
-[badge-pulls]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
+[x-badge-pulls-image]:
+  https://img.shields.io/github/issues-pr/xunnamius/unified-utils?style=flat-square
   'Open pull requests'
-[badge-semantic-release]:
-  https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[x-badge-pulls-link]: https://github.com/xunnamius/unified-utils/pulls
+[x-badge-repo-link]: https://github.com/xunnamius/unified-utils
+[x-badge-semanticrelease-image]:
+  https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
   'This repo uses semantic-release!'
-[choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
-[contributing]: CONTRIBUTING.md
-[link-blm]: https://xunn.at/donate-blm
-[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
-[link-repo]: https://github.com/xunnamius/unified-utils
-[link-semantic-release]: https://github.com/semantic-release/semantic-release
-[pr-compare]: https://github.com/xunnamius/unified-utils/compare
-[support]: .github/SUPPORT.md
+[x-badge-semanticrelease-link]:
+  https://github.com/semantic-release/semantic-release
+[x-repo-all-contributors]: https://github.com/all-contributors/all-contributors
+[x-repo-choose-new-issue]:
+  https://github.com/xunnamius/unified-utils/issues/new/choose
+[x-repo-contributing]: CONTRIBUTING.md
+[x-repo-pr-compare]: https://github.com/xunnamius/unified-utils/compare
+[x-repo-support]: .github/SUPPORT.md
 [1]: https://github.com/syntax-tree/unist
 [2]: https://github.com/syntax-tree/mdast
 [3]: https://github.com/remarkjs
@@ -187,4 +191,3 @@ any kind welcome!
   https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-no-empty-url
 [23]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
 [24]: https://allcontributors.org/docs/en/emoji-key
-[25]: https://github.com/all-contributors/all-contributors

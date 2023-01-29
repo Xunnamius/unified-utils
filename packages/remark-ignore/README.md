@@ -1,14 +1,12 @@
 <!-- badges-start -->
 
-[![Black Lives Matter!][badge-blm]][link-blm]
-[![Maintenance status][badge-maintenance]][link-repo]
-[![Last commit timestamp][badge-last-commit]][link-repo]
-[![Open issues][badge-issues]][link-issues]
-[![Pull requests][badge-pulls]][link-pulls]
-[![Codecov][badge-codecov]][link-codecov]
-[![Source license][badge-license]][link-license]
-[![NPM version][badge-npm]][link-npm]
-[![Uses Semantic Release!][badge-semantic-release]][link-semantic-release]
+[![Black Lives Matter!][x-badge-blm-image]][x-badge-blm-link]
+[![Last commit timestamp][x-badge-lastcommit-image]][x-badge-repo-link]
+[![Codecov][x-badge-codecov-image]][x-badge-codecov-link]
+[![Source license][x-badge-license-image]][x-badge-license-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![NPM version][x-badge-npm-image]][x-badge-npm-link]
+[![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 <!-- badges-end -->
 
@@ -166,7 +164,7 @@ export default {
 
 ## API
 
-Detailed interface information can be found under [`docs/`][docs].
+Detailed interface information can be found under [`docs/`][x-repo-docs].
 
 ## Examples
 
@@ -307,57 +305,53 @@ Then running that same JavaScript would output:
 
 ## Contributing and Support
 
-**[New issues][choose-new-issue] and [pull requests][pr-compare] are always
-welcome and greatly appreciated! 🤩** Just as well, you can [star 🌟 this
-project][link-repo] to let me know you found it useful! ✊🏿 Thank you!
+**[New issues][x-repo-choose-new-issue] and [pull requests][x-repo-pr-compare]
+are always welcome and greatly appreciated! 🤩** Just as well, you can [star 🌟
+this project][x-badge-repo-link] to let me know you found it useful! ✊🏿 Thank
+you!
 
-See [CONTRIBUTING.md][contributing] and [SUPPORT.md][support] for more
-information.
+See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
+more information.
 
 ### Contributors
 
-See the [table of contributors][15].
+See the [table of contributors][x-repo-contributors].
 
-[badge-blm]: https://xunn.at/badge-blm 'Join the movement!'
-[badge-codecov]:
-  https://codecov.io/gh/Xunnamius/unified-utils/branch/main/graph/badge.svg?token=HWRIOBAAPW
+[x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
+[x-badge-blm-link]: https://xunn.at/donate-blm
+[x-badge-codecov-image]:
+  https://img.shields.io/codecov/c/github/Xunnamius/unified-utils/main?style=flat-square&token=HWRIOBAAPW
   'Is this package well-tested?'
-[badge-issues]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils
-  'Open issues'
-[badge-last-commit]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils
+[x-badge-codecov-link]: https://codecov.io/gh/Xunnamius/unified-utils
+[x-badge-downloads-image]:
+  https://img.shields.io/npm/dm/remark-ignore?style=flat-square
+  'Number of times this package has been downloaded per month'
+[x-badge-lastcommit-image]:
+  https://img.shields.io/github/last-commit/xunnamius/unified-utils?style=flat-square
   'Latest commit timestamp'
-[badge-license]:
-  https://img.shields.io/npm/l/remark-ignore
+[x-badge-license-image]:
+  https://img.shields.io/npm/l/remark-ignore?style=flat-square
   "This package's source license"
-[badge-maintenance]:
-  https://img.shields.io/maintenance/active/2023
-  'Is this package maintained?'
-[badge-npm]:
-  https://api.ergodark.com/badges/npm-pkg-version/remark-ignore
-  'Install this package using npm or yarn!'
-[badge-pulls]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils
-  'Open pull requests'
-[badge-semantic-release]:
-  https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
-  'This repo practices continuous integration and deployment!'
-[choose-new-issue]: https://github.com/xunnamius/unified-utils/issues/new/choose
-[contributing]: /CONTRIBUTING.md
-[docs]: docs
-[link-blm]: https://xunn.at/donate-blm
-[link-codecov]: https://codecov.io/gh/Xunnamius/unified-utils
-[link-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
-[link-license]:
+[x-badge-license-link]:
   https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-ignore/LICENSE
-[link-npm]: https://www.npmjs.com/package/remark-ignore
-[link-pulls]: https://github.com/xunnamius/unified-utils/pulls
-[link-repo]:
+[x-badge-npm-image]:
+  https://xunn.at/npm-pkg-version/remark-ignore
+  'Install this package using npm or yarn!'
+[x-badge-npm-link]: https://www.npmjs.com/package/remark-ignore
+[x-badge-repo-link]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-ignore
-[link-semantic-release]: https://github.com/semantic-release/semantic-release
-[pr-compare]: https://github.com/xunnamius/unified-utils/compare
-[support]: /.github/SUPPORT.md
+[x-badge-semanticrelease-image]:
+  https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
+  'This repo practices continuous integration and deployment!'
+[x-badge-semanticrelease-link]:
+  https://github.com/semantic-release/semantic-release
+[x-repo-choose-new-issue]:
+  https://github.com/xunnamius/unified-utils/issues/new/choose
+[x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
+[x-repo-docs]: docs
+[x-repo-pr-compare]: https://github.com/xunnamius/unified-utils/compare
+[x-repo-support]: /.github/SUPPORT.md
 [1]: https://github.com/unifiedjs/unified
 [2]: https://github.com/remarkjs/remark
 [3]: https://prettier.io/docs/en/ignore.html#javascript
@@ -374,4 +368,3 @@ See the [table of contributors][15].
 [12]: https://github.com/unifiedjs/unified#overview
 [13]: https://github.com/syntax-tree/mdast-comment-marker
 [14]: https://github.com/syntax-tree/mdast-zone
-[15]: /README.md#contributors
