@@ -95,10 +95,10 @@ npm run clean
 npm run lint:all
 
 # 4. Build distributables.
-npm run build:dist
+npm run build:dist -ws
 
 # 5. Build auxiliary documentation.
-npm run build:docs
+npm run build:docs -ws
 
 # 6. Build any external executables (used in GitHub Actions workflows).
 npm run build:externals
@@ -115,10 +115,14 @@ CODECOV_TOKEN=$(npx --yes dotenv-cli -p CODECOV_TOKEN) codecov
 # 10. Trigger semantic-release locally and generate a new release. This requires
 # having tokens for NPM and GitHub with the appropriate permissions.
 #
-# Do a dry run first:
-NPM_TOKEN="$(npx --yes dotenv-cli -p NPM_TOKEN)" GH_TOKEN="$(npx --yes dotenv-cli -p GITHUB_TOKEN)" HUSKY=0 UPDATE_CHANGELOG=true GIT_AUTHOR_NAME="$(npx --yes dotenv-cli -p GIT_AUTHOR_NAME)" GIT_COMMITTER_NAME="$(npx --yes dotenv-cli -p GIT_COMMITTER_NAME)" GIT_AUTHOR_EMAIL="$(npx --yes dotenv-cli -p GIT_AUTHOR_EMAIL)" GIT_COMMITTER_EMAIL="$(npx --yes dotenv-cli -p GIT_COMMITTER_EMAIL)" node node_modules/.bin/semantic-release --no-ci --extends "$(pwd)/release.config.js" --dry-run
-# Then do the actual publish:
-NPM_TOKEN="$(npx --yes dotenv-cli -p NPM_TOKEN)" GH_TOKEN="$(npx --yes dotenv-cli -p GITHUB_TOKEN)" HUSKY=0 UPDATE_CHANGELOG=true GIT_AUTHOR_NAME="$(npx --yes dotenv-cli -p GIT_AUTHOR_NAME)" GIT_COMMITTER_NAME="$(npx --yes dotenv-cli -p GIT_COMMITTER_NAME)" GIT_AUTHOR_EMAIL="$(npx --yes dotenv-cli -p GIT_AUTHOR_EMAIL)" GIT_COMMITTER_EMAIL="$(npx --yes dotenv-cli -p GIT_COMMITTER_EMAIL)" node node_modules/.bin/semantic-release --no-ci --extends "$(pwd)/release.config.js"
+# First, set ROOT:
+ROOT=`git rev-parse --show-toplevel`
+# Then change directory into the package you want to release:
+cd packages/package-id-here
+# Then do a dry run:
+NPM_TOKEN="$(cd $ROOT && npx --yes dotenv-cli -p NPM_TOKEN)" GH_TOKEN="$(cd $ROOT && npx --yes dotenv-cli -p GITHUB_TOKEN)" HUSKY=0 UPDATE_CHANGELOG=true GIT_AUTHOR_NAME="$(cd $ROOT && npx --yes dotenv-cli -p GIT_AUTHOR_NAME)" GIT_COMMITTER_NAME="$(cd $ROOT && npx --yes dotenv-cli -p GIT_COMMITTER_NAME)" GIT_AUTHOR_EMAIL="$(cd $ROOT && npx --yes dotenv-cli -p GIT_AUTHOR_EMAIL)" GIT_COMMITTER_EMAIL="$(cd $ROOT && npx --yes dotenv-cli -p GIT_COMMITTER_EMAIL)" node $ROOT/node_modules/.bin/semantic-release --no-ci --extends "$(pwd)/release.config.js" --dry-run
+# Finally, do the actual publish:
+NPM_TOKEN="$(cd $ROOT && npx --yes dotenv-cli -p NPM_TOKEN)" GH_TOKEN="$(cd $ROOT && npx --yes dotenv-cli -p GITHUB_TOKEN)" HUSKY=0 UPDATE_CHANGELOG=true GIT_AUTHOR_NAME="$(cd $ROOT && npx --yes dotenv-cli -p GIT_AUTHOR_NAME)" GIT_COMMITTER_NAME="$(cd $ROOT && npx --yes dotenv-cli -p GIT_COMMITTER_NAME)" GIT_AUTHOR_EMAIL="$(cd $ROOT && npx --yes dotenv-cli -p GIT_AUTHOR_EMAIL)" GIT_COMMITTER_EMAIL="$(cd $ROOT && npx --yes dotenv-cli -p GIT_COMMITTER_EMAIL)" node $ROOT/node_modules/.bin/semantic-release --no-ci --extends "$(pwd)/release.config.js"
 ```
 
 <!-- lint ignore -->
