@@ -1,6 +1,6 @@
 {
   "name": "remark-ignore",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "remark plugin to exclude one or more nodes from transformation in the manner of \"prettier-ignore\" or \"instanbul ignore next\"",
   "keywords": [
     "unified",
@@ -79,7 +79,7 @@
   "dependencies": {
     "@types/mdast": "^3.0.10",
     "mdast-comment-marker": "^2.1.1",
-    "mdast-util-hidden": "^1.1.3",
+    "mdast-util-hidden": "^1.1.4",
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.2"
   },
