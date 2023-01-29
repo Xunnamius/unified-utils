@@ -70,10 +70,10 @@
     }
   },
   "dependencies": {
-    "mdast-util-to-string": "^3.1.0",
+    "mdast-util-to-string": "^3.1.1",
     "unified-lint-rule": "^2.1.1",
-    "unist-util-generated": "^2.0.0",
-    "unist-util-visit": "^4.1.1"
+    "unist-util-generated": "^2.0.1",
+    "unist-util-visit": "^4.1.2"
   },
   "engines": {
     "node": "^14.19.0 || ^16.13.0 || >=17.4.0"
