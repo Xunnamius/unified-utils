@@ -126,7 +126,7 @@
     "remark-validate-links": "^12.1.0",
     "semantic-release": "https://xunn.at/semantic-release-atam",
     "simple-git": "^3.16.0",
-    "sort-package-json": "^2.2.0",
+    "sort-package-json": "^2.4.0",
     "source-map-support": "^0.5.21",
     "spellchecker": "^3.7.1",
     "text-extensions": "^2.4.0",
