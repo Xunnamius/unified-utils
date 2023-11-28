@@ -1,9 +1,9 @@
-import { hide } from 'pkgverse/mdast-util-hidden/src/index';
 import { commentMarker } from 'mdast-comment-marker';
-import { visit, SKIP } from 'unist-util-visit';
+import { hide } from 'pkgverse/mdast-util-hidden/src/index';
+import { SKIP, visit } from 'unist-util-visit';
 
-import type { Plugin } from 'unified';
 import type { Root } from 'mdast';
+import type { Plugin } from 'unified';
 
 /**
  * A remark plugin that takes a Root node as input and returns the same node
@@ -24,17 +24,26 @@ export function ignoreStartTransformer(tree: Root) {
   let hiding: boolean | 'once' = false;
 
   visit(tree, (node, index, parent) => {
-    if (index !== null && parent !== null) {
-      if (node.type == 'html') {
+    if (index !== undefined && parent !== undefined) {
+      if (node.type === 'html') {
         const info = commentMarker(node);
 
         if (info) {
-          if (info.name == 'remark-ignore') {
-            hiding ||= 'once';
-          } else if (info.name == 'remark-ignore-start') {
-            hiding = true;
-          } else if (info.name == 'remark-ignore-end') {
-            hiding = false;
+          switch (info.name) {
+            case 'remark-ignore': {
+              hiding ||= 'once';
+              break;
+            }
+
+            case 'remark-ignore-start': {
+              hiding = true;
+              break;
+            }
+
+            case 'remark-ignore-end': {
+              hiding = false;
+              break;
+            }
           }
         }
 

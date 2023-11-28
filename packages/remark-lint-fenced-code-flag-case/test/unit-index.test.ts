@@ -1,6 +1,6 @@
-import { remark } from 'remark';
 import remarkLintFencedCodeFlagCase from 'pkgverse/remark-lint-fenced-code-flag-case/src/index';
 import { getFixtureVFile } from 'pkgverse/remark-lint-fenced-code-flag-case/test/helpers';
+import { remark } from 'remark';
 
 describe('::default', () => {
   it('warns when fenced code flags are not lowercase by default', async () => {
@@ -98,12 +98,14 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintFencedCodeFlagCase, 'upper')
         .process(await getFixtureVFile('ok-lower'))
     ).resolves.toHaveProperty('messages.0.message', 'Error: Bad configuration');
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintFencedCodeFlagCase, { case: 'bad' })
         .process(await getFixtureVFile('ok-lower'))
     ).resolves.toHaveProperty(

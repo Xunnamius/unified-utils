@@ -1,6 +1,6 @@
-import { remark } from 'remark';
 import remarkLintListItemStyle from 'pkgverse/remark-lint-list-item-style/src/index';
 import { getFixtureVFile } from 'pkgverse/remark-lint-list-item-style/test/helpers';
+import { remark } from 'remark';
 
 import type { Processor } from 'unified';
 
@@ -252,12 +252,14 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, 'upper')
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty('messages.0.message', 'Error: Bad configuration');
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, { checkPunctuation: 'bad' })
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty(
@@ -276,6 +278,7 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, { checkFirstWord: 'bad' })
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty(
@@ -285,6 +288,7 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, { checkListSpread: 'bad' })
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty(
@@ -294,7 +298,8 @@ describe('::default', () => {
   });
 });
 
-async function runLinter(runner: Processor) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function runLinter(runner: Processor<any, any, any, any, any>) {
   const notOkFirstWord = await runner.process(await getFixtureVFile('not-ok-first-word'));
   const notOkFirstWordSpread = await runner.process(
     await getFixtureVFile('not-ok-first-word-spread')

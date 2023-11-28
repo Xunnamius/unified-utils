@@ -7,6 +7,6 @@ export function getFixtureString(fixture: string, { trim = false } = {}) {
   ]();
 }
 
-export function getFixtureVFile(fixture: string) {
+export function getFixtureVFile(fixture: string): ReturnType<typeof readToVFile> {
   return readToVFile(`${__dirname}/fixtures/${fixture}.md`);
 }

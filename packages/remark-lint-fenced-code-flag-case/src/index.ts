@@ -1,8 +1,9 @@
-import { visit } from 'unist-util-visit';
-import { generated as isGenerated } from 'unist-util-generated';
 import { lintRule as createLintRule } from 'unified-lint-rule';
+import { generated as isGenerated } from 'unist-util-generated';
+import { visit } from 'unist-util-visit';
 
 import type { Code } from 'mdast';
+import type { Plugin } from 'unified';
 
 const origin = 'remark-lint:fenced-code-flag-case';
 
@@ -36,7 +37,7 @@ const remarkLintFencedCodeFlagCase = createLintRule(
   function (tree, file, options) {
     options = options || {};
 
-    if (!!options && typeof options == 'object' && !Array.isArray(options)) {
+    if (!!options && typeof options === 'object' && !Array.isArray(options)) {
       const expectedCase = ('case' in options ? options.case : 'lower') as NonNullable<
         Options['case']
       >;
@@ -44,15 +45,15 @@ const remarkLintFencedCodeFlagCase = createLintRule(
       if (optionsCases.includes(expectedCase)) {
         // The visit function's types are not very optimal and cause problems...
         visit(tree, (node) => {
-          if (node.type == 'code') {
+          if (node.type === 'code') {
             const { lang: langActual } = node as Code;
             if (!isGenerated(node) && langActual) {
               const langExpected =
-                expectedCase == 'lower'
+                expectedCase === 'lower'
                   ? langActual.toLowerCase()
-                  : expectedCase == 'upper'
-                  ? langActual.toUpperCase()
-                  : langActual[0].toUpperCase() + langActual.slice(1).toLowerCase();
+                  : expectedCase === 'upper'
+                    ? langActual.toUpperCase()
+                    : langActual[0].toUpperCase() + langActual.slice(1).toLowerCase();
 
               if (langActual != langExpected) {
                 file.message(
@@ -70,6 +71,6 @@ const remarkLintFencedCodeFlagCase = createLintRule(
       file.fail('Error: Bad configuration');
     }
   }
-);
+) as unknown as Plugin<[Options] | []>; // something's wrong w/ unified-lint-rule's types
 
 export default remarkLintFencedCodeFlagCase;

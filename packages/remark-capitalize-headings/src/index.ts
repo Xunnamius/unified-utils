@@ -1,10 +1,10 @@
-import assert from 'node:assert';
-import { visit, SKIP } from 'unist-util-visit';
 import { toString } from 'mdast-util-to-string';
+import assert from 'node:assert';
 import title from 'title';
+import { SKIP, visit } from 'unist-util-visit';
 
-import type { Plugin } from 'unified';
 import type { Root } from 'mdast';
+import type { Plugin } from 'unified';
 
 /**
  * Options type for the remark-remove-url-trailing-slash plugin.
@@ -68,7 +68,7 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
     let skipIfDepthGreaterThan = Number.POSITIVE_INFINITY;
 
     visit(tree, 'heading', (node, index) => {
-      assert(index !== null, 'index is missing');
+      assert(index !== undefined, 'index is missing');
       const stringified = toString(node);
 
       if (!skipSection() && !computedExcludeHeadingLevel[`h${node.depth}`]) {
@@ -87,21 +87,30 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
 
         if (manipulated != stringified) {
           visit(node, (childNode, childIndex) => {
-            if (childIndex !== null) {
-              if (childNode.type == 'inlineCode') {
-                unstringifyIndex += childNode.value.length;
-                return [SKIP, childIndex + 1];
-              } else if (childNode.type == 'link' || childNode.type == 'linkReference') {
-                visit(childNode, 'text', (skippedTextNode) => {
-                  unstringifyIndex += skippedTextNode.value.length;
-                });
-                return [SKIP, childIndex + 1];
-              } else if (childNode.type == 'text') {
-                const text = toString(childNode);
-                childNode.value = manipulated.slice(
-                  unstringifyIndex,
-                  (unstringifyIndex += text.length)
-                );
+            if (childIndex !== undefined) {
+              switch (childNode.type) {
+                case 'inlineCode': {
+                  unstringifyIndex += childNode.value.length;
+                  return [SKIP, childIndex + 1];
+                }
+
+                case 'link':
+                case 'linkReference': {
+                  visit(childNode, 'text', (skippedTextNode) => {
+                    unstringifyIndex += skippedTextNode.value.length;
+                  });
+                  return [SKIP, childIndex + 1];
+                }
+
+                case 'text': {
+                  const text = toString(childNode);
+                  childNode.value = manipulated.slice(
+                    unstringifyIndex,
+                    (unstringifyIndex += text.length)
+                  );
+
+                  break;
+                }
               }
             }
           });

@@ -1,8 +1,8 @@
 import assert from 'node:assert';
-import { visit, SKIP } from 'unist-util-visit';
+import { SKIP, visit } from 'unist-util-visit';
 
-import type { Plugin } from 'unified';
 import type { Definition, Root } from 'mdast';
+import type { Plugin } from 'unified';
 
 const compareNaturally = new Intl.Collator(undefined, { numeric: true }).compare;
 
@@ -40,9 +40,9 @@ const remarkSortDefinitions: Plugin<[options: Options] | void[], Root> = functio
 
   return (tree) => {
     visit(tree, 'definition', (node, index, parent) => {
-      assert(node.type == 'definition', `unexpected node type ${node.type}`);
-      assert(index !== null, 'index is missing');
-      assert(parent !== null, 'parent is missing');
+      assert(node.type === 'definition', `unexpected node type ${node.type}`);
+      assert(index !== undefined, 'index is missing');
+      assert(parent !== undefined, 'parent is missing');
 
       definitionMap.set(node.identifier.toUpperCase(), node);
       parent.children.splice(index, 1);
@@ -57,13 +57,13 @@ const remarkSortDefinitions: Plugin<[options: Options] | void[], Root> = functio
         .sort(([a], [b]) => {
           const aIsNumeric = isNumeric(a);
           const bIsNumeric = isNumeric(b);
-          const result = algorithm == 'numeric-first' ? -1 : 1;
+          const result = algorithm === 'numeric-first' ? -1 : 1;
 
           return aIsNumeric && !bIsNumeric
             ? result
             : !aIsNumeric && bIsNumeric
-            ? -1 * result
-            : compareNaturally(a, b);
+              ? -1 * result
+              : compareNaturally(a, b);
         })
         .map(([, definition]) => definition);
     }

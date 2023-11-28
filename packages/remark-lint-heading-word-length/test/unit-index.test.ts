@@ -1,6 +1,6 @@
-import { remark } from 'remark';
 import remarkLintHeadingWordLength from 'pkgverse/remark-lint-heading-word-length/src/index';
 import { getFixtureVFile } from 'pkgverse/remark-lint-heading-word-length/test/helpers';
+import { remark } from 'remark';
 
 import type { Processor } from 'unified';
 
@@ -93,12 +93,14 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintHeadingWordLength, 10)
         .process(await getFixtureVFile('ok'))
     ).resolves.toHaveProperty('messages.0.message', 'Error: Bad configuration');
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintHeadingWordLength, { minimumWords: 'bad' })
         .process(await getFixtureVFile('ok'))
     ).resolves.toHaveProperty(
@@ -108,6 +110,7 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintHeadingWordLength, { maximumWords: 'bad' })
         .process(await getFixtureVFile('ok'))
     ).resolves.toHaveProperty(
@@ -126,6 +129,7 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintHeadingWordLength, { maximumWords: '-100' })
         .process(await getFixtureVFile('ok'))
     ).resolves.toHaveProperty(
@@ -135,7 +139,8 @@ describe('::default', () => {
   });
 });
 
-async function runLinter(runner: Processor) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+async function runLinter(runner: Processor<any, any, any, any, any>) {
   const ok = await runner.process(await getFixtureVFile('ok'));
   const notOk = await runner.process(await getFixtureVFile('not-ok'));
 

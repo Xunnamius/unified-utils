@@ -1,11 +1,10 @@
 import remarkParse from 'remark-parse';
 import { unified } from 'unified';
-import { visit, SKIP } from 'unist-util-visit';
 import { removePosition } from 'unist-util-remove-position';
+import { SKIP, visit } from 'unist-util-visit';
 
+import type { Node, Root } from 'mdast';
 import type { Test } from 'unist-util-visit';
-import type { Node, Data } from 'unist';
-import type { Root } from 'mdast';
 
 export const dummyMarkdown = `
 # Hello
@@ -15,9 +14,9 @@ Some *emphasis*, **importance**, and \`code\`.
 # Goodbye
 `;
 
-export const removePositionDataFrom = (test: Test, t: Node<Data>) => {
+export const removePositionDataFrom = (test: Test, t: Node) => {
   visit(t, test, (node, index) => {
-    if (index !== null) {
+    if (index !== undefined) {
       removePosition(node);
       return [SKIP, index + 1];
     }
@@ -34,7 +33,7 @@ export const getMultiInitialAst = () => {
   const tree = getInitialAst();
 
   visit(tree, 'heading', (_, index, parent) => {
-    if (index !== null && parent !== null) {
+    if (index !== undefined && parent !== undefined) {
       parent.children.splice(
         index,
         1,

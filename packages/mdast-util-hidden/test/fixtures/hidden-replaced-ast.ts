@@ -1,8 +1,6 @@
-import type { Parent } from 'unist';
-import type { Content as MdastContent } from 'mdast';
-import type { Hidden } from 'pkgverse/mdast-util-hidden/src';
+import type { Parent } from 'mdast';
 
-export function getAst(): Parent<MdastContent | Hidden> {
+export function getAst(): Parent {
   return {
     children: [
       {

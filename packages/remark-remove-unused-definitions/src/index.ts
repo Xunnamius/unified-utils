@@ -1,9 +1,9 @@
 import assert from 'node:assert';
-import { visit, SKIP } from 'unist-util-visit';
 import { generated as isGenerated } from 'unist-util-generated';
+import { SKIP, visit } from 'unist-util-visit';
 
-import type { Plugin } from 'unified';
 import type { Root } from 'mdast';
+import type { Plugin } from 'unified';
 
 // * Inspired by:
 // * https://github.com/remarkjs/remark-lint/blob/6ca7eeff07bb5c5e6a0daad68520b46e3d56ad8e/packages/remark-lint-no-unused-definitions/index.js
@@ -71,7 +71,7 @@ const remarkRemoveUnusedDefinitions: Plugin<void[], Root> = function () {
         const info = map.get(id);
 
         assert(info, 'new definition node magically appeared?!');
-        assert(index !== null && parent !== null, 'expected index and parent');
+        assert(index !== undefined && parent !== undefined, 'expected index and parent');
 
         if (!info.used) {
           parent.children.splice(index, 1);

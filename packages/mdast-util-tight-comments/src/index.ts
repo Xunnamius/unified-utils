@@ -8,11 +8,11 @@ export function joinTightComments(): ToMarkdownOptions {
   return {
     join: [
       (leftNode, rightNode) => {
-        if (leftNode.type == 'html') {
+        if (leftNode.type === 'html') {
           const leftNodeIsComment = leftNode.value.startsWith('<!--');
           const leftNodeIsSimpleIgnore = leftNode.value === '<!-- remark-ignore -->';
           const leftNodeWantsSpaceAfter = leftNode.value.endsWith('|-->');
-          const rightNodeIsHTML = rightNode.type == 'html';
+          const rightNodeIsHTML = rightNode.type === 'html';
           const rightNodeIsComment =
             rightNodeIsHTML && rightNode.value.startsWith('<!--');
           const rightNodeIsSimpleIgnore =
@@ -25,13 +25,13 @@ export function joinTightComments(): ToMarkdownOptions {
             leftNodeIsSimpleIgnore ||
             // ? Ensure there's no newline between two comments...
             // prettier-ignore
-            leftNodeIsComment && rightNodeIsComment &&
+            (leftNodeIsComment && rightNodeIsComment &&
               // ? ... unless the right node is <!-- remark-ignore -->
               !rightNodeIsSimpleIgnore &&
               // ? ... unless the left node ends in |-->
               !leftNodeWantsSpaceAfter &&
               // ? ... unless the right node begins with <!--|
-              !rightNodeWantsSpaceBefore
+              !rightNodeWantsSpaceBefore)
           ) {
             // ? Ensure "tight" spacing (separated by 0 newlines)
             return 0;

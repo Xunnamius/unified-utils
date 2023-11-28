@@ -1,6 +1,6 @@
-import { visit, SKIP, CONTINUE } from 'unist-util-visit';
-import * as unistUtilVisit from 'unist-util-visit';
 import * as mdastUtilHidden from 'pkgverse/mdast-util-hidden/src/index';
+import * as unistUtilVisit from 'unist-util-visit';
+import { CONTINUE, SKIP, visit } from 'unist-util-visit';
 
 import {
   getInitialAst,
@@ -16,8 +16,8 @@ import {
 } from 'pkgverse/mdast-util-hidden/src/index';
 
 import { getAst as getInsertedAst } from './fixtures/hidden-inserted-ast';
-import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
 import { getAst as getMultiReplacedAst } from './fixtures/hidden-multi-replaced-ast';
+import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
 
 const node = createHiddenNode([]);
 const index = 10;
@@ -30,7 +30,7 @@ describe('::hide', () => {
     const dummyInitialAst = getInitialAst();
 
     visit(dummyInitialAst, 'heading', (node, index, parent) => {
-      if (index !== null && parent !== null) {
+      if (index !== undefined && parent !== undefined) {
         hide({ nodes: [node], index, parent });
         return [SKIP, index + 1];
       }
@@ -45,7 +45,7 @@ describe('::hide', () => {
     const dummyInitialAst = getInitialAst();
 
     visit(dummyInitialAst, 'heading', (_, index, parent) => {
-      if (index !== null && parent !== null) {
+      if (index !== undefined && parent !== undefined) {
         hide({
           nodes: [
             { type: 'text', value: 'Hello' },
@@ -68,7 +68,7 @@ describe('::hide', () => {
     const dummyInitialAst = getInitialAst();
 
     visit(dummyInitialAst, 'heading', (node, index, parent) => {
-      if (index !== null && parent !== null) {
+      if (index !== undefined && parent !== undefined) {
         hide({ nodes: [node], index, parent, replaceChildAtIndex: false });
         return [SKIP, index + 2];
       }
@@ -85,7 +85,7 @@ describe('::reveal', () => {
     const dummyReplacedAst = getReplacedAst();
 
     visit(dummyReplacedAst, 'hidden', (node, index, parent) => {
-      if (index !== null && parent !== null) {
+      if (index !== undefined && parent !== undefined) {
         reveal({ nodes: [node], index, parent });
         return [SKIP, index];
       }
@@ -102,7 +102,7 @@ describe('::reveal', () => {
     const dummyReplacedAst = getReplacedAst();
 
     visit(dummyReplacedAst, 'hidden', (_, index, parent) => {
-      if (index !== null && parent !== null) {
+      if (index !== undefined && parent !== undefined) {
         reveal({
           nodes: [
             createHiddenNode([{ type: 'text', value: 'Hello' }]),
@@ -159,7 +159,7 @@ describe('::visitAndReveal', () => {
       _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(visitor?.(node as any, index, parent as any)).toStrictEqual(
+      expect(visitor?.(node as any, index as any, parent as any)).toStrictEqual(
         expectedReturnValue
       );
       confirmCalled = true;
@@ -229,7 +229,7 @@ describe('::visitAndReveal', () => {
       _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(visitor?.(node as any, index, parent as any)).toBeUndefined();
+      expect(visitor?.(node as any, index as any, parent as any)).toBeUndefined();
       confirmCalled = true;
     }) as typeof visit);
 
@@ -243,7 +243,7 @@ describe('::visitAndReveal', () => {
 
     expect(confirmCalled).toBeTrue();
     expect(calledOutsideVisitor).toBeTrue();
-    expect(revealSpy).not.toBeCalled();
+    expect(revealSpy).not.toHaveBeenCalled();
   });
 
   it('passes through reverse parameter', async () => {
@@ -289,7 +289,7 @@ describe('::visitAndReveal', () => {
       _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      visitor(node as any, null, parent as any);
+      visitor(node as any, undefined as any, parent as any);
     }) as typeof visit);
 
     expect(() =>
@@ -309,7 +309,7 @@ describe('::visitAndReveal', () => {
       _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      visitor(node as any, index, null as any);
+      visitor(node as any, index as any, undefined as any);
     }) as typeof visit);
 
     expect(() =>
@@ -329,7 +329,7 @@ describe('::visitAndReveal', () => {
       _reverse
     ) => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      visitor({ type: 'hidden' } as any, index, parent as any);
+      visitor({ type: 'hidden' } as any, index as any, parent as any);
     }) as typeof visit);
 
     expect(() =>
@@ -346,7 +346,7 @@ test('readme examples work', async () => {
   const tree = getInitialAst();
 
   visit(tree, 'heading', (node, index, parent) => {
-    if (index !== null && parent !== null) {
+    if (index !== undefined && parent !== undefined) {
       hide({ nodes: [node], index, parent });
       return [SKIP, index + 1];
     }

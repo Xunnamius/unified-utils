@@ -1,9 +1,9 @@
 import assert from 'node:assert';
-import { visit, SKIP, type Visitor } from 'unist-util-visit';
 import { removePosition } from 'unist-util-remove-position';
+import { SKIP, visit, type Visitor } from 'unist-util-visit';
 
-import type { Node, Parent, Data } from 'unist';
-import type { Content as MdastContent } from 'mdast';
+import type { RootContent as MdastContent } from 'mdast';
+import type { Node, Parent } from 'unist';
 
 /**
  * The shape of a `Hidden` mdast node containing mdast content that is hidden
@@ -15,6 +15,13 @@ import type { Content as MdastContent } from 'mdast';
 export interface Hidden extends Node {
   type: 'hidden';
   hiddenChildren: MdastContent[];
+}
+
+declare module 'mdast' {
+  interface RootContentMap {
+    // Allow using hidden nodes
+    hidden: Hidden;
+  }
 }
 
 /**
@@ -31,8 +38,8 @@ export function createHiddenNode(children: MdastContent[]): Hidden {
  * Type guard that returns true if `node` is a well-formed `Hidden` node
  * instance.
  */
-export function isHidden(node: Node<Data>): node is Hidden {
-  return node.type == 'hidden' && 'hiddenChildren' in node;
+export function isHidden(node: Node): node is Hidden {
+  return node.type === 'hidden' && 'hiddenChildren' in node;
 }
 
 /**
@@ -47,7 +54,7 @@ export function hide<Nodes extends MdastContent[]>({
 }: {
   nodes: Nodes;
   index: number;
-  parent: Parent<Node<Data>>;
+  parent: Parent;
   /**
    * If `replaceChildAtIndex` is `true`, the child node of `parent` at `index`
    * will be replaced by the new `Hidden` node.
@@ -61,7 +68,7 @@ export function hide<Nodes extends MdastContent[]>({
    * @example
    * ```typescript
    * visit(tree, 'heading', (node, index, parent) => {
-   *   if (index !== null && parent !== null) {
+   *   if (index !== undefined && parent !== undefined) {
    *     hide({
    *       nodes: [node],
    *       index,
@@ -89,12 +96,17 @@ export function reveal<Nodes extends Hidden[]>({
 }: {
   nodes: Nodes;
   index: number;
-  parent: Parent<Node<Data>>;
+  parent: Parent;
 }) {
   parent.children.splice(
     index,
     1,
-    ...nodes.flatMap((n) => n.hiddenChildren.map((n) => removePosition(n)))
+    ...nodes.flatMap((node) =>
+      node.hiddenChildren.map((node_) => {
+        removePosition(node_);
+        return node_;
+      })
+    )
   );
 }
 
@@ -110,7 +122,7 @@ export function reveal<Nodes extends Hidden[]>({
  * provided, or it returns `undefined`, `[SKIP, index]` will be passed through
  * instead.
  */
-export function visitAndReveal<Tree extends Node<Data>>({
+export function visitAndReveal<Tree extends Node>({
   tree,
   visitor,
   reverse = false
@@ -139,8 +151,8 @@ export function visitAndReveal<Tree extends Node<Data>>({
     tree,
     'hidden',
     (node, index, parent) => {
-      assert(index !== null, 'index is missing');
-      assert(parent !== null, 'parent is missing');
+      assert(index !== undefined, 'index is missing');
+      assert(parent !== undefined, 'parent is missing');
       assert(isHidden(node), 'malformed hidden node');
 
       const result = visitor?.(node, index, parent);

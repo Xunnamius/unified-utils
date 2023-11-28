@@ -1,12 +1,12 @@
 import assert from 'node:assert';
-import { visit, SKIP } from 'unist-util-visit';
 import { hide, visitAndReveal } from 'pkgverse/mdast-util-hidden/src/index';
-import { removePosition } from 'unist-util-remove-position';
 import remarkInlineLinks from 'remark-inline-links';
 import remarkReferenceLinks from 'remark-reference-links';
+import { removePosition } from 'unist-util-remove-position';
+import { SKIP, visit } from 'unist-util-visit';
 
+import type { Definition, Root } from 'mdast';
 import type { Plugin } from 'unified';
-import type { Root, Definition } from 'mdast';
 
 const scopeSymbol: unique symbol = Symbol('owned-by: remark-renumber-references');
 
@@ -35,7 +35,7 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
   { preserveAlphanumericDefinitions = true } = {} as Options,
   ..._ignored
 ) {
-  return async (tree, file) => {
+  return async (tree) => {
     const definitions: Definition[] = [];
 
     if (preserveAlphanumericDefinitions) {
@@ -63,12 +63,13 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
             `unexpected node type ${node.type}`
           );
 
-          assert(index !== null, 'index is missing');
-          assert(parent !== null, 'parent is missing');
+          assert(index !== undefined, 'index is missing');
+          assert(parent !== undefined, 'parent is missing');
 
           if (isAlphanumeric(node.identifier)) {
-            if (node.type == 'definition') {
-              definitions.push(removePosition(node));
+            if (node.type === 'definition') {
+              removePosition(node);
+              definitions.push(node);
             } else {
               hide({ nodes: [node], index, parent });
 
@@ -87,14 +88,17 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
     async function convertNonHiddenReferenceLinksToInlineLinks() {
       const transformer = remarkInlineLinks();
       assert(transformer, 'remark-inline-links did not return a transformer');
-      await transformer(tree, file, () => undefined);
+      await transformer(tree);
     }
 
     function revealHiddenReferenceLinks() {
       // ? Ensure that we're only revealing the hidden nodes that belong to us
       visitAndReveal({
         tree,
-        visitor: (node) => (node.data?.scope == scopeSymbol ? undefined : false)
+        visitor: (node) =>
+          (node.data as Record<string, unknown>)?.scope === scopeSymbol
+            ? undefined
+            : false
       });
     }
 
@@ -105,7 +109,7 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
     async function convertInlineLinksToNumericReferenceLinks() {
       const transformer = remarkReferenceLinks();
       assert(transformer, 'remark-reference-links did not return a transformer');
-      await transformer(tree, file, () => undefined);
+      await transformer(tree);
     }
 
     function isAlphanumeric(identifier: string) {

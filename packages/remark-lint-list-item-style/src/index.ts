@@ -1,9 +1,10 @@
-import { visit } from 'unist-util-visit';
-import { generated as isGenerated } from 'unist-util-generated';
-import { lintRule as createLintRule } from 'unified-lint-rule';
 import { toString } from 'mdast-util-to-string';
+import { lintRule as createLintRule } from 'unified-lint-rule';
+import { generated as isGenerated } from 'unist-util-generated';
+import { visit } from 'unist-util-visit';
 
 import type { List } from 'mdast';
+import type { Plugin } from 'unified';
 import type { VFile } from 'vfile';
 
 const origin = 'remark-lint:list-item-style';
@@ -83,7 +84,7 @@ const remarkLintListItemStyle = createLintRule(
       coerceToOptions(file, options);
 
     visit(tree, (node) => {
-      if (!isGenerated(node) && node.type == 'list') {
+      if (!isGenerated(node) && node.type === 'list') {
         const list = node as List;
 
         list.children.forEach((listItem) => {
@@ -92,26 +93,27 @@ const remarkLintListItemStyle = createLintRule(
               if (!listItem.children.length) {
                 file.message(
                   'empty list item without punctuation is not allowed',
+                  // @ts-expect-error: something's wrong w/ unified-lint-rule's types
                   listItem
                 );
               } else {
                 const targets =
-                  checkListSpread == 'each'
+                  checkListSpread === 'each'
                     ? listItem.children
-                    : checkListSpread == 'first'
-                    ? [listItem.children[0]]
-                    : checkListSpread == 'final'
-                    ? ([listItem.children.at(-1)] as typeof listItem.children)
-                    : listItem.children.length > 1
-                    ? ([
-                        listItem.children[0],
-                        listItem.children.at(-1)
-                      ] as typeof listItem.children)
-                    : [listItem.children[0]];
+                    : checkListSpread === 'first'
+                      ? [listItem.children[0]]
+                      : checkListSpread === 'final'
+                        ? ([listItem.children.at(-1)] as typeof listItem.children)
+                        : listItem.children.length > 1
+                          ? ([
+                              listItem.children[0],
+                              listItem.children.at(-1)
+                            ] as typeof listItem.children)
+                          : [listItem.children[0]];
 
                 targets.forEach((child) => {
                   if (
-                    (child.type == 'paragraph' &&
+                    (child.type === 'paragraph' &&
                       child.children.length &&
                       !['image', 'imageReference'].includes(
                         child.children.at(-1)?.type || ''
@@ -119,9 +121,9 @@ const remarkLintListItemStyle = createLintRule(
                     !['code', 'paragraph', 'html', 'list'].includes(child.type)
                   ) {
                     const chars =
-                      child.type == 'paragraph' &&
-                      child.children.length == 1 &&
-                      child.children.at(-1)?.type == 'inlineCode'
+                      child.type === 'paragraph' &&
+                      child.children.length === 1 &&
+                      child.children.at(-1)?.type === 'inlineCode'
                         ? // ? This condition deals with an edge case.
                           // * See: test/fixtures/not-ok-spread-each.md #5
                           ['​'] /* <-- contains a zero-width space character */
@@ -133,7 +135,7 @@ const remarkLintListItemStyle = createLintRule(
 
                     const punctuation =
                       // ? Account for "old style" two-part emojis using \uFE0F.
-                      chars.at(-1) == '\uFE0F' ? chars.join('') : chars.at(-1) || '';
+                      chars.at(-1) === '\uFE0F' ? chars.join('') : chars.at(-1) || '';
 
                     // ? Regular expression objects are stateful, so we must use
                     // ? `match` instead of `test`.
@@ -142,6 +144,7 @@ const remarkLintListItemStyle = createLintRule(
                     if (!checkPunctuation.some((regExp) => !!punctuation.match(regExp))) {
                       file.message(
                         `"${punctuation}" is not allowed to punctuate list item`,
+                        // @ts-expect-error: something's wrong w/ unified-lint-rule's types
                         child
                       );
                     }
@@ -157,7 +160,7 @@ const remarkLintListItemStyle = createLintRule(
             ) {
               listItem.children.forEach((child) => {
                 if (
-                  (child.type == 'paragraph' &&
+                  (child.type === 'paragraph' &&
                     child.children.length &&
                     ![
                       'inlineCode',
@@ -181,12 +184,13 @@ const remarkLintListItemStyle = createLintRule(
                     const actual = stringifiedChild[0];
                     const expected =
                       actual[
-                        checkFirstWord == 'capitalize' ? 'toUpperCase' : 'toLowerCase'
+                        checkFirstWord === 'capitalize' ? 'toUpperCase' : 'toLowerCase'
                       ]();
 
                     if (expected != actual) {
                       file.message(
                         `Inconsistent list item capitalization: "${actual}" should be "${expected}"`,
+                        // @ts-expect-error: something's wrong w/ unified-lint-rule's types
                         child
                       );
                     }
@@ -199,7 +203,7 @@ const remarkLintListItemStyle = createLintRule(
       }
     });
   }
-);
+) as unknown as Plugin<[Options] | []>; // something's wrong w/ unified-lint-rule's types;
 
 export default remarkLintListItemStyle;
 

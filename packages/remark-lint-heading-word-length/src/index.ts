@@ -1,9 +1,10 @@
-import { visit } from 'unist-util-visit';
-import { generated as isGenerated } from 'unist-util-generated';
-import { lintRule as createLintRule } from 'unified-lint-rule';
 import { toString } from 'mdast-util-to-string';
+import { lintRule as createLintRule } from 'unified-lint-rule';
+import { generated as isGenerated } from 'unist-util-generated';
+import { visit } from 'unist-util-visit';
 
 import type { Heading } from 'mdast';
+import type { Plugin } from 'unified';
 import type { VFile } from 'unified-lint-rule/lib';
 
 const origin = 'remark-lint:heading-word-length';
@@ -44,15 +45,16 @@ const remarkLintHeadingWordLength = createLintRule(
     const { minimumWords, maximumWords } = coerceToOptions(file, options);
 
     visit(tree, (node) => {
-      if (node.type == 'heading' && !isGenerated(node)) {
+      if (node.type === 'heading' && !isGenerated(node)) {
         const heading = node as Heading;
         const words = toString(heading).split(/\s/).filter(Boolean);
 
         if (minimumWords !== false && words.length < minimumWords) {
           file.message(
             `Heading must have at least ${minimumWords} word${
-              minimumWords == 1 ? '' : 's'
+              minimumWords === 1 ? '' : 's'
             } (current length: ${words.length})`,
+            // @ts-expect-error: something's wrong w/ unified-lint-rule's types
             heading
           );
         }
@@ -60,15 +62,16 @@ const remarkLintHeadingWordLength = createLintRule(
         if (maximumWords !== false && words.length > maximumWords) {
           file.message(
             `Heading must have at most ${maximumWords} word${
-              maximumWords == 1 ? '' : 's'
+              maximumWords === 1 ? '' : 's'
             } (current length: ${words.length})`,
+            // @ts-expect-error: something's wrong w/ unified-lint-rule's types
             heading
           );
         }
       }
     });
   }
-);
+) as unknown as Plugin<[Options] | []>; // something's wrong w/ unified-lint-rule's types
 
 export default remarkLintHeadingWordLength;
 

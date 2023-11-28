@@ -1,7 +1,7 @@
-import { remark } from 'remark';
 import remarkIgnore from 'pkgverse/remark-ignore/src/index';
-import remarkGfm from 'remark-gfm';
 import remarkRenumberReferences from 'pkgverse/remark-renumber-references/src/index';
+import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
 
 import {
   getFixtureString,

@@ -2,8 +2,8 @@ import assert from 'node:assert';
 import { parse as parseUrl, format as stringifyUrl } from 'node:url';
 import { visit } from 'unist-util-visit';
 
-import type { Plugin } from 'unified';
 import type { Root } from 'mdast';
+import type { Plugin } from 'unified';
 
 /**
  * Options type for the remark-remove-url-trailing-slash plugin.
@@ -44,10 +44,10 @@ const remarkRemoveUrlTrailingSlash: Plugin<[options: Options] | void[], Root> = 
           ? `${parsedUrl.protocol}//${parsedUrl.host}`
           : '';
 
-      if (node.url == `${target}/`) {
+      if (node.url === `${target}/`) {
         node.url = node.url.slice(0, -1);
       } else if (
-        (onlyConsiderHostUrls && parsedUrl.pathname == '/') ||
+        (onlyConsiderHostUrls && parsedUrl.pathname === '/') ||
         (!onlyConsiderHostUrls && parsedUrl.pathname?.endsWith('/'))
       ) {
         const { hash, search } = parsedUrl;

@@ -1,19 +1,19 @@
-import assert from 'node:assert';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
+import assert from 'node:assert';
 import { getFixtureString } from 'pkgverse/mdast-util-tight-comments/test/helpers';
 
 import {
-  name as pkgName,
-  exports as pkgExports
+  exports as pkgExports,
+  name as pkgName
 } from 'pkgverse/mdast-util-tight-comments/package.json';
 
 import {
-  mockFixtureFactory,
   dummyFilesFixture,
   dummyNpmPackageFixture,
-  npmCopySelfFixture,
-  nodeImportTestFixture
+  mockFixtureFactory,
+  nodeImportTestFixture,
+  npmCopySelfFixture
 } from 'testverse/setup';
 
 // TODO: note that we've made some modifications to the setup.ts file that
@@ -24,7 +24,7 @@ const debug = debugFactory(`${pkgName}:${TEST_IDENTIFIER}`);
 
 const pkgMainPaths = Object.values(pkgExports)
   .map((xport) =>
-    typeof xport == 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
+    typeof xport === 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
   )
   .filter(Boolean) as string[];
 

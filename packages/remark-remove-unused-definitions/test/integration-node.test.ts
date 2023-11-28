@@ -1,15 +1,15 @@
-import assert from 'node:assert';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
+import assert from 'node:assert';
 import { getFixtureString } from 'pkgverse/remark-remove-unused-definitions/test/helpers';
-import { name as pkgName, exports as pkgExports } from '../package.json';
+import { exports as pkgExports, name as pkgName } from '../package.json';
 
 import {
-  mockFixtureFactory,
   dummyFilesFixture,
   dummyNpmPackageFixture,
-  npmCopySelfFixture,
+  mockFixtureFactory,
   nodeImportTestFixture,
+  npmCopySelfFixture,
   runTestFixture
 } from 'testverse/setup';
 
@@ -21,7 +21,7 @@ const debug = debugFactory(`${pkgName}:${TEST_IDENTIFIER}`);
 
 const pkgMainPaths = Object.values(pkgExports)
   .map((xport) =>
-    typeof xport == 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
+    typeof xport === 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
   )
   .filter(Boolean) as string[];
 

@@ -1,6 +1,6 @@
-import assert from 'node:assert';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
+import assert from 'node:assert';
 import { getAst as getReplacedAst } from './fixtures/hidden-replaced-ast';
 
 import {
@@ -9,16 +9,16 @@ import {
 } from 'pkgverse/mdast-util-hidden/test/helpers';
 
 import {
-  name as pkgName,
-  exports as pkgExports
+  exports as pkgExports,
+  name as pkgName
 } from 'pkgverse/mdast-util-hidden/package.json';
 
 import {
-  mockFixtureFactory,
   dummyFilesFixture,
   dummyNpmPackageFixture,
-  npmCopySelfFixture,
-  nodeImportTestFixture
+  mockFixtureFactory,
+  nodeImportTestFixture,
+  npmCopySelfFixture
 } from 'testverse/setup';
 
 // TODO: note that we've made some modifications to the setup.ts file that
@@ -29,7 +29,7 @@ const debug = debugFactory(`${pkgName}:${TEST_IDENTIFIER}`);
 
 const pkgMainPaths = Object.values(pkgExports)
   .map((xport) =>
-    typeof xport == 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
+    typeof xport === 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
   )
   .filter(Boolean) as string[];
 
@@ -92,7 +92,7 @@ const tree = JSON.parse(JSON.stringify(initialAst));
 const finalAst = removePositionDataFrom('heading', initialAst);
 
 _unistUtilVisit.visit(tree, 'heading', (node, index, parent) => {
-  if (index !== null && parent !== null) {
+  if (index !== undefined && parent !== undefined) {
     hide({ nodes: [node], index, parent });
     return [_unistUtilVisit.SKIP, index + 1];
   }
