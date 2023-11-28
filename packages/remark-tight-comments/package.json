@@ -41,6 +41,11 @@
       ]
     }
   },
+  "project": {
+    "documentation": {
+      "entry": "./src/*"
+    }
+  },
   "files": [
     "/dist",
     "/LICENSE",
@@ -61,19 +66,14 @@
     "test:unit": "echo 'IMPLEMENT ME'"
   },
   "dependencies": {
-    "@types/mdast": "^3.0.10",
+    "@types/mdast": "^4.0.3",
     "mdast-util-tight-comments": "^1.0.6",
-    "unified": "^10.1.2"
+    "unified": "^11.0.4"
   },
   "engines": {
     "node": "^14.19.0 || ^16.13.0 || >=17.4.0"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "project": {
-    "documentation": {
-      "entry": "./src/*"
-    }
   }
 }

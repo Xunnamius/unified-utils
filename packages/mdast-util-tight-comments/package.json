@@ -46,6 +46,11 @@
       ]
     }
   },
+  "project": {
+    "documentation": {
+      "entry": "./src/*"
+    }
+  },
   "files": [
     "/dist",
     "/LICENSE",
@@ -66,17 +71,12 @@
     "test:unit": "echo 'IMPLEMENT ME'"
   },
   "dependencies": {
-    "mdast-util-to-markdown": "^1.5.0"
+    "mdast-util-to-markdown": "^2.1.0"
   },
   "engines": {
     "node": "^14.19.0 || ^16.13.0 || >=17.4.0"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "project": {
-    "documentation": {
-      "entry": "./src/*"
-    }
   }
 }
