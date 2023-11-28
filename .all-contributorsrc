@@ -3,9 +3,7 @@
   "projectOwner": "Xunnamius",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "commit": false,
   "commitConvention": "angular",
@@ -15,24 +13,21 @@
       "name": "Bernard",
       "avatar_url": "https://avatars.githubusercontent.com/u/656017?v=4",
       "profile": "https://xunn.io/",
-      "contributions": [
-        "infra",
-        "code",
-        "doc",
-        "maintenance",
-        "test",
-        "review"
-      ]
+      "contributions": ["infra", "code", "doc", "maintenance", "test", "review"]
     },
     {
       "login": "fviolette",
       "name": "François Violette",
       "avatar_url": "https://avatars.githubusercontent.com/u/19730806?v=4",
       "profile": "https://github.com/fviolette",
-      "contributions": [
-        "bug",
-        "ideas"
-      ]
+      "contributions": ["bug", "ideas"]
+    },
+    {
+      "login": "crutchcorn",
+      "name": "Corbin Crutchley",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9100169?v=4",
+      "profile": "https://crutchcorn.dev/",
+      "contributions": ["ideas", "research", "bug"]
     }
   ],
   "contributorsPerLine": 7,
