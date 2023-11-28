@@ -5,7 +5,7 @@
  */
 
 /**
- * Remark configuration loaded when `NODE_ENV == 'lint'`. The goal here is to
+ * Remark configuration loaded when `NODE_ENV === 'lint'`. The goal here is to
  * check for things that will not be corrected by prettier or remark during a
  * formatting pass (see below).
  *
@@ -50,7 +50,7 @@ const lintConfig = {
 };
 
 /**
- * Remark configuration loaded when `NODE_ENV == 'format'`. The goal here is to
+ * Remark configuration loaded when `NODE_ENV === 'format'`. The goal here is to
  * correct things that will not be taken care of by prettier.
  *
  * @type {Config}
@@ -85,9 +85,9 @@ export default {
     rule: '-',
     strong: '*',
     tightDefinitions: true,
-    ...(process.env.NODE_ENV == 'lint' ? lintConfig.settings : formatConfig.settings)
+    ...(process.env.NODE_ENV === 'lint' ? lintConfig.settings : formatConfig.settings)
   },
   plugins: [
-    ...(process.env.NODE_ENV == 'lint' ? lintConfig.plugins : formatConfig.plugins)
+    ...(process.env.NODE_ENV === 'lint' ? lintConfig.plugins : formatConfig.plugins)
   ]
 };

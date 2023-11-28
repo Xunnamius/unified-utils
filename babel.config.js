@@ -94,7 +94,7 @@ module.exports = {
         'explicit-exports-references'
       ]
     },
-    // * Used when NODE_ENV == production
+    // * Used when NODE_ENV == production (usually for generating types w/ tsc)
     production: {
       presets: [
         [
@@ -132,7 +132,7 @@ module.exports = {
         ]
       ]
     },
-    // * Used by `npm run build-externals` for compiling to ESM code output in
+    // * Used by `npm run build:externals` for compiling to ESM code output in
     // * ./external-scripts/bin
     'production-external': generateProductionEsmConfigObject((config) => {
       config.presets[0][1].targets = { node: true };

@@ -27,7 +27,7 @@ module.exports = {
     'external-scripts/**/*.ts?(x)',
     'packages/*/src/**/*.ts?(x)'
   ],
-  // ? Transform third-party ESM packages into CJS using babel
+  // ? Transform all third-party (ESM) packages into CJS using babel
   transformIgnorePatterns: [],
   // ? Make sure jest-haste-map doesn't try to parse and cache fixtures
   modulePathIgnorePatterns: ['<rootDir>/test/fixtures']
