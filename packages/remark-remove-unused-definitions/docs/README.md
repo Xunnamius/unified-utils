@@ -12,7 +12,7 @@ remark-remove-unused-definitions
 
 ### default
 
-▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...parameters`): `undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all unused definition nodes deleted.
@@ -21,13 +21,13 @@ with all unused definition nodes deleted.
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `Processor`<`void`, `Root`, `void`, `void`\> |
-| `...settings` | `void`[] |
+| `this` | `Processor`\<`undefined`, `undefined`, `undefined`, `undefined`, `undefined`\> |
+| `...parameters` | `void`[] |
 
 #### Returns
 
-`void` \| `Transformer`<`Root`, `Root`\>
+`undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 #### Defined in
 
-node_modules/unified/index.d.ts:531
+node_modules/unified/lib/index.d.ts:946

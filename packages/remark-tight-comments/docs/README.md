@@ -12,7 +12,7 @@ remark-tight-comments
 
 ### default
 
-▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...parameters`): `undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 A remark plugin that ensures tight spacing between HTML comments and select
 other mdast nodes under certain conditions.
@@ -21,13 +21,13 @@ other mdast nodes under certain conditions.
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `Processor`<`void`, `Root`, `void`, `void`\> |
-| `...settings` | `void`[] |
+| `this` | `Processor`\<`undefined`, `undefined`, `undefined`, `undefined`, `undefined`\> |
+| `...parameters` | `void`[] |
 
 #### Returns
 
-`void` \| `Transformer`<`Root`, `Root`\>
+`undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 #### Defined in
 
-node_modules/unified/index.d.ts:531
+node_modules/unified/lib/index.d.ts:946

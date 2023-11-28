@@ -13,7 +13,7 @@
 
 ### default
 
-▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...parameters`): `undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all hidden child nodes revealed.
@@ -22,16 +22,16 @@ with all hidden child nodes revealed.
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `Processor`<`void`, `Root`, `void`, `void`\> |
-| `...settings` | `void`[] |
+| `this` | `Processor`\<`undefined`, `undefined`, `undefined`, `undefined`, `undefined`\> |
+| `...parameters` | `void`[] |
 
 #### Returns
 
-`void` \| `Transformer`<`Root`, `Root`\>
+`undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 #### Defined in
 
-node_modules/unified/index.d.ts:531
+node_modules/unified/lib/index.d.ts:946
 
 ___
 
@@ -54,4 +54,4 @@ node with all hidden child nodes revealed.
 
 #### Defined in
 
-[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/1d6f92d/packages/remark-ignore/src/end.ts#L18)
+[packages/remark-ignore/src/end.ts:18](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/remark-ignore/src/end.ts#L18)

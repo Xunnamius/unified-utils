@@ -28,11 +28,11 @@ Options type for the remark-lint-fenced-code-flag-case plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `case?` | typeof [`optionsCases`](README.md#optionscases)[`number`] | All code fence flags must be of the specified case. Code fences without flags are ignored. **`Default`** "lower" |
+| `case?` | typeof [`optionsCases`](README.md#optionscases)[`number`] | All code fence flags must be of the specified case. Code fences without flags are ignored. **`Default`** ```ts "lower" ``` |
 
 #### Defined in
 
-[packages/remark-lint-fenced-code-flag-case/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/1d6f92d/packages/remark-lint-fenced-code-flag-case/src/index.ts#L17)
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:18](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/remark-lint-fenced-code-flag-case/src/index.ts#L18)
 
 ## Variables
 
@@ -44,13 +44,13 @@ Valid values for the Options.case property.
 
 #### Defined in
 
-[packages/remark-lint-fenced-code-flag-case/src/index.ts:12](https://github.com/Xunnamius/unified-utils/blob/1d6f92d/packages/remark-lint-fenced-code-flag-case/src/index.ts#L12)
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:13](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/remark-lint-fenced-code-flag-case/src/index.ts#L13)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Node`<`Data`\>, `Node`<`Data`\>\>
+▸ **default**(`this`, `...parameters`): `undefined` \| `void` \| `Transformer`\<`Node`, `Node`\>
 
 A remark-lint rule that takes a Root node as input and attaches any error
 messages to the resulting virtual file pertaining to fenced code flag case.
@@ -59,13 +59,13 @@ messages to the resulting virtual file pertaining to fenced code flag case.
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `Processor`<`void`, `Node`<`Data`\>, `void`, `void`\> |
-| `...settings` | `void`[] \| [`unknown`] \| [`boolean` \| `Label` \| `Severity`, `unknown`] |
+| `this` | `Processor`\<`undefined`, `undefined`, `undefined`, `undefined`, `undefined`\> |
+| `...parameters` | [[`Options`](README.md#options)] \| [] |
 
 #### Returns
 
-`void` \| `Transformer`<`Node`<`Data`\>, `Node`<`Data`\>\>
+`undefined` \| `void` \| `Transformer`\<`Node`, `Node`\>
 
 #### Defined in
 
-node_modules/unified/index.d.ts:531
+node_modules/unified/lib/index.d.ts:946

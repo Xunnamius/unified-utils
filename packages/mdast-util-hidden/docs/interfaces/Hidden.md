@@ -29,7 +29,7 @@ cannot be derived from markdown directly.
 
 • `Optional` **data**: `Data`
 
-Information from the ecosystem.
+Info from the ecosystem.
 
 #### Inherited from
 
@@ -37,17 +37,17 @@ Node.data
 
 #### Defined in
 
-node_modules/@types/unist/index.d.ts:27
+node_modules/@types/unist/index.d.ts:95
 
 ___
 
 ### hiddenChildren
 
-• **hiddenChildren**: `Content`[]
+• **hiddenChildren**: `RootContent`[]
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/1d6f92d/packages/mdast-util-hidden/src/index.ts#L17)
+[packages/mdast-util-hidden/src/index.ts:17](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/mdast-util-hidden/src/index.ts#L17)
 
 ___
 
@@ -55,8 +55,10 @@ ___
 
 • `Optional` **position**: `Position`
 
-Location of a node in a source document.
-Must not be present if a node is generated.
+Position of a node in a source document.
+
+Nodes that are generated (not in the original source document) must not
+have a position.
 
 #### Inherited from
 
@@ -64,7 +66,7 @@ Node.position
 
 #### Defined in
 
-node_modules/@types/unist/index.d.ts:33
+node_modules/@types/unist/index.d.ts:103
 
 ___
 
@@ -78,4 +80,4 @@ Node.type
 
 #### Defined in
 
-[packages/mdast-util-hidden/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/1d6f92d/packages/mdast-util-hidden/src/index.ts#L16)
+[packages/mdast-util-hidden/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/mdast-util-hidden/src/index.ts#L16)

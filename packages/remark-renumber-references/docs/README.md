@@ -24,17 +24,17 @@ Options type for the remark-renumber-references plugin.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `preserveAlphanumericDefinitions?` | `boolean` | If `true`, alphanumeric definition ids (i.e. any id that cannot be parsed into an integer) will be spared during the renumbering. If `false`, _all_ definition ids will be deleted and recreated starting from `[1]`. **`Default`** true |
+| `preserveAlphanumericDefinitions?` | `boolean` | If `true`, alphanumeric definition ids (i.e. any id that cannot be parsed into an integer) will be spared during the renumbering. If `false`, _all_ definition ids will be deleted and recreated starting from `[1]`. **`Default`** ```ts true ``` |
 
 #### Defined in
 
-[packages/remark-renumber-references/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/1d6f92d/packages/remark-renumber-references/src/index.ts#L16)
+[packages/remark-renumber-references/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/remark-renumber-references/src/index.ts#L16)
 
 ## Functions
 
 ### default
 
-▸ **default**(`this`, `...settings`): `void` \| `Transformer`<`Root`, `Root`\>
+▸ **default**(`this`, `...parameters`): `undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 A remark plugin that takes a Root node as input and returns the same node
 with all reference-style link nodes and their definition nodes renumbered in
@@ -46,13 +46,13 @@ Links are assigned a numeric reference id as they are encountered.
 
 | Name | Type |
 | :------ | :------ |
-| `this` | `Processor`<`void`, `Root`, `void`, `void`\> |
-| `...settings` | [options: Options] \| `void`[] |
+| `this` | `Processor`\<`undefined`, `undefined`, `undefined`, `undefined`, `undefined`\> |
+| `...parameters` | [options: Options] \| `void`[] |
 
 #### Returns
 
-`void` \| `Transformer`<`Root`, `Root`\>
+`undefined` \| `void` \| `Transformer`\<`Root`, `Root`\>
 
 #### Defined in
 
-node_modules/unified/index.d.ts:531
+node_modules/unified/lib/index.d.ts:946
