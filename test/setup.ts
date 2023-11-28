@@ -1,17 +1,17 @@
-import { name as rootPkgName } from 'package';
-import assert from 'node:assert';
-import { tmpdir } from 'node:os';
-import { promises as fs } from 'node:fs';
-import { resolve } from 'node:path';
+import execa from 'execa';
+import glob from 'glob';
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
-import glob from 'glob';
-import execa from 'execa';
-import uniqueFilename from 'unique-filename';
+import assert from 'node:assert';
+import { promises as fs } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { resolve } from 'node:path';
+import { name as rootPkgName } from 'package';
 import gitFactory from 'simple-git';
+import uniqueFilename from 'unique-filename';
 // ? https://github.com/jest-community/jest-extended#typescript
-import 'jest-extended/all';
 import 'jest-extended';
+import 'jest-extended/all';
 
 import type { Debugger } from 'debug';
 import type { SimpleGit } from 'simple-git';
@@ -328,7 +328,7 @@ export function webpackTestFixture(): MockFixture {
     description: 'setting up webpack jest integration test',
     setup: async (context) => {
       assert(
-        typeof context.options.webpackVersion == 'string',
+        typeof context.options.webpackVersion === 'string',
         'invalid or missing options.webpackVersion, expected string'
       );
 
@@ -429,7 +429,7 @@ export function gitRepositoryFixture(): MockFixture {
     description: 'configuring fixture root to be a git repository',
     setup: async (context) => {
       assert(
-        !context.options.setupGit || typeof context.options.setupGit == 'function',
+        !context.options.setupGit || typeof context.options.setupGit === 'function',
         'invalid or missing options.setupGit, expected function'
       );
 
@@ -578,7 +578,7 @@ export async function withMockedFixture<
     context.using = [...context.using, ...finalOptions.use];
     // ? `describe-root` fixture doesn't have to be the last one, but a fixture
     // ? with that name must be included at least once
-    if (!finalOptions.use.some((f) => f.name == 'describe-root'))
+    if (!finalOptions.use.some((f) => f.name === 'describe-root'))
       context.using.push(describeRootFixture());
   } else context.using = [rootFixture(), describeRootFixture()];
 
@@ -596,7 +596,7 @@ export async function withMockedFixture<
       p: CustomizedMockFixture['name'] | CustomizedMockFixture['description']
       // TODO: replace with toss
     ) =>
-      typeof p == 'function' ? p(context) : typeof p == 'string' ? p : ':impossible:';
+      typeof p === 'function' ? p(context) : typeof p === 'string' ? p : ':impossible:';
     const name = await toString(fixture.name.toString());
     const desc = await toString(fixture.description);
     const dbg = debug.extend(error ? `${name}:<error>` : name);
@@ -606,7 +606,7 @@ export async function withMockedFixture<
 
   try {
     for (const mockFixture of context.using) {
-      if (mockFixture.name == testSymbol) {
+      if (mockFixture.name === testSymbol) {
         context.debug = debug;
         debug('executing test callback');
       } else {
@@ -620,7 +620,7 @@ export async function withMockedFixture<
           await mockFixture.setup(context)
         : context.debug('(warning: mock fixture has no setup function)');
 
-      if (mockFixture.name == 'describe-root') ranDescribe = true;
+      if (mockFixture.name === 'describe-root') ranDescribe = true;
     }
   } catch (error) {
     context.debug.extend('<error>')('exception occurred: %O', error);
