@@ -4,12 +4,12 @@
 
 This [package][2] is [more than][3] [meets the eye][4].
 
-*   [Install unified][5]
-*   [Usage][6]
-*   [Related][7]
-*   [Contributing and Support][8]
-    *   [Maintainers][9]
-    *   [Contributors][10]
+* [Install unified][5]
+* [Usage][6]
+* [Related][7]
+* [Contributing and Support][8]
+  * [Maintainers][9]
+  * [Contributors][10]
 
 ## Footnote
 
@@ -28,8 +28,8 @@ A note[^1]
 
 ## Tasklist
 
-*   [ ] to do
-*   [x] done
+* [ ] to do
+* [x] done
 
 ## Install [unified][11]
 

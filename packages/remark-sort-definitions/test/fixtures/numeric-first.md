@@ -19,8 +19,8 @@ A note[^1]
 
 ## Tasklist
 
-*   [ ] to do
-*   [x] done
+* [ ] to do
+* [x] done
 
 …
 

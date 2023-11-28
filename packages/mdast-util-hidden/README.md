@@ -108,7 +108,7 @@ const doc = fs.readFileSync('example.md');
 const tree = unified().use(remarkParse).parse(doc);
 
 visit(tree, 'heading', (node, index, parent) => {
-  if (index !== null && parent !== null) {
+  if (index !== undefined && parent !== undefined) {
     // … Other stuff
     hide({ nodes: [node], index, parent });
     // Do not traverse node, continue with the next node at index + 1
@@ -187,7 +187,7 @@ const doc = fs.readFileSync('example.md');
 const tree = unified().use(remarkParse).parse(doc);
 
 visit(tree, 'heading', (node, index, parent) => {
-  if (index !== null && parent !== null) {
+  if (index !== undefined && parent !== undefined) {
     hide({ nodes: [node], index, parent });
     return [SKIP, index + 1];
   }
@@ -196,7 +196,7 @@ visit(tree, 'heading', (node, index, parent) => {
 // LATER:
 
 visit(tree, 'hidden', (node, index, parent) => {
-  if (index !== null && parent !== null) {
+  if (index !== undefined && parent !== undefined) {
     reveal({ nodes: [node], index, parent });
     // … Other stuff
     // Do not traverse node, continue with the node now at index (NOT index + 1)
