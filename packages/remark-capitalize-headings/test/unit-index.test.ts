@@ -83,4 +83,17 @@ describe('::default', () => {
       'replaceHeadingRegExp option must not change the length of the following header: Section 3 has the rest'
     );
   });
+
+  it('capitalizes headings using the CMOS with respect to excludeHeadingText', async () => {
+    expect.hasAssertions();
+
+    const result = await remark()
+      .use(remarkGfm)
+      .use(remarkCapitalizeHeadings, {
+        excludeHeadingText: ['one']
+      })
+      .process(await getFixtureVFile('base'));
+
+    expect(result.toString()).toStrictEqual(getFixtureString('excludeHeadingText'));
+  });
 });

@@ -42,8 +42,8 @@
 
 ## Section 5 Is Blessed
 
-### Custom Id {#custom-id}
+### Custom Id {#custom-Id}
 
-### Another One to Consider
+### Another one to Consider
 
 [1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
