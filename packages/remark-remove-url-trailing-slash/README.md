@@ -219,8 +219,8 @@ Would output the following:
 
 ## Related
 
-- [remark-lint-remove-url-trailing-slash][5] — the [remark-lint][6] version of
-  and inspiration for this package.
+- [remark-lint-no-url-trailing-slash][5] — the [remark-lint][6] version of and
+  inspiration for this package.
 - [remark-ignore][7] — use comments to exclude one or more nodes from
   [transformation][8].
 
@@ -278,7 +278,7 @@ See the [table of contributors][x-repo-contributors].
 [2]: https://github.com/remarkjs/remark
 [3]: /packages/remark-renumber-references
 [4]: #onlyConsiderHostUrls
-[5]: https://github.com/vercel/remark-capitalize
+[5]: https://github.com/vhf/remark-lint-no-url-trailing-slash
 [6]: https://github.com/remarkjs/remark-lint
 [7]: /packages/remark-ignore
 [8]: https://github.com/unifiedjs/unified#overview
