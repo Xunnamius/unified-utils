@@ -504,6 +504,7 @@ export function describeRootFixture(): MockFixture {
   };
 }
 
+// ! Updated to use stripAnsi
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
 export function runTestFixture(): MockFixture {
   return {
@@ -522,10 +523,12 @@ export function runTestFixture(): MockFixture {
         ...options
       });
 
+      const stripAnsi = (await import('strip-ansi')).default;
+
       context.testResult = {
         code,
-        stdout,
-        stderr
+        stdout: stripAnsi(stdout),
+        stderr: stripAnsi(stderr)
       };
     }
   };
