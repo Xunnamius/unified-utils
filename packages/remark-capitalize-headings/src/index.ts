@@ -46,7 +46,7 @@ export type Options = {
    * This option lets you avoid transforming specific parts of the header's text
    * _before they've been transformed by title_.
    *
-   * @default ["\\{\\s*#.*?\\}\\s*$"]
+   * @default []
    */
   excludeHeadingText?: string[];
 };
@@ -60,7 +60,7 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
     excludeHeadingLevel = {},
     excludeSectionRegExp = [],
     replaceHeadingRegExp = { '(?<=\\s)a(?=\\p{P})': 'A' },
-    excludeHeadingText = ["\\{\\s*#.*?\\}\\s*$"]
+    excludeHeadingText = []
   } = {} as Options,
   ..._ignored
 ) {

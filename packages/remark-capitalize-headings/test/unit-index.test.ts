@@ -90,7 +90,7 @@ describe('::default', () => {
     const result = await remark()
       .use(remarkGfm)
       .use(remarkCapitalizeHeadings, {
-        excludeHeadingText: ['one']
+        excludeHeadingText: ['one', "\\{\\s*#.*?\\}\\s*$"]
       })
       .process(await getFixtureVFile('base'));
 

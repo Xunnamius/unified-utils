@@ -42,7 +42,7 @@
 
 ## Section 5 Is Blessed
 
-### Custom Id {#custom-id}
+### Custom Id {#custom-Id}
 
 ### Another One to Consider
 
