@@ -42,6 +42,10 @@ export type Options = {
    * @default { "(?<=\\s)a(?=\\p{P})": "A" }
    */
   replaceHeadingRegExp?: { [regExp: string]: string };
+  /**
+   * TODO: Write docs
+   */
+  excludeHeadingText: string[];
 };
 
 /**
@@ -52,7 +56,8 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
   {
     excludeHeadingLevel = {},
     excludeSectionRegExp = [],
-    replaceHeadingRegExp = { '(?<=\\s)a(?=\\p{P})': 'A' }
+    replaceHeadingRegExp = { '(?<=\\s)a(?=\\p{P})': 'A' },
+    excludeHeadingText = ["\\{\\s*#.*?\\}\\s*$"]
   } = {} as Options,
   ..._ignored
 ) {
@@ -86,6 +91,20 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
         }
 
         if (manipulated != stringified) {
+          const ignoredIndexes = new Set();
+          for (const regex of excludeHeadingText) {
+            const matches = stringified.match(new RegExp(regex, 'gmu'));
+            if (!matches) continue;
+            let lastIndex = 0;
+            for (const match of matches) {
+              const matchedIndex = stringified.indexOf(match, lastIndex);
+              lastIndex = matchedIndex + match.length;
+              for (let indexOfMatchLength = 0; indexOfMatchLength < match.length; indexOfMatchLength++) {
+                ignoredIndexes.add(matchedIndex + indexOfMatchLength);
+              }
+            }
+          }
+
           visit(node, (childNode, childIndex) => {
             if (childIndex !== undefined) {
               switch (childNode.type) {
@@ -104,10 +123,14 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
 
                 case 'text': {
                   const text = toString(childNode);
-                  childNode.value = manipulated.slice(
-                    unstringifyIndex,
-                    (unstringifyIndex += text.length)
-                  );
+
+                  childNode.value = "";
+
+                  for (let inputIndex = unstringifyIndex; inputIndex < unstringifyIndex + text.length; inputIndex++) {
+                    childNode.value += ignoredIndexes.has(inputIndex) ? stringified[inputIndex] : manipulated[inputIndex];
+                  }
+
+                  unstringifyIndex += text.length;
 
                   break;
                 }
