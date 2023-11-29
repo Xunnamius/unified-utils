@@ -45,7 +45,7 @@ export type Options = {
   /**
    * TODO: Write docs
    */
-  excludeHeadingText: string[];
+  excludeHeadingText?: string[];
 };
 
 /**
