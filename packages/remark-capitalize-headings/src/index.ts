@@ -43,7 +43,10 @@ export type Options = {
    */
   replaceHeadingRegExp?: { [regExp: string]: string };
   /**
-   * TODO: Write docs
+   * This option lets you avoid transforming specific parts of the header's text
+   * _before they've been transformed by title_.
+   *
+   * @default ["\\{\\s*#.*?\\}\\s*$"]
    */
   excludeHeadingText?: string[];
 };
