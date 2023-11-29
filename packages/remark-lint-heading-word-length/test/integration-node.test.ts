@@ -104,11 +104,11 @@ describe('via remark-cli inline configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
+          /.*?1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
+          /.*?3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -143,11 +143,11 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
+          /.*?1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
+          /.*?3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -176,11 +176,11 @@ describe('via remark-cli unified configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stdout).toBeEmpty();
         expect(context.testResult?.stderr).toMatch(
-          /.*? 1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
+          /.*?1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
+          /.*?3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -212,11 +212,11 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
+          /.*?1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
+          /.*?3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -247,11 +247,11 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
+          /.*?1:1-1:51 .*? Heading must have at most 10 words \(current length: 11\) .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
+          /.*?3:1-3:2 .*? Heading must have at least 1 word \(current length: 0\) .*/
         );
 
         expect(context.testResult?.code).toBe(0);

@@ -104,11 +104,11 @@ describe('via remark-cli inline configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
+          /.*?3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
+          /.*?7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -143,11 +143,11 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
+          /.*?3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
+          /.*?7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -176,11 +176,11 @@ describe('via remark-cli unified configuration', () => {
         assert(context.testResult, 'must use run-test-test fixture');
         expect(context.testResult?.stdout).toBeEmpty();
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
+          /.*?3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
+          /.*?7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -212,11 +212,11 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
+          /.*?3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
+          /.*?7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
         );
 
         expect(context.testResult?.code).toBe(0);
@@ -247,11 +247,11 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.stdout).toBeEmpty();
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
+          /.*?3:1-5:4 .*? Code fence flag "JS" should be "js" .*/
         );
 
         expect(context.testResult?.stderr).toMatch(
-          /.*? 7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
+          /.*?7:1-9:4 .*? Code fence flag "JAVASCRIPT" should be "javascript" .*/
         );
 
         expect(context.testResult?.code).toBe(0);
