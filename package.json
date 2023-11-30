@@ -1,5 +1,6 @@
 {
   "name": "unified-utils-monorepo",
+  "version": "monorepo",
   "private": true,
   "homepage": "https://github.com/Xunnamius/unified-utils",
   "repository": {
