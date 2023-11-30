@@ -2,21 +2,21 @@
 
 ## Section 1 Is [the best](https://google.com)
 
-### Subsection a
+### Subsection A
 
-### Subsection *a*
+### Subsection *A*
 
 ### Subsection \_a
 
-### Subsection a: be see
+### Subsection A: Be See
 
-### Subsection b
+### Subsection B
 
 ### Subsection C
 
 ## Section 2 Is the Test
 
-### subsection 1
+### Subsection 1
 
 ### Subsection 2
 
@@ -24,26 +24,26 @@
 
 #### `options.opt2`
 
-#### Additional option: `options.opt3`
+#### Additional Option: `options.opt3`
 
 ## Section 3 Has the Rest
 
 ### Subsection [a][1]
 
-#### Sci-fi title generator
+#### Sci-Fi Title Generator
 
-##### children of celeste
+##### Children of Celeste
 
-##### the bionic oblivion
+##### The Bionic Oblivion
 
-##### snows Of arrakis
+##### Snows of Arrakis
 
 ## `section 4` with the Zest
 
 ## Section 5 Is Blessed
 
-### Custom Id {#custom-Id}
+### Custom Id {#custom-id}
 
-### Another One to Consider
+### Another one to Consider
 
 [1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
