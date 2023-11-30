@@ -28,7 +28,7 @@ Options type for the remark-renumber-references plugin.
 
 #### Defined in
 
-[packages/remark-renumber-references/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/remark-renumber-references/src/index.ts#L16)
+[packages/remark-renumber-references/src/index.ts:16](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-renumber-references/src/index.ts#L16)
 
 ## Functions
 
