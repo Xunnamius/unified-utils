@@ -50,6 +50,7 @@ will not do.
 - [Examples](#examples)
   - [Using the Default Configuration](#using-the-default-configuration)
   - [Using `excludeHeadingLevel`](#using-excludeheadinglevel)
+  - [Using `excludeHeadingText`](#using-excludeheadingtext)
   - [Using `excludeSectionRegExp`](#using-excludesectionregexp)
   - [Using `replaceHeadingRegExp`](#using-replaceheadingregexp)
 - [Related](#related)
@@ -236,7 +237,7 @@ Suppose we have the following Markdown file `example.md`:
 
 #### Additional option: `options.opt3`
 
-## Section 3 has the rest
+## Section 3 has the rest {#section-three}
 
 ### Subsection [a][1]
 
@@ -307,8 +308,8 @@ Would output the following compared to `example.md`:
 -#### Additional option: `options.opt3`
 +#### Additional Option: `options.opt3`
 
--## Section 3 has the rest
-+## Section 3 Has the Rest
+-## Section 3 has the rest {#section-three}
++## Section 3 Has the Rest {#section-Three}
 
 ### Subsection [a][1]
 
@@ -380,8 +381,81 @@ Would output the following compared to `example.md`:
 
 #### Additional option: `options.opt3`
 
--## Section 3 has the rest
-+## Section 3 Has the Rest
+-## Section 3 has the rest {#section-three}
++## Section 3 Has the Rest {#section-Three}
+
+### Subsection [a][1]
+
+#### Sci-fi title generator
+
+-##### children of celeste
++##### Children of Celeste
+
+-##### the bionic oblivion
++##### The Bionic Oblivion
+
+-##### snows Of arrakis
++##### Snows of Arrakis
+
+[1]: https://www.youtube.com/watch?v=dFs4yX4V7NQ
+```
+
+### Using `excludeHeadingText`
+
+Running the following JavaScript:
+
+```typescript
+import { read } from 'to-vfile';
+import { remark } from 'remark';
+import remarkCapitalizeHeadings from 'remark-capitalize-headings';
+
+const file = await remark()
+  .use(remarkCapitalizeHeadings, {
+    // Don't mess with {#custom-headers} from remark-heading-id
+    // See: https://github.com/Xunnamius/unified-utils/issues/95
+    excludeHeadingText: ['\\{\\s*#.*?\\}\\s*$']
+  })
+  .process(await read('example.md'));
+
+console.log(String(file));
+```
+
+Would output the following compared to `example.md`:
+
+```diff
+-# my documentation
++# My Documentation
+
+-## Section 1 is [the best](https://google.com)
++## Section 1 Is [the best](https://google.com)
+
+### Subsection a
+
+### Subsection _a_
+
+### Subsection \_a
+
+### Subsection a: be see
+
+### Subsection b
+
+### Subsection C
+
+-## section 2 is the test
++## Section 2 Is the Test
+
+### subsection 1
+
+### Subsection 2
+
+#### `options.opt1`
+
+#### `options.opt2`
+
+#### Additional option: `options.opt3`
+
+-## Section 3 has the rest {#section-three}
++## Section 3 Has the Rest {#section-three}
 
 ### Subsection [a][1]
 
@@ -453,8 +527,8 @@ Would output the following compared to `example.md`:
 
 #### Additional option: `options.opt3`
 
--## Section 3 has the rest
-+## Section 3 Has the Rest
+-## Section 3 has the rest {#section-three}
++## Section 3 Has the Rest {#section-Three}
 
 ### Subsection [a][1]
 
@@ -532,8 +606,8 @@ Would output the following compared to `example.md`:
 -#### Additional option: `options.opt3`
 +#### Additional Option: `options.opt3`
 
--## Section 3 has the rest
-+## Section 3 Has The Rest
+-## Section 3 has the rest {#section-three}
++## Section 3 Has The Rest {#section-Three}
 
 ### Subsection [a][1]
 
