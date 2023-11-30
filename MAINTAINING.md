@@ -91,11 +91,11 @@ npm ci
 # 2. Reset the working directory to a clean state (deletes all ignored files).
 npm run clean
 
-# 3. Lint all files.
-npm run lint:all
-
-# 4. Build distributables.
+# 3. Build distributables.
 npm run build:dist -ws
+
+# 4. Lint all files.
+npm run lint:all
 
 # 5. Build auxiliary documentation.
 npm run build:docs -ws
