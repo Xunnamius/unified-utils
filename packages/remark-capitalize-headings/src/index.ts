@@ -102,7 +102,11 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
             for (const match of matches) {
               const matchedIndex = stringified.indexOf(match, lastIndex);
               lastIndex = matchedIndex + match.length;
-              for (let indexOfMatchLength = 0; indexOfMatchLength < match.length; indexOfMatchLength++) {
+              for (
+                let indexOfMatchLength = 0;
+                indexOfMatchLength < match.length;
+                indexOfMatchLength++
+              ) {
                 ignoredIndexes.add(matchedIndex + indexOfMatchLength);
               }
             }
@@ -127,10 +131,16 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
                 case 'text': {
                   const text = toString(childNode);
 
-                  childNode.value = "";
+                  childNode.value = '';
 
-                  for (let inputIndex = unstringifyIndex; inputIndex < unstringifyIndex + text.length; inputIndex++) {
-                    childNode.value += ignoredIndexes.has(inputIndex) ? stringified[inputIndex] : manipulated[inputIndex];
+                  for (
+                    let inputIndex = unstringifyIndex;
+                    inputIndex < unstringifyIndex + text.length;
+                    inputIndex++
+                  ) {
+                    childNode.value += ignoredIndexes.has(inputIndex)
+                      ? stringified[inputIndex]
+                      : manipulated[inputIndex];
                   }
 
                   unstringifyIndex += text.length;
