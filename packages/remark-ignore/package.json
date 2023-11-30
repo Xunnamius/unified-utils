@@ -1,6 +1,6 @@
 {
   "name": "remark-ignore",
-  "version": "1.0.6",
+  "version": "2.0.0",
   "description": "remark plugin to exclude one or more nodes from transformation in the manner of \"prettier-ignore\" or \"instanbul ignore next\"",
   "keywords": [
     "unified",
