@@ -36,7 +36,7 @@ Options type for the remark-lint-list-item-style plugin.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:30](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-lint-list-item-style/src/index.ts#L30)
+[packages/remark-lint-list-item-style/src/index.ts:30](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/remark-lint-list-item-style/src/index.ts#L30)
 
 ## Variables
 
@@ -48,7 +48,7 @@ Valid values for the Options.checkFirstWord property.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:15](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-lint-list-item-style/src/index.ts#L15)
+[packages/remark-lint-list-item-style/src/index.ts:15](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/remark-lint-list-item-style/src/index.ts#L15)
 
 ___
 
@@ -60,7 +60,7 @@ Valid values for the Options.checkListSpread property.
 
 #### Defined in
 
-[packages/remark-lint-list-item-style/src/index.ts:20](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-lint-list-item-style/src/index.ts#L20)
+[packages/remark-lint-list-item-style/src/index.ts:20](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/remark-lint-list-item-style/src/index.ts#L20)
 
 ## Functions
 

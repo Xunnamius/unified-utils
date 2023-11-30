@@ -28,7 +28,7 @@ Options type for the remark-remove-url-trailing-slash plugin.
 
 #### Defined in
 
-[packages/remark-remove-url-trailing-slash/src/index.ts:11](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-remove-url-trailing-slash/src/index.ts#L11)
+[packages/remark-remove-url-trailing-slash/src/index.ts:11](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/remark-remove-url-trailing-slash/src/index.ts#L11)
 
 ## Functions
 

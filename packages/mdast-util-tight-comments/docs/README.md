@@ -23,4 +23,4 @@ HTML comments and select other mdast nodes under certain conditions.
 
 #### Defined in
 
-[index.ts:7](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/mdast-util-tight-comments/src/index.ts#L7)
+[index.ts:7](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/mdast-util-tight-comments/src/index.ts#L7)

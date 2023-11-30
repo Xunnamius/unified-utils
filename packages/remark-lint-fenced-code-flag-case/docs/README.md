@@ -32,7 +32,7 @@ Options type for the remark-lint-fenced-code-flag-case plugin.
 
 #### Defined in
 
-[packages/remark-lint-fenced-code-flag-case/src/index.ts:18](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-lint-fenced-code-flag-case/src/index.ts#L18)
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:18](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/remark-lint-fenced-code-flag-case/src/index.ts#L18)
 
 ## Variables
 
@@ -44,7 +44,7 @@ Valid values for the Options.case property.
 
 #### Defined in
 
-[packages/remark-lint-fenced-code-flag-case/src/index.ts:13](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-lint-fenced-code-flag-case/src/index.ts#L13)
+[packages/remark-lint-fenced-code-flag-case/src/index.ts:13](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/remark-lint-fenced-code-flag-case/src/index.ts#L13)
 
 ## Functions
 
