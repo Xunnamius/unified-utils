@@ -4,78 +4,105 @@ All notable changes to this project will be documented in this auto-generated
 file. The format is based on [Conventional Commits][1]; this project adheres to
 [Semantic Versioning][2].
 
-### [1.0.2][3] (2023-01-29)
+## [2.0.0][3] (2023-11-30)
+
+### 💥 Breaking Changes 💥
+
+- End-of-life node versions (14 and 16) are no longer supported
+
+- These packages are only guaranteed to work with the _latest_ remark/unified
+  packages
 
 #### ⚙️ Build System
 
-- Stabilize build process ([6994784][4])
+- **package:** add strip-ansi devdep; force update of unified-args to 11.0.1
+  ([150abb4][4])
+- Update all plugins to work with unified@>=11 ([fe98b3c][5])
 
-### [1.0.1][5] (2023-01-04)
+#### 🧙🏿 Refactored
+
+- **package:** bumped minimum node version to maintained ([364aced][6])
+
+### [1.0.2][7] (2023-01-29)
 
 #### ⚙️ Build System
 
-- **packages:** update maintainence badge ([4cbf746][6])
+- Stabilize build process ([6994784][8])
+
+### [1.0.1][9] (2023-01-04)
+
+#### ⚙️ Build System
+
+- **packages:** update maintainence badge ([4cbf746][10])
 
 #### 🔥 Reverted
 
 - _"test: replace remark-remove-comments with
-  @xunnamius/remark-remove-comments"_ ([2395903][7])
+  @xunnamius/remark-remove-comments"_ ([2395903][11])
 
-## [1.0.0][8] (2022-10-28)
+## [1.0.0][12] (2022-10-28)
 
 #### ✨ Features
 
-- **packages/remark-remove-url-trailing-slash:** add new package ([559dc36][9])
+- **packages/remark-remove-url-trailing-slash:** add new package ([559dc36][13])
 
 #### 🪄 Fixes
 
-- **packages:** ensure Options properties are optional ([48478e8][10])
+- **packages:** ensure Options properties are optional ([48478e8][14])
 
 #### ⚙️ Build System
 
-- Add all-contributors ([84bff68][11])
-- **lint-staged:** add doctoc to pre-commit build process ([fa4f9ee][12])
-- **package:** add doctoc to npm format script ([112d42c][13])
-- **package:** defer to jest.config.js for coverage options ([05cd09e][14])
-- **package:** fix npm test script jest invocations ([a2ccf80][15])
-- **package:** update core npm format script ([c9d61ba][16])
-- **package:** use actual test ignore regex pattern ([6358888][17])
-- Update core build toolchain ([19243d6][18])
-- Update core lint npm script; add lint:all npm script ([bd84d8f][19])
+- Add all-contributors ([84bff68][15])
+- **lint-staged:** add doctoc to pre-commit build process ([fa4f9ee][16])
+- **package:** add doctoc to npm format script ([112d42c][17])
+- **package:** defer to jest.config.js for coverage options ([05cd09e][18])
+- **package:** fix npm test script jest invocations ([a2ccf80][19])
+- **package:** update core npm format script ([c9d61ba][20])
+- **package:** use actual test ignore regex pattern ([6358888][21])
+- Update core build toolchain ([19243d6][22])
+- Update core lint npm script; add lint:all npm script ([bd84d8f][23])
 
 [1]: https://conventionalcommits.org
 [2]: https://semver.org
 [3]:
-  https://github.com/Xunnamius/unified-utils/compare/remark-remove-url-trailing-slash@1.0.1...remark-remove-url-trailing-slash@1.0.2
+  https://github.com/Xunnamius/unified-utils/compare/remark-remove-url-trailing-slash@1.0.2...remark-remove-url-trailing-slash@2.0.0
 [4]:
-  https://github.com/Xunnamius/unified-utils/commit/69947844f42e618f336aeeb9af1d6c9f4ee1e82b
+  https://github.com/Xunnamius/unified-utils/commit/150abb424fd30e84336ddf8b1f443d75a04c30a1
 [5]:
-  https://github.com/Xunnamius/unified-utils/compare/remark-remove-url-trailing-slash@1.0.0...remark-remove-url-trailing-slash@1.0.1
+  https://github.com/Xunnamius/unified-utils/commit/fe98b3c7f06f4356bed713d2edb7d6f7f749617b
 [6]:
-  https://github.com/Xunnamius/unified-utils/commit/4cbf746b78c3bb369c3b27228ec582c3a3e47c54
+  https://github.com/Xunnamius/unified-utils/commit/364aced3f0c8d4e56df8cde24419d13f568cb68f
 [7]:
-  https://github.com/Xunnamius/unified-utils/commit/23959035752e76f19ec4440cd762b4594fdb93bf
+  https://github.com/Xunnamius/unified-utils/compare/remark-remove-url-trailing-slash@1.0.1...remark-remove-url-trailing-slash@1.0.2
 [8]:
-  https://github.com/Xunnamius/unified-utils/compare/05cd09e0cf13f18fa56f6156516bcf546b1238e6...remark-remove-url-trailing-slash@1.0.0
+  https://github.com/Xunnamius/unified-utils/commit/69947844f42e618f336aeeb9af1d6c9f4ee1e82b
 [9]:
-  https://github.com/Xunnamius/unified-utils/commit/559dc366081816a680b6bbafbb610ef0b56494ae
+  https://github.com/Xunnamius/unified-utils/compare/remark-remove-url-trailing-slash@1.0.0...remark-remove-url-trailing-slash@1.0.1
 [10]:
-  https://github.com/Xunnamius/unified-utils/commit/48478e8ea592171aadc86fe719310b50a2e6007e
+  https://github.com/Xunnamius/unified-utils/commit/4cbf746b78c3bb369c3b27228ec582c3a3e47c54
 [11]:
-  https://github.com/Xunnamius/unified-utils/commit/84bff68339c7a742c104c0f2545fe62b28c8b473
+  https://github.com/Xunnamius/unified-utils/commit/23959035752e76f19ec4440cd762b4594fdb93bf
 [12]:
-  https://github.com/Xunnamius/unified-utils/commit/fa4f9ee3f9cd922875cf077f6d8b74105f0ba55e
+  https://github.com/Xunnamius/unified-utils/compare/05cd09e0cf13f18fa56f6156516bcf546b1238e6...remark-remove-url-trailing-slash@1.0.0
 [13]:
-  https://github.com/Xunnamius/unified-utils/commit/112d42c6999f758ff618f4e116eb7cf38c09f77c
+  https://github.com/Xunnamius/unified-utils/commit/559dc366081816a680b6bbafbb610ef0b56494ae
 [14]:
-  https://github.com/Xunnamius/unified-utils/commit/05cd09e0cf13f18fa56f6156516bcf546b1238e6
+  https://github.com/Xunnamius/unified-utils/commit/48478e8ea592171aadc86fe719310b50a2e6007e
 [15]:
-  https://github.com/Xunnamius/unified-utils/commit/a2ccf801276c84e54d3fc1afaad574f78408d86f
+  https://github.com/Xunnamius/unified-utils/commit/84bff68339c7a742c104c0f2545fe62b28c8b473
 [16]:
-  https://github.com/Xunnamius/unified-utils/commit/c9d61bacbd52bc76b05abd3426474bf0176c3cd9
+  https://github.com/Xunnamius/unified-utils/commit/fa4f9ee3f9cd922875cf077f6d8b74105f0ba55e
 [17]:
-  https://github.com/Xunnamius/unified-utils/commit/63588887a7377f3ee7488b19c87f1f2bf1faa811
+  https://github.com/Xunnamius/unified-utils/commit/112d42c6999f758ff618f4e116eb7cf38c09f77c
 [18]:
-  https://github.com/Xunnamius/unified-utils/commit/19243d623ba14cfd629c5e4632e6a75de508592b
+  https://github.com/Xunnamius/unified-utils/commit/05cd09e0cf13f18fa56f6156516bcf546b1238e6
 [19]:
+  https://github.com/Xunnamius/unified-utils/commit/a2ccf801276c84e54d3fc1afaad574f78408d86f
+[20]:
+  https://github.com/Xunnamius/unified-utils/commit/c9d61bacbd52bc76b05abd3426474bf0176c3cd9
+[21]:
+  https://github.com/Xunnamius/unified-utils/commit/63588887a7377f3ee7488b19c87f1f2bf1faa811
+[22]:
+  https://github.com/Xunnamius/unified-utils/commit/19243d623ba14cfd629c5e4632e6a75de508592b
+[23]:
   https://github.com/Xunnamius/unified-utils/commit/bd84d8fc1fb5c4d1828a16a47214a6730f34899a
