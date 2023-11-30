@@ -29,7 +29,7 @@ Options type for the remark-lint-heading-word-length plugin.
 
 #### Defined in
 
-[packages/remark-lint-heading-word-length/src/index.ts:15](https://github.com/Xunnamius/unified-utils/blob/7833113/packages/remark-lint-heading-word-length/src/index.ts#L15)
+[packages/remark-lint-heading-word-length/src/index.ts:15](https://github.com/Xunnamius/unified-utils/blob/cc4d623/packages/remark-lint-heading-word-length/src/index.ts#L15)
 
 ## Functions
 
