@@ -47,7 +47,7 @@
     "@types/node": "^20.10.2",
     "@types/semver": "^7.5.6",
     "@types/title": "^3.4.3",
-    "@typescript-eslint/eslint-plugin": "^6.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
     "@typescript-eslint/parser": "^6.13.1",
     "@xunnamius/conventional-changelog-projector": "^1.2.1",
     "@xunnamius/jest-types": "^1.1.3",
