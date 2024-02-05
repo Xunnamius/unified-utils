@@ -80,7 +80,7 @@
     "jest": "29.7.0",
     "jest-circus": "^29.7.0",
     "jest-extended": "^4.0.2",
-    "lint-staged": "^15.1.0",
+    "lint-staged": "^15.2.2",
     "named-app-errors": "^4.0.1",
     "prettier": "^3.1.0",
     "remark-capitalize-headings": "^1.0.3",
