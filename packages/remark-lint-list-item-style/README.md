@@ -66,11 +66,11 @@ import { read } from 'to-vfile';
 import { reporter } from 'vfile-reporter';
 import { remark } from 'remark';
 import remarkLint from 'remark-lint';
-import lintFencedCodeFlagCase from 'remark-lint-list-item-style';
+import remarkLintListItemStyle from 'remark-lint-list-item-style';
 
 const file = await remark()
   .use(remarkLint)
-  .use(lintFencedCodeFlagCase)
+  .use(remarkLintListItemStyle)
   .process(await read('example.md'));
 
 console.log(reporter(file));
@@ -115,12 +115,12 @@ module.exports = {
 In `.remarkrc.mjs`:
 
 ```javascript
-import lintFencedCodeFlagCase from 'remark-lint-list-item-style';
+import remarkLintListItemStyle from 'remark-lint-list-item-style';
 
 export default {
   plugins: [
     // …
-    lintFencedCodeFlagCase
+    remarkLintListItemStyle
   ]
 };
 ```
