@@ -28,6 +28,13 @@
       "avatar_url": "https://avatars.githubusercontent.com/u/9100169?v=4",
       "profile": "https://crutchcorn.dev/",
       "contributions": ["doc", "research", "bug", "code"]
+    },
+    {
+      "login": "LuchoTurtle",
+      "name": "LuchoTurtle",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17494745?v=4",
+      "profile": "https://github.com/LuchoTurtle",
+      "contributions": ["doc"]
     }
   ],
   "contributorsPerLine": 7,

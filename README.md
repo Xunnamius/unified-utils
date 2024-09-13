@@ -101,7 +101,7 @@ more information.
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 <!-- remark-ignore-end -->
@@ -120,6 +120,7 @@ key][x-repo-all-contributors-emojis]):
       <td align="center" valign="top" width="14.28%"><a href="https://xunn.io/"><img src="https://avatars.githubusercontent.com/u/656017?v=4?s=100" width="100px;" alt="Bernard"/><br /><sub><b>Bernard</b></sub></a><br /><a href="#infra-Xunnamius" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Xunnamius/unified-utils/commits?author=Xunnamius" title="Code">💻</a> <a href="https://github.com/Xunnamius/unified-utils/commits?author=Xunnamius" title="Documentation">📖</a> <a href="#maintenance-Xunnamius" title="Maintenance">🚧</a> <a href="https://github.com/Xunnamius/unified-utils/commits?author=Xunnamius" title="Tests">⚠️</a> <a href="https://github.com/Xunnamius/unified-utils/pulls?q=is%3Apr+reviewed-by%3AXunnamius" title="Reviewed Pull Requests">👀</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fviolette"><img src="https://avatars.githubusercontent.com/u/19730806?v=4?s=100" width="100px;" alt="François Violette"/><br /><sub><b>François Violette</b></sub></a><br /><a href="https://github.com/Xunnamius/unified-utils/issues?q=author%3Afviolette" title="Bug reports">🐛</a> <a href="#ideas-fviolette" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://crutchcorn.dev/"><img src="https://avatars.githubusercontent.com/u/9100169?v=4?s=100" width="100px;" alt="Corbin Crutchley"/><br /><sub><b>Corbin Crutchley</b></sub></a><br /><a href="https://github.com/Xunnamius/unified-utils/commits?author=crutchcorn" title="Documentation">📖</a> <a href="#research-crutchcorn" title="Research">🔬</a> <a href="https://github.com/Xunnamius/unified-utils/issues?q=author%3Acrutchcorn" title="Bug reports">🐛</a> <a href="https://github.com/Xunnamius/unified-utils/commits?author=crutchcorn" title="Code">💻</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/LuchoTurtle"><img src="https://avatars.githubusercontent.com/u/17494745?v=4?s=100" width="100px;" alt="LuchoTurtle"/><br /><sub><b>LuchoTurtle</b></sub></a><br /><a href="https://github.com/Xunnamius/unified-utils/commits?author=LuchoTurtle" title="Documentation">📖</a></td>
     </tr>
   </tbody>
   <tfoot>
