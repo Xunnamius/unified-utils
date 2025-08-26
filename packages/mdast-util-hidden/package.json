@@ -67,7 +67,7 @@
     "test:unit": "echo 'IMPLEMENT ME'"
   },
   "dependencies": {
-    "@types/mdast": "^4.0.3",
+    "@types/mdast": "^4.0.4",
     "@types/unist": "^3.0.2",
     "unist-util-remove-position": "^5.0.0",
     "unist-util-visit": "^5.0.0"
