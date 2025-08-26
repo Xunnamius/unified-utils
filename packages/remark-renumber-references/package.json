@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "@types/mdast": "^4.0.4",
-    "mdast-util-hidden": "^1.1.4",
+    "mdast-util-hidden": "^2.0.0",
     "remark-inline-links": "^7.0.0",
     "remark-reference-links": "^7.0.0",
     "unified": "^11.0.4",
