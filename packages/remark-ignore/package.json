@@ -82,7 +82,7 @@
     "test:unit": "echo 'IMPLEMENT ME'"
   },
   "dependencies": {
-    "@types/mdast": "^4.0.3",
+    "@types/mdast": "^4.0.4",
     "mdast-comment-marker": "^3.0.0",
     "mdast-util-hidden": "^1.1.4",
     "unified": "^11.0.4",
