@@ -35,11 +35,21 @@ export async function withMockedOutput(
   }) => unknown
 ) {
   const logSpy = jest.spyOn(console, 'log').mockImplementation(() => undefined);
-  const warnSpy = jest.spyOn(console, 'warn').mockImplementation(() => undefined);
-  const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => undefined);
-  const infoSpy = jest.spyOn(console, 'info').mockImplementation(() => undefined);
-  const stdoutSpy = jest.spyOn(process.stdout, 'write').mockImplementation(() => true);
-  const stdErrSpy = jest.spyOn(process.stderr, 'write').mockImplementation(() => true);
+  const warnSpy = jest
+    .spyOn(console, 'warn')
+    .mockImplementation(() => undefined);
+  const errorSpy = jest
+    .spyOn(console, 'error')
+    .mockImplementation(() => undefined);
+  const infoSpy = jest
+    .spyOn(console, 'info')
+    .mockImplementation(() => undefined);
+  const stdoutSpy = jest
+    .spyOn(process.stdout, 'write')
+    .mockImplementation(() => true);
+  const stdErrSpy = jest
+    .spyOn(process.stderr, 'write')
+    .mockImplementation(() => true);
 
   try {
     await fn({
@@ -103,8 +113,9 @@ export interface NodeImportTestFixtureOptions {
 
 // TODO: XXX: make this into a separate (mock-fixture) package (along w/ below)
 // eslint-disable-next-line @typescript-eslint/ban-types
-export interface FixtureContext<CustomOptions extends Record<string, unknown> = {}>
-  extends Partial<TestResultProvider>,
+export interface FixtureContext<
+  CustomOptions extends Record<string, unknown> = {}
+> extends Partial<TestResultProvider>,
     Partial<TreeOutputProvider>,
     Partial<GitProvider> {
   root: string;
@@ -167,7 +178,8 @@ export function rootFixture(): MockFixture {
       await run('mkdir', ['-p', 'src'], { cwd: context.root, reject: true });
     },
     teardown: async (context) =>
-      context.options.performCleanup && run('rm', ['-rf', context.root], { reject: true })
+      context.options.performCleanup &&
+      run('rm', ['-rf', context.root], { reject: true })
   };
 }
 
@@ -183,7 +195,10 @@ export function dummyNpmPackageFixture(): MockFixture {
           (context.fileContents['package.json'] =
             context.fileContents['package.json'] || '{"name":"dummy-pkg"}')
         ),
-        run('mkdir', ['-p', 'node_modules'], { cwd: context.root, reject: true })
+        run('mkdir', ['-p', 'node_modules'], {
+          cwd: context.root,
+          reject: true
+        })
       ]);
 
       if ((context.options.pkgName || rootPkgName).includes('/')) {
@@ -249,14 +264,19 @@ export function npmCopySelfFixture(): MockFixture {
         glob.sync(p, { cwd: pkgRoot, root: pkgRoot })
       );
 
-      const dest = `${context.root}/node_modules/${contextPkgName || rootPkgName}`;
+      const dest = `${context.root}/node_modules/${
+        contextPkgName || rootPkgName
+      }`;
       const destPkgJson = `${dest}/package.json`;
 
       context.debug(`cp destination: ${dest}`);
       context.debug(`cp sources (cwd: ${projectRoot}): %O`, files);
 
       await run('mkdir', ['-p', dest], { reject: true });
-      await run('cp', ['-r', ...files, dest], { cwd: projectRoot, reject: true });
+      await run('cp', ['-r', ...files, dest], {
+        cwd: projectRoot,
+        reject: true
+      });
 
       assert(destPkgJson, `expected "${destPkgJson}" to exist`);
 
@@ -287,7 +307,7 @@ export function npmCopySelfFixture(): MockFixture {
         JSON.stringify({ ...dummyPkgJson, dependencies: installTargets })
       );
 
-      await run('npm', ['install', '--no-save', '--production'], {
+      await run('npm', ['install', '--no-save', '--omit=dev'], {
         cwd: dest,
         reject: true,
         env: { NODE_ENV: 'production', CI: 'true' }
@@ -316,7 +336,10 @@ export function npmCopySelfFixture(): MockFixture {
         }
       );
 
-      await run('rm', ['-rf', 'node_modules_old'], { cwd: context.root, reject: true });
+      await run('rm', ['-rf', 'node_modules_old'], {
+        cwd: context.root,
+        reject: true
+      });
     }
   };
 }
@@ -343,7 +366,10 @@ export function webpackTestFixture(): MockFixture {
       );
 
       await Promise.all([
-        writeFile(`${context.root}/${indexPath}`, context.fileContents[indexPath]),
+        writeFile(
+          `${context.root}/${indexPath}`,
+          context.fileContents[indexPath]
+        ),
         writeFile(
           `${context.root}/webpack.config.js`,
           context.fileContents['webpack.config.js']
@@ -395,15 +421,23 @@ export function nodeImportTestFixture(): MockFixture {
         /^src\/index(\.test)?\.(((c|m)?js)|ts)x?$/.test(path)
       );
 
-      assert(indexPath, 'could not find initial contents for src/index test file');
+      assert(
+        indexPath,
+        'could not find initial contents for src/index test file'
+      );
 
       // TODO: do we have to write this AND have the dummyFilesFixture too?!
-      await writeFile(`${context.root}/${indexPath}`, context.fileContents[indexPath]);
+      await writeFile(
+        `${context.root}/${indexPath}`,
+        context.fileContents[indexPath]
+      );
 
       // TODO: also test all current/active/maintenance versions of node too
       // TODO: and enable that functionality
       const bin = context.options.runWith?.binary || 'node';
-      const args = context.options.runWith?.args || ['--experimental-json-modules'];
+      const args = context.options.runWith?.args || [
+        '--experimental-json-modules'
+      ];
       const options = context.options.runWith?.opts || {};
 
       context.treeOutput = await getTreeOutput(context);
@@ -429,7 +463,8 @@ export function gitRepositoryFixture(): MockFixture {
     description: 'configuring fixture root to be a git repository',
     setup: async (context) => {
       assert(
-        !context.options.setupGit || typeof context.options.setupGit === 'function',
+        !context.options.setupGit ||
+          typeof context.options.setupGit === 'function',
         'invalid or missing options.setupGit, expected function'
       );
 
@@ -475,11 +510,17 @@ export function dummyFilesFixture(): MockFixture {
         Object.entries(context.fileContents).map(async ([path, contents]) => {
           const fullPath = `${context.root}/${path}`;
           await accessFile(fullPath).then(
-            () => debug(`skipped creating dummy file: file already exists at ${path}`),
+            () =>
+              debug(
+                `skipped creating dummy file: file already exists at ${path}`
+              ),
             async () => {
               debug(`creating dummy file "${path}" with contents:`);
               debug.extend('contents >')(contents);
-              await writeFile(fullPath, (context.fileContents[path] = contents));
+              await writeFile(
+                fullPath,
+                (context.fileContents[path] = contents)
+              );
             }
           );
         })
@@ -546,7 +587,9 @@ export async function withMockedFixture<
   options
 }: {
   fn: FixtureAction<
-    FixtureContext<FixtureOptions & Partial<Record<string, unknown> & CustomOptions>> &
+    FixtureContext<
+      FixtureOptions & Partial<Record<string, unknown> & CustomOptions>
+    > &
       CustomContext
   >;
   testIdentifier: string;
@@ -577,7 +620,8 @@ export async function withMockedFixture<
   } as unknown as CustomizedFixtureContext & { using: CustomizedMockFixture[] };
 
   if (finalOptions.use) {
-    if (finalOptions.use?.[0]?.name != 'root') context.using.push(rootFixture());
+    if (finalOptions.use?.[0]?.name != 'root')
+      context.using.push(rootFixture());
     context.using = [...context.using, ...finalOptions.use];
     // ? `describe-root` fixture doesn't have to be the last one, but a fixture
     // ? with that name must be included at least once
@@ -594,12 +638,19 @@ export async function withMockedFixture<
   let ranDescribe = false;
   const cleanupFunctions: NonNullable<CustomizedMockFixture['teardown']>[] = [];
 
-  const setupDebugger = async (fixture: CustomizedMockFixture, error = false) => {
+  const setupDebugger = async (
+    fixture: CustomizedMockFixture,
+    error = false
+  ) => {
     const toString = async (
       p: CustomizedMockFixture['name'] | CustomizedMockFixture['description']
       // TODO: replace with toss
     ) =>
-      typeof p === 'function' ? p(context) : typeof p === 'string' ? p : ':impossible:';
+      typeof p === 'function'
+        ? p(context)
+        : typeof p === 'string'
+          ? p
+          : ':impossible:';
     const name = await toString(fixture.name.toString());
     const desc = await toString(fixture.description);
     const dbg = debug.extend(error ? `${name}:<error>` : name);
@@ -659,7 +710,9 @@ export function mockFixtureFactory<
 >(testIdentifier: string, options?: Partial<FixtureOptions & CustomOptions>) {
   return (
     fn: FixtureAction<
-      FixtureContext<FixtureOptions & Partial<Record<string, unknown> & CustomOptions>> &
+      FixtureContext<
+        FixtureOptions & Partial<Record<string, unknown> & CustomOptions>
+      > &
         CustomContext
     >,
     optionsOverrides?: Partial<FixtureOptions & CustomOptions>

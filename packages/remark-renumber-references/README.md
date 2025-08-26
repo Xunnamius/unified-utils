@@ -371,7 +371,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/remark-renumber-references
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://www.npmjs.com/package/remark-renumber-references
+[x-badge-npm-link]: https://npmtrends.com/remark-renumber-references
 [x-badge-repo-link]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-renumber-references
 [x-badge-semanticrelease-image]:

@@ -38,7 +38,7 @@ file. The format is based on [Conventional Commits][1]; this project adheres to
 #### 🔥 Reverted
 
 - _"test: replace remark-remove-comments with
-  @xunnamius/remark-remove-comments"_ ([2395903][11])
+  @-xun/remark-remove-comments"_ ([2395903][11])
 
 ### [1.1.1][12] (2022-12-22)
 

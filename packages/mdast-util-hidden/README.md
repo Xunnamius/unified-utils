@@ -334,7 +334,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/mdast-util-hidden
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://www.npmjs.com/package/mdast-util-hidden
+[x-badge-npm-link]: https://npmtrends.com/mdast-util-hidden
 [x-badge-repo-link]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/mdast-util-hidden
 [x-badge-semanticrelease-image]:

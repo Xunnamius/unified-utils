@@ -5,15 +5,15 @@ Hi there! First off, we're thrilled 🤩 you want contribute to this project!
 First time contributor to a GitHub project? If you could use some help getting
 started, [take a look at this quick and easy guide][how-to-contribute]. 💜
 
-## Briefly: Submitting a Pull Request (Pr)
+## Briefly: Submitting a Pull Request (PR)
 
 > See also: [CODE_OF_CONDUCT.md][code-of-conduct]
 
 This repository uses a [fully automated][github-actions] [continuous
 linting][husky-cl] (CL), integration testing (CI), and deployment (CD)
-[projector][projector]-based pipeline for integrating PRs and publishing
-releases. The neat thing about a fully automated pipeline is that anyone
-anywhere can make a contribution quickly and with minimal tedium.
+[symbiote][symbiote]-based pipeline for integrating PRs and publishing releases.
+The neat thing about a fully automated pipeline is that anyone anywhere can make
+a contribution quickly and with minimal tedium.
 
 This repository makes extensive use of [debug][pkg-debug]. Should you wish to
 view all possible debugging output, [export
@@ -91,7 +91,7 @@ At this point, you're ready to create your PR and ✨ contribute ✨!
 [open-issues]: https://github.com/Xunnamius/unified-utils/issues?q=
 [pkg-debug]: https://www.npmjs.com/package/debug
 [pkg-debug-wildcards]: https://www.npmjs.com/package/debug#wildcards
-[projector]: https://github.com/Xunnamius/unified-utils#readme
+[symbiote]: https://github.com/Xunnamius/unified-utils#readme
 [x-repo-choose-new-issue]:
   https://github.com/Xunnamius/unified-utils/issues/new/choose
 [x-repo-pr-compare]: https://github.com/Xunnamius/unified-utils/compare

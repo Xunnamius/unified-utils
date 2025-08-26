@@ -666,7 +666,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/remark-capitalize-headings
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://www.npmjs.com/package/remark-capitalize-headings
+[x-badge-npm-link]: https://npmtrends.com/remark-capitalize-headings
 [x-badge-repo-link]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-capitalize-headings
 [x-badge-semanticrelease-image]:

@@ -555,7 +555,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/remark-lint-list-item-style
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://www.npmjs.com/package/remark-lint-list-item-style
+[x-badge-npm-link]: https://npmtrends.com/remark-lint-list-item-style
 [x-badge-repo-link]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-lint-list-item-style
 [x-badge-semanticrelease-image]:

@@ -295,7 +295,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/remark-sort-definitions
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://www.npmjs.com/package/remark-sort-definitions
+[x-badge-npm-link]: https://npmtrends.com/remark-sort-definitions
 [x-badge-repo-link]:
   https://github.com/xunnamius/unified-utils/blob/main/packages/remark-sort-definitions
 [x-badge-semanticrelease-image]:

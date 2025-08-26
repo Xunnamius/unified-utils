@@ -192,4 +192,4 @@ specification. Contributions of any kind welcome!
   https://github.com/Xunnamius/remark-lint/tree/main/packages/remark-lint-no-empty-url
 [22]:
   https://github.com/remarkjs/remark-lint/tree/main/packages/remark-lint-no-empty-url
-[23]: https://github.com/Xunnamius/projector/blob/main/packages/config-remark
+[23]: https://github.com/Xunnamius/symbiote/blob/main/packages/config-remark
