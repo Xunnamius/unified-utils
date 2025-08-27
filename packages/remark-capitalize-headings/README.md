@@ -6,8 +6,12 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-remark plugin that selectively transforms headings using vercel's title package
+
+A remark plugin that selectively transforms headings using vercel's title
+package
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

@@ -6,8 +6,12 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-remark plugin to exclude one or more nodes from transformation in the manner of "prettier-ignore" or "instanbul ignore next"
+
+A remark plugin to exclude one or more nodes from transformation in the manner
+of "prettier-ignore" or "instanbul ignore next"
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

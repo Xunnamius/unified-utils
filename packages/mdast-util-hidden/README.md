@@ -6,8 +6,11 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-mdast utility to selectively hide and reveal mdast nodes
+
+A mdast utility to selectively hide and reveal mdast nodes
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

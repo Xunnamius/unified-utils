@@ -6,8 +6,12 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-remark plugin that reorders reference-style link definitions by id at the end of a document
+
+A remark plugin that reorders reference-style link definitions by id at the end
+of a document
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

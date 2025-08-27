@@ -6,8 +6,11 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-remark plugin that removes unused reference definitions from a document
+
+A remark plugin that removes unused reference definitions from a document
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

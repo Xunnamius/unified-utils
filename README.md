@@ -6,9 +6,12 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-Utilities for working with [unist][1]/[mdast][2]
-ASTs, [remark][3] and [remark-lint][4]
+
+Utilities for working with [unist][1]/[mdast][2] ASTs, [remark][3] and
+[remark-lint][4]
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

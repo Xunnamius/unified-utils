@@ -6,8 +6,11 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-remark plugin that removes trailing slashes from the ends of all URLs
+
+A remark plugin that removes trailing slashes from the ends of all URLs
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />

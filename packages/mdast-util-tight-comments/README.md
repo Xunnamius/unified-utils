@@ -6,8 +6,12 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-mdast-util-to-markdown extension to selectively remove newlines around mdast comment nodes
+
+A mdast-util-to-markdown extension to selectively remove newlines around mdast
+comment nodes
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />
