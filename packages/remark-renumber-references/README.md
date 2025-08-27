@@ -6,12 +6,8 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-
-A remark plugin that renumbers numeric reference-style link ids contiguously
-starting from [1]
-
+remark plugin that renumbers numeric reference-style link ids contiguously starting from [1]
 <!-- symbiote-template-region-start 2 -->
-
 </p>
 
 <hr />

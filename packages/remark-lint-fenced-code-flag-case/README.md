@@ -6,12 +6,8 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-
-A remark-lint rule to warn when fenced code blocks have an inconsistently-cased
-language flag
-
+remark-lint rule to warn when fenced code blocks have an inconsistently-cased language flag
 <!-- symbiote-template-region-start 2 -->
-
 </p>
 
 <hr />

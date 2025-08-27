@@ -6,11 +6,8 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-
-A remark plugin to selectively remove newlines around comments
-
+remark plugin to selectively remove newlines around comments
 <!-- symbiote-template-region-start 2 -->
-
 </p>
 
 <hr />

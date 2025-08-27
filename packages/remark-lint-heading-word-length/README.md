@@ -6,11 +6,8 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-
-A remark-lint rule to warn when headings have too many or too few words
-
+remark-lint rule to warn when headings have too many or too few words
 <!-- symbiote-template-region-start 2 -->
-
 </p>
 
 <hr />

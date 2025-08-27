@@ -6,11 +6,8 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-
-A remark-lint rule to warn when list items violate a given style
-
+remark-lint rule to warn when list items violate a given style
 <!-- symbiote-template-region-start 2 -->
-
 </p>
 
 <hr />
