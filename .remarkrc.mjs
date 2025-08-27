@@ -1,93 +1,70 @@
-/**
- * @typedef {{settings?: import('mdast-util-to-markdown').Options, plugins?:
- * import('unified-engine/lib/configuration').PluggableList |
- * import('unified-engine/lib/configuration').PluginIdList}} Config
- */
+// @ts-check
+import assert from 'node:assert';
+import { readdir } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
+import { toAbsolutePath } from '@-xun/fs';
+import { deepMergeConfig } from '@-xun/symbiote/assets';
+import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-/**
- * Remark configuration loaded when `NODE_ENV === 'lint'`. The goal here is to
- * check for things that will not be corrected by prettier or remark during a
- * formatting pass (see below).
- *
- * @type {Config}
- */
-const lintConfig = {
-  plugins: [
-    'ignore',
-    'frontmatter',
-    'gfm',
-    'lint',
-    'lint-definition-case',
-    'lint-fenced-code-flag',
-    'lint-fenced-code-flag-case',
-    'lint-file-extension',
-    'lint-first-heading-level',
-    'lint-heading-increment',
-    'lint-heading-whitespace',
-    'lint-list-item-style',
-    'lint-no-duplicate-defined-urls',
-    'lint-no-duplicate-headings-in-section',
-    'lint-no-empty-sections',
-    'lint-no-empty-url',
-    'lint-heading-word-length',
-    'lint-no-heading-like-paragraph',
-    'lint-no-heading-punctuation',
-    'lint-no-inline-padding',
-    'lint-no-literal-urls',
-    'lint-no-multiple-toplevel-headings',
-    'lint-no-reference-like-url',
-    'lint-no-shell-dollars',
-    'lint-no-shortcut-reference-image',
-    'lint-no-shortcut-reference-link',
-    'lint-no-tabs',
-    'lint-no-undefined-references',
-    'lint-ordered-list-marker-value',
-    ['lint-strikethrough-marker', '~~'],
-    // ? Prettier will reformat list markers UNLESS they precede checkboxes
-    ['lint-unordered-list-marker-style', '-'],
-    'validate-links'
-  ]
-};
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
-/**
- * Remark configuration loaded when `NODE_ENV === 'format'`. The goal here is to
- * correct things that will not be taken care of by prettier.
- *
- * @type {Config}
- */
-const formatConfig = {
-  plugins: [
-    'ignore',
-    'frontmatter',
-    'gfm',
-    'tight-comments',
-    ['capitalize-headings', { excludeHeadingLevel: { h1: true } }],
-    'remove-unused-definitions',
-    'remove-url-trailing-slash',
-    'renumber-references',
-    'sort-definitions'
-  ]
-};
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
-if (!['lint', 'format'].includes(process.env.NODE_ENV)) {
-  throw new Error('remark expects NODE_ENV to be one of either: lint, format');
-}
+// ? The following is required to ensure symbiote doesn't try to use the dev
+// ? versions of unified-utils's remark packages, which may not be built yet!
 
-/**
- * @type {Config}
- */
-export default {
-  settings: {
-    bullet: '-',
-    emphasis: '_',
-    fences: true,
-    listItemIndent: 'one',
-    rule: '-',
-    strong: '*',
-    tightDefinitions: true,
-    ...(process.env.NODE_ENV === 'lint' ? lintConfig.settings : formatConfig.settings)
-  },
-  plugins: [
-    ...(process.env.NODE_ENV === 'lint' ? lintConfig.plugins : formatConfig.plugins)
-  ]
-};
+assert(!config.plugins || Array.isArray(config.plugins));
+
+const ourRemarkPlugins = (await readdir('./packages', { withFileTypes: true }))
+  .filter((dir) => dir.isDirectory())
+  .map((dir) => dir.name);
+
+config.plugins = config.plugins?.map((pluginDefinition) => {
+  const isString = typeof pluginDefinition === 'string';
+  const isArray =
+    Array.isArray(pluginDefinition) && typeof pluginDefinition[0] === 'string';
+
+  assert(
+    isString || isArray,
+    'expected "plugins" property to be an array of strings or arrays with strings as the first element'
+  );
+
+  const pluginName = isString
+    ? pluginDefinition
+    : /** @type {string} */ (pluginDefinition[0]);
+  const pluginNameWithRemark = pluginName.startsWith('remark-')
+    ? pluginName
+    : `remark-${pluginName}`;
+
+  if (ourRemarkPlugins.includes(pluginNameWithRemark)) {
+    const pluginPath = toAbsolutePath(
+      import.meta.dirname,
+      'node_modules/@-xun/symbiote/node_modules',
+      pluginNameWithRemark
+    );
+
+    /**
+     * @type {string}
+     */
+    const entryPoint = JSON.parse(
+      readFileSync(toAbsolutePath(pluginPath, 'package.json'), 'utf8')
+    ).exports['.'].default;
+    const completePluginPath = toAbsolutePath(pluginPath, entryPoint);
+
+    return isString
+      ? completePluginPath
+      : /** @type {typeof pluginDefinition} */ ([
+          completePluginPath,
+          ...pluginDefinition.slice(1)
+        ]);
+  }
+
+  return pluginDefinition;
+});
+
+export default config;
+
+debug('exported config: %O', config);
