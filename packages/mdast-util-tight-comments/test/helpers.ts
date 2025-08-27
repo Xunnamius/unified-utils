@@ -11,7 +11,10 @@ export function getFixtureString(fixture: string, { trim = false } = {}) {
   ]();
 }
 
-export function transformString(str: string, { toMarkdownOptions = {} as Options } = {}) {
+export function transformString(
+  str: string,
+  { toMarkdownOptions = {} as Options } = {}
+) {
   const tree = unified().use(remarkParse).parse(str);
   return toMarkdown(tree as Root, toMarkdownOptions);
 }

@@ -30,7 +30,7 @@ instead the simplest most basic possible steps to reproduce your problem; e.g.:
 2. Run `npm install`
 3. Run `npx jest`
 4. See error "xyz" at test 2, which shouldn't be happening
-   -->
+-->
 
 </details>
 

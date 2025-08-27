@@ -64,7 +64,9 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
   } = {} as Options,
   ..._ignored
 ) {
-  const computedExcludeHeadingLevel: Options['excludeHeadingLevel'] = excludeHeadingLevel;
+  const computedExcludeHeadingLevel: Options['excludeHeadingLevel'] =
+    excludeHeadingLevel;
+
   const computedExcludeSectionRegExp = excludeSectionRegExp.map(
     (r) => new RegExp(r, 'gu')
   );

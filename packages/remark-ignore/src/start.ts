@@ -1,5 +1,5 @@
 import { commentMarker } from 'mdast-comment-marker';
-import { hide } from 'pkgverse/mdast-util-hidden/src/index';
+import { hide } from 'universe+mdast-util-hidden';
 import { SKIP, visit } from 'unist-util-visit';
 
 import type { Root } from 'mdast';

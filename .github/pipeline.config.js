@@ -16,15 +16,15 @@ module.exports = {
   // debugString: true, // false is treated the same as null/commented out
   // ? Or you can type out a custom debug namespace string instead, e.g.:
   // debugString: '@your-namespace/some-package:*',
-  // ? This field can only appear in local pipeline config and not global.
+  // ? This key can only appear in local pipeline config and not global.
   // ? See also: https://www.npmjs.com/package/debug#wildcards
   // ? For even more debugging tools, see: https://bit.ly/2R6NAdZ
   //
   // * The semver version of node to install and setup before each job.
-  // nodeCurrentVersion: '15.x',
+  // nodeCurrentVersion: '18.x',
   //
   // * Node semver versions to run unit and integration tests against.
-  // nodeTestVersions: ['12.x', '14.x'],
+  // nodeTestVersions: ['14.x', '16.x'],
   //
   // * Webpack semver versions to run unit and integration tests against.
   // webpackTestVersions: ['5.x'],

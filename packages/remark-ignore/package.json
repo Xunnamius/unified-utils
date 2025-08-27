@@ -16,50 +16,34 @@
     "transformation",
     "next"
   ],
-  "homepage": "https://github.com/Xunnamius/unified-utils/blob/main/packages/remark-ignore",
+  "homepage": "https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-ignore#readme",
+  "bugs": {
+    "url": "https://github.com/Xunnamius/unified-utils/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Xunnamius/unified-utils"
+    "url": "git+https://github.com/Xunnamius/unified-utils.git"
   },
   "license": "MIT",
   "author": "Xunnamius",
   "sideEffects": false,
-  "type": "commonjs",
+  "type": "module",
   "exports": {
-    "./start": {
-      "types": "./dist/src/start.d.ts",
-      "node": "./dist/src/start.mjs",
-      "default": "./dist/src/start.mjs"
-    },
-    "./end": {
-      "types": "./dist/src/end.d.ts",
-      "node": "./dist/src/end.mjs",
-      "default": "./dist/src/end.mjs"
-    },
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "node": "./dist/src/index.mjs",
-      "default": "./dist/src/index.mjs"
+      "types": "./dist/packages/remark-ignore/src/index.d.ts",
+      "default": "./dist/packages/remark-ignore/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
-      "start": [
-        "./dist/src/start.d.ts"
+      "index": [
+        "dist/packages/remark-ignore/src/index.d.ts"
       ],
-      "end": [
-        "./dist/src/end.d.ts"
-      ],
-      "*": [
-        "./dist/src/index.d.ts"
+      "package": [
+        "package.json"
       ]
-    }
-  },
-  "project": {
-    "documentation": {
-      "entry": "./src/*"
     }
   },
   "files": [
@@ -70,16 +54,25 @@
   ],
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "conventional-changelog --outfile CHANGELOG.md --config ../../conventional.config.js --release-count 0 --skip-unstable && (if [ \"$CHANGELOG_SKIP_TITLE\" != 'true' ]; then { node -e 'console.log(require(\"../../conventional.config.js\").changelogTitle)'; cat CHANGELOG.md; } > CHANGELOG.md.ignore && mv CHANGELOG.md.ignore CHANGELOG.md; fi) && NODE_ENV=format remark --output --frail CHANGELOG.md && prettier --write CHANGELOG.md",
-    "build:dist": "echo '> Generating types...' && NODE_ENV=production tsc --project tsconfig.types.json --incremental false && tsconfig-replace-paths --project tsconfig.types.json && echo '> Building distributables...' && NODE_ENV=production-esm babel src --extensions .ts --out-dir dist/src --out-file-extension .mjs --root-mode upward && echo '> Organizing types...' && cp --recursive --link --force --target-directory=dist dist/$(realpath --relative-base=../.. .)/* && rm --recursive --force dist/$(realpath --relative-base=../.. ..) && echo '> Refactoring types...' && NODE_ENV=production-types npx babel dist --extensions .ts --only '**/*.d.ts' --out-dir dist --keep-file-extension --root-mode upward",
-    "build:docs": "if [ -r ./next.config.js ]; then typedoc --plugin typedoc-plugin-markdown --cleanOutputDir --tsconfig tsconfig.docs.json --out docs --readme none lib src test types external-scripts --exclude '**/*.test.*' --exclude external-scripts/bin; else ENTRY=`node -e 'const entry = require(\"./package.json\").project?.documentation?.entry; if(!entry) throw new Error(\"\\\"project.documentation.entry\\\" field is not defined in package.json\"); console.log(entry)'` && echo 'Entry file:' \"$ENTRY\" && typedoc --plugin typedoc-plugin-markdown --cleanOutputDir --tsconfig tsconfig.docs.json --out docs --readme none $(echo $ENTRY); fi",
-    "clean": "git ls-files --exclude-standard --ignored --others --directory | grep -vE '^((\\.(env|vscode|husky))|next-env\\.d\\.ts|node_modules)($|\\/)' | xargs -p rm -rf",
-    "format": "cd ../.. && npm run format",
-    "lint": "echo 'IMPLEMENT ME'",
-    "list-tasks": "node -e 'console.log(Object.keys(require(\"./package.json\").scripts).join(\"\\n\"))'",
-    "test": "npm run test:unit --",
-    "test:integration": "echo 'IMPLEMENT ME'",
-    "test:unit": "echo 'IMPLEMENT ME'"
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint": "npm run lint:package --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test": "npm run test:package:unit --",
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
   },
   "dependencies": {
     "@types/mdast": "^4.0.4",
@@ -88,10 +81,14 @@
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
   },
+  "devDependencies": {
+    "remark-remove-comments": "^1.1.1"
+  },
   "engines": {
-    "node": "^18.16.0 || >=20.4.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

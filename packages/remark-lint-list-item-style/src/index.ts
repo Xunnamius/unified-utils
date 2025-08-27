@@ -141,10 +141,11 @@ const remarkLintListItemStyle = createLintRule(
                     // ? `match` instead of `test`.
                     // * See: https://stackoverflow.com/a/21373261/1367414
                     // eslint-disable-next-line unicorn/prefer-regexp-test
-                    if (!checkPunctuation.some((regExp) => !!punctuation.match(regExp))) {
+                    if (
+                      !checkPunctuation.some((regExp) => !!punctuation.match(regExp))
+                    ) {
                       file.message(
                         `"${punctuation}" is not allowed to punctuate list item`,
-                        // @ts-expect-error: something's wrong w/ unified-lint-rule's types
                         child
                       );
                     }

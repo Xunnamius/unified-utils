@@ -1,5 +1,5 @@
 import assert from 'node:assert';
-import { hide, visitAndReveal } from 'pkgverse/mdast-util-hidden/src/index';
+import { hide, visitAndReveal } from 'universe+mdast-util-hidden';
 import remarkInlineLinks from 'remark-inline-links';
 import remarkReferenceLinks from 'remark-reference-links';
 import { removePosition } from 'unist-util-remove-position';

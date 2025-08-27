@@ -1,4 +1,4 @@
-import { joinTightComments } from 'pkgverse/mdast-util-tight-comments/src/index';
+import { joinTightComments } from 'universe+mdast-util-tight-comments';
 
 import type { Root } from 'mdast';
 import type { Plugin } from 'unified';

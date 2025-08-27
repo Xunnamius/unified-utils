@@ -1,0 +1,12 @@
+{
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
+  "testFileMatch": [
+    "**/type.test.ts",
+    "**/type.test.tsx",
+    "**/type-*.test.ts",
+    "**/type-*.test.tsx"
+  ],
+  "checkSourceFiles": false,
+  "rejectAnyType": true,
+  "rejectNeverType": true
+}

@@ -1,21 +1,42 @@
-<!-- badges-start -->
+<!-- symbiote-template-region-start 1 -->
+
+<p align="center" width="100%">
+  <img width="300" src="https://raw.githubusercontent.com/Xunnamius/unified-utils/refs/heads/main/logo.png">
+</p>
+
+<p align="center" width="100%">
+<!-- symbiote-template-region-end -->
+Utilities for working with [unist][1]/[mdast][2]
+ASTs, [remark][3] and [remark-lint][4]
+<!-- symbiote-template-region-start 2 -->
+</p>
+
+<hr />
+
+<div align="center">
 
 [![Black Lives Matter!][x-badge-blm-image]][x-badge-blm-link]
 [![Last commit timestamp][x-badge-lastcommit-image]][x-badge-repo-link]
-[![Open issues][x-badge-issues-image]][x-badge-issues-link]
-[![Pull requests][x-badge-pulls-image]][x-badge-pulls-link]
-[![Uses semantic-release][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
+[![Source license][x-badge-license-image]][x-badge-license-link]
+[![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
-<!-- badges-end -->
+</div>
+
+<br />
 
 # unified-utils
+
+<!-- symbiote-template-region-end -->
 
 This monorepo contains several utilities for working with [unist][1]/[mdast][2]
 ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 
+<!-- symbiote-template-region-start 3 -->
+
 ---
 
 <!-- remark-ignore-start -->
+<!-- symbiote-template-region-end -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -29,9 +50,14 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
   - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
+<!-- symbiote-template-region-start 4 -->
 <!-- remark-ignore-end -->
 
+<br />
+
 ## Packages
+
+<!-- symbiote-template-region-end -->
 
 <!-- remark-ignore -->
 
@@ -86,18 +112,26 @@ back upstream.
 - [mdast][2] — Markdown specification.
 - [unist][1] — base specification.
 
+<!-- symbiote-template-region-start 5 -->
+
 ## Contributing and Support
 
 **[New issues][x-repo-choose-new-issue] and [pull requests][x-repo-pr-compare]
 are always welcome and greatly appreciated! 🤩** Just as well, you can [star 🌟
-this project][x-badge-repo-link] to let me know you found it useful! ✊🏿 Thank
-you!
+this project][x-badge-repo-link] to let me know you found it useful! ✊🏿 Or [buy
+me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: additional contribution/support sections here -->
+<!-- symbiote-template-region-start 6 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start 7 -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -142,32 +176,32 @@ key][x-repo-all-contributors-emojis]):
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
 
+<!-- symbiote-template-region-end -->
+
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
-[x-badge-issues-image]:
-  https://img.shields.io/github/issues/Xunnamius/unified-utils?style=flat-square
-  'Open issues'
-[x-badge-issues-link]: https://github.com/Xunnamius/unified-utils/issues?q=
 [x-badge-lastcommit-image]:
-  https://img.shields.io/github/last-commit/xunnamius/unified-utils?style=flat-square
+  https://img.shields.io/github/last-commit/Xunnamius/unified-utils?style=flat-square
   'Latest commit timestamp'
-[x-badge-pulls-image]:
-  https://img.shields.io/github/issues-pr/xunnamius/unified-utils?style=flat-square
-  'Open pull requests'
-[x-badge-pulls-link]: https://github.com/xunnamius/unified-utils/pulls
-[x-badge-repo-link]: https://github.com/xunnamius/unified-utils
+[x-badge-license-image]:
+  https://img.shields.io/github/license/Xunnamius/unified-utils?style=flat-square
+  "This package's source license"
+[x-badge-license-link]:
+  https://github.com/Xunnamius/unified-utils/blob/main/LICENSE
+[x-badge-repo-link]: https://github.com/Xunnamius/unified-utils
 [x-badge-semanticrelease-image]:
-  https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square
-  'This repo uses semantic-release!'
+  https://xunn.at/badge-semantic-release
+  'This repo practices continuous integration and deployment!'
 [x-badge-semanticrelease-link]:
   https://github.com/semantic-release/semantic-release
 [x-repo-all-contributors]: https://github.com/all-contributors/all-contributors
 [x-repo-all-contributors-emojis]: https://allcontributors.org/docs/en/emoji-key
 [x-repo-choose-new-issue]:
-  https://github.com/xunnamius/unified-utils/issues/new/choose
-[x-repo-contributing]: CONTRIBUTING.md
-[x-repo-pr-compare]: https://github.com/xunnamius/unified-utils/compare
-[x-repo-support]: .github/SUPPORT.md
+  https://github.com/Xunnamius/unified-utils/issues/new/choose
+[x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-pr-compare]: https://github.com/Xunnamius/unified-utils/compare
+[x-repo-sponsor]: https://github.com/sponsors/Xunnamius
+[x-repo-support]: /.github/SUPPORT.md
 [1]: https://github.com/syntax-tree/unist
 [2]: https://github.com/syntax-tree/mdast
 [3]: https://github.com/remarkjs

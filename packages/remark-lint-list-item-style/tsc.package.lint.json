@@ -1,0 +1,32 @@
+/**
+ ** This file extends the project root tsconfig.json file for use with linting
+ ** all files at the package level. Only tsc gets its paths from this file.
+ **
+ ** Use this file to exert some control over which files are considered
+ ** part of the current package and which will be ignored.
+ */
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../tsconfig.json",
+  "include": [
+    "../../test/setup.ts",
+    "../../types/**/*",
+    "**/*",
+    "**/.*/**/*",
+    "**/.*"
+  ],
+  "exclude": [
+    "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
+    "**/test/fixtures/**/*",
+    "**/node_modules/**/*",
+    "**/*.ignore",
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
+  ]
+}
