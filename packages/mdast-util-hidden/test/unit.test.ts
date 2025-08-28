@@ -1,14 +1,9 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
-import * as mdastUtilHidden from 'universe+mdast-util-hidden';
 import * as unistUtilVisit from 'unist-util-visit';
 import { CONTINUE, SKIP, visit } from 'unist-util-visit';
 
-import {
-  getInitialAst,
-  getMultiInitialAst,
-  removePositionDataFrom
-} from 'testverse+mdast-util-hidden:helpers.ts';
+import * as mdastUtilHidden from 'universe+mdast-util-hidden';
 
 import {
   createHiddenNode,
@@ -20,6 +15,12 @@ import {
 import { getAst as getInsertedAst } from 'testverse+mdast-util-hidden:fixtures/hidden-inserted-ast.ts';
 import { getAst as getMultiReplacedAst } from 'testverse+mdast-util-hidden:fixtures/hidden-multi-replaced-ast.ts';
 import { getAst as getReplacedAst } from 'testverse+mdast-util-hidden:fixtures/hidden-replaced-ast.ts';
+
+import {
+  getInitialAst,
+  getMultiInitialAst,
+  removePositionDataFrom
+} from 'testverse+mdast-util-hidden:helpers.ts';
 
 const node = createHiddenNode([]);
 const index = 10;

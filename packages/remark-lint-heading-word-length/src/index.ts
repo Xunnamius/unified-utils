@@ -78,7 +78,7 @@ export default remarkLintHeadingWordLength;
 function coerceToOptions(file: VFile, options: unknown) {
   options = options || {};
 
-  if (!options || typeof options != 'object' || Array.isArray(options)) {
+  if (!options || typeof options !== 'object' || Array.isArray(options)) {
     file.fail('Error: Bad configuration');
   }
 
@@ -92,14 +92,14 @@ function coerceToOptions(file: VFile, options: unknown) {
 
   if (
     minimumWords !== false &&
-    (typeof minimumWords != 'number' || Number.isNaN(minimumWords) || minimumWords < 0)
+    (typeof minimumWords !== 'number' || Number.isNaN(minimumWords) || minimumWords < 0)
   ) {
     file.fail(`Error: Bad configuration minimumWords value "${minimumWords}"`);
   }
 
   if (
     maximumWords !== false &&
-    (typeof maximumWords != 'number' || Number.isNaN(maximumWords) || maximumWords < 0)
+    (typeof maximumWords !== 'number' || Number.isNaN(maximumWords) || maximumWords < 0)
   ) {
     file.fail(`Error: Bad configuration maximumWords value "${maximumWords}"`);
   }

@@ -1,7 +1,8 @@
 // @ts-check
 import assert from 'node:assert';
-import { readdir } from 'node:fs/promises';
 import { readFileSync } from 'node:fs';
+import { readdir } from 'node:fs/promises';
+
 import { toAbsolutePath } from '@-xun/fs';
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';

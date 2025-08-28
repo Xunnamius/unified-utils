@@ -1,6 +1,7 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
 import { remark } from 'remark';
+
 import remarkTightComments from 'universe+remark-tight-comments';
 
 import {

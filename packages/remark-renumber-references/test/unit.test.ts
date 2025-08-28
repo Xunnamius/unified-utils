@@ -1,9 +1,10 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
-import remarkIgnore from 'universe+remark-ignore';
-import remarkRenumberReferences from 'universe+remark-renumber-references';
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
+
+import remarkIgnore from 'universe+remark-ignore';
+import remarkRenumberReferences from 'universe+remark-renumber-references';
 
 import {
   getFixtureString,

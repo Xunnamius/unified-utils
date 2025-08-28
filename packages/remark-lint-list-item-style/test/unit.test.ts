@@ -1,8 +1,10 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
-import remarkLintListItemStyle from 'universe+remark-lint-list-item-style';
-import { getFixtureVFile } from 'testverse+remark-lint-list-item-style:helpers.ts';
 import { remark } from 'remark';
+
+import remarkLintListItemStyle from 'universe+remark-lint-list-item-style';
+
+import { getFixtureVFile } from 'testverse+remark-lint-list-item-style:helpers.ts';
 
 import type { Processor } from 'unified';
 
@@ -159,7 +161,7 @@ describe('::default', () => {
     expect.hasAssertions();
 
     const results = await runLinter(
-      remark().use(remarkLintListItemStyle, { checkPunctuation: ['!', '\\.'] })
+      remark().use(remarkLintListItemStyle, { checkPunctuation: ['!', String.raw`\.`] })
     );
 
     expect(results.okPunctuation.messages).toStrictEqual([
@@ -213,7 +215,7 @@ describe('::default', () => {
     expect.hasAssertions();
 
     const results = await runLinter(
-      remark().use(remarkLintListItemStyle, { checkPunctuation: ['\\P{P}'] })
+      remark().use(remarkLintListItemStyle, { checkPunctuation: [String.raw`\P{P}`] })
     );
 
     expect(results.notOkSpreadEach.messages).toStrictEqual([
@@ -234,7 +236,7 @@ describe('::default', () => {
     expect.hasAssertions();
 
     const results = await runLinter(
-      remark().use(remarkLintListItemStyle, { checkPunctuation: ['\\p{P}'] })
+      remark().use(remarkLintListItemStyle, { checkPunctuation: [String.raw`\p{P}`] })
     );
 
     expect(results.notOkSpreadEach.messages).toStrictEqual([

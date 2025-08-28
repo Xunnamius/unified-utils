@@ -1,9 +1,11 @@
 import { readFileSync as readToString } from 'node:fs';
-import { unified } from 'unified';
+
+import { toMarkdown } from 'mdast-util-to-markdown';
 import remarkParse from 'remark-parse';
-import { toMarkdown, type Options } from 'mdast-util-to-markdown';
+import { unified } from 'unified';
 
 import type { Root } from 'mdast';
+import type { Options } from 'mdast-util-to-markdown';
 
 export function getFixtureString(fixture: string, { trim = false } = {}) {
   return readToString(`${__dirname}/fixtures/${fixture}.md`, 'utf8')[

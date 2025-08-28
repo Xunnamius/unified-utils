@@ -3,9 +3,10 @@
 import { remark } from 'remark';
 import remarkReferenceLinks from 'remark-reference-links';
 
-import remarkIgnore, { ignoreStart, ignoreEnd } from 'universe+remark-ignore';
-import defaultIgnoreStart from 'universe+remark-ignore:start.ts';
+import remarkIgnore, { ignoreEnd, ignoreStart } from 'universe+remark-ignore';
 import defaultIgnoreEnd from 'universe+remark-ignore:end.ts';
+import defaultIgnoreStart from 'universe+remark-ignore:start.ts';
+
 import { getFixtureString, getFixtureVFile } from 'testverse+remark-ignore:helpers.ts';
 
 describe('::default', () => {

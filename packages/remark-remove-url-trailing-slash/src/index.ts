@@ -1,5 +1,6 @@
 import assert from 'node:assert';
-import { parse as parseUrl, format as stringifyUrl } from 'node:url';
+import { format as stringifyUrl, parse as parseUrl } from 'node:url';
+
 import { visit } from 'unist-util-visit';
 
 import type { Root } from 'mdast';

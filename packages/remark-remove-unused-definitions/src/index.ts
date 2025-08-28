@@ -1,4 +1,5 @@
 import assert from 'node:assert';
+
 import { generated as isGenerated } from 'unist-util-generated';
 import { SKIP, visit } from 'unist-util-visit';
 

@@ -1,8 +1,10 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
-import remarkLintFencedCodeFlagCase from 'universe+remark-lint-fenced-code-flag-case';
-import { getFixtureVFile } from 'testverse+remark-lint-fenced-code-flag-case:helpers.ts';
 import { remark } from 'remark';
+
+import remarkLintFencedCodeFlagCase from 'universe+remark-lint-fenced-code-flag-case';
+
+import { getFixtureVFile } from 'testverse+remark-lint-fenced-code-flag-case:helpers.ts';
 
 describe('::default', () => {
   it('warns when fenced code flags are not lowercase by default', async () => {

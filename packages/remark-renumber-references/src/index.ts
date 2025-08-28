@@ -1,9 +1,11 @@
 import assert from 'node:assert';
-import { hide, visitAndReveal } from 'universe+mdast-util-hidden';
+
 import remarkInlineLinks from 'remark-inline-links';
 import remarkReferenceLinks from 'remark-reference-links';
 import { removePosition } from 'unist-util-remove-position';
 import { SKIP, visit } from 'unist-util-visit';
+
+import { hide, visitAndReveal } from 'universe+mdast-util-hidden';
 
 import type { Definition, Root } from 'mdast';
 import type { Plugin } from 'unified';

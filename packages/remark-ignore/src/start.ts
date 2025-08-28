@@ -1,6 +1,7 @@
 import { commentMarker } from 'mdast-comment-marker';
-import { hide } from 'universe+mdast-util-hidden';
 import { SKIP, visit } from 'unist-util-visit';
+
+import { hide } from 'universe+mdast-util-hidden';
 
 import type { Root } from 'mdast';
 import type { Plugin } from 'unified';

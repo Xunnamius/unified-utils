@@ -100,6 +100,9 @@ ASTs, [remark][3] and [remark-lint][4], and the broader [unified ecosystem][5].
 These are (likely temporary) installable forks with changes that might be merged
 back upstream.
 
+<!-- TODO: remove this line next time you see it (and others like it) -->
+<!-- lint disable -->
+
 - ~~[remark-lint-no-empty-url][21] — warn for empty URLs in links and images
   ([upstream][22]).~~ Was successfully merged upstream and released! 🎉
 

@@ -1,38 +1,41 @@
+import assert from 'node:assert';
+
 import { debugFactory } from 'multiverse/debug-extended';
 import { run } from 'multiverse/run';
-import assert from 'node:assert';
-import { getFixtureString } from 'pkgverse/remark-ignore/test/helpers';
-import { exports as pkgExports, name as pkgName } from '../package.json';
+
+import { getFixtureString } from 'testverse+remark-ignore:helpers.ts';
 
 import {
   dummyFilesFixture,
   dummyNpmPackageFixture,
-  mockFixtureFactory,
-  nodeImportTestFixture,
-  npmCopySelfFixture,
+  mockFixturesFactory,
+  nodeImportAndRunTestFixture,
+  npmCopyPackageFixture,
   runTestFixture
-} from 'testverse/setup';
+} from 'testverse:util.ts';
+
+import { exports as packageExports, name as packageName } from '../package.json';
 
 // TODO: note that we've made some modifications to the setup.ts file that
 // TODO: should be propagated!
 
 const TEST_IDENTIFIER = 'integration-node';
-const debug = debugFactory(`${pkgName}:${TEST_IDENTIFIER}`);
+const debug = debugFactory(`${packageName}:${TEST_IDENTIFIER}`);
 
-const pkgMainPaths = Object.values(pkgExports)
+const packageMainPaths = Object.values(packageExports)
   .map((xport) =>
     typeof xport === 'string' ? null : `${__dirname}/../${xport.node || xport.default}`
   )
   .filter(Boolean) as string[];
 
-const withMockedFixture = mockFixtureFactory(TEST_IDENTIFIER, {
+const withMockedFixture = mockFixturesFactory(TEST_IDENTIFIER, {
   performCleanup: true,
   pkgRoot: `${__dirname}/..`,
-  pkgName,
+  pkgName: packageName,
   use: [
     dummyNpmPackageFixture(),
     dummyFilesFixture(),
-    npmCopySelfFixture(),
+    npmCopyPackageFixture(),
     runTestFixture()
   ],
   npmInstall: [
@@ -44,12 +47,12 @@ const withMockedFixture = mockFixtureFactory(TEST_IDENTIFIER, {
 });
 
 beforeAll(async () => {
-  debug('pkgMainPaths: %O', pkgMainPaths);
+  debug('pkgMainPaths: %O', packageMainPaths);
 
   await Promise.all(
-    pkgMainPaths.map(async (pkgMainPath) => {
-      if ((await run('test', ['-e', pkgMainPath])).code != 0) {
-        debug(`unable to find main distributable: ${pkgMainPath}`);
+    packageMainPaths.map(async (packageMainPath) => {
+      if ((await run('test', ['-e', packageMainPath])).code != 0) {
+        debug(`unable to find main distributable: ${packageMainPath}`);
         throw new Error('must build distributables first (try `npm run build:dist`)');
       }
     })
@@ -62,14 +65,13 @@ describe('via api', () => {
 
     await withMockedFixture(
       async (context) => {
-        assert(context.testResult, 'must use node-import-test fixture');
         expect(context.testResult?.stderr).toBeEmpty();
         expect(context.testResult?.stdout).toBe('success');
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: {
-          'src/index.mjs': `
+        initialVirtualFiles: {
+          'src/index.mjs': /*js*/ `
 import { deepStrictEqual } from 'assert';
 import { remark } from 'remark';
 import remarkReferenceLinks from 'remark-reference-links';
@@ -110,8 +112,8 @@ console.log('success');
         use: [
           dummyNpmPackageFixture(),
           dummyFilesFixture(),
-          npmCopySelfFixture(),
-          nodeImportTestFixture()
+          npmCopyPackageFixture(),
+          nodeImportAndRunTestFixture()
         ]
       }
     );
@@ -132,7 +134,7 @@ describe('via remark-cli inline configuration', () => {
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: { 'README.md': getFixtureString('ignore-range') },
+        initialVirtualFiles: { 'README.md': getFixtureString('ignore-range') },
         runWith: {
           binary: 'npx',
           args: [
@@ -162,7 +164,7 @@ describe('via remark-cli inline configuration', () => {
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: { 'README.md': getFixtureString('ignore-range-2') },
+        initialVirtualFiles: { 'README.md': getFixtureString('ignore-range-2') },
         runWith: {
           binary: 'npx',
           args: [
@@ -198,7 +200,7 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: {
+        initialVirtualFiles: {
           'README.md': getFixtureString('ignore-range'),
           'package.json': JSON.stringify({
             name: 'dummy-pkg',
@@ -226,7 +228,7 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: {
+        initialVirtualFiles: {
           'README.md': getFixtureString('ignore-range'),
           'package.json': JSON.stringify({
             name: 'dummy-pkg',
@@ -254,7 +256,7 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: {
+        initialVirtualFiles: {
           'README.md': getFixtureString('ignore-range-2'),
           '.remarkrc.js': `
             module.exports = {
@@ -288,7 +290,7 @@ describe('via remark-cli unified configuration', () => {
         expect(context.testResult?.code).toBe(0);
       },
       {
-        initialFileContents: {
+        initialVirtualFiles: {
           'README.md': getFixtureString('ignore-range-2'),
           '.remarkrc.mjs': `
             import { ignoreStart } from 'remark-ignore';

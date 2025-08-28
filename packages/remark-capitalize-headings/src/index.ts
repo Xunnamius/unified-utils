@@ -1,5 +1,6 @@
-import { toString } from 'mdast-util-to-string';
 import assert from 'node:assert';
+
+import { toString } from 'mdast-util-to-string';
 import title from 'title';
 import { SKIP, visit } from 'unist-util-visit';
 
@@ -161,7 +162,6 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
         if (node.depth > skipIfDepthGreaterThan) {
           return true;
         } else if (
-          // eslint-disable-next-line unicorn/prefer-regexp-test
           computedExcludeSectionRegExp.some((regExp) => !!stringified.match(regExp))
         ) {
           skipIfDepthGreaterThan = node.depth;

@@ -1,7 +1,7 @@
 import { visitAndReveal } from 'universe+mdast-util-hidden';
 
-import type { Plugin } from 'unified';
 import type { Root } from 'mdast';
+import type { Plugin } from 'unified';
 
 /**
  * A remark plugin that takes a Root node as input and returns the same node

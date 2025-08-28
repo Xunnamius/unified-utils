@@ -2,6 +2,7 @@
 
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
+
 import remarkCapitalizeHeadings from 'universe+remark-capitalize-headings';
 
 import {
@@ -92,7 +93,7 @@ describe('::default', () => {
     const result = await remark()
       .use(remarkGfm)
       .use(remarkCapitalizeHeadings, {
-        excludeHeadingText: ['one', '\\{\\s*#.*?\\}\\s*$']
+        excludeHeadingText: ['one', String.raw`\{\s*#.*?\}\s*$`]
       })
       .process(await getFixtureVFile('base'));
 

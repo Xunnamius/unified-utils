@@ -1,8 +1,10 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
-import remarkLintHeadingWordLength from 'universe+remark-lint-heading-word-length';
-import { getFixtureVFile } from 'testverse+remark-lint-heading-word-length:helpers.ts';
 import { remark } from 'remark';
+
+import remarkLintHeadingWordLength from 'universe+remark-lint-heading-word-length';
+
+import { getFixtureVFile } from 'testverse+remark-lint-heading-word-length:helpers.ts';
 
 import type { Processor } from 'unified';
 

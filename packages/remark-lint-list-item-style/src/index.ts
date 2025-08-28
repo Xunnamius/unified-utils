@@ -140,7 +140,7 @@ const remarkLintListItemStyle = createLintRule(
                     // ? Regular expression objects are stateful, so we must use
                     // ? `match` instead of `test`.
                     // * See: https://stackoverflow.com/a/21373261/1367414
-                    // eslint-disable-next-line unicorn/prefer-regexp-test
+
                     if (
                       !checkPunctuation.some((regExp) => !!punctuation.match(regExp))
                     ) {
@@ -156,7 +156,7 @@ const remarkLintListItemStyle = createLintRule(
 
             if (
               checkFirstWord &&
-              typeof listItem.checked != 'boolean' &&
+              typeof listItem.checked !== 'boolean' &&
               listItem.children.length
             ) {
               listItem.children.forEach((child) => {
@@ -177,7 +177,7 @@ const remarkLintListItemStyle = createLintRule(
                     // ? Regular expression objects are stateful, so we must use
                     // ? `match` instead of `test`.
                     // * See: https://stackoverflow.com/a/21373261/1367414
-                    // eslint-disable-next-line unicorn/prefer-regexp-test
+
                     (regExp) => !!stringifiedChild.match(regExp)
                   );
 
@@ -211,7 +211,7 @@ export default remarkLintListItemStyle;
 function coerceToOptions(file: VFile, options: unknown) {
   options = options || {};
 
-  if (!options || typeof options != 'object' || Array.isArray(options)) {
+  if (!options || typeof options !== 'object' || Array.isArray(options)) {
     file.fail('Error: Bad configuration');
   }
 
@@ -245,7 +245,7 @@ function coerceToOptions(file: VFile, options: unknown) {
   }
 
   return {
-    checkPunctuation: checkPunctuationRegExp as false | RegExp[],
+    checkPunctuation: checkPunctuationRegExp,
     checkFirstWord,
     ignoredFirstWords: ignoredFirstWordsRegExp,
     checkListSpread

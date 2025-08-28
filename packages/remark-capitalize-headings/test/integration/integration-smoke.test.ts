@@ -15,10 +15,10 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-smoke`;
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 const debug = createDebugLogger({ namespace: 'remark-capitalize-headings' }).extend(
   TEST_IDENTIFIER
 );
-const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 

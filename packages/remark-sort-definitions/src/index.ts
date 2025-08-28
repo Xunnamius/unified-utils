@@ -1,4 +1,5 @@
 import assert from 'node:assert';
+
 import { SKIP, visit } from 'unist-util-visit';
 
 import type { Definition, Root } from 'mdast';

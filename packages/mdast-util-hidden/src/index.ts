@@ -1,9 +1,11 @@
 import assert from 'node:assert';
+
 import { removePosition } from 'unist-util-remove-position';
-import { SKIP, visit, type Visitor } from 'unist-util-visit';
+import { SKIP, visit } from 'unist-util-visit';
 
 import type { RootContent as MdastContent } from 'mdast';
 import type { Node, Parent } from 'unist';
+import type { Visitor } from 'unist-util-visit';
 
 /**
  * The shape of a `Hidden` mdast node containing mdast content that is hidden

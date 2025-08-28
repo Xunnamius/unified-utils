@@ -1,10 +1,10 @@
-import ignoreStart, { ignoreStartTransformer } from './start';
 import ignoreEnd from './end';
+import ignoreStart, { ignoreStartTransformer } from './start';
 
-import type { Plugin } from 'unified';
 import type { Root } from 'mdast';
+import type { Plugin } from 'unified';
 
-export { ignoreStart, ignoreEnd };
+export { ignoreEnd, ignoreStart };
 
 /**
  * A remark plugin that takes a Root node as input and returns the same node

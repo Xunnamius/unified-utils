@@ -1,10 +1,8 @@
-// * These tests run through the entire process of acquiring this software,
-// * using its features, and dealing with its error conditions across a variety
-// * of runtimes (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These tests verify that consumers of this software actually receive an API
+// * that behaves as described in help text and other documentation. Typically,
+// * these integration tests limit module-level mocking to peripheral concerns
+// * (e.g. mocking output handling and mocking networking while eschewing
+// * filesystem mocking) in favor of testing a "fully integrated" system.
 
 import { toAbsolutePath, toDirname } from '@-xun/fs';
 import { createDebugLogger } from 'rejoinder';
@@ -12,16 +10,16 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+remark-lint-list-item-style:package.json';
+} from 'rootverse+remark-capitalize-headings:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-e2e`;
+const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-client`;
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
-const debug = createDebugLogger({ namespace: 'remark-lint-list-item-style' }).extend(
+const debug = createDebugLogger({ namespace: 'remark-capitalize-headings' }).extend(
   TEST_IDENTIFIER
 );
 
@@ -33,7 +31,7 @@ beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
     toDirname(
       toAbsolutePath(
-        require.resolve('rootverse+remark-lint-list-item-style:package.json')
+        require.resolve('rootverse+remark-capitalize-headings:package.json')
       )
     ),
     packageName,
