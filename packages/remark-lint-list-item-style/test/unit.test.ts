@@ -302,7 +302,6 @@ describe('::default', () => {
   });
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function runLinter(runner: Processor<any, any, any, any, any>) {
   const notOkFirstWord = await runner.process(
     await getFixtureVFile('not-ok-first-word')

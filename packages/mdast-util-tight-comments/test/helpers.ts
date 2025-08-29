@@ -2,7 +2,7 @@ import { readFileSync as readToString } from 'node:fs';
 
 import { toMarkdown } from 'mdast-util-to-markdown';
 import remarkParse from 'remark-parse';
-import { unified } from 'unified';
+import unified from 'unified';
 
 import type { Root } from 'mdast';
 import type { Options } from 'mdast-util-to-markdown';

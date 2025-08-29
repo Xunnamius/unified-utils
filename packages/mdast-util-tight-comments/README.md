@@ -114,7 +114,7 @@ Now, running the following JavaScript:
 
 ```typescript
 import fs from 'node:fs';
-import { unified } from 'unified';
+import unified from 'unified';
 import remarkParse from 'remark-parse';
 import { toMarkdown } from 'mdast-util-to-markdown';
 
@@ -167,7 +167,7 @@ Suppose instead we ran the following JavaScript:
 
 ```typescript
 import fs from 'node:fs';
-import { unified } from 'unified';
+import unified from 'unified';
 import remarkParse from 'remark-parse';
 import { toMarkdown } from 'mdast-util-to-markdown';
 import { joinTightComments } from 'mdast-util-tight-comments';

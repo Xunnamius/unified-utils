@@ -1,5 +1,5 @@
 import remarkParse from 'remark-parse';
-import { unified } from 'unified';
+import unified from 'unified';
 import { removePosition } from 'unist-util-remove-position';
 import { SKIP, visit } from 'unist-util-visit';
 

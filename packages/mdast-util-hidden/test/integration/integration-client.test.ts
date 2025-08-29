@@ -78,9 +78,9 @@ it('works as an ESM import', async () => {
 
   await withMockedFixture(
     async (context) => {
-      expect(context.testResult?.stderr).toBeEmpty();
-      expect(context.testResult?.stdout).toBe('success');
-      expect(context.testResult?.code).toBe(0);
+      expect(context.testResult.stderr).toBeEmpty();
+      expect(context.testResult.stdout).toBe('success');
+      expect(context.testResult.code).toBe(0);
     },
     {
       initialVirtualFiles: {

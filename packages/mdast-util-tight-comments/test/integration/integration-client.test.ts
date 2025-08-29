@@ -73,7 +73,7 @@ it('works as an ESM import', async () => {
       initialVirtualFiles: {
         'src/index.mjs': /*js*/ `
           import fs from 'node:fs';
-          import { unified } from 'unified';
+          import unified from 'unified';
           import remarkParse from 'remark-parse';
           import { toMarkdown } from 'mdast-util-to-markdown';
           import { joinTightComments } from '${packageName_}';

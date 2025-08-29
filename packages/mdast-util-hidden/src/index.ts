@@ -48,13 +48,13 @@ export function isHidden(node: Node): node is Hidden {
  * Inserts a `Hidden` node as a child of `parent` at `index`. Any `nodes` passed
  * in will become the hidden children of this new node.
  */
-export function hide<Nodes extends MdastContent[]>({
+export function hide({
   nodes,
   index,
   parent,
   replaceChildAtIndex = true
 }: {
-  nodes: Nodes;
+  nodes: MdastContent[];
   index: number;
   parent: Parent;
   /**
@@ -91,12 +91,12 @@ export function hide<Nodes extends MdastContent[]>({
  * Replaces the child node of `parent` at `index` with the hidden children of
  * one or more `Hidden` `nodes`.
  */
-export function reveal<Nodes extends Hidden[]>({
+export function reveal({
   nodes,
   index,
   parent
 }: {
-  nodes: Nodes;
+  nodes: Hidden[];
   index: number;
   parent: Parent;
 }) {
@@ -124,7 +124,7 @@ export function reveal<Nodes extends Hidden[]>({
  * provided, or it returns `undefined`, `[SKIP, index]` will be passed through
  * instead.
  */
-export function visitAndReveal<Tree extends Node>({
+export function visitAndReveal({
   tree,
   visitor,
   reverse = false
@@ -132,7 +132,7 @@ export function visitAndReveal<Tree extends Node>({
   /**
    * @see https://github.com/syntax-tree/unist-util-visit#visittree-test-visitor-reverse
    */
-  tree: Tree;
+  tree: Node;
   /**
    * If `visitor` is provided but returns `false`, `reveal` is not called and the
    * hidden is not revealed. Otherwise, `reveal` will always be called.
@@ -152,7 +152,7 @@ export function visitAndReveal<Tree extends Node>({
   visit(
     tree,
     'hidden',
-    (node, index, parent) => {
+    (node: Node, index: number | undefined, parent: Parent | undefined) => {
       assert(index !== undefined, 'index is missing');
       assert(parent !== undefined, 'parent is missing');
       assert(isHidden(node), 'malformed hidden node');
