@@ -1,9 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // * These tests ensure the exported interfaces under test function as expected.
 
-import * as unistUtilVisit from 'unist-util-visit';
 import { CONTINUE, SKIP, visit } from 'unist-util-visit';
-
-import * as mdastUtilHidden from 'universe+mdast-util-hidden';
 
 import {
   createHiddenNode,
@@ -161,8 +159,7 @@ describe('::visitAndReveal', () => {
       visitor,
       _reverse
     ) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(visitor?.(node as any, index as any, parent as any)).toStrictEqual(
+      expect(visitor(node as any, index as any, parent as any)).toStrictEqual(
         expectedReturnValue
       );
       confirmCalled = true;
@@ -231,8 +228,7 @@ describe('::visitAndReveal', () => {
       visitor,
       _reverse
     ) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      expect(visitor?.(node as any, index as any, parent as any)).toBeUndefined();
+      expect(visitor(node as any, index as any, parent as any)).toBeUndefined();
       confirmCalled = true;
     }) as typeof visit);
 
@@ -291,7 +287,6 @@ describe('::visitAndReveal', () => {
       visitor,
       _reverse
     ) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       visitor(node as any, undefined as any, parent as any);
     }) as typeof visit);
 
@@ -311,7 +306,6 @@ describe('::visitAndReveal', () => {
       visitor,
       _reverse
     ) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       visitor(node as any, index as any, undefined as any);
     }) as typeof visit);
 
@@ -331,7 +325,6 @@ describe('::visitAndReveal', () => {
       visitor,
       _reverse
     ) => {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       visitor({ type: 'hidden' } as any, index as any, parent as any);
     }) as typeof visit);
 
