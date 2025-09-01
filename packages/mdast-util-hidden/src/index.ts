@@ -3,7 +3,11 @@ import assert from 'node:assert';
 import { removePosition } from 'unist-util-remove-position';
 import { SKIP, visit } from 'unist-util-visit';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { RootContent as MdastContent } from 'mdast';
+//{@symbiote/notInvalid unist}
+//{@symbiote/notExtraneous @types/unist}
 import type { Node, Parent } from 'unist';
 import type { Visitor } from 'unist-util-visit';
 

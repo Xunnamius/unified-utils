@@ -1,3 +1,5 @@
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Parent } from 'mdast';
 
 export function getAst(): Parent {

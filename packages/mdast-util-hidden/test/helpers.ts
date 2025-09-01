@@ -3,6 +3,8 @@ import unified from 'unified';
 import { removePosition } from 'unist-util-remove-position';
 import { SKIP, visit } from 'unist-util-visit';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Node, Root } from 'mdast';
 import type { Test } from 'unist-util-visit';
 
