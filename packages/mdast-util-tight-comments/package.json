@@ -82,6 +82,12 @@
   "dependencies": {
     "mdast-util-to-markdown": "^2.1.2"
   },
+  "devDependencies": {
+    "@-xun/fs": "^2.0.0",
+    "rejoinder": "^2.1.0",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
+  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
