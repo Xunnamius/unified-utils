@@ -4,6 +4,8 @@ import { toString } from 'mdast-util-to-string';
 import title from 'title';
 import { SKIP, visit } from 'unist-util-visit';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Root } from 'mdast';
 import type { Plugin } from 'unified';
 

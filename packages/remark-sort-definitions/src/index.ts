@@ -2,6 +2,8 @@ import assert from 'node:assert';
 
 import { SKIP, visit } from 'unist-util-visit';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Definition, Root } from 'mdast';
 import type { Plugin } from 'unified';
 

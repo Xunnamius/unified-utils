@@ -1,5 +1,7 @@
 import { joinTightComments } from 'universe+mdast-util-tight-comments';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Root } from 'mdast';
 import type { Plugin } from 'unified';
 

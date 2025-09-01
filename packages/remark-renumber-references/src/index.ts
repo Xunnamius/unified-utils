@@ -7,6 +7,8 @@ import { SKIP, visit } from 'unist-util-visit';
 
 import { hide, visitAndReveal } from 'universe+mdast-util-hidden';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Definition, Root } from 'mdast';
 import type { Plugin } from 'unified';
 

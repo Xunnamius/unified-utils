@@ -3,6 +3,8 @@ import { format as stringifyUrl, parse as parseUrl } from 'node:url';
 
 import { visit } from 'unist-util-visit';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Root } from 'mdast';
 import type { Plugin } from 'unified';
 

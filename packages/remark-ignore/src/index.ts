@@ -1,6 +1,8 @@
 import ignoreEnd from './end';
 import ignoreStart, { ignoreStartTransformer } from './start';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Root } from 'mdast';
 import type { Plugin } from 'unified';
 

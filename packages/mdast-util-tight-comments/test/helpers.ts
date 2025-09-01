@@ -4,6 +4,8 @@ import { toMarkdown } from 'mdast-util-to-markdown';
 import remarkParse from 'remark-parse';
 import unified from 'unified';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { Root } from 'mdast';
 import type { Options } from 'mdast-util-to-markdown';
 

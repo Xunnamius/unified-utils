@@ -3,6 +3,8 @@ import { lintRule as createLintRule } from 'unified-lint-rule';
 import { generated as isGenerated } from 'unist-util-generated';
 import { visit } from 'unist-util-visit';
 
+//{@symbiote/notInvalid mdast}
+//{@symbiote/notExtraneous @types/mdast}
 import type { List } from 'mdast';
 import type { Plugin } from 'unified';
 import type { VFile } from 'vfile';
