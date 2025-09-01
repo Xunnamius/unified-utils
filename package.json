@@ -42,7 +42,7 @@
     "jest-resolve": "$jest-resolve"
   },
   "devDependencies": {
-    "@-xun/symbiote": "^4.14.3",
+    "@-xun/symbiote": "^4.14.4",
     "core-js": "^3.45.1",
     "jest-resolve": "npm:jest-resolve-no-esm@30"
   },
