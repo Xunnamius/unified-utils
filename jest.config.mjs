@@ -10,11 +10,13 @@ const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
   {
-    // Any custom configs here will be deep merged with moduleExport's result
-    // ? Treat files with these extensions as ESM iff type === "module"
-    extensionsToTreatAsEsm: ['.jsx', '.ts', '.tsx']
+    // Any custom configs here will be deep merged with moduleExport's result,
+    transformIgnorePatterns: ['/node_modules/core-js/']
   }
 );
+
+// ? Ensure jest-resolve never attempts to load a module as ESM
+process.env.JEST_RESOLVE_NO_ESM = 'true';
 
 export default config;
 

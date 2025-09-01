@@ -2,6 +2,7 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
 import { CONTINUE, SKIP, visit } from 'unist-util-visit';
+import * as unistUtilVisit from 'unist-util-visit';
 
 import {
   createHiddenNode,
@@ -9,6 +10,8 @@ import {
   reveal,
   visitAndReveal
 } from 'universe+mdast-util-hidden';
+
+import * as mdastUtilHidden from 'universe+mdast-util-hidden';
 
 import { getAst as getInsertedAst } from 'testverse+mdast-util-hidden:fixtures/hidden-inserted-ast.ts';
 import { getAst as getMultiReplacedAst } from 'testverse+mdast-util-hidden:fixtures/hidden-multi-replaced-ast.ts';

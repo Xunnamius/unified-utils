@@ -38,8 +38,13 @@
     "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage",
     "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1"
   },
+  "overrides": {
+    "jest-resolve": "$jest-resolve"
+  },
   "devDependencies": {
-    "@-xun/symbiote": "^4.14.3"
+    "@-xun/symbiote": "^4.14.3",
+    "core-js": "^3.45.1",
+    "jest-resolve": "npm:jest-resolve-no-esm@30"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
