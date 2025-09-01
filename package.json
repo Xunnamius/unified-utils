@@ -14,7 +14,7 @@
   "license": "MIT",
   "author": "Xunnamius",
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
   "workspaces": [
     "packages/*",
     "!packages/*.ignore*",
