@@ -33,11 +33,25 @@
       "types": "./dist/packages/remark-ignore/src/index.d.ts",
       "default": "./dist/packages/remark-ignore/src/index.js"
     },
+    "./start": {
+      "types": "./dist/packages/remark-ignore/src/start.d.ts",
+      "default": "./dist/packages/remark-ignore/src/start.js"
+    },
+    "./end": {
+      "types": "./dist/packages/remark-ignore/src/end.d.ts",
+      "default": "./dist/packages/remark-ignore/src/end.js"
+    },
     "./package": "./package.json",
     "./package.json": "./package.json"
   },
   "typesVersions": {
     "*": {
+      "start": [
+        "dist/packages/remark-ignore/src/start.d.ts"
+      ],
+      "end": [
+        "dist/packages/remark-ignore/src/end.d.ts"
+      ],
       "index": [
         "dist/packages/remark-ignore/src/index.d.ts"
       ],
@@ -82,7 +96,13 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "remark-remove-comments": "^1.1.1"
+    "@-xun/fs": "^2.0.0",
+    "rejoinder": "^2.1.0",
+    "remark": "^15.0.1",
+    "remark-reference-links": "^7.0.0",
+    "remark-remove-comments": "^1.1.1",
+    "to-vfile": "^8.0.0",
+    "type-fest": "^4.41.0"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
