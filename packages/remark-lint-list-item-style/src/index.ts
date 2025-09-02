@@ -173,7 +173,9 @@ const remarkLintListItemStyle: Plugin<[Options] | []> = createLintRule(
                       'link',
                       'linkReference',
                       'image',
-                      'imageReference'
+                      'imageReference',
+                      'emphasis',
+                      'strong'
                     ].includes(child.children[0]?.type as string)) ||
                   !['code', 'paragraph', 'html', 'list'].includes(child.type)
                 ) {

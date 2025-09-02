@@ -300,6 +300,16 @@ it('error over bad configuration', async () => {
   );
 });
 
+it('does not erroneously warn about bold, italic, and struck-through list items', async () => {
+  expect.hasAssertions();
+
+  const result = await remark()
+    .use(remarkLintListItemStyle, { checkPunctuation: false })
+    .process(await getFixtureVFile('issue-134'));
+
+  expect(result.messages).toStrictEqual([]);
+});
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function runLinter(runner: Processor<any, any, any, any, any>) {
   const notOkFirstWord = await runner.process(
