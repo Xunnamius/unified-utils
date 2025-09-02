@@ -8,7 +8,7 @@
 
 > **transformString**(`str`, `__namedParameters`): `string`
 
-Defined in: [test/helpers.ts:15](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-tight-comments/test/helpers.ts#L15)
+Defined in: [test/helpers.ts:15](https://github.com/Xunnamius/unified-utils/blob/e493e80ba80032e8a36bd4d2522a8e8f5edc5479/packages/mdast-util-tight-comments/test/helpers.ts#L15)
 
 ## Parameters
 
