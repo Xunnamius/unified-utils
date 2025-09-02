@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-fenced-code-flag-case",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "remark-lint rule to warn when fenced code blocks have an inconsistently-cased language flag",
   "keywords": [
     "remark",
