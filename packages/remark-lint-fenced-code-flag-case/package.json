@@ -78,9 +78,17 @@
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
   },
   "dependencies": {
+    "unified": "^11.0.5",
     "unified-lint-rule": "^3.0.1",
     "unist-util-generated": "^3.0.0",
     "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@-xun/fs": "^2.0.0",
+    "rejoinder": "^2.1.0",
+    "remark": "^15.0.1",
+    "to-vfile": "^8.0.0",
+    "type-fest": "^4.41.0"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"

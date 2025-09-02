@@ -76,10 +76,19 @@
   },
   "dependencies": {
     "@types/mdast": "^4.0.4",
+    "core-js": "^3.45.1",
     "mdast-util-to-string": "^4.0.0",
     "title": "^4.0.1",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
+  },
+  "devDependencies": {
+    "@-xun/fs": "^2.0.0",
+    "rejoinder": "^2.1.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
+    "to-vfile": "^8.0.0",
+    "type-fest": "^4.41.0"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
