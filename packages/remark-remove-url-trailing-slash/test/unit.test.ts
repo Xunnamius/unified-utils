@@ -10,37 +10,35 @@ import {
   getFixtureVFile
 } from 'testverse+remark-remove-url-trailing-slash:helpers.ts';
 
-describe('::default', () => {
-  it('all trailing slashes are removed by default', async () => {
-    expect.hasAssertions();
+it('all trailing slashes are removed by default', async () => {
+  expect.hasAssertions();
 
-    const result = await remark()
-      .use(remarkGfm)
-      .use(remarkRemoveUrlTrailingSlash)
-      .process(await getFixtureVFile('slashes'));
+  const result = await remark()
+    .use(remarkGfm)
+    .use(remarkRemoveUrlTrailingSlash)
+    .process(await getFixtureVFile('slashes'));
 
-    expect(result.toString()).toStrictEqual(getFixtureString('no-slashes'));
-  });
+  expect(result.toString()).toStrictEqual(getFixtureString('no-slashes'));
+});
 
-  it('trailing slashes are removed from host-only URLs when using onlyConsiderHostUrls', async () => {
-    expect.hasAssertions();
+it('trailing slashes are removed from host-only URLs when using onlyConsiderHostUrls', async () => {
+  expect.hasAssertions();
 
-    const result = await remark()
-      .use(remarkGfm)
-      .use(remarkRemoveUrlTrailingSlash, { onlyConsiderHostUrls: true })
-      .process(await getFixtureVFile('slashes'));
+  const result = await remark()
+    .use(remarkGfm)
+    .use(remarkRemoveUrlTrailingSlash, { onlyConsiderHostUrls: true })
+    .process(await getFixtureVFile('slashes'));
 
-    expect(result.toString()).toStrictEqual(getFixtureString('some-slashes'));
-  });
+  expect(result.toString()).toStrictEqual(getFixtureString('some-slashes'));
+});
 
-  it('handles relative URLs', async () => {
-    expect.hasAssertions();
+it('handles relative URLs', async () => {
+  expect.hasAssertions();
 
-    const result = await remark()
-      .use(remarkGfm)
-      .use(remarkRemoveUrlTrailingSlash)
-      .process(await getFixtureVFile('relative-slashes'));
+  const result = await remark()
+    .use(remarkGfm)
+    .use(remarkRemoveUrlTrailingSlash)
+    .process(await getFixtureVFile('relative-slashes'));
 
-    expect(result.toString()).toStrictEqual(getFixtureString('relative-no-slashes'));
-  });
+  expect(result.toString()).toStrictEqual(getFixtureString('relative-no-slashes'));
 });

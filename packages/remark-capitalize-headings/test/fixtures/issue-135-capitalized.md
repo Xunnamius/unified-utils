@@ -1,0 +1,3 @@
+### Deprecate the Remote (GitHub) Repository
+
+> If the deprecated project is using...

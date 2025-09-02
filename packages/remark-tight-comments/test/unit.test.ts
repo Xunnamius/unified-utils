@@ -9,14 +9,12 @@ import {
   getFixtureVFile
 } from 'testverse+remark-tight-comments:helpers.ts';
 
-describe('::default', () => {
-  it('most comments have newlines removed with respect to pipe syntax', async () => {
-    expect.hasAssertions();
+it('most comments have newlines removed with respect to pipe syntax', async () => {
+  expect.hasAssertions();
 
-    const result = await remark()
-      .use(remarkTightComments)
-      .process(await getFixtureVFile('spaced'));
+  const result = await remark()
+    .use(remarkTightComments)
+    .process(await getFixtureVFile('spaced'));
 
-    expect(result.toString()).toStrictEqual(getFixtureString('spaced-transformed'));
-  });
+  expect(result.toString()).toStrictEqual(getFixtureString('spaced-transformed'));
 });
