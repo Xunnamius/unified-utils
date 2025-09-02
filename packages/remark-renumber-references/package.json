@@ -92,7 +92,7 @@
     "rejoinder": "^2.1.0",
     "remark": "^15.0.1",
     "remark-gfm": "^4.0.1",
-    "remark-ignore": "^2.0.0",
+    "remark-ignore": "^3.0.0",
     "to-vfile": "^8.0.0",
     "type-fest": "^4.41.0"
   },
