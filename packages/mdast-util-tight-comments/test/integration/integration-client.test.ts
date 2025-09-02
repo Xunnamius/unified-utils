@@ -4,15 +4,11 @@
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
-import assert from 'node:assert';
-
 import { toAbsolutePath, toDirname } from '@-xun/fs';
 import { createDebugLogger } from 'rejoinder';
 
-import {
-  exports as packageExports,
-  name as packageName,
-  name as packageName_
+import packageJson, {
+  name as packageName
 } from 'rootverse+mdast-util-tight-comments:package.json';
 
 import { getFixtureString } from 'testverse+mdast-util-tight-comments:helpers.ts';
@@ -26,6 +22,8 @@ import {
   npmCopyPackageFixture,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
+
+import type { PackageJson } from 'type-fest';
 
 const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-client`;
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
@@ -42,41 +40,48 @@ beforeAll(async () => {
     toDirname(
       toAbsolutePath(require.resolve('rootverse+mdast-util-tight-comments:package.json'))
     ),
-    packageName,
-    packageExports
+    packageJson.name,
+    packageJson.exports
   );
 });
 
-const withMockedFixture = mockFixturesFactory(TEST_IDENTIFIER, {
-  performCleanup: true,
-  pkgRoot: `${__dirname}/..`,
-  pkgName: packageName_,
-  use: [
-    dummyNpmPackageFixture(),
-    dummyFilesFixture(),
-    npmCopyPackageFixture(),
-    nodeImportAndRunTestFixture()
+const withMockedFixture = mockFixturesFactory(
+  [
+    dummyNpmPackageFixture,
+    dummyFilesFixture,
+    npmCopyPackageFixture,
+    nodeImportAndRunTestFixture
   ],
-  npmInstall: ['unified', 'remark-parse', 'mdast-util-to-markdown']
-});
+  {
+    performCleanup: true,
+    identifier: TEST_IDENTIFIER,
+    initialVirtualFiles: {},
+    packageUnderTest: {
+      root: toAbsolutePath(__dirname, '../..'),
+      attributes: { esm: true, monorepo: true },
+      json: packageJson as PackageJson
+    },
+    additionalPackagesToInstall: ['unified', 'remark-parse', 'mdast-util-to-markdown']
+  }
+);
 
 it('works as an ESM import', async () => {
   expect.hasAssertions();
 
   await withMockedFixture(
     async (context) => {
-      expect(context.testResult?.stderr).toBeEmpty();
-      expect(context.testResult?.stdout).toBe(getFixtureString('spaced-transformed'));
-      expect(context.testResult?.code).toBe(0);
+      expect(context.testResult.stderr).toBeEmpty();
+      expect(context.testResult.stdout).toBe(getFixtureString('spaced-transformed'));
+      expect(context.testResult.exitCode).toBe(0);
     },
     {
       initialVirtualFiles: {
         'src/index.mjs': /*js*/ `
           import fs from 'node:fs';
-          import unified from 'unified';
+          import { unified } from 'unified';
           import remarkParse from 'remark-parse';
           import { toMarkdown } from 'mdast-util-to-markdown';
-          import { joinTightComments } from '${packageName_}';
+          import { joinTightComments } from '${packageName}';
 
           const doc = ${JSON.stringify(getFixtureString('spaced'))}
           const tree = unified().use(remarkParse).parse(doc);

@@ -143,6 +143,7 @@ describe('::default', () => {
   });
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function runLinter(runner: Processor<any, any, any, any, any>) {
   const ok = await runner.process(await getFixtureVFile('ok'));
   const notOk = await runner.process(await getFixtureVFile('not-ok'));

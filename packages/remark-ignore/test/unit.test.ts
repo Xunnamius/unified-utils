@@ -72,7 +72,7 @@ describe('::ignoreStart & ::ignoreEnd', () => {
   it('only disables transforms that occur between ignoreStart and ignoreEnd', async () => {
     expect.hasAssertions();
 
-    const { default: remarkRemoveComments } = await import('remark-remove-comments');
+    const { default: remarkRemoveComments } = require('remark-remove-comments');
 
     const result = await remark()
       .use(ignoreStart)

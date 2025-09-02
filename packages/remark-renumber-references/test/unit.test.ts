@@ -2,8 +2,8 @@
 
 import { remark } from 'remark';
 import remarkGfm from 'remark-gfm';
+import remarkIgnore from 'remark-ignore';
 
-import remarkIgnore from 'universe+remark-ignore';
 import remarkRenumberReferences from 'universe+remark-renumber-references';
 
 import {

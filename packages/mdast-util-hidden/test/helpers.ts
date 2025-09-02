@@ -1,11 +1,11 @@
 import remarkParse from 'remark-parse';
-import unified from 'unified';
+import { unified } from 'unified';
 import { removePosition } from 'unist-util-remove-position';
 import { SKIP, visit } from 'unist-util-visit';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
-import type { Node, Root } from 'mdast';
+import type { Node } from 'mdast';
 import type { Test } from 'unist-util-visit';
 
 export const dummyMarkdown = `
@@ -28,7 +28,7 @@ export const removePositionDataFrom = (test: Test, t: Node) => {
 };
 
 export const getInitialAst = () => {
-  return unified().use(remarkParse).parse(dummyMarkdown) as Root;
+  return unified().use(remarkParse).parse(dummyMarkdown);
 };
 
 export const getMultiInitialAst = () => {

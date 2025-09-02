@@ -7,15 +7,23 @@
 import { toAbsolutePath, toDirname } from '@-xun/fs';
 import { createDebugLogger } from 'rejoinder';
 
-import {
-  exports as packageExports,
+import packageJson, {
   name as packageName
 } from 'rootverse+remark-tight-comments:package.json';
 
+import { getFixtureString } from 'testverse+remark-tight-comments:helpers.ts';
+
 import {
+  dummyFilesFixture,
+  dummyNpmPackageFixture,
   ensurePackageHasBeenBuilt,
+  mockFixturesFactory,
+  nodeImportAndRunTestFixture,
+  npmCopyPackageFixture,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
+
+import type { PackageJson } from 'type-fest';
 
 const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-client`;
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
@@ -32,9 +40,194 @@ beforeAll(async () => {
     toDirname(
       toAbsolutePath(require.resolve('rootverse+remark-tight-comments:package.json'))
     ),
-    packageName,
-    packageExports
+    packageJson.name,
+    packageJson.exports
   );
 });
 
-test.todo('this');
+const withMockedFixture = mockFixturesFactory(
+  [
+    dummyNpmPackageFixture,
+    dummyFilesFixture,
+    npmCopyPackageFixture,
+    nodeImportAndRunTestFixture
+  ],
+  {
+    performCleanup: true,
+    identifier: TEST_IDENTIFIER,
+    initialVirtualFiles: {},
+    packageUnderTest: {
+      root: toAbsolutePath(__dirname, '../..'),
+      attributes: { esm: true, monorepo: true },
+      json: packageJson as PackageJson
+    },
+    additionalPackagesToInstall: ['remark', 'remark-cli']
+  }
+);
+
+describe('via api', () => {
+  it('works as an ESM import', async () => {
+    expect.hasAssertions();
+
+    await withMockedFixture(
+      async (context) => {
+        expect(context.testResult.stderr).toBeEmpty();
+        expect(context.testResult.stdout).toBe(getFixtureString('spaced-transformed'));
+        expect(context.testResult.exitCode).toBe(0);
+      },
+      {
+        initialVirtualFiles: {
+          'src/index.mjs': /*js*/ `
+            import { remark } from 'remark';
+            import remarkTightComments from 'remark-tight-comments';
+
+            const file = await remark()
+              .use(remarkTightComments)
+              .process(${JSON.stringify(getFixtureString('spaced'))});
+
+            console.log(String(file));
+          `
+        }
+      }
+    );
+  });
+});
+
+describe('via remark-cli inline configuration', () => {
+  it('works with --use option', async () => {
+    expect.hasAssertions();
+
+    await withMockedFixture(
+      async (context) => {
+        expect(context.testResult.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult.stdout).toBe(
+          getFixtureString('spaced-transformed', { trim: true })
+        );
+        expect(context.testResult.exitCode).toBe(0);
+      },
+      {
+        initialVirtualFiles: { 'README.md': getFixtureString('spaced') },
+        runWith: {
+          useIndexPath: false,
+          binary: 'npx',
+          args: ['--no-install', 'remark', '--use', 'remark-tight-comments', 'README.md']
+        }
+      }
+    );
+  });
+});
+
+describe('via remark-cli unified configuration', () => {
+  it('works with package.json (short-string)', async () => {
+    expect.hasAssertions();
+
+    await withMockedFixture(
+      async (context) => {
+        expect(context.testResult.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult.stdout).toBe(
+          getFixtureString('spaced-transformed', { trim: true })
+        );
+        expect(context.testResult.exitCode).toBe(0);
+      },
+      {
+        initialVirtualFiles: {
+          'README.md': getFixtureString('spaced'),
+          'package.json': JSON.stringify({
+            name: 'dummy-pkg',
+            remarkConfig: { plugins: ['tight-comments'] }
+          })
+        },
+        runWith: {
+          useIndexPath: false,
+          binary: 'npx',
+          args: ['--no-install', 'remark', 'README.md']
+        }
+      }
+    );
+  });
+
+  it('works with package.json (string)', async () => {
+    expect.hasAssertions();
+
+    await withMockedFixture(
+      async (context) => {
+        expect(context.testResult.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult.stdout).toBe(
+          getFixtureString('spaced-transformed', { trim: true })
+        );
+        expect(context.testResult.exitCode).toBe(0);
+      },
+      {
+        initialVirtualFiles: {
+          'README.md': getFixtureString('spaced'),
+          'package.json': JSON.stringify({
+            name: 'dummy-pkg',
+            remarkConfig: { plugins: ['remark-tight-comments'] }
+          })
+        },
+        runWith: {
+          useIndexPath: false,
+          binary: 'npx',
+          args: ['--no-install', 'remark', 'README.md']
+        }
+      }
+    );
+  });
+
+  it('works with .remarkrc.js (string)', async () => {
+    expect.hasAssertions();
+
+    await withMockedFixture(
+      async (context) => {
+        expect(context.testResult.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult.stdout).toBe(
+          getFixtureString('spaced-transformed', { trim: true })
+        );
+        expect(context.testResult.exitCode).toBe(0);
+      },
+      {
+        initialVirtualFiles: {
+          'README.md': getFixtureString('spaced'),
+          '.remarkrc.js': `
+            module.exports = {
+              plugins: ['remark-tight-comments']
+            };
+          `
+        },
+        runWith: {
+          useIndexPath: false,
+          binary: 'npx',
+          args: ['--no-install', 'remark', 'README.md']
+        }
+      }
+    );
+  });
+
+  it('works with .remarkrc.mjs (function)', async () => {
+    expect.hasAssertions();
+
+    await withMockedFixture(
+      async (context) => {
+        expect(context.testResult.stderr).toMatch(/^.*README\.md.*: no issues found$/);
+        expect(context.testResult.stdout).toBe(
+          getFixtureString('spaced-transformed', { trim: true })
+        );
+        expect(context.testResult.exitCode).toBe(0);
+      },
+      {
+        initialVirtualFiles: {
+          'README.md': getFixtureString('spaced'),
+          '.remarkrc.mjs': `
+            import remarkTightComments from 'remark-tight-comments';
+            export default { plugins: [remarkTightComments] };
+          `
+        },
+        runWith: {
+          useIndexPath: false,
+          binary: 'npx',
+          args: ['--no-install', 'remark', 'README.md']
+        }
+      }
+    );
+  });
+});

@@ -2,11 +2,8 @@ import { readFileSync as readToString } from 'node:fs';
 
 import { toMarkdown } from 'mdast-util-to-markdown';
 import remarkParse from 'remark-parse';
-import unified from 'unified';
+import { unified } from 'unified';
 
-//{@symbiote/notInvalid mdast}
-//{@symbiote/notExtraneous @types/mdast}
-import type { Root } from 'mdast';
 import type { Options } from 'mdast-util-to-markdown';
 
 export function getFixtureString(fixture: string, { trim = false } = {}) {
@@ -20,5 +17,5 @@ export function transformString(
   { toMarkdownOptions = {} as Options } = {}
 ) {
   const tree = unified().use(remarkParse).parse(str);
-  return toMarkdown(tree as Root, toMarkdownOptions);
+  return toMarkdown(tree, toMarkdownOptions);
 }
