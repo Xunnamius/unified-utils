@@ -8,7 +8,7 @@
 
 > **hide**(`__namedParameters`): `void`
 
-Defined in: [packages/mdast-util-hidden/src/index.ts:55](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-hidden/src/index.ts#L55)
+Defined in: [packages/mdast-util-hidden/src/index.ts:55](https://github.com/Xunnamius/unified-utils/blob/b979bc562d770870f7c8f51adc8f05db68d19c73/packages/mdast-util-hidden/src/index.ts#L55)
 
 Inserts a `Hidden` node as a child of `parent` at `index`. Any `nodes` passed
 in will become the hidden children of this new node.

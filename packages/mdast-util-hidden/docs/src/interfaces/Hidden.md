@@ -6,7 +6,7 @@
 
 # Interface: Hidden
 
-Defined in: [packages/mdast-util-hidden/src/index.ts:21](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-hidden/src/index.ts#L21)
+Defined in: [packages/mdast-util-hidden/src/index.ts:21](https://github.com/Xunnamius/unified-utils/blob/b979bc562d770870f7c8f51adc8f05db68d19c73/packages/mdast-util-hidden/src/index.ts#L21)
 
 The shape of a `Hidden` mdast node containing mdast content that is hidden
 (and thus protected) from transformers.
@@ -38,7 +38,7 @@ Info from the ecosystem.
 
 > **hiddenChildren**: `RootContent`[]
 
-Defined in: [packages/mdast-util-hidden/src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-hidden/src/index.ts#L23)
+Defined in: [packages/mdast-util-hidden/src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/b979bc562d770870f7c8f51adc8f05db68d19c73/packages/mdast-util-hidden/src/index.ts#L23)
 
 ***
 
@@ -63,7 +63,7 @@ have a position.
 
 > **type**: `"hidden"`
 
-Defined in: [packages/mdast-util-hidden/src/index.ts:22](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-hidden/src/index.ts#L22)
+Defined in: [packages/mdast-util-hidden/src/index.ts:22](https://github.com/Xunnamius/unified-utils/blob/b979bc562d770870f7c8f51adc8f05db68d19c73/packages/mdast-util-hidden/src/index.ts#L22)
 
 Node type.
 

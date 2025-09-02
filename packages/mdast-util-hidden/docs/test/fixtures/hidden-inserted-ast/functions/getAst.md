@@ -8,7 +8,7 @@
 
 > **getAst**(): `Parent`
 
-Defined in: [packages/mdast-util-hidden/test/fixtures/hidden-inserted-ast.ts:5](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-hidden/test/fixtures/hidden-inserted-ast.ts#L5)
+Defined in: [packages/mdast-util-hidden/test/fixtures/hidden-inserted-ast.ts:5](https://github.com/Xunnamius/unified-utils/blob/b979bc562d770870f7c8f51adc8f05db68d19c73/packages/mdast-util-hidden/test/fixtures/hidden-inserted-ast.ts#L5)
 
 ## Returns
 

@@ -8,7 +8,7 @@
 
 > **visitAndReveal**(`__namedParameters`): `void`
 
-Defined in: [packages/mdast-util-hidden/src/index.ts:131](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/mdast-util-hidden/src/index.ts#L131)
+Defined in: [packages/mdast-util-hidden/src/index.ts:131](https://github.com/Xunnamius/unified-utils/blob/b979bc562d770870f7c8f51adc8f05db68d19c73/packages/mdast-util-hidden/src/index.ts#L131)
 
 Walks `tree` using unist-util-visit to search for any `Hidden` nodes. Upon
 encountering a `Hidden` node, `visitor` is called if provided.
