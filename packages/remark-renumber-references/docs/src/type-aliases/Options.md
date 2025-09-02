@@ -8,7 +8,7 @@
 
 > **Options** = `object`
 
-Defined in: [src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-renumber-references/src/index.ts#L23)
+Defined in: [src/index.ts:23](https://github.com/Xunnamius/unified-utils/blob/db9324f7d85f6c42c409c21112a9a13cb88ca748/packages/remark-renumber-references/src/index.ts#L23)
 
 Options type for the remark-renumber-references plugin.
 
@@ -18,7 +18,7 @@ Options type for the remark-renumber-references plugin.
 
 > `optional` **preserveAlphanumericDefinitions**: `boolean`
 
-Defined in: [src/index.ts:31](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-renumber-references/src/index.ts#L31)
+Defined in: [src/index.ts:31](https://github.com/Xunnamius/unified-utils/blob/db9324f7d85f6c42c409c21112a9a13cb88ca748/packages/remark-renumber-references/src/index.ts#L31)
 
 If `true`, alphanumeric definition ids (i.e. any id that cannot be parsed
 into an integer) will be spared during the renumbering. If `false`, _all_

@@ -8,7 +8,7 @@
 
 > **getFixtureVFile**(`fixture`): `Promise`\<`VFile`\>
 
-Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-renumber-references/test/helpers.ts#L11)
+Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/db9324f7d85f6c42c409c21112a9a13cb88ca748/packages/remark-renumber-references/test/helpers.ts#L11)
 
 ## Parameters
 
