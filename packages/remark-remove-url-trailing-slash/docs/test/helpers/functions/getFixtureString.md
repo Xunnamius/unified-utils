@@ -8,7 +8,7 @@
 
 > **getFixtureString**(`fixture`, `__namedParameters`): `string`
 
-Defined in: [test/helpers.ts:5](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-remove-url-trailing-slash/test/helpers.ts#L5)
+Defined in: [test/helpers.ts:5](https://github.com/Xunnamius/unified-utils/blob/736909e03965b3109414849e468ee9e3802d6ad2/packages/remark-remove-url-trailing-slash/test/helpers.ts#L5)
 
 ## Parameters
 

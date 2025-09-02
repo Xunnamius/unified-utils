@@ -8,7 +8,7 @@
 
 > **Options** = `object`
 
-Defined in: [src/index.ts:18](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-remove-url-trailing-slash/src/index.ts#L18)
+Defined in: [src/index.ts:18](https://github.com/Xunnamius/unified-utils/blob/736909e03965b3109414849e468ee9e3802d6ad2/packages/remark-remove-url-trailing-slash/src/index.ts#L18)
 
 Options type for the remark-remove-url-trailing-slash plugin.
 
@@ -18,7 +18,7 @@ Options type for the remark-remove-url-trailing-slash plugin.
 
 > `optional` **onlyConsiderHostUrls**: `boolean`
 
-Defined in: [src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-remove-url-trailing-slash/src/index.ts#L29)
+Defined in: [src/index.ts:29](https://github.com/Xunnamius/unified-utils/blob/736909e03965b3109414849e468ee9e3802d6ad2/packages/remark-remove-url-trailing-slash/src/index.ts#L29)
 
 If this option is `false`, trailing slashes will be removed from all URL
 paths, including single-character `/` paths (i.e. "empty" paths).

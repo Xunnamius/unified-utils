@@ -8,7 +8,7 @@
 
 > `const` **default**: `Plugin`\<\[[`Options`](../type-aliases/Options.md)\] \| `never`[], `Root`\>
 
-Defined in: [src/index.ts:37](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-remove-url-trailing-slash/src/index.ts#L37)
+Defined in: [src/index.ts:37](https://github.com/Xunnamius/unified-utils/blob/736909e03965b3109414849e468ee9e3802d6ad2/packages/remark-remove-url-trailing-slash/src/index.ts#L37)
 
 A remark plugin that takes a Root node as input and returns the same node
 with all Link, Image, and Definition node `url` paths stripped of
