@@ -256,12 +256,14 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, 'upper')
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty('messages.0.message', 'Error: Bad configuration');
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, { checkPunctuation: 'bad' })
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty(
@@ -280,6 +282,7 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, { checkFirstWord: 'bad' })
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty(
@@ -289,6 +292,7 @@ describe('::default', () => {
 
     await expect(
       remark()
+        //@ts-expect-error: bad configuration
         .use(remarkLintListItemStyle, { checkListSpread: 'bad' })
         .process(await getFixtureVFile('ok-punctuation'))
     ).resolves.toHaveProperty(
