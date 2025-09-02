@@ -1,11 +1,12 @@
-remark-ignore
+**remark-ignore**
+
+***
 
 # remark-ignore
 
-## Table of contents
+## Modules
 
-### Modules
-
-- [end](modules/end.md)
-- [index](modules/index.md)
-- [start](modules/start.md)
+- [src](src/README.md)
+- [src/end](src/end/README.md)
+- [src/start](src/start/README.md)
+- [test/helpers](test/helpers/README.md)

@@ -1,26 +1,10 @@
-mdast-util-tight-comments
+**mdast-util-tight-comments**
+
+***
 
 # mdast-util-tight-comments
 
-## Table of contents
+## Modules
 
-### Functions
-
-- [joinTightComments](README.md#jointightcomments)
-
-## Functions
-
-### joinTightComments
-
-▸ **joinTightComments**(): `ToMarkdownOptions`
-
-A mdast-util-to-markdown joiner function that ensures tight spacing between
-HTML comments and select other mdast nodes under certain conditions.
-
-#### Returns
-
-`ToMarkdownOptions`
-
-#### Defined in
-
-[index.ts:7](https://github.com/Xunnamius/unified-utils/blob/8264348/packages/mdast-util-tight-comments/src/index.ts#L7)
+- [src](src/README.md)
+- [test/helpers](test/helpers/README.md)
