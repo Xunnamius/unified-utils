@@ -8,7 +8,7 @@
 
 > **getFixtureVFile**(`fixture`): `Promise`\<`VFile`\>
 
-Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-remove-unused-definitions/test/helpers.ts#L11)
+Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/a1e1b291ed5d442639a1ce075dcca685fb9ccffb/packages/remark-remove-unused-definitions/test/helpers.ts#L11)
 
 ## Parameters
 
