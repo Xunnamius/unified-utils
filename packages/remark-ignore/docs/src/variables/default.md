@@ -8,7 +8,7 @@
 
 > `const` **default**: `Plugin`\<`never`[], `Root`\>
 
-Defined in: [src/index.ts:20](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-ignore/src/index.ts#L20)
+Defined in: [src/index.ts:20](https://github.com/Xunnamius/unified-utils/blob/a4f71008c0749e4915e4bdc7b10c0735df17a6c6/packages/remark-ignore/src/index.ts#L20)
 
 A remark plugin that takes a Root node as input and returns the same node
 with all child nodes following an ignore command having been hidden. After
