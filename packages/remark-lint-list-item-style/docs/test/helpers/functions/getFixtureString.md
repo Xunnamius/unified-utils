@@ -8,7 +8,7 @@
 
 > **getFixtureString**(`fixture`, `__namedParameters`): `string`
 
-Defined in: [test/helpers.ts:5](https://github.com/Xunnamius/unified-utils/blob/4c96039490babc33d18f0b43637dc16a594a6b2c/packages/remark-lint-list-item-style/test/helpers.ts#L5)
+Defined in: [test/helpers.ts:5](https://github.com/Xunnamius/unified-utils/blob/b2723966a6905f77dbf9ba637a766f1216f9f0bc/packages/remark-lint-list-item-style/test/helpers.ts#L5)
 
 ## Parameters
 
