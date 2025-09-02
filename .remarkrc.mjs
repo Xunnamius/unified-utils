@@ -19,7 +19,11 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 assert(!config.plugins || Array.isArray(config.plugins));
 
-const ourRemarkPlugins = (await readdir('./packages', { withFileTypes: true }))
+const ourRemarkPlugins = (
+  await readdir(toAbsolutePath(import.meta.dirname, 'packages'), {
+    withFileTypes: true
+  })
+)
   .filter((dir) => dir.isDirectory())
   .map((dir) => dir.name);
 
