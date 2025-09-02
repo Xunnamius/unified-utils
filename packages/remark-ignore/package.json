@@ -91,7 +91,7 @@
   "dependencies": {
     "@types/mdast": "^4.0.4",
     "mdast-comment-marker": "^3.0.0",
-    "mdast-util-hidden": "^2.0.0",
+    "mdast-util-hidden": "^3.0.0",
     "unified": "^11.0.5",
     "unist-util-visit": "^5.0.0"
   },
