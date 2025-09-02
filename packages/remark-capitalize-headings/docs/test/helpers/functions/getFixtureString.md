@@ -8,7 +8,7 @@
 
 > **getFixtureString**(`fixture`, `__namedParameters`): `string`
 
-Defined in: [test/helpers.ts:5](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-capitalize-headings/test/helpers.ts#L5)
+Defined in: [test/helpers.ts:5](https://github.com/Xunnamius/unified-utils/blob/056a725c67e971348acfb316322f43f6f47da278/packages/remark-capitalize-headings/test/helpers.ts#L5)
 
 ## Parameters
 

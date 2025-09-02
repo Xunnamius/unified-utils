@@ -8,7 +8,7 @@
 
 > **getFixtureVFile**(`fixture`): `Promise`\<`VFile`\>
 
-Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-capitalize-headings/test/helpers.ts#L11)
+Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/056a725c67e971348acfb316322f43f6f47da278/packages/remark-capitalize-headings/test/helpers.ts#L11)
 
 ## Parameters
 
