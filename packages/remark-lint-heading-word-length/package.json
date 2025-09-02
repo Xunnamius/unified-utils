@@ -1,6 +1,6 @@
 {
   "name": "remark-lint-heading-word-length",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "remark-lint rule to warn when headings have too many or too few words",
   "keywords": [
     "remark",

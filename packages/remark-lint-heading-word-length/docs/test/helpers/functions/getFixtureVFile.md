@@ -8,7 +8,7 @@
 
 > **getFixtureVFile**(`fixture`): `Promise`\<`VFile`\>
 
-Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/cb7fc64dac3d9c7f331f6a8a6d41a910a5dc8019/packages/remark-lint-heading-word-length/test/helpers.ts#L11)
+Defined in: [test/helpers.ts:11](https://github.com/Xunnamius/unified-utils/blob/5ad7636507d2e0e4423aae43dcbd580a3536dc09/packages/remark-lint-heading-word-length/test/helpers.ts#L11)
 
 ## Parameters
 
