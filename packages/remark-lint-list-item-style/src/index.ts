@@ -76,7 +76,7 @@ export type Options = {
  * A remark-lint rule that takes a Root node as input and attaches any error
  * messages to the resulting virtual file pertaining to list item style.
  */
-const remarkLintListItemStyle = createLintRule(
+const remarkLintListItemStyle: Plugin<[Options] | []> = createLintRule(
   {
     origin,
     url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-list-item-style#readme'
@@ -95,7 +95,6 @@ const remarkLintListItemStyle = createLintRule(
               if (!listItem.children.length) {
                 file.message(
                   'empty list item without punctuation is not allowed',
-                  // @ts-expect-error: something's wrong w/ unified-lint-rule's types
                   listItem
                 );
               } else {
@@ -115,15 +114,17 @@ const remarkLintListItemStyle = createLintRule(
 
                 targets.forEach((child) => {
                   if (
-                    (child.type === 'paragraph' &&
+                    (child?.type === 'paragraph' &&
                       child.children.length &&
                       !['image', 'imageReference'].includes(
                         child.children.at(-1)?.type || ''
                       )) ||
-                    !['code', 'paragraph', 'html', 'list'].includes(child.type)
+                    !['code', 'paragraph', 'html', 'list'].includes(
+                      child?.type as string
+                    )
                   ) {
                     const chars =
-                      child.type === 'paragraph' &&
+                      child?.type === 'paragraph' &&
                       child.children.length === 1 &&
                       child.children.at(-1)?.type === 'inlineCode'
                         ? // ? This condition deals with an edge case.
@@ -133,6 +134,7 @@ const remarkLintListItemStyle = createLintRule(
                           // ? meaning it doesn't mangle emojis like
                           // ? `'str'.at(-1)` does.
                           // * See: http://xunn.at/mdn-string-iterator
+                          // eslint-disable-next-line @typescript-eslint/no-misused-spread
                           [...toString(child)].filter(Boolean).slice(-2);
 
                     const punctuation =
@@ -144,6 +146,7 @@ const remarkLintListItemStyle = createLintRule(
                     // * See: https://stackoverflow.com/a/21373261/1367414
 
                     if (
+                      Array.isArray(checkPunctuation) &&
                       !checkPunctuation.some((regExp) => !!punctuation.match(regExp))
                     ) {
                       file.message(
@@ -171,7 +174,7 @@ const remarkLintListItemStyle = createLintRule(
                       'linkReference',
                       'image',
                       'imageReference'
-                    ].includes(child.children[0]?.type)) ||
+                    ].includes(child.children[0]?.type as string)) ||
                   !['code', 'paragraph', 'html', 'list'].includes(child.type)
                 ) {
                   const stringifiedChild = toString(child);
@@ -184,16 +187,15 @@ const remarkLintListItemStyle = createLintRule(
                   );
 
                   if (!isIgnored) {
-                    const actual = stringifiedChild[0];
+                    const actual = stringifiedChild[0]!;
                     const expected =
                       actual[
                         checkFirstWord === 'capitalize' ? 'toUpperCase' : 'toLowerCase'
                       ]();
 
-                    if (expected != actual) {
+                    if (expected !== actual) {
                       file.message(
                         `Inconsistent list item capitalization: "${actual}" should be "${expected}"`,
-                        // @ts-expect-error: something's wrong w/ unified-lint-rule's types
                         child
                       );
                     }
@@ -206,7 +208,7 @@ const remarkLintListItemStyle = createLintRule(
       }
     });
   }
-) as unknown as Plugin<[Options] | []>; // something's wrong w/ unified-lint-rule's types;
+);
 
 export default remarkLintListItemStyle;
 
@@ -255,12 +257,14 @@ function coerceToOptions(file: VFile, options: unknown) {
 
   function checkPunctuationToRegExp() {
     if (checkPunctuation !== false && !Array.isArray(checkPunctuation)) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       file.fail(`Error: Bad configuration checkPunctuation value "${checkPunctuation}"`);
     }
 
     try {
       return checkPunctuation ? checkPunctuation.map((r) => new RegExp(r, 'gu')) : false;
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       file.fail(`Error: Bad configuration checkPunctuation RegExp: ${error}`);
     }
   }
@@ -268,6 +272,7 @@ function coerceToOptions(file: VFile, options: unknown) {
   function ignoredFirstWordsToRegExp() {
     if (!Array.isArray(ignoredFirstWords)) {
       file.fail(
+        // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
         `Error: Bad configuration ignoredFirstWords value "${ignoredFirstWords}"`
       );
     }
@@ -275,6 +280,7 @@ function coerceToOptions(file: VFile, options: unknown) {
     try {
       return ignoredFirstWords.map((r) => new RegExp(r, 'gu'));
     } catch (error) {
+      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
       file.fail(`Error: Bad configuration ignoredFirstWords RegExp: ${error}`);
     }
   }

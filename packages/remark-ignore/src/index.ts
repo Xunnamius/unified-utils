@@ -1,5 +1,5 @@
-import ignoreEnd from './end';
-import ignoreStart, { ignoreStartTransformer } from './start';
+import ignoreEnd from 'universe+remark-ignore:end.ts';
+import ignoreStart, { ignoreStartTransformer } from 'universe+remark-ignore:start.ts';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
@@ -17,7 +17,7 @@ export { ignoreEnd, ignoreStart };
  * In this way, nodes hidden by this plugin are unaffected by transformations
  * from other plugins until said nodes are revealed.
  */
-const remarkIgnore: Plugin<void[], Root> = function () {
+const remarkIgnore: Plugin<never[], Root> = function () {
   this.use(ignoreEnd);
   return ignoreStartTransformer;
 };

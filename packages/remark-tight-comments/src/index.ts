@@ -1,4 +1,4 @@
-import { joinTightComments } from 'universe+mdast-util-tight-comments';
+import { joinTightComments } from 'mdast-util-tight-comments';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
@@ -9,7 +9,7 @@ import type { Plugin } from 'unified';
  * A remark plugin that ensures tight spacing between HTML comments and select
  * other mdast nodes under certain conditions.
  */
-const remarkTightComments: Plugin<void[], Root> = function () {
+const remarkTightComments: Plugin<never[], Root> = function () {
   const data = this.data() as Record<string, unknown>;
 
   add('toMarkdownExtensions', joinTightComments());

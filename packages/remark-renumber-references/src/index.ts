@@ -1,18 +1,21 @@
+/* eslint-disable @typescript-eslint/no-confusing-void-expression */
+/* eslint-disable @typescript-eslint/await-thenable */
 import assert from 'node:assert';
 
+import { hide, visitAndReveal } from 'mdast-util-hidden';
 import remarkInlineLinks from 'remark-inline-links';
 import remarkReferenceLinks from 'remark-reference-links';
 import { removePosition } from 'unist-util-remove-position';
 import { SKIP, visit } from 'unist-util-visit';
-
-import { hide, visitAndReveal } from 'universe+mdast-util-hidden';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
 import type { Definition, Root } from 'mdast';
 import type { Plugin } from 'unified';
 
-const scopeSymbol: unique symbol = Symbol('owned-by: remark-renumber-references');
+const scopeSymbol: unique symbol = Symbol.for(
+  '@xunnamius/owned-by: remark-renumber-references'
+);
 
 /**
  * Options type for the remark-renumber-references plugin.
@@ -35,7 +38,7 @@ export type Options = {
  *
  * Links are assigned a numeric reference id as they are encountered.
  */
-const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = function (
+const remarkRenumberReferences: Plugin<[options: Options] | never[], Root> = function (
   { preserveAlphanumericDefinitions = true } = {} as Options,
   ..._ignored
 ) {
@@ -77,8 +80,8 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
             } else {
               hide({ nodes: [node], index, parent });
 
-              parent.children[index].data = {
-                ...parent.children[index].data,
+              parent.children[index]!.data = {
+                ...parent.children[index]!.data,
                 scope: scopeSymbol
               };
 
@@ -100,6 +103,8 @@ const remarkRenumberReferences: Plugin<[options: Options] | void[], Root> = func
       visitAndReveal({
         tree,
         visitor: (node) =>
+          // ? The types are wrong...
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
           (node.data as Record<string, unknown>)?.scope === scopeSymbol
             ? undefined
             : false

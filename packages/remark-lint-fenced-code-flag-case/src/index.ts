@@ -31,21 +31,16 @@ export type Options = {
  * A remark-lint rule that takes a Root node as input and attaches any error
  * messages to the resulting virtual file pertaining to fenced code flag case.
  */
-const remarkLintFencedCodeFlagCase = createLintRule(
+const remarkLintFencedCodeFlagCase: Plugin<[Options] | []> = createLintRule(
   {
     origin,
     url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-fenced-code-flag-case#readme'
   },
-  function (tree, file, options) {
-    options = options || {};
-
-    if (!!options && typeof options === 'object' && !Array.isArray(options)) {
-      const expectedCase = ('case' in options ? options.case : 'lower') as NonNullable<
-        Options['case']
-      >;
+  function (tree, file, options = {}) {
+    if (typeof options === 'object' && !Array.isArray(options)) {
+      const expectedCase = ('case' in options ? options.case : 'lower')!;
 
       if (optionsCases.includes(expectedCase)) {
-        // The visit function's types are not very optimal and cause problems...
         visit(tree, (node) => {
           if (node.type === 'code') {
             const { lang: langActual } = node as Code;
@@ -55,9 +50,9 @@ const remarkLintFencedCodeFlagCase = createLintRule(
                   ? langActual.toLowerCase()
                   : expectedCase === 'upper'
                     ? langActual.toUpperCase()
-                    : langActual[0].toUpperCase() + langActual.slice(1).toLowerCase();
+                    : langActual[0]!.toUpperCase() + langActual.slice(1).toLowerCase();
 
-              if (langActual != langExpected) {
+              if (langActual !== langExpected) {
                 file.message(
                   `Code fence flag "${langActual}" should be "${langExpected}"`,
                   node
@@ -73,6 +68,6 @@ const remarkLintFencedCodeFlagCase = createLintRule(
       file.fail('Error: Bad configuration');
     }
   }
-) as unknown as Plugin<[Options] | []>; // something's wrong w/ unified-lint-rule's types
+);
 
 export default remarkLintFencedCodeFlagCase;

@@ -15,7 +15,7 @@ import type { Plugin } from 'unified';
  * A remark plugin that takes a Root node as input and returns the same node
  * with all unused definition nodes deleted.
  */
-const remarkRemoveUnusedDefinitions: Plugin<void[], Root> = function () {
+const remarkRemoveUnusedDefinitions: Plugin<never[], Root> = function () {
   return (tree) => {
     const map = new Map<string, { used: boolean }>();
 

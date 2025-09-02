@@ -1,4 +1,4 @@
-import { visitAndReveal } from 'universe+mdast-util-hidden';
+import { visitAndReveal } from 'mdast-util-hidden';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
@@ -9,7 +9,7 @@ import type { Plugin } from 'unified';
  * A remark plugin that takes a Root node as input and returns the same node
  * with all hidden child nodes revealed.
  */
-const ignoreEnd: Plugin<void[], Root> = function () {
+const ignoreEnd: Plugin<never[], Root> = function () {
   return ignoreEndTransformer;
 };
 

@@ -58,7 +58,7 @@ export type Options = {
  * A remark plugin that takes a Root node as input and returns the same node
  * with all heading nodes capitalized using Vercel's `title` package.
  */
-const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = function (
+const remarkCapitalizeHeadings: Plugin<[options: Options] | never[], Root> = function (
   {
     excludeHeadingLevel = {},
     excludeSectionRegExp = [],
@@ -92,13 +92,13 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
           manipulated = manipulated.replaceAll(regExp, replaceWith);
         });
 
-        if (stringified.length != manipulated.length) {
+        if (stringified.length !== manipulated.length) {
           throw new Error(
             `replaceHeadingRegExp option must not change the length of the following header: ${stringified}`
           );
         }
 
-        if (manipulated != stringified) {
+        if (manipulated !== stringified) {
           const ignoredIndexes = new Set();
           for (const regex of excludeHeadingText) {
             const matches = stringified.match(new RegExp(regex, 'gmu'));
@@ -144,8 +144,8 @@ const remarkCapitalizeHeadings: Plugin<[options: Options] | void[], Root> = func
                     inputIndex++
                   ) {
                     childNode.value += ignoredIndexes.has(inputIndex)
-                      ? stringified[inputIndex]
-                      : manipulated[inputIndex];
+                      ? stringified[inputIndex]!
+                      : manipulated[inputIndex]!;
                   }
 
                   unstringifyIndex += text.length;

@@ -1,4 +1,8 @@
+/* eslint-disable @typescript-eslint/no-deprecated */
 import assert from 'node:assert';
+// ? I don't know who thought it was a good idea to deprecate this, but they
+// ? shall be ignored
+// eslint-disable-next-line n/no-deprecated-api
 import { format as stringifyUrl, parse as parseUrl } from 'node:url';
 
 import { visit } from 'unist-util-visit';
@@ -30,7 +34,7 @@ export type Options = {
  * with all Link, Image, and Definition node `url` paths stripped of
  * trialing slashes.
  */
-const remarkRemoveUrlTrailingSlash: Plugin<[options: Options] | void[], Root> =
+const remarkRemoveUrlTrailingSlash: Plugin<[options: Options] | never[], Root> =
   function ({ onlyConsiderHostUrls = false } = {} as Options, ..._ignored) {
     return (tree) => {
       visit(tree, ['link', 'image', 'definition'], (node) => {

@@ -7,6 +7,7 @@ import { SKIP, visit } from 'unist-util-visit';
 import type { Definition, Root } from 'mdast';
 import type { Plugin } from 'unified';
 
+// eslint-disable-next-line @typescript-eslint/unbound-method
 const compareNaturally = new Intl.Collator(undefined, { numeric: true }).compare;
 
 /**
@@ -35,7 +36,7 @@ export type Options = {
  * with all definition nodes ordered with respect to the chosen
  * `Options.algorithm`.
  */
-const remarkSortDefinitions: Plugin<[options: Options] | void[], Root> = function (
+const remarkSortDefinitions: Plugin<[options: Options] | never[], Root> = function (
   { algorithm = 'alphanumeric-first' } = {} as Options,
   ..._ignored
 ) {
@@ -43,7 +44,6 @@ const remarkSortDefinitions: Plugin<[options: Options] | void[], Root> = functio
 
   return (tree) => {
     visit(tree, 'definition', (node, index, parent) => {
-      assert(node.type === 'definition', `unexpected node type ${node.type}`);
       assert(index !== undefined, 'index is missing');
       assert(parent !== undefined, 'parent is missing');
 

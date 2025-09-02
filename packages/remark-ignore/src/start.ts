@@ -1,7 +1,6 @@
 import { commentMarker } from 'mdast-comment-marker';
+import { hide } from 'mdast-util-hidden';
 import { SKIP, visit } from 'unist-util-visit';
-
-import { hide } from 'universe+mdast-util-hidden';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
@@ -15,7 +14,7 @@ import type { Plugin } from 'unified';
  * In this way, nodes hidden by this plugin are unaffected by transformations
  * from other plugins until said nodes are revealed.
  */
-const ignoreStart: Plugin<void[], Root> = function () {
+const ignoreStart: Plugin<never[], Root> = function () {
   return ignoreStartTransformer;
 };
 

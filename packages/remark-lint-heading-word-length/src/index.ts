@@ -5,9 +5,8 @@ import { visit } from 'unist-util-visit';
 
 //{@symbiote/notInvalid mdast}
 //{@symbiote/notExtraneous @types/mdast}
-import type { Heading } from 'mdast';
+import type { Heading, Parent } from 'mdast';
 import type { Plugin } from 'unified';
-import type { VFile } from 'unified-lint-rule/lib';
 
 const origin = 'remark-lint:heading-word-length';
 
@@ -38,7 +37,7 @@ export type Options = {
  * A remark-lint rule that takes a Root node as input and attaches any error
  * messages to the resulting virtual file pertaining to fenced code flag case.
  */
-const remarkLintHeadingWordLength = createLintRule(
+const remarkLintHeadingWordLength: Plugin<[Options] | []> = createLintRule(
   {
     origin,
     url: 'https://github.com/Xunnamius/unified-utils/tree/main/packages/remark-lint-heading-word-length#readme'
@@ -51,12 +50,21 @@ const remarkLintHeadingWordLength = createLintRule(
         const heading = node as Heading;
         const words = toString(heading).split(/\s/).filter(Boolean);
 
+        // ? Scuttle attempts from recent unified-message-control versions to
+        // ? filter out messages based on so-called "gaps"
+        if (
+          'children' in tree &&
+          (tree as Parent).children.at(-1) === node &&
+          typeof heading.position?.start.offset === 'number'
+        ) {
+          heading.position.start.offset++;
+        }
+
         if (minimumWords !== false && words.length < minimumWords) {
           file.message(
             `Heading must have at least ${minimumWords} word${
               minimumWords === 1 ? '' : 's'
             } (current length: ${words.length})`,
-            // @ts-expect-error: something's wrong w/ unified-lint-rule's types
             heading
           );
         }
@@ -66,18 +74,17 @@ const remarkLintHeadingWordLength = createLintRule(
             `Heading must have at most ${maximumWords} word${
               maximumWords === 1 ? '' : 's'
             } (current length: ${words.length})`,
-            // @ts-expect-error: something's wrong w/ unified-lint-rule's types
             heading
           );
         }
       }
     });
   }
-) as unknown as Plugin<[Options] | []>; // something's wrong w/ unified-lint-rule's types
+);
 
 export default remarkLintHeadingWordLength;
 
-function coerceToOptions(file: VFile, options: unknown) {
+function coerceToOptions(file: { fail: (str: string) => never }, options: unknown) {
   options = options || {};
 
   if (!options || typeof options !== 'object' || Array.isArray(options)) {
