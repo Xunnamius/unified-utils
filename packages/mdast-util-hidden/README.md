@@ -131,7 +131,7 @@ Then running the following JavaScript:
 
 ```typescript
 import fs from 'node:fs';
-import unified from 'unified';
+import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import { visit, SKIP } from 'unist-util-visit';
 import { hide } from 'mdast-util-hidden';
@@ -212,7 +212,7 @@ And running the following JavaScript:
 
 ```typescript
 import fs from 'node:fs';
-import unified from 'unified';
+import { unified } from 'unified';
 import remarkParse from 'remark-parse';
 import { visit, SKIP } from 'unist-util-visit';
 import { hide, visitAndReveal, reveal } from 'mdast-util-hidden';
