@@ -102,7 +102,7 @@
     "remark-reference-links": "^7.0.0",
     "remark-remove-comments": "^1.1.1",
     "to-vfile": "^8.0.0",
-    "type-fest": "^4.41.0"
+    "type-fest": "^5.0.0"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
