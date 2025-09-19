@@ -89,7 +89,7 @@
     "rejoinder": "^2.1.0",
     "remark": "^15.0.1",
     "to-vfile": "^8.0.0",
-    "type-fest": "^4.41.0"
+    "type-fest": "^5.0.1"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
