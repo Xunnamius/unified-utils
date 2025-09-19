@@ -86,7 +86,7 @@
     "@-xun/fs": "^2.0.0",
     "rejoinder": "^2.1.0",
     "remark-parse": "^11.0.0",
-    "type-fest": "^4.41.0",
+    "type-fest": "^5.0.1",
     "unified": "^11.0.5"
   },
   "engines": {
