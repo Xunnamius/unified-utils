@@ -78,7 +78,7 @@
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
   },
   "dependencies": {
-    "core-js": "^3.45.1",
+    "core-js": "^3.46.0",
     "mdast-util-to-string": "^4.0.0",
     "unified": "^11.0.5",
     "unified-lint-rule": "^3.0.1",

@@ -76,7 +76,7 @@
   },
   "dependencies": {
     "@types/mdast": "^4.0.4",
-    "core-js": "^3.45.1",
+    "core-js": "^3.46.0",
     "mdast-util-tight-comments": "^3.0.0",
     "unified": "^11.0.5"
   },
