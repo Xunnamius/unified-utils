@@ -76,7 +76,7 @@
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
   },
   "dependencies": {
-    "core-js": "^3.45.1",
+    "core-js": "^3.46.0",
     "unist-util-remove-position": "^5.0.0",
     "unist-util-visit": "^5.0.0"
   },
